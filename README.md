@@ -1,4 +1,6 @@
-# LiveMusicPdx
+# Live Music PDX
+
+Live Music finder for Portland, OR!
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
