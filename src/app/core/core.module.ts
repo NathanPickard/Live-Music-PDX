@@ -11,7 +11,8 @@ import { AppRoutingModule } from '../app-routing.module';
     HomeComponent
   ],
   imports: [
-    MatToolbarModule
+    MatToolbarModule,
+    AppRoutingModule
   ],
   exports: [
     AppRoutingModule,
