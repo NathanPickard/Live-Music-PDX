@@ -8,7 +8,13 @@ import { ArtistStartComponent } from './artist-start/artist-start.component';
 
 
 const artistsRoutes: Routes = [
-  { path: '', component: ArtistsComponent, }
+  {
+    path: '', component: ArtistsComponent, children: [
+      { path: '', component: ArtistStartComponent },
+      { path: 'new', component: ArtistEditComponent },
+      { path: ':id', component: ArtistDetailComponent }
+    ]
+  }
 ];
 
 @NgModule({

@@ -17,8 +17,7 @@ import { ArtistsRoutingModule } from './artist-routing.module';
     ArtistListComponent,
     ArtistEditComponent,
     ArtistDetailComponent,
-    ArtistItemComponent,
-    ArtistsRoutingModule
+    ArtistItemComponent
   ],
   imports: [
     CommonModule,
