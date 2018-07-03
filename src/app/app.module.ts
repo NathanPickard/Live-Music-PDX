@@ -11,8 +11,8 @@ import { VenuesComponent } from './venues/venues.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ArtistsComponent,
-    VenuesComponent
+    // ArtistsComponent,
+    // VenuesComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +20,6 @@ import { VenuesComponent } from './venues/venues.component';
     AppRoutingModule,
     CoreModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

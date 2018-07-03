@@ -1,0 +1,8 @@
+<div>
+  <form [formGroup]="artistForm" (ngSubmit)="onSubmit()">
+    <div>
+      <button [disabled]="!artistForm.valid">Save</button>
+      <button (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

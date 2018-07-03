@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { ArtistsComponent } from './artists.component';
 import { ArtistStartComponent } from './artist-start/artist-start.component';
@@ -20,6 +21,8 @@ import { ArtistsRoutingModule } from './artist-routing.module';
     ArtistsRoutingModule
   ],
   imports: [
+    CommonModule,
+    ReactiveFormsModule,
     ArtistsRoutingModule
   ]
 })

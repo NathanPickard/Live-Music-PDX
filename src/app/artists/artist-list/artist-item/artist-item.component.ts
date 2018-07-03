@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Artist } from '../../artist.model';
 
@@ -11,4 +11,6 @@ import { Artist } from '../../artist.model';
 export class ArtistItemComponent {
   @Input() artist: Artist;
   @Input() index: number;
+
+  ngOnInit() { }
 }

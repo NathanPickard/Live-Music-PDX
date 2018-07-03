@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Artist } from '../artist.model';
@@ -9,9 +9,13 @@ import { Artist } from '../artist.model';
   styleUrls: ['./artist-list.component.css']
 })
 
-export class ArtistListComponent {
+export class ArtistListComponent implements OnInit {
+  artists: Artist[];
 
   constructor(private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit() { }
+
 
   onNewArtist() {
     this.router.navigate(['new'], { relativeTo: this.route });

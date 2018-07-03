@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+
+import { Artist } from '../artist.model';
 
 @Component({
   selector: 'app-artist-edit',
@@ -7,9 +10,30 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./artist-edit.component.css']
 })
 
-export class ArtistEditComponent {
+export class ArtistEditComponent implements OnInit {
+  id: number;
+  editMode = false;
+  artistForm: FormGroup;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = +params['id'];
+          this.editMode = params['id'] != null;
+          this.initForm();
+        }
+      );
+  }
+
+  onSubmit() {
+    const newArtist = new Artist(
+      this.artistForm.value['name'])
+  }
+
+  private initForm() {
+    let artistName = '';
+  }
 }
