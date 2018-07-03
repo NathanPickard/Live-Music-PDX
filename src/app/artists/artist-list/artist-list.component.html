@@ -1,0 +1,7 @@
+<div>
+  <button (click)="onNewArtist()">New Artist</button>
+</div>
+<hr>
+<div>
+  <app-artist *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist>
+</div>
