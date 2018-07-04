@@ -1,8 +1,16 @@
 <div>
-  <form [formGroup]="artistForm" (ngSubmit)="onSubmit()">
+  <!-- <form [formGroup]="artistForm" (ngSubmit)="onSubmit()"> -->
+  <mat-form-field [formGroup]="artistForm" (ngSubmit)="onSubmit()">
     <div>
-      <button [disabled]="!artistForm.valid">Save</button>
-      <button (click)="onCancel()">Cancel</button>
+      <button mat-button [disabled]="!artistForm.valid">Save</button>
+      <button mat-button (click)="onCancel()">Cancel</button>
     </div>
-  </form>
+
+    <mat-form-field>
+      <label for="name">Name</label>
+      <input matInput id="name" formControlName="name">
+    </mat-form-field>
+
+    <!-- </form> -->
+  </mat-form-field>
 </div>

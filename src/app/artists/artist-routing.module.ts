@@ -12,7 +12,8 @@ const artistsRoutes: Routes = [
     path: '', component: ArtistsComponent, children: [
       { path: '', component: ArtistStartComponent },
       { path: 'new', component: ArtistEditComponent },
-      { path: ':id', component: ArtistDetailComponent }
+      { path: ':id', component: ArtistDetailComponent },
+      { path: ':id/edit', component: ArtistEditComponent }
     ]
   }
 ];
