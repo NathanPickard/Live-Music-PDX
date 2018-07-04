@@ -3,9 +3,11 @@
 </div>
 <mat-form-field>
   <mat-select placeholder="Manage Artist">
-    <mat-option value="Edit Artist" (click)="onEditArtist()"></mat-option>
+    <mat-option value="Edit Artist" (click)="onEditArtist()">Edit Artist</mat-option>
+    <mat-option value="Edit Artist" (click)="onDeleteArtist()">Delete Artist</mat-option>
   </mat-select>
-  <!-- <ul>
+</mat-form-field>
+<!-- <ul>
     <li>
       <a style="cursor: pointer;" (click)="onEditArtist()">Edit Artist</a>
     </li>
