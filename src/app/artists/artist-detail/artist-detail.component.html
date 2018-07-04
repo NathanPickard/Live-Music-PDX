@@ -1,14 +1,15 @@
 <div>
   <h2>{{ artist.name }}</h2>
 </div>
-<div>
-  <button>Manage Artist</button>
-</div>
-<ul>
-  <li>
-    <a style="cursor: pointer;" (click)="onEditArtist()">Edit Artist</a>
-  </li>
-  <li>
-    <a style="cursor: pointer;" (click)="onDeleteArtist()">Delete Artist</a>
-  </li>
-</ul>
+<mat-form-field>
+  <mat-select placeholder="Manage Artist">
+    <mat-option value="Edit Artist" (click)="onEditArtist()"></mat-option>
+  </mat-select>
+  <!-- <ul>
+    <li>
+      <a style="cursor: pointer;" (click)="onEditArtist()">Edit Artist</a>
+    </li>
+    <li>
+      <a style="cursor: pointer;" (click)="onDeleteArtist()">Delete Artist</a>
+    </li>
+  </ul> -->

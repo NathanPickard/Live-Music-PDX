@@ -10,6 +10,9 @@ export class ArtistService {
   private artists: Artist[] = [
     new Artist(
       'ZZ Top'
+    ),
+    new Artist(
+      'Incubus'
     )
   ];
 

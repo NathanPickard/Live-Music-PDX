@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 import { ArtistsComponent } from './artists.component';
 import { ArtistStartComponent } from './artist-start/artist-start.component';
@@ -24,7 +25,8 @@ import { ArtistsRoutingModule } from './artist-routing.module';
     CommonModule,
     ReactiveFormsModule,
     ArtistsRoutingModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule
   ]
 })
 
