@@ -7,7 +7,7 @@ import { Venue } from '../venue.model';
 
 @Component({
   selector: 'app-venue-list',
-  templateUrl: './venue-list.component.html',
-  styleUrls: ['./venue-list.component.css']
+  templateUrl: './venue-edit.component.html',
+  styleUrls: ['./venue-edit.component.css']
 })
 export class VenueEditComponent { }
