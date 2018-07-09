@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ArtistService } from '../artists/artist.service';
+import { VenueService } from '../venues/venue.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ArtistService } from '../artists/artist.service';
     HeaderComponent
   ],
   providers: [
-    ArtistService
+    ArtistService,
+    VenueService
   ]
 })
 export class CoreModule { }

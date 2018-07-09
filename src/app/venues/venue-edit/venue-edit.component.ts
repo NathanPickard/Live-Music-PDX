@@ -6,7 +6,7 @@ import { Venue } from '../venue.model';
 // import { VenueService } from '../venue.service';
 
 @Component({
-  selector: 'app-venue-list',
+  selector: 'app-venue-edit',
   templateUrl: './venue-edit.component.html',
   styleUrls: ['./venue-edit.component.css']
 })
