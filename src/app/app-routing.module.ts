@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { HomeComponent } from './core/home/home.component';
-// import { ArtistsComponent } from './artists/artists.component';
-// import { VenuesComponent } from './venues/venues.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
