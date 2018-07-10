@@ -1,0 +1,19 @@
+<div>
+  <form [formGroup]="venueForm" (ngSubmit)="onSubmit()">
+
+    <div>
+      <button mat-raised-button color="primary" [disabled]="!venueForm.valid">Save</button>
+      <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+    </div>
+
+    <mat-form-field>
+      <label for="name">Name</label>
+      <input matInput id="name" formControlName="name">
+      <label for="address">Address</label>
+      <input matInput id="address" formControlName="address">
+      <label for="description">Description</label>
+      <input matInput id="description" formControlName="description">
+    </mat-form-field>
+
+  </form>
+</div>

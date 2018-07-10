@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -24,7 +25,9 @@ import { VenuesRoutingModule } from './venue-routing.module';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     VenuesRoutingModule,
+    MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
     MatDividerModule
