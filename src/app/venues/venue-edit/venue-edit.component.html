@@ -1,4 +1,5 @@
 <div>
+
   <form [formGroup]="venueForm" (ngSubmit)="onSubmit()">
 
     <div>
@@ -7,13 +8,19 @@
     </div>
 
     <mat-form-field>
-      <label for="name">Name</label>
-      <input matInput id="name" formControlName="name">
-      <label for="address">Address</label>
-      <input matInput id="address" formControlName="address">
-      <label for="description">Description</label>
-      <input matInput id="description" formControlName="description">
+      <!-- <label for="name">Name</label> -->
+      <input matInput id="name" placeholder="Name" formControlName="name">
+      <!-- <label for="address">Address</label> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput id="address" placeholder="Address" formControlName="address">
+    </mat-form-field>
+    <!-- <label for="description">Description</label> -->
+    <mat-form-field>
+      <input matInput id="description" placeholder="Description" formControlName="description">
     </mat-form-field>
 
   </form>
+
 </div>
