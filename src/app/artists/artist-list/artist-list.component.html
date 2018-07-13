@@ -1,6 +1,13 @@
-<div>
+<div style="margin-bottom: 15px;">
   <button mat-raised-button color="primary" (click)="onNewArtist()">New Artist</button>
 </div>
+
 <mat-divider></mat-divider>
 
-<app-artist-item *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
+<mat-list>
+
+  <app-artist-item *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
+
+</mat-list>
+<!-- 
+<mat-divider></mat-divider> -->

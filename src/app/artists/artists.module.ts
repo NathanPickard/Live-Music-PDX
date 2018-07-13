@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 
 import { ArtistsComponent } from './artists.component';
 import { ArtistStartComponent } from './artist-start/artist-start.component';
@@ -34,7 +35,8 @@ import { ArtistsRoutingModule } from './artist-routing.module';
     MatButtonModule,
     MatDividerModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
   ]
 })
 
