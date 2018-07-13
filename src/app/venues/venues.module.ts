@@ -6,6 +6,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 
 import { VenuesComponent } from './venues.component';
 import { VenueStartComponent } from './venue-start/venue-start.component';
@@ -32,7 +34,9 @@ import { VenuesRoutingModule } from './venue-routing.module';
     MatSelectModule,
     MatButtonModule,
     MatDividerModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatListModule
   ]
 })
 

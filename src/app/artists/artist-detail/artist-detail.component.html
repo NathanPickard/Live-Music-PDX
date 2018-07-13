@@ -1,12 +1,17 @@
-<div>
-  <h2>{{ artist.name }}</h2>
-</div>
-<mat-form-field>
-  <mat-select placeholder="Manage Artist">
-    <mat-option value="Edit Artist" (click)="onEditArtist()">Edit Artist</mat-option>
-    <mat-option value="Delete Artist" (click)="onDeleteArtist()">Delete Artist</mat-option>
-  </mat-select>
-</mat-form-field>
+<mat-card>
+
+  <div>
+    <h2>{{ artist.name }}</h2>
+  </div>
+
+  <mat-form-field>
+    <mat-select placeholder="Manage Artist">
+      <mat-option value="Edit Artist" (click)="onEditArtist()">Edit Artist</mat-option>
+      <mat-option value="Delete Artist" (click)="onDeleteArtist()">Delete Artist</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</mat-card>
 <!-- <ul>
     <li>
       <a style="cursor: pointer;" (click)="onEditArtist()">Edit Artist</a>

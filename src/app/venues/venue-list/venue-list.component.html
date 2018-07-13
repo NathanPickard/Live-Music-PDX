@@ -3,4 +3,8 @@
 </div>
 <mat-divider></mat-divider>
 
-<app-venue-item *ngFor="let venueEl of venues; let i = index" [venue]="venueEl" [index]="i"></app-venue-item>
+<mat-list>
+
+  <app-venue-item *ngFor="let venueEl of venues; let i = index" [venue]="venueEl" [index]="i"></app-venue-item>
+
+</mat-list>

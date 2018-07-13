@@ -1,9 +1,22 @@
-<div>
-  <h2>{{ venue.name }}</h2>
-</div>
-<mat-form-field>
-  <mat-select placeholder="Manage Venue">
-    <mat-option value="Edit Venue" (click)="onEditVenue()">Edit Venue</mat-option>
-    <mat-option value="Delete Venue" (click)="onDeleteArtist()">Delete Venue</mat-option>
-  </mat-select>
-</mat-form-field>
+<mat-card>
+
+  <mat-card-header>
+    <mat-card-title>
+      <h2>{{ venue.name }}</h2>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>{{ venue.address }}</p>
+    <p>{{ venue.description }}</p>
+  </mat-card-content>
+
+  <mat-form-field>
+    <mat-select placeholder="Manage Venue">
+      <mat-option value="Edit Venue" (click)="onEditVenue()">Edit Venue</mat-option>
+      <mat-option value="Delete Venue" (click)="onDeleteArtist()">Delete Venue</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+</mat-card>
