@@ -8,6 +8,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ArtistsComponent } from './artists.component';
 import { ArtistStartComponent } from './artist-start/artist-start.component';
@@ -36,7 +37,8 @@ import { ArtistsRoutingModule } from './artist-routing.module';
     MatDividerModule,
     MatInputModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    FlexLayoutModule
   ]
 })
 

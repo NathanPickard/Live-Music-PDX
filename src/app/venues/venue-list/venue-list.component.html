@@ -1,12 +1,17 @@
-<div fxLayout="column" fxLayoutAlign="center">
+<div fxLayout="column">
 
-  <div style="margin-bottom: 15px;">
-    <button mat-raised-button color="primary" (click)="onNewVenue()">Add New Venue</button>
+  <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
+    <div style="margin-bottom: 15px;">
+      <button mat-raised-button color="primary" (click)="onNewVenue()">Add New Venue</button>
+    </div>
+
+    <h3>or</h3>
+
+    <mat-form-field>
+      <input matInput placeholder="Search for venues">
+    </mat-form-field>
+
   </div>
-
-  <mat-form-field>
-    <input matInput placeholder="Search for venue">
-  </mat-form-field>
 
   <mat-divider></mat-divider>
 

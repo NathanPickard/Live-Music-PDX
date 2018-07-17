@@ -1,17 +1,26 @@
-<div style="margin-bottom: 15px;">
-  <button mat-raised-button color="primary" (click)="onNewArtist()">Add New Artist</button>
+<div fxLayout="column">
+
+  <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
+    <div style="margin-bottom: 15px;">
+      <button mat-raised-button color="primary" (click)="onNewArtist()">Add New Artist</button>
+    </div>
+
+    <h3>or</h3>
+
+    <mat-form-field>
+      <input matInput placeholder="Search for artists">
+    </mat-form-field>
+
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <mat-list>
+
+    <app-artist-item *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
+
+  </mat-list>
+
 </div>
-
-<mat-form-field>
-  <input matInput placeholder="Search for artist">
-</mat-form-field>
-
-<mat-divider></mat-divider>
-
-<mat-list>
-
-  <app-artist-item *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
-
-</mat-list>
 <!-- 
 <mat-divider></mat-divider> -->
