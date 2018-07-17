@@ -1,33 +1,34 @@
 <mat-toolbar color="primary">
 
-  <mat-toolbar-row>
+  <mat-toolbar-row fxLayoutGap="15px">
 
     <!-- <mat-nav-list> -->
 
-    <mat-icon>music_note</mat-icon>
-    <a routerLink="/">Live Music PDX</a>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <mat-icon>music_note</mat-icon>
+      Live Music PDX
+    </a>
 
-    <!-- <li routerLinkActive="active"> -->
-    <mat-icon>local_play</mat-icon>
-    <a routerLink="/venues">Venues</a>
-    <!-- <li routerLinkActive="active"> -->
-    <mat-icon>music_video</mat-icon>
-    <a routerLink="/artists">Artists</a>
-    
+
+    <a routerLink="/venues" routerLinkActive="active">
+      <mat-icon>local_play</mat-icon>Venues</a>
+
+    <a routerLink="/artists" routerLinkActive="active">
+      <mat-icon>music_video</mat-icon>Artists</a>
 
     <span class="spacer"></span>
 
 
-    <div id="auth">
-      <mat-icon>account_box</mat-icon>
-      <a routerLink="/signup">Register</a>
+    <a routerLink="/signup" routerLinkActive="active">
+      <mat-icon>account_box</mat-icon>Register</a>
 
-      <mat-icon>play_circle_outline</mat-icon>
-      <a routerLink="/Login">Login</a>
 
-      <mat-icon>stop</mat-icon>
-      <a routerLink="/Logout">Logout</a>
-    </div>
+    <a routerLink="/Login" routerLinkActive="active">
+      <mat-icon>play_circle_outline</mat-icon>Login</a>
+
+
+    <a routerLink="/Logout" routerLinkActive="active">
+      <mat-icon>stop</mat-icon>Logout</a>
 
     <!-- </mat-nav-list> -->
 

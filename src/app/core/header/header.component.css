@@ -10,3 +10,12 @@
 .spacer {
   flex: 1 1 auto;
 }
+
+a:link {
+  text-decoration: none;
+}
+
+a.active {
+  background-color: lightgrey;
+  padding: 16px;
+}
