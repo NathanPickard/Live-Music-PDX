@@ -8,6 +8,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { VenuesComponent } from './venues.component';
@@ -38,6 +39,7 @@ import { VenuesRoutingModule } from './venue-routing.module';
     MatInputModule,
     MatCardModule,
     MatListModule,
+    MatDialogModule,
     FlexLayoutModule
   ]
 })

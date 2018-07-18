@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { Venue } from '../venue.model';
 import { VenueService } from '../venue.service';
@@ -14,7 +15,7 @@ export class VenueDetailComponent implements OnInit {
   venue: Venue;
   id: number;
 
-  constructor(private venueService: VenueService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private venueService: VenueService, private route: ActivatedRoute, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.route.params
