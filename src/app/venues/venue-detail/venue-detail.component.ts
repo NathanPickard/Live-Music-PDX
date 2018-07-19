@@ -31,8 +31,18 @@ export class VenueDetailComponent implements OnInit {
     this.router.navigate(['edit'], { relativeTo: this.route });
   }
 
-  onDeleteVenue() {
+  onDeleteVenue(): void {
+    const dialogRef = this.dialog.open(VenueDetailDialog, {
+      width: '300px'
+    })
     this.venueService.deleteVenue(this.id);
     this.router.navigate(['/venues']);
   }
 }
+
+
+@Component({
+  selector: 'venue-detail-dialog',
+  template: 'venue-detail-dialog.component.html',
+})
+export class VenueDetailDialog { }

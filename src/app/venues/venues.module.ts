@@ -16,7 +16,7 @@ import { VenueStartComponent } from './venue-start/venue-start.component';
 import { VenueListComponent } from './venue-list/venue-list.component';
 import { VenueItemComponent } from './venue-list/venue-item/venue-item.component';
 import { VenueEditComponent } from './venue-edit/venue-edit.component';
-import { VenueDetailComponent } from './venue-detail/venue-detail.component';
+import { VenueDetailComponent, VenueDetailDialog } from './venue-detail/venue-detail.component';
 import { VenuesRoutingModule } from './venue-routing.module';
 
 @NgModule({
@@ -26,7 +26,8 @@ import { VenuesRoutingModule } from './venue-routing.module';
     VenueItemComponent,
     VenueStartComponent,
     VenueEditComponent,
-    VenueDetailComponent
+    VenueDetailComponent,
+    VenueDetailDialog
   ],
   imports: [
     CommonModule,
