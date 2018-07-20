@@ -42,7 +42,8 @@ import { VenuesRoutingModule } from './venue-routing.module';
     MatListModule,
     MatDialogModule,
     FlexLayoutModule
-  ]
+  ],
+  entryComponents: [VenueDetailDialog]
 })
 
 export class VenuesModule { }

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { Venue } from '../venue.model';
 import { VenueService } from '../venue.service';
@@ -31,18 +31,26 @@ export class VenueDetailComponent implements OnInit {
     this.router.navigate(['edit'], { relativeTo: this.route });
   }
 
-  onDeleteVenue(): void {
+  onDeleteVenue() {
     const dialogRef = this.dialog.open(VenueDetailDialog, {
       width: '300px'
+    }
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.venueService.deleteVenue(this.id);
+        this.router.navigate(['/venues']);
+      }
     })
-    this.venueService.deleteVenue(this.id);
-    this.router.navigate(['/venues']);
   }
 }
 
 
 @Component({
   selector: 'venue-detail-dialog',
-  template: 'venue-detail-dialog.component.html',
+  templateUrl: 'venue-detail-dialog.component.html',
 })
-export class VenueDetailDialog { }
+export class VenueDetailDialog {
+  constructor(public dialogRef: MatDialogRef<VenueDetailDialog>) { }
+}
