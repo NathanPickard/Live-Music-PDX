@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { Artist } from '../artist.model';
 import { ArtistService } from '../artist.service';
@@ -14,7 +15,10 @@ export class ArtistDetailComponent implements OnInit {
   artist: Artist;
   id: number;
 
-  constructor(private artistService: ArtistService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private artistService: ArtistService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.route.params
@@ -31,7 +35,23 @@ export class ArtistDetailComponent implements OnInit {
   }
 
   onDeleteArtist() {
-    this.artistService.deleteArtist(this.id);
-    this.router.navigate(['/artists']);
+    const dialogRef = this.dialog.open(ArtistDetailDialog, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.artistService.deleteArtist(this.id);
+        this.router.navigate(['/artists']);
+      }
+    });
   }
+}
+
+@Component({
+  selector: 'artist-detail-dialog',
+  templateUrl: 'artist-detail-dialog.component.html'
+})
+export class ArtistDetailDialog {
+
+  constructor(public dialogRef: MatDialogRef<ArtistDetailDialog>) { }
 }

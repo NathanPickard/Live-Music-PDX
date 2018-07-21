@@ -8,13 +8,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ArtistsComponent } from './artists.component';
 import { ArtistStartComponent } from './artist-start/artist-start.component';
 import { ArtistListComponent } from './artist-list/artist-list.component';
 import { ArtistEditComponent } from './artist-edit/artist-edit.component';
-import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
+import { ArtistDetailComponent, ArtistDetailDialog } from './artist-detail/artist-detail.component';
 import { ArtistItemComponent } from './artist-list/artist-item/artist-item.component';
 import { ArtistsRoutingModule } from './artist-routing.module';
 
@@ -25,7 +26,8 @@ import { ArtistsRoutingModule } from './artist-routing.module';
     ArtistListComponent,
     ArtistEditComponent,
     ArtistDetailComponent,
-    ArtistItemComponent
+    ArtistItemComponent,
+    ArtistDetailDialog
   ],
   imports: [
     CommonModule,
@@ -38,8 +40,10 @@ import { ArtistsRoutingModule } from './artist-routing.module';
     MatInputModule,
     MatCardModule,
     MatListModule,
+    MatDialogModule,
     FlexLayoutModule
-  ]
+  ],
+  entryComponents: [ArtistDetailDialog]
 })
 
 export class ArtistsModule { }

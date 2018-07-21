@@ -15,7 +15,10 @@ export class VenueDetailComponent implements OnInit {
   venue: Venue;
   id: number;
 
-  constructor(private venueService: VenueService, private route: ActivatedRoute, private router: Router, private dialog: MatDialog) { }
+  constructor(private venueService: VenueService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.route.params
@@ -38,18 +41,18 @@ export class VenueDetailComponent implements OnInit {
     );
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result === true) {
+      if (result) {
         this.venueService.deleteVenue(this.id);
         this.router.navigate(['/venues']);
       }
-    })
+    });
   }
 }
 
 
 @Component({
   selector: 'venue-detail-dialog',
-  templateUrl: 'venue-detail-dialog.component.html',
+  templateUrl: 'venue-detail-dialog.component.html'
 })
 export class VenueDetailDialog {
   constructor(public dialogRef: MatDialogRef<VenueDetailDialog>) { }
