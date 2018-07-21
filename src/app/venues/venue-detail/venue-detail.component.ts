@@ -36,9 +36,8 @@ export class VenueDetailComponent implements OnInit {
 
   onDeleteVenue() {
     const dialogRef = this.dialog.open(VenueDetailDialog, {
-      width: '300px'
-    }
-    );
+      data: { name: this.venue.name }
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -55,5 +54,6 @@ export class VenueDetailComponent implements OnInit {
   templateUrl: 'venue-detail-dialog.component.html'
 })
 export class VenueDetailDialog {
-  constructor(public dialogRef: MatDialogRef<VenueDetailDialog>) { }
+  constructor(public dialogRef: MatDialogRef<VenueDetailDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: Venue) { }
 }

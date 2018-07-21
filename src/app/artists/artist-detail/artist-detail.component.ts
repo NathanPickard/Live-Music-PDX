@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
@@ -35,7 +35,9 @@ export class ArtistDetailComponent implements OnInit {
   }
 
   onDeleteArtist() {
+
     const dialogRef = this.dialog.open(ArtistDetailDialog, {
+      data: { name: this.artist.name }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -47,11 +49,16 @@ export class ArtistDetailComponent implements OnInit {
   }
 }
 
+
 @Component({
   selector: 'artist-detail-dialog',
   templateUrl: 'artist-detail-dialog.component.html'
 })
+
 export class ArtistDetailDialog {
 
-  constructor(public dialogRef: MatDialogRef<ArtistDetailDialog>) { }
+  // name: string;
+
+  constructor(public dialogRef: MatDialogRef<ArtistDetailDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: Artist) { }
 }
