@@ -1,26 +1,37 @@
 <div>
 
-  <form [formGroup]="venueForm" (ngSubmit)="onSubmit()">
+  <mat-card>
 
-    <div>
-      <button mat-raised-button color="primary" [disabled]="!venueForm.valid">Save</button>
-      <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
-    </div>
+    <mat-card-header>
+      <mat-card-title>
+        <h2>Edit Venue</h2>
+      </mat-card-title>
+    </mat-card-header>
 
-    <mat-form-field>
-      <!-- <label for="name">Name</label> -->
-      <input matInput id="name" placeholder="Name" formControlName="name">
-      <!-- <label for="address">Address</label> -->
-    </mat-form-field>
 
-    <mat-form-field>
-      <input matInput id="address" placeholder="Address" formControlName="address">
-    </mat-form-field>
-    <!-- <label for="description">Description</label> -->
-    <mat-form-field>
-      <input matInput id="description" placeholder="Description" formControlName="description">
-    </mat-form-field>
+    <form [formGroup]="venueForm" (ngSubmit)="onSubmit()">
 
-  </form>
+      <mat-form-field>
+        <!-- <label for="name">Name</label> -->
+        <input matInput id="name" placeholder="Name" formControlName="name">
+        <!-- <label for="address">Address</label> -->
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput id="address" placeholder="Address" formControlName="address">
+      </mat-form-field>
+      <!-- <label for="description">Description</label> -->
+      <mat-form-field>
+        <input matInput id="description" placeholder="Description" formControlName="description">
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button color="primary" [disabled]="!venueForm.valid">Save</button>
+        <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </div>
+
+    </form>
+
+  </mat-card>
 
 </div>
