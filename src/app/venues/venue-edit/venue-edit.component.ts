@@ -15,7 +15,9 @@ export class VenueEditComponent implements OnInit {
   editMode = false;
   venueForm: FormGroup;
 
-  constructor(private venueService: VenueService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private venueService: VenueService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -24,8 +26,7 @@ export class VenueEditComponent implements OnInit {
           this.id = +params['id'];
           this.editMode = params['id'] != null;
           this.initForm();
-        }
-      );
+        });
   }
 
   onSubmit() {
