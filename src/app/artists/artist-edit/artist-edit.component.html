@@ -1,16 +1,28 @@
 <div>
-  <form [formGroup]="artistForm" (ngSubmit)="onSubmit()">
-    <!-- <mat-form-field [formGroup]="artistForm" (ngSubmit)="onSubmit()"> -->
-    <div>
-      <button mat-raised-button color="primary" [disabled]="!artistForm.valid">Save</button>
-      <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
-    </div>
 
-    <mat-form-field>
-      <label for="name">Name</label>
-      <input matInput id="name" formControlName="name">
-    </mat-form-field>
+  <mat-card>
 
-  </form>
+    <mat-card-header>
+      <mat-card-title>
+        <h2>Edit artist</h2>
+      </mat-card-title>
+    </mat-card-header>
+
+    <form [formGroup]="artistForm" (ngSubmit)="onSubmit()">
+      <!-- <mat-form-field [formGroup]="artistForm" (ngSubmit)="onSubmit()"> -->
+
+      <mat-form-field>
+        <label for="name">Name</label>
+        <input matInput id="name" formControlName="name">
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [disabled]="!artistForm.valid">Save</button>
+        <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      </mat-card-actions>
+
+    </form>
+
+  </mat-card>
 
 </div>

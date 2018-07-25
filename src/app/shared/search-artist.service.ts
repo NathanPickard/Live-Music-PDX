@@ -5,8 +5,10 @@ import 'rxjs/Rx';
 import { ArtistService } from '../artists/artist.service';
 import { Artist } from '../artists/artist.model';
 
+
 @Injectable()
 export class SearchArtistService {
+
   constructor(private httpClient: HttpClient, private artistService: ArtistService) { }
 
 
