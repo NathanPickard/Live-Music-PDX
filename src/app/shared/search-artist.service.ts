@@ -6,6 +6,7 @@ import { ArtistService } from '../artists/artist.service';
 import { Artist } from '../artists/artist.model';
 
 
+
 @Injectable()
 export class SearchArtistService {
 
@@ -13,7 +14,7 @@ export class SearchArtistService {
 
 
   getArtists() {
-    this.httpClient.get<Artist[]>('http', {
+    this.httpClient.get<Artist[]>('https://api.songkick.com/api/3.0/search/artists.json?apikey='  + '&query={artist_name}', {
       observe: 'body',
       responseType: 'json'
     })
