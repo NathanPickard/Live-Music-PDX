@@ -1,27 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
+import { Http } from '@angular/http';
+import { environment } from '../../environments/environment';
 import 'rxjs/Rx';
+import 'rxjs/add/operator/map';
 
 import { ArtistService } from '../artists/artist.service';
 import { Artist } from '../artists/artist.model';
 
-
-
 @Injectable()
 export class SearchArtistService {
 
-  constructor(private httpClient: HttpClient, private artistService: ArtistService) { }
+  private query: string;
+  private API_KEY: string = environment.SONGKICK_API_KEY;
+  private API_URL: string = environment.SONGKICK_API_URL;
+  private URL: string = this.API_URL + 'search/artists.json?apikey=' + this.API_KEY + '&query=';
+
+  constructor(private httpClient: HttpClient, private http: Http, private artistService: ArtistService) { }
 
 
-  getArtists() {
-    this.httpClient.get<Artist[]>('https://api.songkick.com/api/3.0/search/artists.json?apikey='  + '&query={artist_name}', {
-      observe: 'body',
-      responseType: 'json'
-    })
-      .subscribe(
-        (artists: Artist[]) => {
-          this.artistService.setArtists(artists);
-        }
-      )
+  getArtists(query) {
+    // this.httpClient.get<Artist[]>('https://api.songkick.com/api/3.0/search/artists.json?apikey='  + '&query={artist_name}', {
+    //   observe: 'body',
+    //   responseType: 'json'
+    // })
+    //   .subscribe(
+    //     (artists: Artist[]) => {
+    //       this.artistService.setArtists(artists);
+    //     }
+    //   )
+
+    return this.http.get(this.URL + query)
+      .map(res => res.json());
   }
 }

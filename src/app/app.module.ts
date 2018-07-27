@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -16,6 +17,7 @@ import { VenuesModule } from './venues/venues.module';
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     AppRoutingModule,
     VenuesModule,
     CoreModule,

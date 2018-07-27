@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  SONGKICK_API_KEY: '',
+  SONGKICK_API_URL: 'https://api.songkick.com/api/3.0/'
 };
 
 /*
