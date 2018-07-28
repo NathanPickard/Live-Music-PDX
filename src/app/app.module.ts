@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { VenuesModule } from './venues/venues.module';
+import { SearchArtistService } from './shared/search-artist.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { VenuesModule } from './venues/venues.module';
     BrowserAnimationsModule,
     FlexLayoutModule
   ],
+  providers: [SearchArtistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
