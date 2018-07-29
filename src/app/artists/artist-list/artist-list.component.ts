@@ -22,8 +22,8 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   handleSuccess(data) {
     this.artistFound = true;
-    this.foundArtist = data.artist;
-    console.log(data.artist);
+    this.foundArtist = data.artist.id;
+    console.log(data.artist.id);
   }
 
   handleError(error) {
