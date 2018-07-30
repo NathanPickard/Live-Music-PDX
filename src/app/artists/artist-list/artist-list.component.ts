@@ -16,14 +16,14 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   artists: Artist[];
   subscription: Subscription;
 
-  foundArtist: any[];
+  foundArtists: any[];
   artistFound: boolean = false;
   searching: boolean = false;
 
   handleSuccess(data) {
     this.artistFound = true;
-    this.foundArtist = data.artist.id;
-    console.log(data.artist.id);
+    this.foundArtists = data.resultsPage.results.artist;
+    console.log(data.resultsPage.results.artist);
   }
 
   handleError(error) {
@@ -52,8 +52,8 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   searchArtists(query: string) {
     this.searching = true;
     return this.searchArtistService.getArtists(query).subscribe(
-      // data => this.handleSuccess(data),
-      data => console.log(data),
+      data => this.handleSuccess(data),
+      // data => console.log(data),
       error => this.handleError(error),
       () => this.searching = false
     )

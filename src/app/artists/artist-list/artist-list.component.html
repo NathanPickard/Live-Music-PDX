@@ -8,8 +8,8 @@
     <h3>or</h3>
 
     <mat-form-field>
-      <input matInput placeholder="Search for artists">
-      <button mat-raised-button color="primary" (click)="searchArtists('queens of the stone age')">Find Artists</button>
+      <input matInput [(ngModel)]="searchQuery" placeholder="Search for artists">
+      <button mat-raised-button color="primary" (click)="searchArtists(searchQuery)">Find Artists</button>
     </mat-form-field>
 
   </div>
@@ -17,18 +17,17 @@
   <mat-divider></mat-divider>
 
   <mat-list>
-
     <app-artist-item *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
-
   </mat-list>
 
   <mat-divider></mat-divider>
 
   <mat-card>
-    <h4 *ngIf="artistfound">Results</h4>
-    <div *ngFor="let artist of artists">
+    <h4 *ngIf="artistFound" mat-subtitle>Results</h4>
+    <div *ngFor="let foundArtist of foundArtists">
       <mat-card>
-        <a href="{{ artist.uri }}" target="_bank"></a>
+        <a href="{{ foundArtist.uri }}" target="_bank">
+        </a>
       </mat-card>
     </div>
   </mat-card>
