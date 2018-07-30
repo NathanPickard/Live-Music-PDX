@@ -27,6 +27,9 @@
     <div *ngFor="let foundArtist of foundArtists">
       <mat-card>
         <a href="{{ foundArtist.uri }}" target="_bank">
+          <mat-card-title>
+            {{ foundArtist.displayName }}            
+          </mat-card-title>
         </a>
       </mat-card>
     </div>
