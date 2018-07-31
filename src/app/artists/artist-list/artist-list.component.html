@@ -7,10 +7,13 @@
 
     <h3>or</h3>
 
-    <mat-form-field>
-      <input matInput [(ngModel)]="searchQuery" placeholder="Search for artists">
+
+    <div>
+      <mat-form-field>
+        <input matInput [(ngModel)]="searchQuery" placeholder="Search for artists">
+      </mat-form-field>
       <button mat-raised-button color="primary" (click)="searchArtists(searchQuery)">Find Artists</button>
-    </mat-form-field>
+    </div>
 
   </div>
 
@@ -28,7 +31,7 @@
       <mat-card>
         <a href="{{ foundArtist.uri }}" target="_bank">
           <mat-card-title>
-            {{ foundArtist.displayName }}            
+            {{ foundArtist.displayName }}
           </mat-card-title>
         </a>
       </mat-card>

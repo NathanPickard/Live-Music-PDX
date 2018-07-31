@@ -7,9 +7,12 @@
 
     <h3>or</h3>
 
-    <mat-form-field>
-      <input matInput placeholder="Search for venues">
-    </mat-form-field>
+    <div>
+      <mat-form-field>
+        <input matInput [(ngModel)]="searchQuery" placeholder="Search for venues">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="searchVenues(searchQuery)">Find Venues</button>
+    </div>
 
   </div>
 
