@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { VenuesModule } from './venues/venues.module';
-import { SearchArtistService } from './shared/search-artist.service';
+import { SearchService } from './shared/search.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { SearchArtistService } from './shared/search-artist.service';
     BrowserAnimationsModule,
     FlexLayoutModule
   ],
-  providers: [SearchArtistService],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

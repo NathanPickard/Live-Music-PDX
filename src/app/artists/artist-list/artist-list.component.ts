@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { Artist } from '../artist.model';
 import { ArtistService } from '../artist.service';
-import { SearchArtistService } from '../../shared/search-artist.service';
+import { SearchService } from '../../shared/search.service';
 
 @Component({
   selector: 'app-artist-list',
@@ -31,7 +31,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   }
 
   constructor(private artistService: ArtistService,
-    private searchArtistService: SearchArtistService,
+    private searchService: SearchService,
     private router: Router,
     private route: ActivatedRoute) { }
 
@@ -51,7 +51,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   searchArtists(query: string) {
     this.searching = true;
-    return this.searchArtistService.getArtists(query).subscribe(
+    return this.searchService.getArtists(query).subscribe(
       data => this.handleSuccess(data),
       // data => console.log(data),
       error => this.handleError(error),

@@ -9,12 +9,13 @@ import { ArtistService } from '../artists/artist.service';
 import { Artist } from '../artists/artist.model';
 
 @Injectable()
-export class SearchArtistService {
+export class SearchService {
 
   private query: string;
   private API_KEY: string = environment.SONGKICK_API_KEY;
   private API_URL: string = environment.SONGKICK_API_URL;
-  private URL: string = this.API_URL + 'search/artists.json?apikey=' + this.API_KEY + '&query=';
+  private ARTIST_URL: string = this.API_URL + 'search/artists.json?apikey=' + this.API_KEY + '&query=';
+  private VENUE_URL: string =this.API_URL + 'search/venues.json?query=';
 
   constructor(private httpClient: HttpClient, private http: Http, private artistService: ArtistService) { }
 
@@ -30,7 +31,12 @@ export class SearchArtistService {
     //     }
     //   )
 
-    return this.http.get(this.URL + query)
+    return this.http.get(this.ARTIST_URL + query)
+      .map(res => res.json());
+  }
+
+  getVenues(query) {
+    return this.http.get(this.VENUE_URL + query + '&apikey=' + this.API_KEY)
       .map(res => res.json());
   }
 }

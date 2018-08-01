@@ -25,8 +25,8 @@
 
   <mat-divider></mat-divider>
 
-  <mat-card>
-    <h4 *ngIf="artistFound" mat-subtitle>Results</h4>
+  <mat-card *ngIf="artistFound">
+    <h4 mat-subtitle>Results</h4>
     <div *ngFor="let foundArtist of foundArtists">
       <mat-card>
         <a href="{{ foundArtist.uri }}" target="_bank">
