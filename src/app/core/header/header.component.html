@@ -4,31 +4,38 @@
 
     <!-- <mat-nav-list> -->
 
-    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-      <mat-icon>music_note</mat-icon>
-      Live Music PDX
-    </a>
+    <button mat-button>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>music_note</mat-icon>Live Music PDX</a>
+    </button>
 
+    <button mat-button>
+      <a routerLink="/venues" routerLinkActive="active">
+        <mat-icon>local_play</mat-icon>Venues</a>
+    </button>
 
-    <a routerLink="/venues" routerLinkActive="active">
-      <mat-icon>local_play</mat-icon>Venues</a>
-
-    <a routerLink="/artists" routerLinkActive="active">
-      <mat-icon>music_video</mat-icon>Artists</a>
+    <button mat-button>
+      <a routerLink="/artists" routerLinkActive="active">
+        <mat-icon>music_video</mat-icon>Artists</a>
+    </button>
 
     <span class="spacer"></span>
 
 
-    <a routerLink="/signup" routerLinkActive="active">
-      <mat-icon>account_box</mat-icon>Register</a>
+    <button mat-button>
+      <a routerLink="/signup" routerLinkActive="active">
+        <mat-icon>account_box</mat-icon>Register</a>
+    </button>
 
+    <button mat-button>
+      <a routerLink="/Login" routerLinkActive="active">
+        <mat-icon>play_circle_outline</mat-icon>Login</a>
+    </button>
 
-    <a routerLink="/Login" routerLinkActive="active">
-      <mat-icon>play_circle_outline</mat-icon>Login</a>
-
-
-    <a routerLink="/Logout" routerLinkActive="active">
-      <mat-icon>stop</mat-icon>Logout</a>
+    <button mat-button>
+      <a routerLink="/Logout" routerLinkActive="active">
+        <mat-icon>stop</mat-icon>Logout</a>
+    </button>
 
     <!-- </mat-nav-list> -->
 

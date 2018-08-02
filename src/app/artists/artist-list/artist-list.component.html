@@ -29,7 +29,7 @@
     <h4 mat-subtitle>Results</h4>
     <div *ngFor="let foundArtist of foundArtists">
       <mat-card>
-        <a href="{{ foundArtist.uri }}" target="_bank">
+        <a href="{{ foundArtist.uri }}" target="_bank" style="text-decoration: none;">
           <mat-card-title>
             {{ foundArtist.displayName }}
           </mat-card-title>
