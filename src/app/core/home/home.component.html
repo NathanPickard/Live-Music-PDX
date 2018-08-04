@@ -2,4 +2,16 @@
 
 <div fxLayout="row" fxLayoutAlign="center">
   <h4>Popular events in Portland, OR:</h4>
+
+  <mat-card *ngIf="eventsFound">
+    <h4 mat-subtitle>Check out these events!</h4>
+    <div *ngFor="let foundEvent of foundEvents">
+      <mat-card>
+        <a href="{{ foundEvent.displayName }}" target="_bank" style="text-decoration: none;">
+
+        </a>
+      </mat-card>
+    </div>
+
+  </mat-card>
 </div>

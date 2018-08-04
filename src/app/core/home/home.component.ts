@@ -10,10 +10,26 @@ import { SearchService } from '../../shared/search.service';
 
 export class HomeComponent {
 
+  foundEvents: any[];
+  eventsFound: boolean = false;
+
+  handleSuccess(data) {
+    this.eventsFound = true;
+    this.foundEvents = data.resultsPage.results.event;
+    console.log(data.resultsPage.results);
+  }
+
+  handleError(error) {
+    console.log(error);
+  }
+
   constructor(private searchService: SearchService) { }
 
   getPdxEvents() {
-    return this.searchService.getPdxEvents().subscribe()
+    return this.searchService.getPdxEvents().subscribe(
+      data => this.handleSuccess(data),
+      error => this.handleError(error)
+    );
   }
 
 }

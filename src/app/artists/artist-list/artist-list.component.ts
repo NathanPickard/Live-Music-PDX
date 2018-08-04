@@ -56,7 +56,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
       // data => console.log(data),
       error => this.handleError(error),
       () => this.searching = false
-    )
+    );
   }
 
   ngOnDestroy() {
