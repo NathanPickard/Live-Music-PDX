@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { SearchService } from '../../shared/search.service';
 
@@ -8,10 +8,14 @@ import { SearchService } from '../../shared/search.service';
   styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
   foundEvents: any[];
   eventsFound: boolean = false;
+
+  ngOnInit() {
+    this.getPdxEvents();
+  }
 
   handleSuccess(data) {
     this.eventsFound = true;

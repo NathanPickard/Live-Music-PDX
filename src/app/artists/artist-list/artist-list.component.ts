@@ -20,6 +20,16 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   artistFound: boolean = false;
   searching: boolean = false;
 
+  ngOnInit() {
+    this.subscription = this.artistService.artistsChanged
+      .subscribe(
+        (artists: Artist[]) => {
+          this.artists = artists;
+        }
+      );
+    this.artists = this.artistService.getArtists();
+  }
+
   handleSuccess(data) {
     this.artistFound = true;
     this.foundArtists = data.resultsPage.results.artist;
@@ -35,15 +45,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute) { }
 
-  ngOnInit() {
-    this.subscription = this.artistService.artistsChanged
-      .subscribe(
-        (artists: Artist[]) => {
-          this.artists = artists;
-        }
-      );
-    this.artists = this.artistService.getArtists();
-  }
 
   onNewArtist() {
     this.router.navigate(['new'], { relativeTo: this.route });

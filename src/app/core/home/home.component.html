@@ -7,11 +7,11 @@
     <h4 mat-subtitle>Check out these events!</h4>
     <div *ngFor="let foundEvent of foundEvents">
       <mat-card>
-        <a href="{{ foundEvent.displayName }}" target="_bank" style="text-decoration: none;">
+        <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
+          <mat-card-title>
+            {{ foundEvent.displayName }}
+          </mat-card-title>
         </a>
-        <mat-card-title>
-          {{ foundEvent.displayName }}
-        </mat-card-title>
       </mat-card>
     </div>
 
