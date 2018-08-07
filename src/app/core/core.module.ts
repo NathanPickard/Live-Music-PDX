@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HeaderComponent } from './header/header.component';
@@ -25,6 +26,7 @@ import { VenueService } from '../venues/venue.service';
     MatButtonModule,
     MatCardModule,
     MatListModule,
+    MatProgressSpinnerModule,
     AppRoutingModule,
     FlexLayoutModule
   ],

@@ -1,11 +1,18 @@
-<h2>Welcome to Live Music PDX!</h2>
+<div fxLayout="column" fxLayoutAlign=" center">
+  <h2>Welcome to Live Music PDX!</h2>
+  <h3>Popular events in Portland, OR:</h3>
 
-<div fxLayout="row" fxLayoutAlign="center">
-  <h4>Popular events in Portland, OR:</h4>
+  <div *ngIf="!eventsFound">
+    <mat-spinner></mat-spinner>
+  </div>
 
-  <mat-card *ngIf="eventsFound">
-    <h4 mat-subtitle>Check out these events!</h4>
-    <div *ngFor="let foundEvent of foundEvents">
+  <mat-card *ngIf="eventsFound" fxLayoutAlign="center" fxLayout="column">
+
+    <mat-card-header>
+      <mat-card-title>Check out these events!</mat-card-title>
+    </mat-card-header>
+
+    <div *ngFor="let foundEvent of foundEvents" fxLayout="column" fxLayoutGap="20px">
       <mat-card>
         <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
           <mat-card-title>
@@ -16,4 +23,5 @@
     </div>
 
   </mat-card>
+
 </div>
