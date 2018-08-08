@@ -69,7 +69,8 @@ export class SearchService {
     console.log(this.today);
     console.log(this.weekDate);
 
-    return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY)
+    return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
+      '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
       .map(res => res.json());
   }
 }
