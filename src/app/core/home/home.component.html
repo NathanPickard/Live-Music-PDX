@@ -12,18 +12,18 @@
       <mat-card-title>Check out these events!</mat-card-title>
     </mat-card-header>
 
-    <div *ngFor="let foundEvent of foundEvents" fxLayout="column" fxLayoutGap="20px">
-      <mat-card>
-        <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
-          <mat-card-content>
-            {{ foundEvent.displayName }}
-          </mat-card-content>
-        </a>
-        <mat-card-footer>
-          {{ foundEvent.start.date }}
-        </mat-card-footer>
-      </mat-card>
-    </div>
+  <div *ngFor="let foundEvent of foundEvents" fxLayout="column" fxLayoutGap="20px">
+    <mat-card>
+      <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
+        <mat-card-content>
+          {{ foundEvent.displayName }}
+        </mat-card-content>
+      </a>
+      <mat-card-footer>
+        {{ foundEvent.start.date }}
+      </mat-card-footer>
+    </mat-card>
+  </div>
 
   </mat-card>
 
