@@ -25,4 +25,18 @@
   </mat-list>
 
   <mat-divider></mat-divider>
+
+  <mat-card *ngIf="venueFound">
+    <h4 mat-subtitle>Results</h4>
+    <div *ngFor="let foundVenue of foundVenues">
+      <mat-card>
+        <a href="{{ foundVenue.uri }}" target="_blank" style="text-decoration: none;">
+          <mat-card-content>
+            {{ foundVenue.displayName }}
+          </mat-card-content>
+        </a>
+      </mat-card>
+    </div>
+  </mat-card>
+
 </div>
