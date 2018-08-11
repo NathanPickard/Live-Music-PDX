@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   foundEvents: any[];
   eventsFound: boolean = false;
 
+  constructor(private searchService: SearchService) { }
+
   ngOnInit() {
     this.getPdxEvents();
   }
@@ -26,8 +28,6 @@ export class HomeComponent implements OnInit {
   handleError(error) {
     console.log(error);
   }
-
-  constructor(private searchService: SearchService) { }
 
   getPdxEvents() {
     return this.searchService.getPdxEvents().subscribe(

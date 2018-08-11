@@ -15,7 +15,9 @@ export class ArtistEditComponent implements OnInit {
   editMode = false;
   artistForm: FormGroup;
 
-  constructor(private artistService: ArtistService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private artistService: ArtistService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -24,8 +26,7 @@ export class ArtistEditComponent implements OnInit {
           this.id = +params['id'];
           this.editMode = params['id'] != null;
           this.initForm();
-        }
-      );
+        });
   }
 
   onSubmit() {

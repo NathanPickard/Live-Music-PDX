@@ -11,6 +11,7 @@ import { Artist } from '../artists/artist.model';
 @Injectable()
 export class SearchService {
 
+  private artist: string;
   private query: string;
   private API_KEY: string = environment.SONGKICK_API_KEY;
   private API_URL: string = environment.SONGKICK_API_URL;
@@ -73,4 +74,12 @@ export class SearchService {
       '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
       .map(res => res.json());
   }
+
+  // getArtistEvents(artist) {
+  //   this.getArtists(artist);
+
+  //   return this.http.get(this.ARTIST_URL + query)
+  //   .map(res => res.json());
+
+  // }
 }

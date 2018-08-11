@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { Artist } from '../artist.model';
 import { ArtistService } from '../artist.service';
+import { SearchService } from '../../shared/search.service';
 
 @Component({
   selector: 'app-artist-detail',
@@ -12,10 +13,14 @@ import { ArtistService } from '../artist.service';
 })
 
 export class ArtistDetailComponent implements OnInit {
+
   artist: Artist;
   id: number;
+  foundEvents: any[];
+  eventsFound: boolean = false;
 
   constructor(private artistService: ArtistService,
+    private searchService: SearchService,
     private route: ActivatedRoute,
     private router: Router,
     private dialog: MatDialog) { }
@@ -47,6 +52,23 @@ export class ArtistDetailComponent implements OnInit {
       }
     });
   }
+
+  handleSuccess(data) {
+    this.eventsFound = true;
+    this.foundEvents = data.resultsPage.results.event;
+    console.log(data.resultsPage.results);
+  }
+
+  handleError(error) {
+    console.log(error);
+  }
+
+  // getArtistEvents() {
+  //   return this.searchService.getArtistEvents(this.artist).subscribe(
+  //     data => this.handleSuccess(data),
+  //     error => this.handleError(error)
+  //   );
+  // }
 }
 
 
