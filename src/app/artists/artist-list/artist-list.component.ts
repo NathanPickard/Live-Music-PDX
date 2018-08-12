@@ -19,6 +19,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   foundArtists: any[];
   artistFound: boolean = false;
   searching: boolean = false;
+  searchQuery: string;
 
   constructor(private artistService: ArtistService,
     private searchService: SearchService,

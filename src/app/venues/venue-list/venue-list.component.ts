@@ -18,6 +18,7 @@ export class VenueListComponent implements OnInit, OnDestroy {
   foundVenues: any[];
   venueFound: boolean = false;
   searching: boolean = false;
+  searchQuery: string;
 
   constructor(private venueService: VenueService,
     private searchService: SearchService,

@@ -16,6 +16,6 @@ a:link {
 }
 
 a.active {
-  background-color: lightgrey;
+  background-color: grey;
   padding: 16px;
 }
