@@ -2,6 +2,8 @@
 
 Live Music finder for Portland, OR!
 
+The live application can be found [here](http://live-music-pdx.s3-website-us-west-2.amazonaws.com/)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 ## Development server
