@@ -1,1 +1,27 @@
-<h2>Register component</h2>
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <table>
+          <tr>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="Username" [(ngModel)]="username" name="username">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
