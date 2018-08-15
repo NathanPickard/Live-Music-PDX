@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+import { AuthService } from '../auth.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html'
@@ -8,10 +10,11 @@ import { NgForm } from '@angular/forms';
 
 export class RegisterComponent {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   onRegister(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
+    this.authService.registerUser(email, password);
   }
 }
