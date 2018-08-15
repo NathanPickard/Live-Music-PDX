@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ArtistService } from '../artists/artist.service';
 import { VenueService } from '../venues/venue.service';
+import { AuthService } from '../auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { VenueService } from '../venues/venue.service';
   ],
   providers: [
     ArtistService,
-    VenueService
+    VenueService,
+    AuthService
   ]
 })
 export class CoreModule { }

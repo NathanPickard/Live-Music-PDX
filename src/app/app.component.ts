@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   loadedFeature = 'artist';
 
-  ngOnInit() { }
+  ngOnInit() {
+    firebase.initializeApp({
+      apiKey: "AIzaSyAnhG_Lit1FcibY2NF6UWGn0aaS8ZIZF58",
+      authDomain: "live-music-pdx.firebaseapp.com"
+    });
+  }
 
   onNavigate(feature: string) {
     this.loadedFeature = feature;
