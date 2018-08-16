@@ -8,16 +8,16 @@
 
   <mat-card *ngIf="eventsFound" fxLayoutAlign="center" fxLayout="column">
 
-    <mat-card-header>
+    <mat-card-header fxLayoutAlign="center" fxLayout="row">
       <mat-card-title>Check out these events!</mat-card-title>
+      <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
     </mat-card-header>
 
     <div *ngFor="let foundEvent of foundEvents" fxLayout="column" fxLayoutGap="20px">
       <mat-card>
         <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
           <mat-card-content>
-            {{ foundEvent.displayName }} -
-            {{ foundEvent.venue.displayName }}
+            {{ foundEvent.displayName }} - {{ foundEvent.venue.displayName }}
           </mat-card-content>
         </a>
         <mat-card-footer>
