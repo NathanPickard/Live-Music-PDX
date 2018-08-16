@@ -1,1 +1,28 @@
-<h2>Login component</h2>
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onLogin(f)" #f="ngForm">
+        <table>
+          <tr>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="Email" ngModel name="email">
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="Password" ngModel type="password" name="password">
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <button mat-raised-button color="primary" type="submit">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
