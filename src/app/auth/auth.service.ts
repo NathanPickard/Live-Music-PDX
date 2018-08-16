@@ -22,5 +22,9 @@ export class AuthService {
       );
   }
 
+  getToken() {
+    return firebase.auth().currentUser.getIdToken();
+  }
+
   constructor(private router: Router) { }
 }
