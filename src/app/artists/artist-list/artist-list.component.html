@@ -25,7 +25,10 @@
   <mat-divider></mat-divider>
 
   <mat-card *ngIf="artistFound">
-    <h4 mat-subtitle>Results</h4>
+    <div fxLayoutAlign="center">
+      <h4 mat-subtitle>Results</h4>
+      <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
+    </div>
     <div *ngFor="let foundArtist of foundArtists">
       <mat-card>
         <a href="{{ foundArtist.uri }}" target="_blank" style="text-decoration: none;">
