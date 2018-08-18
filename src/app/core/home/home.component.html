@@ -20,8 +20,8 @@
             {{ foundEvent.displayName }} - {{ foundEvent.venue.displayName }}
           </mat-card-content>
         </a>
-        <mat-card-footer>
-          {{ foundEvent.start.date }}
+        <mat-card-footer fxLayoutAlign="end">
+          {{ foundEvent.start.date | date }}
         </mat-card-footer>
       </mat-card>
     </div>
