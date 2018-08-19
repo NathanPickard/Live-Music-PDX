@@ -20,7 +20,7 @@ export class VenueService {
     )
   ];
 
-  setArtists(venues: Venue[]) {
+  setVenues(venues: Venue[]) {
     this.venues = venues;
     this.venuesChanged.next(this.venues.slice());
   }

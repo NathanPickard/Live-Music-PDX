@@ -28,4 +28,9 @@ export class HeaderComponent {
         }
       );
   }
+
+  onFetchData() {
+    this.dataStorageService.getArtists();
+    this.dataStorageService.getVenues();
+  }
 }
