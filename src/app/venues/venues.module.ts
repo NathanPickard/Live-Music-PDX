@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { VenuesComponent } from './venues.component';
@@ -43,6 +44,7 @@ import { VenuesRoutingModule } from './venue-routing.module';
     MatCardModule,
     MatListModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
     FlexLayoutModule
   ],
   entryComponents: [VenueDetailDialog]
