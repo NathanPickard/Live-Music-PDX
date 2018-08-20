@@ -1,8 +1,8 @@
 <h1 mat-dialog-title>Delete {{ data.name }}</h1>
 
-<div mat-dialog-content>
-  <h4>Are you sure you want delete {{ data.name }} from your artist list?</h4>
-</div>
+<mat-dialog-content style="font: 300 20px/32px Roboto, Helvetica Neue,sans-serif;">
+  Are you sure you want delete {{ data.name }} from your artists list?
+</mat-dialog-content>
 
 <div mat-dialog-actions>
   <button mat-raised-button color="primary" [mat-dialog-close]="true">Yes, delete artist</button>
