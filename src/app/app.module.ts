@@ -11,6 +11,7 @@ import { CoreModule } from './core/core.module';
 import { VenuesModule } from './venues/venues.module';
 import { AuthModule } from './auth/auth.module';
 import { SearchService } from './shared/search.service';
+import { DataStorageService } from './shared/data-storage.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { SearchService } from './shared/search.service';
     BrowserAnimationsModule,
     FlexLayoutModule
   ],
-  providers: [SearchService],
+  providers: [SearchService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
