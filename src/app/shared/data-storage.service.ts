@@ -1,26 +1,35 @@
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 
-import { ArtistService } from "../artists/artist.service";
-import { VenueService } from "../venues/venue.service";
 import { Artist } from "../artists/artist.model";
 import { Venue } from "../venues/venue.model";
+import { ArtistService } from "../artists/artist.service";
+import { AuthService } from "../auth/auth.service";
+import { VenueService } from "../venues/venue.service";
 
 @Injectable()
 export class DataStorageService {
-  constructor(private http: Http, private artistService: ArtistService, private venueService: VenueService) { }
+  constructor(private http: Http,
+    private artistService: ArtistService,
+    private venueService: VenueService,
+    private authService: AuthService) { }
 
   storeArtists() {
-    return this.http.put('https://live-music-pdx.firebaseio.com/artists.json', this.artistService.getArtists());
+    const token = this.authService.getToken();
 
+    return this.http.put('https://live-music-pdx.firebaseio.com/artists.json?auth=' + token, this.artistService.getArtists());
   }
 
   storeVenues() {
-    return this.http.put('https://live-music-pdx.firebaseio.com/venues.json', this.venueService.getVenues());
+    const token = this.authService.getToken();
+
+    return this.http.put('https://live-music-pdx.firebaseio.com/venues.json?auth=' + token, this.venueService.getVenues());
   }
 
   getArtists() {
-    this.http.get('https://live-music-pdx.firebaseio.com/artists.json')
+    const token = this.authService.getToken();
+
+    this.http.get('https://live-music-pdx.firebaseio.com/artists.json?auth=' + token)
       .map(
         (response: Response) => {
           const artists: Artist[] = response.json();
@@ -41,10 +50,17 @@ export class DataStorageService {
   }
 
   getVenues() {
-    this.http.get('https://live-music-pdx.firebaseio.com/venues.json')
-      .subscribe(
+    const token = this.authService.getToken();
+
+    this.http.get('https://live-music-pdx.firebaseio.com/venues.json?auth=' + token)
+      .map(
         (response: Response) => {
           const venues: Venue[] = response.json();
+          return venues;
+        }
+      )
+      .subscribe(
+        (venues: Venue[]) => {
           this.venueService.setVenues(venues);
         }
       );
