@@ -12,6 +12,7 @@ import { VenuesModule } from './venues/venues.module';
 import { AuthModule } from './auth/auth.module';
 import { SearchService } from './shared/search.service';
 import { DataStorageService } from './shared/data-storage.service';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { DataStorageService } from './shared/data-storage.service';
     BrowserAnimationsModule,
     FlexLayoutModule
   ],
-  providers: [SearchService, DataStorageService],
+  providers: [SearchService, AuthService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
