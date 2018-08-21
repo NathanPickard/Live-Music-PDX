@@ -7,6 +7,8 @@ export class AuthService {
 
   token: string;
 
+  constructor(private router: Router) { }
+
   registerUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .catch(
@@ -18,6 +20,7 @@ export class AuthService {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(
         response => {
+          this.router.navigate(['/']);
           firebase.auth().currentUser.getIdToken()
             .then(
               (token: string) => this.token = token
@@ -29,6 +32,11 @@ export class AuthService {
       );
   }
 
+  logout() {
+    firebase.auth().signOut();
+    this.token = null;
+  }
+
   getToken() {
     firebase.auth().currentUser.getIdToken()
       .then(
@@ -37,5 +45,7 @@ export class AuthService {
     return this.token;
   }
 
-  constructor(private router: Router) { }
+  isAuthenticated() {
+    return this.token != null;
+  }
 }
