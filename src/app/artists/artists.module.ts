@@ -19,6 +19,7 @@ import { ArtistEditComponent } from './artist-edit/artist-edit.component';
 import { ArtistDetailComponent, ArtistDetailDialog } from './artist-detail/artist-detail.component';
 import { ArtistItemComponent } from './artist-list/artist-item/artist-item.component';
 import { ArtistsRoutingModule } from './artist-routing.module';
+import { AuthService } from '../auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,10 @@ import { ArtistsRoutingModule } from './artist-routing.module';
     MatDialogModule,
     FlexLayoutModule
   ],
+  providers: [
+    AuthService
+  ],
+
   entryComponents: [ArtistDetailDialog]
 })
 

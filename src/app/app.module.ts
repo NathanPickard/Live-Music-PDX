@@ -13,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
 import { SearchService } from './shared/search.service';
 import { DataStorageService } from './shared/data-storage.service';
 import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { AuthService } from './auth/auth.service';
     BrowserAnimationsModule,
     FlexLayoutModule
   ],
-  providers: [SearchService, AuthService, DataStorageService],
+  providers: [SearchService, AuthService, DataStorageService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

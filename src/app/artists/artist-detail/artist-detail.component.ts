@@ -5,6 +5,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Artist } from '../artist.model';
 import { ArtistService } from '../artist.service';
 import { SearchService } from '../../shared/search.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-artist-detail',
@@ -23,7 +24,8 @@ export class ArtistDetailComponent implements OnInit {
     private searchService: SearchService,
     private route: ActivatedRoute,
     private router: Router,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.route.params
