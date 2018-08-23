@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { Artist } from '../artist.model';
 import { ArtistService } from '../artist.service';
 import { SearchService } from '../../shared/search.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-artist-list',
@@ -23,6 +24,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   constructor(private artistService: ArtistService,
     private searchService: SearchService,
+    private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute) { }
 
