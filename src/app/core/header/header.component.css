@@ -11,11 +11,7 @@
   flex: 1 1 auto;
 }
 
-a:link {
-  text-decoration: none;
-}
 
-a.active {
-  background-color: grey;
-  padding: 16px;
+.active {
+  background-color: darkgray;
 }
