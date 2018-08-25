@@ -1,6 +1,6 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" fxLayout.xs="column">
 
-  <mat-toolbar-row fxLayoutGap="15px">
+  <mat-toolbar-row fxLayoutGap="12px">
 
     <!-- <mat-nav-list> -->
 
@@ -28,33 +28,36 @@
 
     <span class="spacer"></span>
 
+    <!-- <div fxLayout="column" fxLayoutAlign="end"> -->
 
-    <div *ngIf="authService.isAuthenticated()">
-      <div>
-        <a mat-button (click)="onSaveData()">Save Data</a>
+      <div *ngIf="authService.isAuthenticated()">
+        <div>
+          <a mat-button (click)="onSaveData()">Save Data</a>
+        </div>
+
+        <div>
+          <a mat-button (click)="onFetchData()">Fetch Data</a>
+        </div>
       </div>
 
-      <div>
-        <a mat-button (click)="onFetchData()">Fetch Data</a>
-      </div>
-    </div>
+      <ng-template [ngIf]="!authService.isAuthenticated()">
+        <div>
+          <a mat-button routerLink="/register" routerLinkActive="active">
+            <mat-icon>account_box</mat-icon>Register</a>
+        </div>
 
-    <ng-template [ngIf]="!authService.isAuthenticated()">
-      <div>
-        <a mat-button routerLink="/register" routerLinkActive="active">
-          <mat-icon>account_box</mat-icon>Register</a>
-      </div>
+        <div>
+          <a mat-button routerLink="/login" routerLinkActive="active">
+            <mat-icon>play_circle_outline</mat-icon>Login</a>
+        </div>
+      </ng-template>
 
       <div>
-        <a mat-button routerLink="/login" routerLinkActive="active">
-          <mat-icon>play_circle_outline</mat-icon>Login</a>
+        <a mat-button (click)="onLogout()" *ngIf="authService.isAuthenticated()">
+          <mat-icon>stop</mat-icon>Logout</a>
       </div>
-    </ng-template>
 
-    <div>
-      <a mat-button (click)="onLogout()" *ngIf="authService.isAuthenticated()">
-        <mat-icon>stop</mat-icon>Logout</a>
-    </div>
+    <!-- </div> -->
 
     <!-- </mat-nav-list> -->
 

@@ -66,9 +66,8 @@ export class SearchService {
     this.today = this.yearDate + '-' + this.monthDate + '-' + this.dayDate;
     this.weekDate = this.yearDate + '-' + this.monthDate + '-' + (this.weekDate);
 
-
-    console.log(this.today);
-    console.log(this.weekDate);
+    // console.log(this.today);
+    // console.log(this.weekDate);
 
     return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
       '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')

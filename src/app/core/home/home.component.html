@@ -19,6 +19,9 @@
           <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
             {{ foundEvent.displayName }} - {{ foundEvent.venue.displayName }}
           </a>
+          <div *ngIf="foundEvent.type == 'Festival'">
+            <p>{{ foundEvent.type }}</p>
+          </div>
         </mat-card-content>
         <mat-card-footer fxLayoutAlign="end">
           {{ foundEvent.start.date | date }}

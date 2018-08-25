@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   foundEvents: any[];
   eventsFound: boolean = false;
+  type: any[];
 
   constructor(private searchService: SearchService) { }
 
