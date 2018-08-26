@@ -21,7 +21,7 @@
             </td>
           </tr>
         </table>
-        <button mat-raised-button color="primary" type="submit">Register</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid">Register</button>
       </form>
     </mat-card-content>
   </mat-card>
