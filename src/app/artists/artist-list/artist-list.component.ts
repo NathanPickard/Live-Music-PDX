@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Artist } from '../artist.model';
 import { ArtistService } from '../artist.service';
@@ -20,7 +21,11 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   foundArtists: any[];
   artistFound: boolean = false;
   searching: boolean = false;
-  searchQuery: string;
+  // searchQuery: string;
+
+  // queryValue = this.searchArtistForm.value;
+
+  searchArtistForm: FormGroup;
 
   constructor(private artistService: ArtistService,
     private searchService: SearchService,
@@ -29,6 +34,11 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.searchArtistForm = new FormGroup({
+      'name': new FormControl(null, Validators.required)
+    });
+
     this.subscription = this.artistService.artistsChanged
       .subscribe(
         (artists: Artist[]) => {
@@ -52,9 +62,10 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
 
-  searchArtists(query: string) {
+  searchArtists(searchArtistForm) {
+    console.log(searchArtistForm.value);
     this.searching = true;
-    return this.searchService.getArtists(query).subscribe(
+    return this.searchService.getArtists(searchArtistForm).subscribe(
       data => this.handleSuccess(data),
       // data => console.log(data),
       error => this.handleError(error),

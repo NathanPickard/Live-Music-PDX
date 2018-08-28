@@ -12,14 +12,14 @@ export class RegisterComponent {
 
   constructor(private authService: AuthService) { }
 
-  // email = new FormControl('', [Validators.required, Validators.email]);
+  email = new FormControl('', [Validators.required, Validators.email]);
   registerForm: FormGroup;
 
-  // onRegister(form: NgForm) {
-  //   const email = form.value.email;
-  //   const password = form.value.password;
-  //   this.authService.registerUser(email, password);
-  // }
+  onRegister(form: NgForm) {
+    const email = form.value.email;
+    const password = form.value.password;
+    this.authService.registerUser(email, password);
+  }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
