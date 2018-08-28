@@ -21,7 +21,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   foundArtists: any[];
   artistFound: boolean = false;
   searching: boolean = false;
-  // searchQuery: string;
+  searchQuery: string;
 
   // queryValue = this.searchArtistForm.value;
 
@@ -62,16 +62,20 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
 
-  searchArtists(searchArtistForm) {
-    console.log(searchArtistForm.value);
+  searchArtists(query: string) {
+    // console.log(this.searchArtistForm.value);
     this.searching = true;
-    return this.searchService.getArtists(searchArtistForm).subscribe(
+    return this.searchService.getArtists(query).subscribe(
       data => this.handleSuccess(data),
       // data => console.log(data),
       error => this.handleError(error),
       () => this.searching = false
     );
   }
+
+  // onSubmit() {
+  //   this.searchArtists(this.searchArtistForm.value);
+  // }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
