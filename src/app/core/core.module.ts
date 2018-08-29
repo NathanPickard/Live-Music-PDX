@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HeaderComponent } from './header/header.component';
@@ -28,6 +29,7 @@ import { AuthService } from '../auth/auth.service';
     MatCardModule,
     MatListModule,
     MatProgressSpinnerModule,
+    MatSelectModule,
     AppRoutingModule,
     FlexLayoutModule
   ],

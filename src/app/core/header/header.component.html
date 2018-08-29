@@ -1,66 +1,67 @@
-<mat-toolbar color="primary" fxLayout.xs="column">
+<mat-toolbar color="primary">
 
   <mat-toolbar-row fxLayoutGap="12px">
 
-    <!-- <mat-nav-list> -->
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
 
     <div>
       <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <mat-icon>music_note</mat-icon>Live Music PDX</a>
     </div>
 
-    <!-- <div>
-      <button mat-button>
-        <a routerLink="/venues" routerLinkActive="active">
-          <mat-icon>local_play</mat-icon>Venues</a>
-      </button>
-    </div> -->
+    <div fxShow="true" fxHide.lt-md="true">
 
-    <div>
       <a mat-button routerLink="/venues" routerLinkActive="active">
         <mat-icon>local_play</mat-icon>Venues</a>
-    </div>
 
-    <div>
       <a mat-button routerLink="/artists" routerLinkActive="active">
         <mat-icon>music_video</mat-icon>Artists</a>
     </div>
 
     <span class="spacer"></span>
 
-    <!-- <div fxLayout="column" fxLayoutAlign="end"> -->
+    <div fxShow="true" fxHide.lt-md="true">
 
-      <div *ngIf="authService.isAuthenticated()">
-        <div>
-          <a mat-button (click)="onSaveData()">Save Data</a>
-        </div>
+      <!-- <div fxLayout="column" fxLayoutAlign="end"> -->
 
-        <div>
-          <a mat-button (click)="onFetchData()">Fetch Data</a>
-        </div>
-      </div>
+      <mat-form-field *ngIf="authService.isAuthenticated()">
+        <mat-select placeholder="Manage Data">
+          <mat-option value="Save Data" (click)="onSaveData()">Save Data</mat-option>
+          <mat-option value="Fetch Data" (click)="onFetchData()">Fetch Data</mat-option>
+        </mat-select>
+      </mat-form-field>
+
 
       <ng-template [ngIf]="!authService.isAuthenticated()">
-        <div>
-          <a mat-button routerLink="/register" routerLinkActive="active">
-            <mat-icon>account_box</mat-icon>Register</a>
-        </div>
 
-        <div>
-          <a mat-button routerLink="/login" routerLinkActive="active">
-            <mat-icon>play_circle_outline</mat-icon>Login</a>
-        </div>
+        <a mat-button routerLink="/register" routerLinkActive="active">
+          <mat-icon>account_box</mat-icon>Register</a>
+
+        <a mat-button routerLink="/login" routerLinkActive="active">
+          <mat-icon>play_circle_outline</mat-icon>Login</a>
+
       </ng-template>
 
-      <div>
-        <a mat-button (click)="onLogout()" *ngIf="authService.isAuthenticated()">
-          <mat-icon>stop</mat-icon>Logout</a>
-      </div>
+      <a mat-button (click)="onLogout()" *ngIf="authService.isAuthenticated()">
+        <mat-icon>stop</mat-icon>Logout</a>
 
-    <!-- </div> -->
+    </div>
 
-    <!-- </mat-nav-list> -->
 
   </mat-toolbar-row>
 
 </mat-toolbar>
+
+<!-- <div>
+      <button mat-button>
+        <a routerLink="/venues" routerLinkActive="active">
+          <mat-icon>local_play</mat-icon>Venues</a>
+      </button>
+    </div> -->
+
+
+<!-- </div> -->
+
+<!-- </mat-nav-list> -->
