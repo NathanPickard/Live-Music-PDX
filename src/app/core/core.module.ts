@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HeaderComponent } from './header/header.component';
@@ -30,6 +31,7 @@ import { AuthService } from '../auth/auth.service';
     MatListModule,
     MatProgressSpinnerModule,
     MatSelectModule,
+    MatSidenavModule,
     AppRoutingModule,
     FlexLayoutModule
   ],

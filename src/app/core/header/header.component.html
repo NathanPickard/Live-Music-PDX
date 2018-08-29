@@ -49,19 +49,53 @@
 
     </div>
 
-
   </mat-toolbar-row>
 
 </mat-toolbar>
 
-<!-- <div>
-      <button mat-button>
-        <a routerLink="/venues" routerLinkActive="active">
-          <mat-icon>local_play</mat-icon>Venues</a>
-      </button>
-    </div> -->
 
 
-<!-- </div> -->
+<mat-sidenav-container fxFlexFill>
 
-<!-- </mat-nav-list> -->
+  <mat-sidenav #sidenav>
+
+    <mat-nav-list>
+
+      <a mat-button routerLink="/venues" routerLinkActive="active">
+        <mat-icon>local_play</mat-icon>Venues</a>
+
+      <a mat-button routerLink="/artists" routerLinkActive="active">
+        <mat-icon>music_video</mat-icon>Artists</a>
+
+      <mat-form-field *ngIf="authService.isAuthenticated()">
+        <mat-select placeholder="Manage Data">
+          <mat-option value="Save Data" (click)="onSaveData()">Save Data</mat-option>
+          <mat-option value="Fetch Data" (click)="onFetchData()">Fetch Data</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <ng-template [ngIf]="!authService.isAuthenticated()">
+
+        <a mat-button routerLink="/register" routerLinkActive="active">
+          <mat-icon>account_box</mat-icon>Register</a>
+
+        <a mat-button routerLink="/login" routerLinkActive="active">
+          <mat-icon>play_circle_outline</mat-icon>Login</a>
+
+      </ng-template>
+
+      <a mat-button (click)="onLogout()" *ngIf="authService.isAuthenticated()">
+        <mat-icon>stop</mat-icon>Logout</a>
+
+      <a (click)="sidenav.toggle()" mat-list-item>
+        <mat-icon>close</mat-icon> Close
+      </a>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content fxLayoutAlign="center center">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
