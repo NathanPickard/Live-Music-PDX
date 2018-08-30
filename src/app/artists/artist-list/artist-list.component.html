@@ -2,7 +2,9 @@
 
   <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
     <div style="margin-bottom: 15px;">
-      <button mat-raised-button color="primary" (click)="onNewArtist()">Add New Artist</button>
+      <!-- <button mat-raised-button color="primary" [disabled]="authService.isAuthenticated()" (click)="onNewArtist()">Add New -->
+      <button mat-raised-button color="primary" (click)="onNewArtist()">Add New
+        Artist</button>
     </div>
 
     <h3>or</h3>
@@ -46,6 +48,11 @@
           <a href="{{ foundArtist.uri }}" target="_blank" style="text-decoration: none;">
             {{ foundArtist.displayName }}
           </a>
+          <div fxLayoutAlign="end center">
+            <button mat-icon-button color="primary" matTooltip="Add to artists list" matTooltipPosition="above">
+              <mat-icon>add_circle_outline</mat-icon>
+            </button>
+          </div>
         </mat-card-content>
       </mat-card>
     </div>

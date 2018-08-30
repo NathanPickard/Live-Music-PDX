@@ -6,10 +6,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ArtistsComponent } from './artists.component';
@@ -40,10 +42,12 @@ import { AuthService } from '../auth/auth.service';
     MatSelectModule,
     MatButtonModule,
     MatDividerModule,
+    MatIconModule,
     MatInputModule,
     MatCardModule,
     MatListModule,
     MatDialogModule,
+    MatTooltipModule,
     FlexLayoutModule
   ],
   providers: [

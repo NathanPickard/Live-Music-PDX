@@ -3,10 +3,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { AuthService } from '../../auth/auth.service';
 import { Artist } from '../artist.model';
 import { ArtistService } from '../artist.service';
 import { SearchService } from '../../shared/search.service';
-import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-artist-list',
@@ -15,6 +15,13 @@ import { AuthService } from '../../auth/auth.service';
 })
 
 export class ArtistListComponent implements OnInit, OnDestroy {
+
+  constructor(private artistService: ArtistService,
+    private searchService: SearchService,
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute) { }
+
   artists: Artist[];
   subscription: Subscription;
 
@@ -27,11 +34,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   searchArtistForm: FormGroup;
 
-  constructor(private artistService: ArtistService,
-    private searchService: SearchService,
-    private authService: AuthService,
-    private router: Router,
-    private route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -60,6 +62,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   onNewArtist() {
     this.router.navigate(['new'], { relativeTo: this.route });
+    console.log(this.authService.isAuthenticated());
   }
 
   searchArtists(query: string) {
