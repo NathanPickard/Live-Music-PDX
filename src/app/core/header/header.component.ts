@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Response } from '@angular/http';
+// import { Response } from '@angular/http';
+import { HttpEvent } from '@angular/common/http';
 
 import { DataStorageService } from '../../shared/data-storage.service';
 import { AuthService } from '../../auth/auth.service';
@@ -18,14 +19,14 @@ export class HeaderComponent {
   onSaveData() {
     this.dataStorageService.storeArtists()
       .subscribe(
-        (response: Response) => {
+        (response: HttpEvent<Object>) => {
           console.log(response);
         }
       );
 
     this.dataStorageService.storeVenues()
       .subscribe(
-        (response: Response) => {
+        (response: HttpEvent<Object>) => {
           console.log(response);
         }
       );

@@ -18,6 +18,8 @@ export class SearchService {
   private ARTIST_URL: string = this.API_URL + 'search/artists.json?apikey=' + this.API_KEY + '&query=';
   private VENUE_URL: string = this.API_URL + 'search/venues.json?query=';
 
+  artistsResults: any;
+
   today: any;
   weekDate: any;
   dayDate: any;

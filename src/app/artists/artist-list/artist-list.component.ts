@@ -76,6 +76,10 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     );
   }
 
+  // addToList(){
+  //   return this.searchService.addArtistToList();
+  // }
+
   // onSubmit() {
   //   this.searchArtists(this.searchArtistForm.value);
   // }
