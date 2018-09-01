@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Http, Response } from "@angular/http";
 
 import { Artist } from "../artists/artist.model";
@@ -20,8 +20,9 @@ export class DataStorageService {
     const token = this.authService.getToken();
 
     // return this.http.put('https://live-music-pdx.firebaseio.com/artists.json?auth=' + token, this.artistService.getArtists());
-    return this.httpClient.put('https://live-music-pdx.firebaseio.com/artists.json?auth=' + token, this.artistService.getArtists(), {
-      observe: 'body'
+    return this.httpClient.put('https://live-music-pdx.firebaseio.com/artists.json', this.artistService.getArtists(), {
+      observe: 'body',
+      params: new HttpParams().set('auth', token)
     });
   }
 
@@ -29,8 +30,9 @@ export class DataStorageService {
     const token = this.authService.getToken();
 
     // return this.http.put('https://live-music-pdx.firebaseio.com/venues.json?auth=' + token, this.venueService.getVenues());
-    return this.httpClient.put('https://live-music-pdx.firebaseio.com/venues.json?auth=' + token, this.venueService.getVenues(), {
-      observe: 'body'
+    return this.httpClient.put('https://live-music-pdx.firebaseio.com/venues.json', this.venueService.getVenues(), {
+      observe: 'body',
+      params: new HttpParams().set('auth', token)
     });
   }
 
@@ -57,9 +59,10 @@ export class DataStorageService {
     //   );
 
     // this.httpClient.get<Artist[]>('https://live-music-pdx.firebaseio.com/artists.json?auth=' + token)
-    this.httpClient.get<Artist[]>('https://live-music-pdx.firebaseio.com/artists.json?auth=' + token, {
+    this.httpClient.get<Artist[]>('https://live-music-pdx.firebaseio.com/artists.json', {
       observe: 'body',
-      responseType: 'json'
+      responseType: 'json',
+      params: new HttpParams().set('auth', token)
     })
       .map(
         (artists) => {
@@ -96,9 +99,10 @@ export class DataStorageService {
     //     }
     //   );
 
-    this.httpClient.get<Venue[]>('https://live-music-pdx.firebaseio.com/venues.json?auth=' + token, {
+    this.httpClient.get<Venue[]>('https://live-music-pdx.firebaseio.com/venues.json', {
       observe: 'body',
-      responseType: 'json'
+      responseType: 'json',
+      params: new HttpParams().set('auth', token)
     })
       .map(
         (venues) => {
