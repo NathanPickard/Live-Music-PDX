@@ -66,7 +66,7 @@ export class SearchService {
     }
 
     this.today = this.yearDate + '-' + this.monthDate + '-' + this.dayDate;
-    this.weekDate = this.yearDate + '-' + this.monthDate + '-' + (this.weekDate);
+    this.weekDate = this.yearDate + '-' + this.monthDate + '-0' + (this.weekDate);
 
     // console.log(this.today);
     // console.log(this.weekDate);

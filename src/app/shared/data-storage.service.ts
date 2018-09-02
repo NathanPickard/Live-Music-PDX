@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
 import { Http, Response } from "@angular/http";
 
 import { Artist } from "../artists/artist.model";
@@ -20,10 +20,13 @@ export class DataStorageService {
     const token = this.authService.getToken();
 
     // return this.http.put('https://live-music-pdx.firebaseio.com/artists.json?auth=' + token, this.artistService.getArtists());
-    return this.httpClient.put('https://live-music-pdx.firebaseio.com/artists.json', this.artistService.getArtists(), {
-      observe: 'body',
-      params: new HttpParams().set('auth', token)
-    });
+    // return this.httpClient.put('https://live-music-pdx.firebaseio.com/artists.json', this.artistService.getArtists(), {
+    //   observe: 'body',
+    //   params: new HttpParams().set('auth', token)
+    // });
+
+    const req = new HttpRequest('PUT', 'https://live-music-pdx.firebaseio.com/artists.json', this.artistService.getArtists(), { reportProgress: true, params: new HttpParams().set('auth', token) })
+    return this.httpClient.request(req);
   }
 
   storeVenues() {
