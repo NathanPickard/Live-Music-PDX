@@ -17,7 +17,7 @@ export class DataStorageService {
     private authService: AuthService) { }
 
   storeArtists() {
-    const token = this.authService.getToken();
+    // const token = this.authService.getToken();
 
     // return this.http.put('https://live-music-pdx.firebaseio.com/artists.json?auth=' + token, this.artistService.getArtists());
     // return this.httpClient.put('https://live-music-pdx.firebaseio.com/artists.json', this.artistService.getArtists(), {
@@ -25,7 +25,7 @@ export class DataStorageService {
     //   params: new HttpParams().set('auth', token)
     // });
 
-    const req = new HttpRequest('PUT', 'https://live-music-pdx.firebaseio.com/artists.json', this.artistService.getArtists(), { reportProgress: true, params: new HttpParams().set('auth', token) })
+    const req = new HttpRequest('PUT', 'https://live-music-pdx.firebaseio.com/artists.json', this.artistService.getArtists(), { reportProgress: true })
     return this.httpClient.request(req);
   }
 
@@ -40,7 +40,7 @@ export class DataStorageService {
   }
 
   getArtists() {
-    const token = this.authService.getToken();
+    // const token = this.authService.getToken();
 
     // this.http.get('https://live-music-pdx.firebaseio.com/artists.json?auth=' + token)
     //   .map(
@@ -65,7 +65,7 @@ export class DataStorageService {
     this.httpClient.get<Artist[]>('https://live-music-pdx.firebaseio.com/artists.json', {
       observe: 'body',
       responseType: 'json',
-      params: new HttpParams().set('auth', token)
+      // params: new HttpParams().set('auth', token)
     })
       .map(
         (artists) => {

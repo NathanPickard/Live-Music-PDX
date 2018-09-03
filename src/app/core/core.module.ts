@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button'
@@ -15,6 +16,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { ArtistService } from '../artists/artist.service';
 import { VenueService } from '../venues/venue.service';
 import { AuthService } from '../auth/auth.service';
+import { AuthInterceptor } from '../shared/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { AuthService } from '../auth/auth.service';
   providers: [
     ArtistService,
     VenueService,
-    AuthService
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ]
 })
 export class CoreModule { }
