@@ -20,6 +20,8 @@ export class SearchService {
 
   artistsResults: any;
 
+  selectedArtist: Artist;
+
   today: any;
   weekDate: any;
   dayDate: any;
@@ -76,11 +78,11 @@ export class SearchService {
       .map(res => res.json());
   }
 
-  // getArtistEvents(artist) {
-  //   this.getArtists(artist);
+  getArtistEvents(selectedArtist) {
+    // this.getArtists(artist);
 
-  //   return this.http.get(this.ARTIST_URL + query)
-  //   .map(res => res.json());
+    // return this.http.get(this.ARTIST_URL + query)
+    // .map(res => res.json());
 
-  // }
+  }
 }

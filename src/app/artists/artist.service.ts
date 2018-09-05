@@ -9,10 +9,12 @@ export class ArtistService {
 
   private artists: Artist[] = [
     new Artist(
-      'ZZ Top'
+      'ZZ Top',
+      307157
     ),
     new Artist(
-      'Incubus'
+      'Incubus',
+      141629
     )
   ];
 

@@ -24,11 +24,14 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   artists: Artist[];
   subscription: Subscription;
+  artist: Artist;
 
   foundArtists: any[];
   artistFound: boolean = false;
   searching: boolean = false;
   searchQuery: string;
+
+  artistId: number;
 
   // queryValue = this.searchArtistForm.value;
 
@@ -74,6 +77,11 @@ export class ArtistListComponent implements OnInit, OnDestroy {
       error => this.handleError(error),
       () => this.searching = false
     );
+  }
+
+  getArtistEvents(artistId) {
+    this.artistId = this.artist.id;   
+
   }
 
   // addToList(){
