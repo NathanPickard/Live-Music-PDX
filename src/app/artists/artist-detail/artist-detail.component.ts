@@ -65,12 +65,18 @@ export class ArtistDetailComponent implements OnInit {
     console.log(error);
   }
 
-  // getArtistEvents() {
-  //   return this.searchService.getArtistEvents(this.artist).subscribe(
-  //     data => this.handleSuccess(data),
-  //     error => this.handleError(error)
-  //   );
-  // }
+  getArtistEvents(artistId: number) {
+    // return this.searchService.getArtistEvents(this.artist).subscribe(
+    //   data => this.handleSuccess(data),
+    //   error => this.handleError(error)
+    // );
+    console.log(this.artist.id);
+    return this.searchService.getSelectedArtistEvents(this.artist.id).subscribe(
+      data => this.handleSuccess(data),
+      error => this.handleError(error)
+    );
+  }
+
 }
 
 

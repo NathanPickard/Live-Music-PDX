@@ -22,6 +22,8 @@ export class SearchService {
 
   selectedArtist: Artist;
 
+  artistId: number;
+
   today: any;
   weekDate: any;
   dayDate: any;
@@ -78,11 +80,11 @@ export class SearchService {
       .map(res => res.json());
   }
 
-  getArtistEvents(selectedArtist) {
+  getSelectedArtistEvents(artistId) {
     // this.getArtists(artist);
 
-    // return this.http.get(this.ARTIST_URL + query)
-    // .map(res => res.json());
+    return this.http.get('https://api.songkick.com/api/3.0/artists/' + artistId + '/calendar.json?apikey=' + this.API_KEY)
+      .map(res => res.json());
 
   }
 }
