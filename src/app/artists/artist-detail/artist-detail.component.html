@@ -1,13 +1,13 @@
 <!-- <div fxLayout="row" fxLayoutAlign="center"> -->
-  <mat-card>
+<mat-card>
 
-    <mat-card-header>
-      <mat-card-title>
-        <h2>{{ artist.name }}</h2>
-      </mat-card-title>
-    </mat-card-header>
+  <mat-card-header>
+    <mat-card-title>
+      <h2>{{ artist.name }}</h2>
+    </mat-card-title>
+  </mat-card-header>
 
-    <!-- <mat-card *ngIf="eventFound">
+  <!-- <mat-card *ngIf="eventFound">
     <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
       <mat-card-content>
         {{ foundEvent.displayName }}
@@ -18,20 +18,31 @@
     </mat-card-footer>
   </mat-card> -->
 
+  <mat-card-content>
+    <mat-form-field>
+      <mat-select placeholder="Manage Artist">
+        <mat-option value="Edit Artist" (click)="onEditArtist()">Edit Artist</mat-option>
+        <mat-option value="Delete Artist" (click)="onDeleteArtist()">Delete Artist</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="getArtistEvents()">Get {{ artist.name }} events</button>
+  </mat-card-actions>
+
+  <div *ngFor="let foundEvent of foundEvents" fxLayoutAlign="center center" fxLayoutWrap fxLayoutGap="20px">
     <mat-card-content>
-      <mat-form-field>
-        <mat-select placeholder="Manage Artist">
-          <mat-option value="Edit Artist" (click)="onEditArtist()">Edit Artist</mat-option>
-          <mat-option value="Delete Artist" (click)="onDeleteArtist()">Delete Artist</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <a href="{{ foundEvent.uri }}" target="_blank" style="text-decoration: none;">
+        {{ foundEvent.displayName }} - {{ foundEvent.venue.displayName }}
+      </a>
     </mat-card-content>
+  </div>
 
-    <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="getArtistEvents()">Get {{ artist.name }} events</button>
-    </mat-card-actions>
 
-  </mat-card>
+
+
+</mat-card>
 
 <!-- </div> -->
 <!-- <ul>
