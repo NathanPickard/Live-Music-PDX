@@ -49,7 +49,7 @@
             {{ foundArtist.displayName }} - {{ foundArtist.id }}
           </a>
           <div fxLayoutAlign="end center">
-            <button mat-icon-button color="primary" (click)="addArtistToList(foundArtist.displayName)" matTooltip="Add to artists list"
+            <button mat-icon-button color="primary" (click)="addArtistToList(foundArtist.displayName, foundArtist.id)" matTooltip="Add to artists list"
               matTooltipPosition="above">
               <mat-icon>add_circle_outline</mat-icon>
             </button>

@@ -31,8 +31,12 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   foundArtistInfo: any;
   foundArtistList: any[];
   index: number;
-  // diplayName: string;
+
   foundArtistName: string;
+  // foundArtistName: 'name';
+  foundArtistArray: Artist;
+  // foundArtistArray: any;
+  name: string;
 
   artistFound: boolean = false;
   searching: boolean = false;
@@ -88,13 +92,33 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     );
   }
 
-  addArtistToList(foundArtistName: string){
+  addArtistToList(foundArtistName: string, foundArtistId: number) {
     // console.log(this.foundArtistInfo);
-    console.log(foundArtistName);
-    // console.log(this.foundArtistList[index]);
+    console.log(foundArtistName, foundArtistId);
 
+    // this.foundArtistName = this.foundArtistArray;    
+
+    // this.foundArtistArray = Artist;
+    // this.foundArtistName = this.artist.name;
+
+    // this.foundArtistArray = [foundArtistName, foundArtistId];
+    // this.artist.id = foundArtistId;
+    // console.log(this.artist.id);
+
+    // this.foundArtistArray = [foundArtistName];
+
+    // this.artist.name = foundArtistName;
+    // this.artist.name = 'name';
+
+    // this.artist = [foundArtistName, foundArtistId];
+    // 'name': foundArtistName;
+    // this.artist = foundArtistName;
+
+    // this.artistService.addArtist(this.foundArtistArray);
+    // this.artistService.addArtist(this.artist);
+
+    // console.log(this.foundArtistList[index]);
     // this.handleSuccess(this.foundArtistInfo.results.artist.displayName);
-    // this.artistService.addArtist(this.foundArtistInfo);
 
     // return this.searchService.addArtistToList();
   }
