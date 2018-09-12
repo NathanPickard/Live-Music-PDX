@@ -12,7 +12,7 @@
     <form [formGroup]="venueForm" (ngSubmit)="onSubmit()">
 
       <mat-form-field>
-        <input matInput id="name" placeholder="Name" formControlName="name">
+        <input matInput id="name" placeholder="Name" formControlName="name" required>
       </mat-form-field>
 
       <mat-form-field>

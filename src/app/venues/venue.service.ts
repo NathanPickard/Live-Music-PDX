@@ -11,12 +11,14 @@ export class VenueService {
     new Venue(
       'Hawthorne Theater',
       'Portland, OR',
-      'Southeast location'
+      'Southeast location',
+      11593
     ),
     new Venue(
       'Crystal Ballroom',
       'Portland, OR',
-      'Southwest location'
+      'Southwest location',
+      1228
     )
   ];
 

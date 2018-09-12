@@ -4,6 +4,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { Venue } from '../venue.model';
 import { VenueService } from '../venue.service';
+import { SearchService } from '../../shared/search.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-venue-detail',
@@ -14,11 +16,15 @@ import { VenueService } from '../venue.service';
 export class VenueDetailComponent implements OnInit {
   venue: Venue;
   id: number;
+  foundEvents: any[];
+  eventsFound: boolean = false;
 
   constructor(private venueService: VenueService,
+    private searchService: SearchService,
     private route: ActivatedRoute,
     private router: Router,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.route.params
@@ -46,6 +52,24 @@ export class VenueDetailComponent implements OnInit {
       }
     });
   }
+
+  handleSuccess(data) {
+    this.eventsFound = true;
+    this.foundEvents = data.resultsPage.results.event;
+    console.log(data.resultsPage.results);
+  }
+
+  handleError(error) {
+    console.log(error);
+  }
+
+  getVenueEvents(venueId: number) {
+    return this.searchService.getSelectedVenueEvents(this.venue.id).subscribe(
+      data => this.handleSuccess(data),
+      error => this.handleError(error)
+    );
+  }
+
 }
 
 
