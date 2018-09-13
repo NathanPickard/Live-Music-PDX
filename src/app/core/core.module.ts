@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HeaderComponent } from './header/header.component';
@@ -30,6 +31,7 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatExpansionModule,
     MatListModule,
     MatProgressSpinnerModule,
     MatSelectModule,
