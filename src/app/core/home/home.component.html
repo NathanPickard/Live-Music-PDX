@@ -13,7 +13,8 @@
       <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
     </mat-card-header>
 
-    <div *ngFor="let foundEvent of foundEvents" fxLayoutAlign="center center" fxLayoutWrap fxLayoutGap="20px">
+
+    <!-- <div *ngFor="let foundEvent of foundEvents" fxLayoutAlign="center center" fxLayoutWrap fxLayoutGap="20px">
       <mat-card fxFlex>
         <mat-card-content>
           <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
@@ -27,8 +28,32 @@
           {{ foundEvent.start.date | date }}
         </mat-card-footer>
       </mat-card>
-    </div>
+    </div> -->
 
   </mat-card>
+
+  <div fxLayout="column" fxLayoutAlign="space-between center">
+
+    <div *ngFor="let foundEvent of foundEvents" fxLayout="column" fxLayoutAlign="space-around start">
+      <mat-accordion>
+        <mat-expansion-panel>
+
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
+                {{ foundEvent.displayName }} - {{ foundEvent.venue.displayName }}
+              </a>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <h4>Venue:</h4>
+          {{ foundEvent.venue.displayName}}
+        </mat-expansion-panel>
+      </mat-accordion>
+
+    </div>
+
+  </div>
 
 </div>
