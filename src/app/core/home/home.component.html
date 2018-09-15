@@ -32,23 +32,29 @@
 
   </mat-card>
 
-  <div fxLayout="column" fxLayoutAlign="space-between center">
+  <div fxLayout="column" fxLayoutAlign="center start">
 
-    <div *ngFor="let foundEvent of foundEvents" fxLayout="column" fxLayoutAlign="space-around start">
+    <div *ngFor="let foundEvent of foundEvents" fxLayout="column" fxLayoutAlign="space-around start" style="padding: 10px">
       <mat-accordion>
         <mat-expansion-panel>
 
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
-                {{ foundEvent.displayName }} - {{ foundEvent.venue.displayName }}
-              </a>
+              <h2> {{ foundEvent.start.date | date}} </h2>
+              <h3>
+                {{ foundEvent.displayName }}
+              </h3>
             </mat-panel-title>
             <mat-panel-description>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <h4>Venue:</h4>
-          {{ foundEvent.venue.displayName}}
+
+          <h4>Venue: {{ foundEvent.venue.displayName}}</h4>
+
+          <a href="{{ foundEvent.uri }}" mat-raised-button color="primary" target="_blank">
+            Check out event
+          </a>
+
         </mat-expansion-panel>
       </mat-accordion>
 
