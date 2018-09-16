@@ -15,20 +15,19 @@ export class RegisterComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
   registerForm: FormGroup;
 
-  onRegister(form: NgForm) {
-    const email = form.value.email;
-    const password = form.value.password;
-    this.authService.registerUser(email, password);
-  }
-
   ngOnInit() {
     this.registerForm = new FormGroup({
       'userData': new FormGroup({
         'email': new FormControl(null, [Validators.required, Validators.email]),
-        // 'password': new FormControl(null, [Validators.required, Validators.minLength(6)])
+        'password': new FormControl(null, [Validators.required, Validators.minLength(6)])
       })
     })
+  }
 
+  onRegister(form: NgForm) {
+    const email = form.value.email;
+    const password = form.value.password;
+    this.authService.registerUser(email, password);
   }
 
   // getErrorMessage() {
