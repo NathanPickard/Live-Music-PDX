@@ -24,9 +24,16 @@ export class RegisterComponent {
     })
   }
 
-  onRegister(form: NgForm) {
-    const email = form.value.email;
-    const password = form.value.password;
+  // onRegister(form: NgForm) {
+  //   const email = form.value.email;
+  //   const password = form.value.password;
+  //   this.authService.registerUser(email, password);
+  // }
+
+  onRegister() {
+    console.log(this.registerForm);
+    const email = this.registerForm.value.userData.email;
+    const password = this.registerForm.value.userData.password;
     this.authService.registerUser(email, password);
   }
 
