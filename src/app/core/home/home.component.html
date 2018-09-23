@@ -2,19 +2,25 @@
   <h2>Welcome to Live Music PDX!</h2>
   <h3>Popular events in Portland, OR:</h3>
 
+  <mat-card>
+    <mat-card-header fxLayoutAlign="center">
+      <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
+    </mat-card-header>
+  </mat-card>
+
   <div *ngIf="!eventsFound">
     <mat-spinner></mat-spinner>
   </div>
 
-  <mat-card *ngIf="eventsFound">
+  <!-- <mat-card *ngIf="eventsFound"> -->
 
-    <mat-card-header fxLayoutAlign="center" fxLayout="row">
-      <mat-card-title>Check out these events!</mat-card-title>
-      <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
-    </mat-card-header>
+  <!-- <mat-card-header fxLayoutAlign="center" fxLayout="row"> -->
+  <!-- <mat-card-title>Check out these events!</mat-card-title> -->
+  <!-- <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
+    </mat-card-header> -->
 
 
-    <!-- <div *ngFor="let foundEvent of foundEvents" fxLayoutAlign="center center" fxLayoutWrap fxLayoutGap="20px">
+  <!-- <div *ngFor="let foundEvent of foundEvents" fxLayoutAlign="center center" fxLayoutWrap fxLayoutGap="20px">
       <mat-card fxFlex>
         <mat-card-content>
           <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
@@ -30,7 +36,7 @@
       </mat-card>
     </div> -->
 
-  </mat-card>
+  <!-- </mat-card> -->
 
   <div fxLayout="column" fxLayoutAlign="center start">
 

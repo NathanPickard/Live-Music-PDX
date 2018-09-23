@@ -29,9 +29,10 @@
 
   <mat-divider></mat-divider>
 
-  <mat-list>
-    <app-artist-item fxLayoutAlign="center" *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
-  </mat-list>
+  <div fxLayout="column">
+    <app-artist-item fxLayoutAlign="space-around center" style="padding-top: 10px;" *ngFor="let artistEl of artists; let i = index"
+      [artist]="artistEl" [index]="i"></app-artist-item>
+  </div>
 
   <mat-divider></mat-divider>
 
@@ -49,8 +50,8 @@
             {{ foundArtist.displayName }} - {{ foundArtist.id }}
           </a>
           <div fxLayoutAlign="end center">
-            <button mat-icon-button color="primary" (click)="addArtistToList(foundArtist.displayName, foundArtist.id)" matTooltip="Add to artists list"
-              matTooltipPosition="above">
+            <button mat-icon-button color="primary" (click)="addArtistToList(foundArtist.displayName, foundArtist.id)"
+              matTooltip="Add to artists list" matTooltipPosition="above">
               <mat-icon>add_circle_outline</mat-icon>
             </button>
           </div>
