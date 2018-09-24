@@ -63,7 +63,7 @@ export class VenueDetailComponent implements OnInit {
     console.log(error);
   }
 
-  getVenueEvents(venueId: number) {
+  getVenueEvents() {
     return this.searchService.getSelectedVenueEvents(this.venue.id).subscribe(
       data => this.handleSuccess(data),
       error => this.handleError(error)

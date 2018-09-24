@@ -14,7 +14,7 @@ import { AuthService } from '../../auth/auth.service';
 export class HeaderComponent {
 
   constructor(private dataStorageService: DataStorageService,
-    private authService: AuthService) { }
+    public authService: AuthService) { }
 
   onSaveData() {
     this.dataStorageService.storeArtists()

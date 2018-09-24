@@ -65,7 +65,7 @@ export class ArtistDetailComponent implements OnInit {
     console.log(error);
   }
 
-  getArtistEvents(artistId: number) {
+  getArtistEvents() {
     // return this.searchService.getArtistEvents(this.artist).subscribe(
     //   data => this.handleSuccess(data),
     //   error => this.handleError(error)

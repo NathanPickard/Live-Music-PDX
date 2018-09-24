@@ -38,9 +38,9 @@
 
   <!-- </mat-card> -->
 
-  <div fxLayout="column" fxLayoutAlign="center start">
+  <div fxLayout="column" fxLayoutAlign="center stretch">
 
-    <div *ngFor="let foundEvent of foundEvents" fxLayout="column" fxLayoutAlign="space-around start" style="padding: 10px">
+    <div *ngFor="let foundEvent of foundEvents" fxLayout="column" style="padding: 10px">
       <mat-accordion>
         <mat-expansion-panel>
 
@@ -56,11 +56,16 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
 
-          <h4>Venue: {{ foundEvent.venue.displayName}}</h4>
+          <mat-card>
 
-          <a href="{{ foundEvent.uri }}" mat-raised-button color="primary" target="_blank">
-            Check out event
-          </a>
+            <h4>Venue: {{ foundEvent.venue.displayName }}</h4>
+            <h4>Start time: {{ foundEvent.start.datetime | date: 'shortTime' }}</h4>
+
+            <a href="{{ foundEvent.uri }}" mat-raised-button color="primary" target="_blank">
+              Check out event
+            </a>
+
+          </mat-card>
 
         </mat-expansion-panel>
       </mat-accordion>
