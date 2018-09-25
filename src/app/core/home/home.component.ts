@@ -11,6 +11,7 @@ import { SearchService } from '../../shared/search.service';
 export class HomeComponent implements OnInit {
 
   foundEvents: any[];
+  foundArtists: any[];
   eventsFound: boolean = false;
   type: any[];
 
@@ -23,6 +24,9 @@ export class HomeComponent implements OnInit {
   handleSuccess(data) {
     this.eventsFound = true;
     this.foundEvents = data.resultsPage.results.event;
+    // this.foundArtists = data.resultsPage.results.event.performance.artist;
+    // console.log(this.foundArtists);
+    console.log(this.foundEvents);
     console.log(data.resultsPage.results);
   }
 

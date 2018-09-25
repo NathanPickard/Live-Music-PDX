@@ -7,9 +7,14 @@ import 'rxjs/add/operator/map';
 
 import { ArtistService } from '../artists/artist.service';
 import { Artist } from '../artists/artist.model';
+import { Venue } from '../venues/venue.model';
 
 @Injectable()
 export class SearchService {
+
+  constructor(private httpClient: HttpClient,
+    private http: Http,
+    private artistService: ArtistService) { }
 
   private artist: string;
   private query: string;
@@ -31,8 +36,6 @@ export class SearchService {
   monthDate: any;
   yearDate: any;
 
-  constructor(private httpClient: HttpClient, private http: Http, private artistService: ArtistService) { }
-
 
   getArtists(query) {
     // this.httpClient.get<Artist[]>('https://api.songkick.com/api/3.0/search/artists.json?apikey='  + '&query={artist_name}', {
@@ -45,13 +48,18 @@ export class SearchService {
     //     }
     //   )
 
-    return this.http.get(this.ARTIST_URL + query)
-      .map(res => res.json());
+    // return this.http.get(this.ARTIST_URL + query)
+    //   .map(res => res.json());
+
+    return this.httpClient.get<Artist[]>(this.ARTIST_URL + query);
+
   }
 
   getVenues(query) {
-    return this.http.get(this.VENUE_URL + query + '&apikey=' + this.API_KEY)
-      .map(res => res.json());
+    // return this.http.get(this.VENUE_URL + query + '&apikey=' + this.API_KEY)
+    //   .map(res => res.json());
+
+    return this.httpClient.get<Venue[]>(this.VENUE_URL + query + '&apikey=' + this.API_KEY);
   }
 
   getPdxEvents() {
@@ -79,6 +87,10 @@ export class SearchService {
     return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
       '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
       .map(res => res.json());
+
+
+    // return this.httpClient.get<any>(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
+    //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25');
   }
 
   getSelectedArtistEvents(artistId) {

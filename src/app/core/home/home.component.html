@@ -59,6 +59,11 @@
           <mat-card>
 
             <h4>Venue: {{ foundEvent.venue.displayName }}</h4>
+
+            <!-- <h4 *ngFor="let foundArtist of foundArtists">
+              Artist: {{ foundArtist.}}
+            </h4> -->
+
             <h4>Start time: {{ foundEvent.start.datetime | date: 'shortTime' }}</h4>
 
             <a href="{{ foundEvent.uri }}" mat-raised-button color="primary" target="_blank">
