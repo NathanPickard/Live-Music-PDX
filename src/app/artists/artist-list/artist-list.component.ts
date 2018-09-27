@@ -65,10 +65,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
 
     this.searchArtistForm = new FormGroup({
-      'artistSearchForm': new FormGroup({
-        'searchQuery': new FormControl(null, [Validators.required])
-      })
+      'searchQuery': new FormControl(null, Validators.required)
     });
+
   }
 
   handleSuccess(data) {
@@ -88,21 +87,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     console.log(this.authService.isAuthenticated());
   }
 
-  // searchArtists(query: string) {
-  //   // console.log(this.searchArtistForm.value);
-  //   this.searching = true;
-  //   console.log(query);
-  //   return this.searchService.getArtists(query).subscribe(
-  //     data => this.handleSuccess(data),
-  //     // data => console.log(data),
-  //     error => this.handleError(error),
-  //     () => this.searching = false
-  //   );
-  // }
-
-  searchArtists() {
+  searchArtists(query: string) {
+    // console.log(this.searchArtistForm.value);
     this.searching = true;
-    const query = this.searchArtistForm.value.artistSearchForm.searchQuery;
     console.log(query);
     return this.searchService.getArtists(query).subscribe(
       data => this.handleSuccess(data),
@@ -111,6 +98,18 @@ export class ArtistListComponent implements OnInit, OnDestroy {
       () => this.searching = false
     );
   }
+
+  // searchArtists() {
+  //   this.searching = true;
+  //   const query = this.searchArtistForm.value.searchQuery;
+  //   console.log(query);
+  //   return this.searchService.getArtists(query).subscribe(
+  //     data => this.handleSuccess(data),
+  //     // data => console.log(data),
+  //     error => this.handleError(error),
+  //     () => this.searching = false
+  //   );
+  // }
 
   addArtistToList(foundArtistName: string, foundArtistId: number) {
     // console.log(this.foundArtistInfo);

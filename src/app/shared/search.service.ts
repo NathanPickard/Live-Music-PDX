@@ -38,7 +38,7 @@ export class SearchService {
 
 
   getArtists(query) {
-    // this.httpClient.get<Artist[]>('https://api.songkick.com/api/3.0/search/artists.json?apikey='  + '&query={artist_name}', {
+    // this.httpClient.get<Artist[]>('https://api.songkick.com/api/3.0/search/artists.json?apikey=' + '&query={artist_name}', {
     //   observe: 'body',
     //   responseType: 'json'
     // })
@@ -48,18 +48,18 @@ export class SearchService {
     //     }
     //   )
 
-    // return this.http.get(this.ARTIST_URL + query)
-    //   .map(res => res.json());
+    return this.http.get(this.ARTIST_URL + query)
+      .map(res => res.json());
 
-    return this.httpClient.get<Artist[]>(this.ARTIST_URL + query);
+    // return this.httpClient.get<Artist[]>(this.ARTIST_URL + query);
 
   }
 
   getVenues(query) {
-    // return this.http.get(this.VENUE_URL + query + '&apikey=' + this.API_KEY)
-    //   .map(res => res.json());
+    return this.http.get(this.VENUE_URL + query + '&apikey=' + this.API_KEY)
+      .map(res => res.json());
 
-    return this.httpClient.get<Venue[]>(this.VENUE_URL + query + '&apikey=' + this.API_KEY);
+    // return this.httpClient.get<Venue[]>(this.VENUE_URL + query + '&apikey=' + this.API_KEY);
   }
 
   getPdxEvents() {

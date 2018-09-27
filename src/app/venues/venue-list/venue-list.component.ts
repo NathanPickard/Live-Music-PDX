@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Venue } from '../venue.model';
 import { VenueService } from '../venue.service';
@@ -12,6 +13,11 @@ import { SearchService } from '../../shared/search.service';
   styleUrls: ['./venue-list.component.css']
 })
 export class VenueListComponent implements OnInit, OnDestroy {
+  constructor(private venueService: VenueService,
+    private searchService: SearchService,
+    private router: Router,
+    private route: ActivatedRoute) { }
+
   venues: Venue[];
   subscription: Subscription;
 
@@ -20,10 +26,7 @@ export class VenueListComponent implements OnInit, OnDestroy {
   searching: boolean = false;
   searchQuery: string;
 
-  constructor(private venueService: VenueService,
-    private searchService: SearchService,
-    private router: Router,
-    private route: ActivatedRoute) { }
+  searchVenueForm: FormGroup;
 
   ngOnInit() {
     this.subscription = this.venueService.venuesChanged
@@ -33,6 +36,10 @@ export class VenueListComponent implements OnInit, OnDestroy {
         }
       );
     this.venues = this.venueService.getVenues();
+
+    // this.searchVenueForm = new FormGroup({
+    //   'searchQuery': new FormControl(null, Validators.required)
+    // });
   }
 
   handleSuccess(data) {
@@ -58,6 +65,18 @@ export class VenueListComponent implements OnInit, OnDestroy {
       () => this.searching = false
     );
   }
+
+  // searchVenues() {
+  //   this.searching = true;
+  //   const query = this.searchVenueForm.value.searchQuery;
+  //   console.log(query);
+  //   return this.searchService.getVenues(query).subscribe(
+  //     data => this.handleSuccess(data),
+  //     // data => console.log(data),
+  //     error => this.handleError(error),
+  //     () => this.searching = false
+  //   );
+  // }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

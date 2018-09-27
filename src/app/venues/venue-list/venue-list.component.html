@@ -9,10 +9,19 @@
 
     <div>
       <mat-form-field type="submit">
-        <input matInput [(ngModel)]="searchQuery" placeholder="Search for venues">
+        <input type="search" matInput [(ngModel)]="searchQuery" placeholder="Search for venues">
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary" (click)="searchVenues(searchQuery)">Find Venues</button>
     </div>
+
+    <!-- <form [formGroup]="searchVenueForm" (ngSubmit)="searchVenues()">
+      <mat-form-field>
+        <input type="search" matInput placeholder="Search for venues" formControlName="searchQuery">
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">
+        Find Venues<mat-icon>search</mat-icon>
+      </button>
+    </form> -->
 
   </div>
 

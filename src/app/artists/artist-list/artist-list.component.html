@@ -9,30 +9,22 @@
 
     <h3>or</h3>
 
-    <!-- <div>
+    <div>
       <mat-form-field>
-        <input matInput [(ngModel)]="searchQuery" placeholder="Search for artists">
+        <input type="search" matInput [(ngModel)]="searchQuery" placeholder="Search for artists">
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary" (click)="searchArtists(searchQuery)">Find Artists</button>
-    </div> -->
+    </div>
 
-    <form [formGroup]="searchArtistForm" (ngSubmit)="searchArtists()">
-      <div formGroupName="artistSearchForm">
-        <mat-form-field>
-          <input type="search" matInput placeholder="Search for artists" formControlName="searchQuery">
-        </mat-form-field>
-        <button type="submit" mat-raised-button color="primary">Find Artists</button>
-      </div>
-    </form>
+    <!-- <form [formGroup]="searchArtistForm" (ngSubmit)="searchArtists()">
+      <mat-form-field>
+        <input type="search" matInput placeholder="Search for artists" formControlName="searchQuery">
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">
+        Find Artists<mat-icon>search</mat-icon>
+      </button>
+    </form> -->
 
-    <!-- <div>
-      <form [formGroup]="searchArtistForm" (ngSubmit)="onSubmit()">
-        <mat-form-field>
-          <input matInput formControlName="name" placeholder="Search for artists">
-        </mat-form-field>
-        <button type="submit" mat-raised-button color="primary">Find Artists</button>
-      </form>
-    </div> -->
 
   </div>
 

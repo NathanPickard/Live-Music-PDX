@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
@@ -40,6 +41,7 @@ import { VenuesRoutingModule } from './venue-routing.module';
     MatSelectModule,
     MatButtonModule,
     MatDividerModule,
+    MatIconModule,
     MatInputModule,
     MatCardModule,
     MatListModule,
