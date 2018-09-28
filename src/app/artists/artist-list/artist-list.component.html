@@ -3,27 +3,31 @@
   <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
     <div style="margin-bottom: 15px;">
       <!-- <button mat-raised-button color="primary" [disabled]="authService.isAuthenticated()" (click)="onNewArtist()">Add New -->
-      <button mat-raised-button color="primary" (click)="onNewArtist()">Add New Artist
+      <button mat-raised-button color="primary" (click)="onNewArtist()">
+        <mat-icon>playlist_add</mat-icon>Add New Artist
+      </button>
+      <button mat-raised-button color="primary" (click)="getUserToken()">
+        <mat-icon>playlist_add</mat-icon>get user token
       </button>
     </div>
 
     <h3>or</h3>
 
-    <div>
+    <!-- <div>
       <mat-form-field>
         <input type="search" matInput [(ngModel)]="searchQuery" placeholder="Search for artists">
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary" (click)="searchArtists(searchQuery)">Find Artists</button>
-    </div>
+    </div> -->
 
-    <!-- <form [formGroup]="searchArtistForm" (ngSubmit)="searchArtists()">
+    <form [formGroup]="searchArtistForm" (ngSubmit)="searchArtists()">
       <mat-form-field>
         <input type="search" matInput placeholder="Search for artists" formControlName="searchQuery">
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary">
-        Find Artists<mat-icon>search</mat-icon>
+        <mat-icon>search</mat-icon>Find Artists
       </button>
-    </form> -->
+    </form>
 
 
   </div>

@@ -17,8 +17,8 @@ import { SearchService } from '../../shared/search.service';
 export class ArtistListComponent implements OnInit, OnDestroy {
 
   constructor(private artistService: ArtistService,
+    public authService: AuthService,
     private searchService: SearchService,
-    private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute) { }
 
@@ -48,6 +48,8 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   searchArtistForm: FormGroup;
 
+  userToken: any;
+
 
   ngOnInit() {
 
@@ -67,7 +69,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     this.searchArtistForm = new FormGroup({
       'searchQuery': new FormControl(null, Validators.required)
     });
-
   }
 
   handleSuccess(data) {
@@ -87,21 +88,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     console.log(this.authService.isAuthenticated());
   }
 
-  searchArtists(query: string) {
-    // console.log(this.searchArtistForm.value);
-    this.searching = true;
-    console.log(query);
-    return this.searchService.getArtists(query).subscribe(
-      data => this.handleSuccess(data),
-      // data => console.log(data),
-      error => this.handleError(error),
-      () => this.searching = false
-    );
-  }
-
-  // searchArtists() {
+  // searchArtists(query: string) {
+  //   // console.log(this.searchArtistForm.value);
   //   this.searching = true;
-  //   const query = this.searchArtistForm.value.searchQuery;
   //   console.log(query);
   //   return this.searchService.getArtists(query).subscribe(
   //     data => this.handleSuccess(data),
@@ -110,6 +99,25 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   //     () => this.searching = false
   //   );
   // }
+
+  searchArtists() {
+    this.searching = true;
+    const query = this.searchArtistForm.value.searchQuery;
+    console.log(query);
+    console.log(this.authService.isAuthenticated());
+    return this.searchService.getArtists(query).subscribe(
+      data => this.handleSuccess(data),
+      // data => console.log(data),
+      error => this.handleError(error),
+      () => this.searching = false
+    );
+  }
+
+  getUserToken() {
+    this.userToken = this.authService.getToken();
+    console.log(this.userToken);
+    console.log(this.authService.isAuthenticated());
+  }
 
   addArtistToList(foundArtistName: string, foundArtistId: number) {
     // console.log(this.foundArtistInfo);

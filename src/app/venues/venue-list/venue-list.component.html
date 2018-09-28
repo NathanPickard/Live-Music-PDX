@@ -2,26 +2,28 @@
 
   <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
     <div style="margin-bottom: 15px;">
-      <button mat-raised-button color="primary" (click)="onNewVenue()">Add New Venue</button>
+      <button mat-raised-button color="primary" (click)="onNewVenue()">
+        <mat-icon>playlist_add</mat-icon>Add New Venue
+      </button>
     </div>
 
     <h3>or</h3>
 
-    <div>
+    <!-- <div>
       <mat-form-field type="submit">
         <input type="search" matInput [(ngModel)]="searchQuery" placeholder="Search for venues">
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary" (click)="searchVenues(searchQuery)">Find Venues</button>
-    </div>
+    </div> -->
 
-    <!-- <form [formGroup]="searchVenueForm" (ngSubmit)="searchVenues()">
+    <form [formGroup]="searchVenueForm" (ngSubmit)="searchVenues()">
       <mat-form-field>
         <input type="search" matInput placeholder="Search for venues" formControlName="searchQuery">
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary">
-        Find Venues<mat-icon>search</mat-icon>
+        <mat-icon>search</mat-icon>Find Venues
       </button>
-    </form> -->
+    </form>
 
   </div>
 

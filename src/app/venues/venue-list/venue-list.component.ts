@@ -37,9 +37,9 @@ export class VenueListComponent implements OnInit, OnDestroy {
       );
     this.venues = this.venueService.getVenues();
 
-    // this.searchVenueForm = new FormGroup({
-    //   'searchQuery': new FormControl(null, Validators.required)
-    // });
+    this.searchVenueForm = new FormGroup({
+      'searchQuery': new FormControl(null, Validators.required)
+    });
   }
 
   handleSuccess(data) {
@@ -56,20 +56,8 @@ export class VenueListComponent implements OnInit, OnDestroy {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
 
-  searchVenues(query: string) {
-    this.searching = true;
-    return this.searchService.getVenues(query).subscribe(
-      data => this.handleSuccess(data),
-      // data => console.log(data),
-      error => this.handleError(error),
-      () => this.searching = false
-    );
-  }
-
-  // searchVenues() {
+  // searchVenues(query: string) {
   //   this.searching = true;
-  //   const query = this.searchVenueForm.value.searchQuery;
-  //   console.log(query);
   //   return this.searchService.getVenues(query).subscribe(
   //     data => this.handleSuccess(data),
   //     // data => console.log(data),
@@ -77,6 +65,18 @@ export class VenueListComponent implements OnInit, OnDestroy {
   //     () => this.searching = false
   //   );
   // }
+
+  searchVenues() {
+    this.searching = true;
+    const query = this.searchVenueForm.value.searchQuery;
+    console.log(query);
+    return this.searchService.getVenues(query).subscribe(
+      data => this.handleSuccess(data),
+      // data => console.log(data),
+      error => this.handleError(error),
+      () => this.searching = false
+    );
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
