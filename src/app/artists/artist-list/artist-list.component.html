@@ -48,7 +48,7 @@
       <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
     </div>
 
-    <div *ngFor="let foundArtist of foundArtists">
+    <!-- <div *ngFor="let foundArtist of foundArtists">
       <mat-card>
         <mat-card-content>
           <a href="{{ foundArtist.uri }}" target="_blank" style="text-decoration: none;">
@@ -62,6 +62,26 @@
           </div>
         </mat-card-content>
       </mat-card>
+    </div> -->
+
+    <div *ngFor="let foundArtist of foundArtists">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <a href="{{ foundArtist.uri }}" target="_blank" style="text-decoration: none;">
+                {{ foundArtist.displayName }}
+              </a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayoutAlign="end center">
+            <button mat-icon-button color="primary" (click)="addArtistToList(foundArtist.displayName, foundArtist.id)"
+              matTooltip="Add to artists list" matTooltipPosition="above">
+              <mat-icon>add_circle_outline</mat-icon>
+            </button>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
 
   </mat-card>
