@@ -76,6 +76,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     this.foundArtists = data.resultsPage.results.artist;
     this.foundArtistInfo = data.resultsPage.results.artist;
     this.foundArtistList = data.resultsPage.results;
+    console.log(this.foundArtists);
     // console.log(data.resultsPage.results.artist.displayName);
   }
 

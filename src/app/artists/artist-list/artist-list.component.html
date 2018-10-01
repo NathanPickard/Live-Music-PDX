@@ -74,12 +74,17 @@
               </a>
             </mat-panel-title>
           </mat-expansion-panel-header>
+
           <div fxLayoutAlign="end center">
             <button mat-icon-button color="primary" (click)="addArtistToList(foundArtist.displayName, foundArtist.id)"
               matTooltip="Add to artists list" matTooltipPosition="above">
               <mat-icon>add_circle_outline</mat-icon>
             </button>
           </div>
+
+          <mat-card *ngIf="foundArtist.onTourUntil">
+            <h4>On tour until: {{ foundArtist.onTourUntil | date: 'E MMM d, y' }}</h4>
+          </mat-card>
         </mat-expansion-panel>
       </mat-accordion>
     </div>
