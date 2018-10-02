@@ -124,10 +124,10 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     );
   }
 
-  searchSimilarArtist() {
+  searchSimilarArtist(foundArtistId) {
     this.searching = true;
-    const artistId = this.foundArtistId;
-    return this.searchService.getSimilarArtists(artistId).subscribe(
+    // const artistId = foundArtistId;
+    return this.searchService.getSimilarArtists(foundArtistId).subscribe(
       data => this.handleSimilarArtistsSuccess(data),
       error => this.handleError(error),
       () => this.searching = false

@@ -78,6 +78,10 @@ export class SearchService {
       this.dayDate = '0' + this.dayDate;
     }
 
+    if (this.weekDate < 10) {
+      this.weekDate = '0' + this.weekDate;
+    }
+
     if (this.monthDate < 10) {
       this.monthDate = '0' + this.monthDate;
     }
