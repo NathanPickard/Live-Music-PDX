@@ -52,7 +52,11 @@ export class SearchService {
       .map(res => res.json());
 
     // return this.httpClient.get<Artist[]>(this.ARTIST_URL + query);
+  }
 
+  getSimilarArtists(artistId) {
+    return this.http.get(this.API_URL + 'artists/' + artistId + '/similar_artists.json?apikey=' + this.API_KEY)
+      .map(res => res.json());
   }
 
   getVenues(query) {

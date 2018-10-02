@@ -70,7 +70,7 @@
           <mat-expansion-panel-header>
             <mat-panel-title>
               <a href="{{ foundArtist.uri }}" target="_blank" style="text-decoration: none;">
-                {{ foundArtist.displayName }}
+                {{ foundArtist.displayName }} - {{ foundArtist.id}}
               </a>
             </mat-panel-title>
           </mat-expansion-panel-header>
@@ -84,7 +84,12 @@
 
           <mat-card *ngIf="foundArtist.onTourUntil">
             <h4>On tour until: {{ foundArtist.onTourUntil | date: 'E MMM d, y' }}</h4>
+            <button mat-raised-button color="primary" (click)="searchSimilarArtist(foundArtist.id)">
+              Similar Artists
+            </button>
           </mat-card>
+
+
         </mat-expansion-panel>
       </mat-accordion>
     </div>

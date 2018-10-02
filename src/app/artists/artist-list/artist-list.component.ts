@@ -27,8 +27,10 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   artist: Artist;
 
   foundArtists: any[];
+  similarArtists: any[];
 
   foundArtistInfo: any;
+  foundArtistId: any;
   foundArtistList: any[];
   index: number;
 
@@ -42,7 +44,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   searching: boolean = false;
   searchQuery: string;
 
-  artistId: number;
+  artistId: any;
 
   // queryValue = this.searchArtistForm.value;
 
@@ -75,9 +77,17 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     this.artistFound = true;
     this.foundArtists = data.resultsPage.results.artist;
     this.foundArtistInfo = data.resultsPage.results.artist;
+    this.foundArtistId = data.resultsPage.results.artist.id;
     this.foundArtistList = data.resultsPage.results;
+
     console.log(this.foundArtists);
+    console.log(this.foundArtistId);
     // console.log(data.resultsPage.results.artist.displayName);
+  }
+
+  handleSimilarArtistsSuccess(data) {
+    this.similarArtists = data.resultsPage.results.artist;
+    console.log(this.similarArtists);
   }
 
   handleError(error) {
@@ -109,6 +119,16 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     return this.searchService.getArtists(query).subscribe(
       data => this.handleSuccess(data),
       // data => console.log(data),
+      error => this.handleError(error),
+      () => this.searching = false
+    );
+  }
+
+  searchSimilarArtist() {
+    this.searching = true;
+    const artistId = this.foundArtistId;
+    return this.searchService.getSimilarArtists(artistId).subscribe(
+      data => this.handleSimilarArtistsSuccess(data),
       error => this.handleError(error),
       () => this.searching = false
     );
