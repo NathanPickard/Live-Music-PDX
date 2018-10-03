@@ -28,6 +28,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   foundArtists: any[];
   similarArtists: any[];
+  artistEvents: any[];
 
   foundArtistInfo: any;
   foundArtistId: any;
@@ -90,6 +91,12 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     console.log(this.similarArtists);
   }
 
+  handleArtistEventsSuccess(data) {
+    this.artistEvents = data.resultsPage.results.event;
+    // console.log(data.resultsPage.results);
+    console.log(this.artistEvents);
+  }
+
   handleError(error) {
     console.log(error);
   }
@@ -112,6 +119,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   // }
 
   searchArtists() {
+    this.similarArtists = null;
     this.searching = true;
     const query = this.searchArtistForm.value.searchQuery;
     console.log(query);
@@ -129,6 +137,15 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     // const artistId = foundArtistId;
     return this.searchService.getSimilarArtists(foundArtistId).subscribe(
       data => this.handleSimilarArtistsSuccess(data),
+      error => this.handleError(error),
+      () => this.searching = false
+    );
+  }
+
+  getSearchArtistEvents(foundArtistId) {
+    this.searching = true;
+    return this.searchService.getSelectedArtistEvents(foundArtistId).subscribe(
+      data => this.handleArtistEventsSuccess(data),
       error => this.handleError(error),
       () => this.searching = false
     );

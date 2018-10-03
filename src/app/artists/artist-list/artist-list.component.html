@@ -82,17 +82,40 @@
             </button>
           </div>
 
-          <button mat-raised-button color="primary" (click)="searchSimilarArtist(foundArtist.id)">
-            Similar Artists
-          </button>
+          <mat-card *ngIf="foundArtist.onTourUntil">
+            <h4>On tour until: {{ foundArtist.onTourUntil | date: 'E MMM d, y' }}</h4>
+          </mat-card>
+
+          <div fxLayout="row" fxLayoutGap="20px">
+
+            <button mat-raised-button color="primary" (click)="getSearchArtistEvents(foundArtist.id)">
+              Get {{ foundArtist.displayName }} events
+            </button>
+
+            <button mat-raised-button color="primary" (click)="searchSimilarArtist(foundArtist.id)">
+              Similar Artists
+            </button>
+
+          </div>
 
           <div *ngFor="let similarArtist of similarArtists">
             {{ similarArtist.displayName }}
           </div>
 
-          <mat-card *ngIf="foundArtist.onTourUntil">
-            <h4>On tour until: {{ foundArtist.onTourUntil | date: 'E MMM d, y' }}</h4>
-          </mat-card>
+          <div *ngFor="let artistEvent of artistEvents">
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <a href="{{ artistEvent.uri }}" target="_blank">
+                      {{ artistEvent.displayName }}
+                    </a>
+
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
 
 
         </mat-expansion-panel>
