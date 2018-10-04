@@ -62,15 +62,17 @@
                 {{ foundVenue.displayName }}
               </a>
             </mat-panel-title>
-            <mat-panel-description>
+            <mat-panel-description *ngIf="foundVenue.city.displayName && foundVenue.city.state.displayName">
               {{ foundVenue.city.displayName}} - {{ foundVenue.city.state.displayName }}
             </mat-panel-description>
           </mat-expansion-panel-header>
 
-          <mat-card>
+          <mat-card *ngIf="foundVenue.description || foundVenue.website">
             <h4>
               Description: {{ foundVenue.description }}
             </h4>
+
+            <a href="{{ foundVenue.website }}" mat-raised-button color="primary" target="_blank">Website</a>
           </mat-card>
 
         </mat-expansion-panel>

@@ -107,12 +107,23 @@
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
+                    <h3>
+                      {{ artistEvent.start.date | date: 'E MMM d' }} - 
+                    </h3>
                     <a href="{{ artistEvent.uri }}" target="_blank">
                       {{ artistEvent.displayName }}
                     </a>
 
                   </mat-panel-title>
                 </mat-expansion-panel-header>
+
+                <mat-card>
+                  <h4>
+                    Start time: {{ artistEvent.start.datetime | date: 'shortTime' }}
+                  </h4>
+
+                </mat-card>
+
               </mat-expansion-panel>
             </mat-accordion>
           </div>
