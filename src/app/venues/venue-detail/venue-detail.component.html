@@ -38,4 +38,16 @@
   </div>
 </div>
 
+<div *ngFor="let foundEvent of foundEvents">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ foundEvent.displayName }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
 <!-- </div> -->

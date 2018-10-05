@@ -75,12 +75,6 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
 
-          <div fxLayoutAlign="end center">
-            <button mat-icon-button color="primary" (click)="addArtistToList(foundArtist.displayName, foundArtist.id)"
-              matTooltip="Add to artists list" matTooltipPosition="above">
-              <mat-icon>add_circle_outline</mat-icon>
-            </button>
-          </div>
 
           <mat-card *ngIf="foundArtist.onTourUntil">
             <h4>On tour until: {{ foundArtist.onTourUntil | date: 'E MMM d, y' }}</h4>
@@ -88,8 +82,15 @@
 
           <div fxLayout="row" fxLayoutGap="20px">
 
+            <div fxLayoutAlign="end center">
+              <button mat-icon-button color="primary" (click)="addArtistToList(foundArtist.displayName, foundArtist.id)"
+                matTooltip="Add to artists list" matTooltipPosition="above">
+                <mat-icon>add_circle_outline</mat-icon>
+              </button>
+            </div>
+
             <button mat-raised-button color="primary" (click)="getSearchArtistEvents(foundArtist.id)">
-              Get {{ foundArtist.displayName }} events
+              Get '{{ foundArtist.displayName }}' events
             </button>
 
             <button mat-raised-button color="primary" (click)="searchSimilarArtist(foundArtist.id)">
@@ -97,6 +98,7 @@
             </button>
 
           </div>
+
 
           <div *ngFor="let similarArtist of similarArtists">
             {{ similarArtist.displayName }}
@@ -108,7 +110,7 @@
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     <h3>
-                      {{ artistEvent.start.date | date: 'E MMM d' }} - 
+                      {{ artistEvent.start.date | date: 'E MMM d' }} -
                     </h3>
                     <a href="{{ artistEvent.uri }}" target="_blank">
                       {{ artistEvent.displayName }}
