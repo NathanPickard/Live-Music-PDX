@@ -30,22 +30,32 @@
 
 </mat-card>
 
-<div fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="center">
+<!-- <div fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="center">
   <div *ngFor="let foundEvent of foundEvents" fxLayout="row" fxLayoutAlign="start center">
     <a href="{{ foundEvent.uri }}" target="_blank" style="text-decoration: none;">
       {{ foundEvent.displayName }}
     </a>
   </div>
-</div>
+</div> -->
 
 <div *ngFor="let foundEvent of foundEvents">
   <mat-accordion>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{ foundEvent.displayName }}
+          <h4>
+            {{ foundEvent.start.date | date: 'E MMM d' }} -
+            {{ foundEvent.displayName }}
+          </h4>
         </mat-panel-title>
       </mat-expansion-panel-header>
+
+      <h4 *ngIf="foundEvent.start.datetime">Start time: {{ foundEvent.start.datetime | date: 'shortTime' }}</h4>
+
+      <a href="{{ foundEvent.uri }}" mat-raised-button color="primary" target="_blank">
+        Check out event
+      </a>
+
     </mat-expansion-panel>
   </mat-accordion>
 </div>
