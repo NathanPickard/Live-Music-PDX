@@ -40,12 +40,15 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   foundArtistArray: Artist;
   // foundArtistArray: any;
   name: string;
+  id: number;
 
   artistFound: boolean = false;
   searching: boolean = false;
   searchQuery: string;
 
   artistId: any;
+
+  // newArtistName: name;
 
   // queryValue = this.searchArtistForm.value;
 
@@ -159,7 +162,27 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   addArtistToList(foundArtistName: string, foundArtistId: number) {
     // console.log(this.foundArtistInfo);
-    console.log(foundArtistName, foundArtistId);
+    // console.log(foundArtistName, foundArtistId);
+    
+    this.foundArtistName = foundArtistName;
+    this.foundArtistId = foundArtistId;
+    console.log(this.foundArtistName, this.foundArtistId);
+
+    this.name = foundArtistName;
+    this.id = foundArtistId;
+    console.log(this.foundArtistName, this.foundArtistId);
+
+    // this.foundArtistArray = (this.name);
+
+    new Artist(this.foundArtistName, this.foundArtistId);
+
+    // this.artistService.addArtist(Artist);
+
+    // newArtistArray = []
+
+
+
+    // this.artistService.addArtist()
 
     // this.foundArtistName = this.foundArtistArray;    
 
