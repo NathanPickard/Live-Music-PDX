@@ -1,12 +1,12 @@
 <div>
-  
+
   <mat-card>
 
     <mat-card-header>
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
 
-    <mat-card-content>
+    <!-- <mat-card-content>
       <form (ngSubmit)="onLogin(f)" #f="ngForm">
         <table>
           <tr>
@@ -25,6 +25,25 @@
           </tr>
         </table>
         <button mat-raised-button color="primary" type="submit">Login</button>
+      </form>
+    </mat-card-content> -->
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div formGroupName="userData" fxLayout="column">
+
+          <mat-form-field>
+            <input matInput placeholder="Email" type="email" formControlName="email">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Password" type="password" formControlName="password">
+            <mat-error *ngIf="!loginForm.get('userData.password').valid">Not a valid password</mat-error>
+            <!-- <mat-error *ngIf="loginForm.get('userData.password').errors['required']">Not a valid password</mat-error> -->
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit">Login</button>
+        </div>
       </form>
     </mat-card-content>
 
