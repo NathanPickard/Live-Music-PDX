@@ -40,7 +40,7 @@
 
   <div fxLayout="column" fxLayoutAlign="center stretch">
 
-    <div *ngFor="let foundEvent of foundEvents" fxLayout="column" style="padding: 10px">
+    <div @fade *ngFor="let foundEvent of foundEvents" fxLayout="column" style="padding: 10px">
       <mat-accordion>
         <mat-expansion-panel>
 
