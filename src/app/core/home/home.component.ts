@@ -9,9 +9,11 @@ import { SearchService } from '../../shared/search.service';
   styleUrls: ['./home.component.css'],
   animations: [
     trigger('fade', [
-      transition('void => *', [
-        style({ backgroundColor: 'yellow', opacity: 0 }),
-        animate(2000, style({ backgroundColor: 'white', opacity: 1 }))
+
+      state('void', style({ opacity: 0 })),
+
+      transition(':enter, :leave', [
+        animate(2000)
       ])
     ])
   ]
