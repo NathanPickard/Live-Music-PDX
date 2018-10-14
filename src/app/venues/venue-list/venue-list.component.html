@@ -75,6 +75,16 @@
             <a href="{{ foundVenue.website }}" mat-raised-button color="primary" target="_blank">Website</a>
           </mat-card>
 
+          <div fxLayout="row" fxLayoutGap="20px">
+
+            <div fxLayoutAlign="end center">
+              <button mat-icon-button color="primary" (click)="addVenueToList(foundVenue.displayName)" matTooltip="Add to venues list"
+                motTooltipPosition="above">
+                <mat-icon>add_circle_outline</mat-icon>
+              </button>
+            </div>
+          </div>
+
         </mat-expansion-panel>
       </mat-accordion>
     </div>

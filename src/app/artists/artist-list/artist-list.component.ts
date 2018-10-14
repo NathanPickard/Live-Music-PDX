@@ -164,9 +164,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     // console.log(this.foundArtistInfo);
     // console.log(foundArtistName, foundArtistId);
     
-    this.foundArtistName = foundArtistName;
-    this.foundArtistId = foundArtistId;
-    console.log(this.foundArtistName, this.foundArtistId);
+    // this.foundArtistName = foundArtistName;
+    // this.foundArtistId = foundArtistId;
+    // console.log(this.foundArtistName, this.foundArtistId);
 
     this.name = foundArtistName;
     this.id = foundArtistId;
@@ -174,9 +174,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
     // this.foundArtistArray = (this.name);
 
-    new Artist(this.foundArtistName, this.foundArtistId);
+    // new Artist(this.foundArtistName, this.foundArtistId);
 
-    // this.artistService.addArtist(Artist);
+    this.artistService.addArtist(new Artist(this.name, this.id));
 
     // newArtistArray = []
 
