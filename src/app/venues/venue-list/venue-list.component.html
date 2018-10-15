@@ -83,6 +83,38 @@
                 <mat-icon>add_circle_outline</mat-icon>
               </button>
             </div>
+
+            <button mat-raised-button color="primary" (click)="getSearchVenueEvents(foundVenue.id)">
+              Get '{{ foundVenue.displayName }}' events
+            </button>
+          </div>
+
+          <div *ngFor="let venueEvent of venueEvents">
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+
+                    <h3>
+                      {{ venueEvent.start.date | date: 'E MMM d' }} -
+                      {{ venueEvent.displayName }}
+                    </h3>
+
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+
+                <mat-card>
+                  <h4>
+                    Start time: {{ venueEvent.start.datetime | date: 'shortTime' }}
+                  </h4>
+                  <a href="{{ venueEvent.uri }}" mat-raised-button color="primary" target="_blank">
+                    Check out event
+                  </a>
+                </mat-card>
+
+              </mat-expansion-panel>
+            </mat-accordion>
           </div>
 
         </mat-expansion-panel>

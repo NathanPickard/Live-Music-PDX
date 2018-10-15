@@ -26,6 +26,8 @@ export class VenueListComponent implements OnInit, OnDestroy {
   searching: boolean = false;
   searchQuery: string;
 
+  venueEvents: any[];
+
   searchVenueForm: FormGroup;
 
   ngOnInit() {
@@ -46,6 +48,11 @@ export class VenueListComponent implements OnInit, OnDestroy {
     this.venueFound = true;
     this.foundVenues = data.resultsPage.results.venue;
     console.log(data.resultsPage.results.venue);
+  }
+
+  handleVenueEventsSuccess(data) {
+    this.venueEvents = data.resultsPage.results.event;
+    console.log(this.venueEvents);
   }
 
   handleError(error) {
@@ -73,6 +80,15 @@ export class VenueListComponent implements OnInit, OnDestroy {
     return this.searchService.getVenues(query).subscribe(
       data => this.handleSuccess(data),
       // data => console.log(data),
+      error => this.handleError(error),
+      () => this.searching = false
+    );
+  }
+
+  getSearchVenueEvents(foundVenueId) {
+    this.searching = true;
+    return this.searchService.getSelectedVenueEvents(foundVenueId).subscribe(
+      data => this.handleVenueEventsSuccess(data),
       error => this.handleError(error),
       () => this.searching = false
     );
