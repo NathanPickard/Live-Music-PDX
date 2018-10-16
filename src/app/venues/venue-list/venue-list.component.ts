@@ -26,6 +26,16 @@ export class VenueListComponent implements OnInit, OnDestroy {
   searching: boolean = false;
   searchQuery: string;
 
+  foundVenueName: string;
+  foundVenueAddress: string;
+  foundVenueDescription: string;
+  foundVenueId: number;
+
+  name: string;
+  address: string;
+  description: string;
+  id: number;
+
   venueEvents: any[];
 
   searchVenueForm: FormGroup;
@@ -92,6 +102,18 @@ export class VenueListComponent implements OnInit, OnDestroy {
       error => this.handleError(error),
       () => this.searching = false
     );
+  }
+
+  addVenueToList(foundVenueName: string, foundVenueAddress: string, foundVenueDescription, foundVenueId: number) {
+    this.name = foundVenueName;
+    this.address = foundVenueAddress;
+    this.description = foundVenueDescription;
+    this.id = foundVenueId;
+
+    console.log(this.foundVenueName, this.foundVenueAddress, this.foundVenueDescription, this.foundVenueId);
+
+    this.venueService.addVenue(new Venue(this.name, this.address, this.description, this.id));
+
   }
 
   ngOnDestroy() {
