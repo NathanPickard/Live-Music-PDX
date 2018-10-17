@@ -104,7 +104,7 @@ export class VenueListComponent implements OnInit, OnDestroy {
     );
   }
 
-  addVenueToList(foundVenueName: string, foundVenueAddress: string, foundVenueDescription, foundVenueId: number) {
+  addVenueToList(foundVenueName: string, foundVenueAddress: string, foundVenueDescription: string, foundVenueId: number) {
     this.name = foundVenueName;
     this.address = foundVenueAddress;
     this.description = foundVenueDescription;

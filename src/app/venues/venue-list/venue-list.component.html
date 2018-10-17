@@ -78,7 +78,7 @@
           <div fxLayout="row" fxLayoutGap="20px">
 
             <div fxLayoutAlign="end center">
-              <button mat-icon-button color="primary" (click)="addVenueToList(foundVenue.displayName)" matTooltip="Add to venues list"
+              <button mat-icon-button color="primary" (click)="addVenueToList(foundVenue.displayName, foundVenue.street, foundVenue.description, foundVenue.id)" matTooltip="Add to venues list"
                 motTooltipPosition="above">
                 <mat-icon>add_circle_outline</mat-icon>
               </button>
