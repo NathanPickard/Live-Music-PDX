@@ -8,3 +8,9 @@ html, body {
   margin: 0;
   /* font-family: Roboto; */
 }
+
+/* router-outlet ~ * { */
+  /* position: absolute; */
+  /* height: 100%; */
+  /* width: 100%; */
+/* } */
