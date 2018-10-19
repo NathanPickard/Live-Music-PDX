@@ -1,6 +1,7 @@
 <div class="mat-typography">
   <app-header></app-header>
-  <div [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''" fxLayoutAlign="center" fxFlexFill>
+  <!-- <div [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''" fxLayoutAlign="center" fxFlexFill> -->
+  <div [@routerTransition]="o.isActivated ? o.activatedRoute : ''" fxLayoutAlign="center" fxFlexFill>
     <router-outlet #o="outlet"></router-outlet>
   </div>
   <!-- <footer fxLayout="column" fxLayoutAlign="end center">Built by Nathan Pickard</footer> -->
