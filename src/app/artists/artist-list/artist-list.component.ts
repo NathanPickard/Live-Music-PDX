@@ -180,8 +180,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
     // newArtistArray = []
 
-
-
     // this.artistService.addArtist()
 
     // this.foundArtistName = this.foundArtistArray;    
