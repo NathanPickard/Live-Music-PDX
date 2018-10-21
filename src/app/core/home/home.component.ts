@@ -13,7 +13,7 @@ import { SearchService } from '../../shared/search.service';
       state('void', style({ opacity: 0 })),
 
       transition(':enter, :leave', [
-        animate(1500)
+        animate(1000)
       ])
     ])
   ]
