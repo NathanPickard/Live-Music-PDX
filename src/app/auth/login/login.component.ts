@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 import { AuthService } from '../auth.service';
 
@@ -10,7 +11,8 @@ import { AuthService } from '../auth.service';
 
 export class LoginComponent {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+    public snackBar: MatSnackBar) { }
 
   loginForm: FormGroup;
 
@@ -28,6 +30,14 @@ export class LoginComponent {
     const email = this.loginForm.value.userData.email;
     const password = this.loginForm.value.userData.password;
     this.authService.loginUser(email, password);
+
+
+  }
+
+  openSnackBar() {
+    this.snackBar.openFromComponent(LoginSnackbar, {
+      duration: 1000,
+    });
   }
 
   // onLogin(form: NgForm) {
@@ -36,3 +46,11 @@ export class LoginComponent {
   //   this.authService.loginUser(email, password);
   // }
 }
+
+
+@Component({
+  selector: 'login-snackbar',
+  templateUrl: 'login-snackbar.component.html',
+})
+
+export class LoginSnackbar { }
