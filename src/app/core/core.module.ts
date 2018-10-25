@@ -10,9 +10,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent, LogoutSnackbar } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ArtistService } from '../artists/artist.service';
@@ -24,6 +25,7 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
 @NgModule({
   declarations: [
     HeaderComponent,
+    LogoutSnackbar,
     HomeComponent
   ],
   imports: [
@@ -36,6 +38,7 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
     MatListModule,
     MatProgressSpinnerModule,
     MatSelectModule,
+    MatSnackBarModule,
     MatTableModule,
     AppRoutingModule,
     FlexLayoutModule
@@ -50,6 +53,7 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
     AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
-  ]
+  ],
+  entryComponents: [LogoutSnackbar]
 })
 export class CoreModule { }

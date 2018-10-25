@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 // import { Response } from '@angular/http';
 import { HttpEvent } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material';
 
 import { DataStorageService } from '../../shared/data-storage.service';
 import { AuthService } from '../../auth/auth.service';
@@ -14,7 +15,8 @@ import { AuthService } from '../../auth/auth.service';
 export class HeaderComponent {
 
   constructor(private dataStorageService: DataStorageService,
-    public authService: AuthService) { }
+    public authService: AuthService,
+    public snackBar: MatSnackBar) { }
 
   onSaveData() {
     this.dataStorageService.storeArtists()
@@ -39,5 +41,19 @@ export class HeaderComponent {
 
   onLogout() {
     this.authService.logout();
+    this.openSnackBar();
+  }
+
+  openSnackBar() {
+    this.snackBar.openFromComponent(LogoutSnackbar, {
+      duration: 1000,
+    });
   }
 }
+
+@Component({
+  selector: 'logout-snackbar',
+  templateUrl: 'logout-snackbar.component.html',
+})
+
+export class LogoutSnackbar { }
