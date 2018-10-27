@@ -30,8 +30,6 @@ export class LoginComponent {
     const email = this.loginForm.value.userData.email;
     const password = this.loginForm.value.userData.password;
     this.authService.loginUser(email, password);
-
-
   }
 
   openSnackBar() {
