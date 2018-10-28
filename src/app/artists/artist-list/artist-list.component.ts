@@ -47,9 +47,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   index: number;
 
   foundArtistName: string;
-  // foundArtistName: 'name';
   foundArtistArray: Artist;
-  // foundArtistArray: any;
   name: string;
   id: number;
 
@@ -206,13 +204,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
     // this.artist.name = foundArtistName;
     // this.artist.name = 'name';
-
-    // this.artist = [foundArtistName, foundArtistId];
-    // 'name': foundArtistName;
-    // this.artist = foundArtistName;
-
-    // this.artistService.addArtist(this.foundArtistArray);
-    // this.artistService.addArtist(this.artist);
 
     // console.log(this.foundArtistList[index]);
     // this.handleSuccess(this.foundArtistInfo.results.artist.displayName);
