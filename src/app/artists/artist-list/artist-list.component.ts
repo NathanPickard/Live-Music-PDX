@@ -57,9 +57,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   artistId: any;
 
-  // newArtistName: name;
-
-  // queryValue = this.searchArtistForm.value;
 
   searchArtistForm: FormGroup;
 
@@ -195,10 +192,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
     // this.foundArtistArray = Artist;
     // this.foundArtistName = this.artist.name;
-
-    // this.foundArtistArray = [foundArtistName, foundArtistId];
-    // this.artist.id = foundArtistId;
-    // console.log(this.artist.id);
 
     // this.foundArtistArray = [foundArtistName];
 
