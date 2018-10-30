@@ -184,16 +184,12 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
     this.artistService.addArtist(new Artist(this.name, this.id));
 
-    // newArtistArray = []
 
-    // this.artistService.addArtist()
 
     // this.foundArtistName = this.foundArtistArray;    
 
     // this.foundArtistArray = Artist;
     // this.foundArtistName = this.artist.name;
-
-    // this.foundArtistArray = [foundArtistName];
 
     // this.artist.name = foundArtistName;
     // this.artist.name = 'name';
