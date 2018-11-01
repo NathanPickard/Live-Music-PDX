@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { trigger, state, transition, style, animate} from '@angular/animations';
+import { fade } from '../../animations';
 
 import { AuthService } from '../../auth/auth.service';
 import { Artist } from '../artist.model';
@@ -14,14 +14,7 @@ import { SearchService } from '../../shared/search.service';
   templateUrl: './artist-list.component.html',
   styleUrls: ['./artist-list.component.css'],
   animations: [
-    trigger('fade', [
-
-      state('void', style({ opacity: 0 })),
-
-      transition(':enter, :leave', [
-        animate(1000)
-      ])
-    ])
+    [fade]
   ]
 })
 

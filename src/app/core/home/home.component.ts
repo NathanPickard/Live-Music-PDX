@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, transition, style, animate } from '@angular/animations';
+import { fade } from '../../animations';
 
 import { SearchService } from '../../shared/search.service';
 
@@ -7,16 +8,18 @@ import { SearchService } from '../../shared/search.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  animations: [
-    trigger('fade', [
+  animations:
+    // [
+    //   trigger('fade', [
 
-      state('void', style({ opacity: 0 })),
+    //     state('void', style({ opacity: 0 })),
 
-      transition(':enter, :leave', [
-        animate(1000)
-      ])
-    ])
-  ]
+    //     transition(':enter, :leave', [
+    //       animate(1000)
+    //     ])
+    //   ])
+    // ]
+    [fade]
 })
 
 export class HomeComponent implements OnInit {

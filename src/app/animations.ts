@@ -1,4 +1,4 @@
-import { trigger, animate, transition, style, group, query } from '@angular/animations';
+import { trigger, animate, transition, style, group, query, state } from '@angular/animations';
 
 export const fadeAnimation = trigger('fadeAnimation', [
   transition('* => *', [
@@ -20,11 +20,19 @@ export const fadeAnimation = trigger('fadeAnimation', [
   ])
 ]);
 
+export const fade = trigger('fade', [
+  state('void', style({ opacity: 0 })),
+
+  transition(':enter, :leave', [
+    animate(1000)
+  ])
+]);
+
 
 export const routerTransition = trigger('routerTransition', [
 
   transition('* => *', [
-    query(':enter, :leave', style({ position: 'fixed', width:'100%' })
+    query(':enter, :leave', style({ position: 'fixed', width: '100%' })
       , { optional: true }),
     group([
       query(':enter', [
@@ -38,7 +46,7 @@ export const routerTransition = trigger('routerTransition', [
     ])
   ])
 
-  
+
   // transition('* => artists', [
   //   query(':enter, :leave', style({ position: 'fixed', width:'100%' })
   //     , { optional: true }),
