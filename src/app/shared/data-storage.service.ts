@@ -17,6 +17,8 @@ export class DataStorageService {
     private authService: AuthService) { }
 
   storeArtists() {
+
+    // HttpClient implementation
     // const token = this.authService.getToken();
 
     // return this.http.put('https://live-music-pdx.firebaseio.com/artists.json?auth=' + token, this.artistService.getArtists());
