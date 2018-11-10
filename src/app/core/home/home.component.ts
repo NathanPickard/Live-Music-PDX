@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { trigger, state, transition, style, animate } from '@angular/animations';
+import { Component, OnInit, ViewChild } from '@angular/core';
+// import { trigger, state, transition, style, animate } from '@angular/animations';
 import { fade } from '../../animations';
+import { MatSort, MatTableDataSource, MatTable, PageEvent } from '@angular/material';
 
 import { SearchService } from '../../shared/search.service';
 
@@ -28,6 +29,10 @@ export class HomeComponent implements OnInit {
   foundArtists: any[];
   eventsFound: boolean = false;
   type: any[];
+
+  @ViewChild(MatSort) sort: MatSort;
+
+  pageEvent: PageEvent;
 
   constructor(private searchService: SearchService) { }
 

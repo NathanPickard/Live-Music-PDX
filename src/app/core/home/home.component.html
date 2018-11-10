@@ -12,6 +12,17 @@
     <mat-spinner></mat-spinner>
   </div>
 
+  <div>
+    <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
+      <ng-container matColumnDef="displayName">
+        <th mat-header-cell *matHeaderCellDef>
+          
+        </th>
+      </ng-container>
+
+    </table>
+  </div>
+
   <!-- <mat-card *ngIf="eventsFound"> -->
 
   <!-- <mat-card-header fxLayoutAlign="center" fxLayout="row"> -->
