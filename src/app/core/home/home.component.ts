@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit {
   eventsFound: boolean = false;
   type: any[];
 
+  displayedColumns: string[] = ['date', 'displayName', 'uri', 'datetime'];
+
   @ViewChild(MatSort) sort: MatSort;
 
   pageEvent: PageEvent;
