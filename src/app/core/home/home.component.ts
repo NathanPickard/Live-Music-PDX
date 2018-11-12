@@ -35,11 +35,17 @@ export class HomeComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   pageEvent: PageEvent;
+  dataSource: any;
 
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
     this.getPdxEvents();
+
+    this.getPdxEvents()
+      data => {
+        this.dataSource.data = data;
+      }
   }
 
   handleSuccess(data) {
