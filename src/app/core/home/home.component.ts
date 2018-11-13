@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
   handleSuccess(data) {
     this.eventsFound = true;
     this.foundEvents = data.resultsPage.results.event;
+    this.dataSource = this.foundEvents;
     // this.foundArtists = data.resultsPage.results.event.performance.artist;
     // console.log(this.foundArtists);
     console.log(this.foundEvents);
