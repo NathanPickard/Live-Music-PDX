@@ -2,8 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 // import { trigger, state, transition, style, animate } from '@angular/animations';
 import { fade } from '../../animations';
 import { MatSort, MatTableDataSource, MatTable, PageEvent } from '@angular/material';
+import { merge, Observable, of as oberservableOf } from 'rxjs';
+import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 
 import { SearchService } from '../../shared/search.service';
+// import { merge } from 'rxjs-compat/operator/merge';
 
 @Component({
   selector: 'app-home',
@@ -30,7 +33,7 @@ export class HomeComponent implements OnInit {
   eventsFound: boolean = false;
   type: any[];
 
-  displayedColumns: string[] = ['date', 'displayName', 'uri', 'datetime'];
+  displayedColumns: string[] = ['date', 'displayName', 'venue', 'uri', 'datetime'];
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -42,10 +45,18 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getPdxEvents();
 
-    this.getPdxEvents()
-      data => {
-        this.dataSource.data = data;
-      }
+    // this.getPdxEvents()
+    //   data => {
+    //     this.dataSource.data = data;
+    //   }  
+
+    // merge(this.sort.sortChange)
+    // .pipe(
+    //   startWith({}),
+    //   switchMap(() => {
+    //     return this.
+    //   })
+    // )
   }
 
   handleSuccess(data) {
