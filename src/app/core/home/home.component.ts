@@ -28,6 +28,8 @@ import { SearchService } from '../../shared/search.service';
 
 export class HomeComponent implements OnInit {
 
+  constructor(private searchService: SearchService) { }
+
   foundEvents: any[];
   foundArtists: any[];
   eventsFound: boolean = false;
@@ -39,8 +41,8 @@ export class HomeComponent implements OnInit {
 
   pageEvent: PageEvent;
   dataSource: any;
+  // dataSource: MatTableDataSource<any>;
 
-  constructor(private searchService: SearchService) { }
 
   ngOnInit() {
     this.getPdxEvents();
@@ -48,13 +50,15 @@ export class HomeComponent implements OnInit {
     // this.getPdxEvents()
     //   data => {
     //     this.dataSource.data = data;
-    //   }  
+    //   } 
+
+    // this.dataSource.sort = this.sort;
 
     // merge(this.sort.sortChange)
     // .pipe(
     //   startWith({}),
     //   switchMap(() => {
-    //     return this.
+    //     return this.handleSuccess(this.sort.active);
     //   })
     // )
   }

@@ -12,10 +12,10 @@
     <mat-spinner></mat-spinner>
   </div>
 
-  <div>
+  <div class="data-table">
     <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows style="overflow: auto;">
 
-      <ng-container matColumnDef="date">
+      <ng-container class="mat-column" matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
         <td mat-cell *matCellDef="let row">
           {{ row.start.date | date: 'E MMM d' }}
@@ -23,7 +23,7 @@
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
-      <ng-container matColumnDef="displayName">
+      <ng-container class="mat-column" matColumnDef="displayName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Event</th>
         <td mat-cell *matCellDef="let row">
           {{ row.displayName }}
@@ -31,7 +31,7 @@
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
-      <ng-container matColumnDef="venue">
+      <ng-container class="mat-column" matColumnDef="venue">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Venue</th>
         <td mat-cell *matCellDef="let row">
           <a href="{{ row.venue.uri }}" mat-stroked-button color="accent">
@@ -40,7 +40,7 @@
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
-      <ng-container matColumnDef="uri">
+      <ng-container class="mat-column" matColumnDef="uri">
         <th mat-header-cell *matHeaderCellDef>Event Link</th>
         <td mat-cell *matCellDef="let row">
           <a href="{{ row.uri}}" mat-stroked-button color="primary" target="_blank">Check out event</a>
@@ -48,7 +48,7 @@
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
-      <ng-container matColumnDef="datetime">
+      <ng-container class="mat-column" matColumnDef="datetime">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Time</th>
         <td mat-cell *matCellDef="let row">
           {{ row.start.datetime | date: 'shortTime' }}

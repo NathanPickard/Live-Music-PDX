@@ -1,0 +1,16 @@
+/* table {
+  width: 100%;
+} */
+
+.data-table {
+  overflow: auto;
+}
+
+/* .mat-column {
+  align-content: center;
+} */
+
+td.mat-cell {
+  /* justify-content: center; */
+  padding: 8px;
+}
