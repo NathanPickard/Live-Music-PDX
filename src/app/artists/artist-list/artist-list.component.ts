@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { fade } from '../../animations';
+import { MatSnackBar } from '@angular/material';
 
 import { AuthService } from '../../auth/auth.service';
 import { Artist } from '../artist.model';
@@ -24,7 +25,8 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     public authService: AuthService,
     private searchService: SearchService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    public snackBar: MatSnackBar) { }
 
   artists: Artist[];
   subscription: Subscription;
@@ -162,7 +164,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   addArtistToList(foundArtistName: string, foundArtistId: number) {
     // console.log(this.foundArtistInfo);
     // console.log(foundArtistName, foundArtistId);
-    
+
     // this.foundArtistName = foundArtistName;
     // this.foundArtistId = foundArtistId;
     // console.log(this.foundArtistName, this.foundArtistId);
@@ -177,6 +179,8 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
     this.artistService.addArtist(new Artist(this.name, this.id));
 
+    this.openSnackBar();
+
     // this.foundArtistName = this.foundArtistArray;
 
     // console.log(this.foundArtistList[index]);
@@ -185,11 +189,20 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     // return this.searchService.addArtistToList();
   }
 
-  // onSubmit() {
-  //   this.searchArtists(this.searchArtistForm.value);
-  // }
+  openSnackBar() {
+    this.snackBar.openFromComponent(ArtistSnackbar, {
+      duration: 1000,
+    });
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }
+
+@Component({
+  selector: 'artist-snackbar',
+  templateUrl: 'artist-snackbar.component.html'
+})
+
+export class ArtistSnackbar { }

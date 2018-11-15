@@ -13,11 +13,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ArtistsComponent } from './artists.component';
 import { ArtistStartComponent } from './artist-start/artist-start.component';
-import { ArtistListComponent } from './artist-list/artist-list.component';
+import { ArtistListComponent, ArtistSnackbar } from './artist-list/artist-list.component';
 import { ArtistEditComponent } from './artist-edit/artist-edit.component';
 import { ArtistDetailComponent, ArtistDetailDialog } from './artist-detail/artist-detail.component';
 import { ArtistItemComponent } from './artist-list/artist-item/artist-item.component';
@@ -32,7 +33,8 @@ import { AuthService } from '../auth/auth.service';
     ArtistEditComponent,
     ArtistDetailComponent,
     ArtistItemComponent,
-    ArtistDetailDialog
+    ArtistDetailDialog,
+    ArtistSnackbar
   ],
   imports: [
     CommonModule,
@@ -50,13 +52,14 @@ import { AuthService } from '../auth/auth.service';
     MatListModule,
     MatDialogModule,
     MatTooltipModule,
+    MatSnackBarModule,
     FlexLayoutModule
   ],
   providers: [
     AuthService
   ],
 
-  entryComponents: [ArtistDetailDialog]
+  entryComponents: [ArtistDetailDialog, ArtistSnackbar]
 })
 
 export class ArtistsModule { }
