@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 import { Venue } from '../venue.model';
 import { VenueService } from '../venue.service';
@@ -16,7 +17,8 @@ export class VenueListComponent implements OnInit, OnDestroy {
   constructor(private venueService: VenueService,
     private searchService: SearchService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    public snackBar: MatSnackBar) { }
 
   venues: Venue[];
   subscription: Subscription;
@@ -114,6 +116,14 @@ export class VenueListComponent implements OnInit, OnDestroy {
 
     this.venueService.addVenue(new Venue(this.name, this.address, this.description, this.id));
 
+    this.openSnackBar();
+
+  }
+
+  openSnackBar() {
+    this.snackBar.open(this.name + ' added', null, {
+      duration: 1500
+    });
   }
 
   ngOnDestroy() {

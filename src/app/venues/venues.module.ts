@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { VenuesComponent } from './venues.component';
@@ -50,6 +51,7 @@ import { VenuesRoutingModule } from './venue-routing.module';
     MatDialogModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
     MatTooltipModule,
     FlexLayoutModule
   ],
