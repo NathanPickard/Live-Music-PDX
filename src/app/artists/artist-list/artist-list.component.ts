@@ -190,8 +190,11 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   }
 
   openSnackBar() {
-    this.snackBar.openFromComponent(ArtistSnackbar, {
-      duration: 1000,
+    // this.snackBar.openFromComponent(ArtistSnackbar, {
+    //   duration: 1000,
+    // });
+    this.snackBar.open(this.name + ' added', null, {
+      duration: 1500
     });
   }
 
