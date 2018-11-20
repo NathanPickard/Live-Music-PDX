@@ -110,18 +110,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     console.log(this.authService.isAuthenticated());
   }
 
-  // searchArtists(query: string) {
-  //   // console.log(this.searchArtistForm.value);
-  //   this.searching = true;
-  //   console.log(query);
-  //   return this.searchService.getArtists(query).subscribe(
-  //     data => this.handleSuccess(data),
-  //     // data => console.log(data),
-  //     error => this.handleError(error),
-  //     () => this.searching = false
-  //   );
-  // }
-
   searchArtists() {
     this.similarArtists = null;
     this.searching = true;
@@ -172,10 +160,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     this.name = foundArtistName;
     this.id = foundArtistId;
     console.log(this.foundArtistName, this.foundArtistId);
-
-    // this.foundArtistArray = (this.name);
-
-    // new Artist(this.foundArtistName, this.foundArtistId);
 
     this.artistService.addArtist(new Artist(this.name, this.id));
 

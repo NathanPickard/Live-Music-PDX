@@ -36,10 +36,12 @@
 
   <div fxLayout="column">
     <!-- <mat-list> -->
-    <app-artist-item fxLayoutAlign="space-around center" style="padding-top: 10px;" *ngFor="let artistEl of artists; let i = index"
-      [artist]="artistEl" [index]="i"></app-artist-item>
-    <!-- <app-artist-item mat-list-item *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
-    </mat-list> -->
+      <app-artist-item fxLayoutAlign="space-around center" style="padding-top: 10px;" *ngFor="let artistEl of artists; let i = index"
+        [artist]="artistEl" [index]="i"></app-artist-item>
+      <!-- <mat-list-item>
+        <app-artist-item *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
+      </mat-list-item> -->
+    <!-- </mat-list> -->
   </div>
 
   <mat-divider></mat-divider>
