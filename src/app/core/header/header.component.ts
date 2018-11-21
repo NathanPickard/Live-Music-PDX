@@ -34,6 +34,10 @@ export class HeaderComponent {
       );
   }
 
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
+  }
+
   onFetchData() {
     this.dataStorageService.getArtists();
     this.dataStorageService.getVenues();

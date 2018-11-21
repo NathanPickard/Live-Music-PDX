@@ -105,6 +105,10 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     console.log(error);
   }
 
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
+  }
+
   onNewArtist() {
     this.router.navigate(['new'], { relativeTo: this.route });
     console.log(this.authService.isAuthenticated());

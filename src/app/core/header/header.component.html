@@ -9,7 +9,6 @@
     <div>
       <a mat-stroked-button routerLink="/">
         <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"-->
-
         <mat-icon>music_note</mat-icon>Live Music PDX
       </a>
     </div>
@@ -30,7 +29,7 @@
 
     <!-- <div fxLayout="column" fxLayoutAlign="end"> -->
 
-    <mat-form-field *ngIf="authService.isAuthenticated()">
+    <mat-form-field *ngIf="isAuthenticated()">
       <mat-select placeholder="Manage Data">
         <mat-option value="Save Data" (click)="onSaveData()">Save Data</mat-option>
         <mat-option value="Fetch Data" (click)="onFetchData()">Fetch Data</mat-option>
@@ -38,7 +37,7 @@
     </mat-form-field>
 
 
-    <ng-template [ngIf]="!authService.isAuthenticated()">
+    <ng-template [ngIf]="!isAuthenticated()">
 
       <a mat-button routerLink="/register" routerLinkActive="active">
         <mat-icon>account_box</mat-icon>Register
@@ -50,7 +49,7 @@
 
     </ng-template>
 
-    <a mat-button (click)="onLogout()" *ngIf="authService.isAuthenticated()">
+    <a mat-button (click)="onLogout()" *ngIf="isAuthenticated()">
       <mat-icon>stop</mat-icon>Logout
     </a>
 
