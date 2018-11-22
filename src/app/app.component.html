@@ -1,9 +1,25 @@
 <div class="mat-typography">
-  <app-header></app-header>
+  <app-header>
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </app-header>
   <!-- <div [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''" fxLayoutAlign="center" fxFlexFill> -->
-  <div [@routerTransition]="o.isActivated ? o.activatedRoute : ''" fxLayoutAlign="center" fxFlexFill>
-    <router-outlet #o="outlet"></router-outlet>
-  </div>
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <p></p>
+        <p></p>
+        <p></p>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div [@routerTransition]="o.isActivated ? o.activatedRoute : ''" fxLayoutAlign="center" fxFlexFill>
+        <router-outlet #o="outlet"></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
   <!-- <footer fxLayout="column" fxLayoutAlign="end center">Built by Nathan Pickard</footer> -->
 </div>
-<footer class="mat-typography" fxLayout="column" fxLayoutAlign="end center" fxFlexFill>Built by <a href="https://github.com/NathanPickard" target="_blank" style="text-decoration: none;">Nathan Pickard</a></footer>
+<footer class="mat-typography" fxLayout="column" fxLayoutAlign="end center" fxFlexFill>Built by <a href="https://github.com/NathanPickard"
+    target="_blank" style="text-decoration: none;">Nathan Pickard</a></footer>

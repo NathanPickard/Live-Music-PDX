@@ -15,6 +15,10 @@ import { DataStorageService } from './shared/data-storage.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav'
+
 @NgModule({
   declarations: [
     AppComponent
@@ -28,7 +32,10 @@ import { AuthGuard } from './auth/auth-guard.service';
     VenuesModule,
     CoreModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatIconModule,
+    MatListModule,
+    MatSidenavModule,
   ],
   providers: [SearchService, AuthService, DataStorageService, AuthGuard],
   bootstrap: [AppComponent]
