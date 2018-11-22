@@ -126,6 +126,12 @@ export class VenueListComponent implements OnInit, OnDestroy {
     });
   }
 
+  // openSnackBar() {
+  //   this.snackBar.open(this.name + ' added'), {
+  //     duration: 1500
+  //   };
+  // }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

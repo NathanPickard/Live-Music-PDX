@@ -11,6 +11,7 @@
 
     <mat-form-field>
 
+      <!-- <mat-select [disabled]="!isAuthenticated()" matTooltip="Login to manage artist" placeholder="Manage Artist"> -->
       <mat-select placeholder="Manage Artist">
         <mat-option value="Edit Artist" (click)="onEditArtist()">Edit Artist</mat-option>
         <mat-option value="Delete Artist" (click)="onDeleteArtist()">Delete Artist</mat-option>
@@ -40,12 +41,12 @@
 <!-- <div fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="center">
 
   <div *ngFor="let foundEvent of foundEvents" fxLayout="row" fxLayoutAlign="start center"> -->
-    <!-- <mat-card-content> -->
-    <!-- <a href="{{ foundEvent.uri }}" target="_blank" style="text-decoration: none;">
+<!-- <mat-card-content> -->
+<!-- <a href="{{ foundEvent.uri }}" target="_blank" style="text-decoration: none;">
       {{ foundEvent.displayName }}
     </a> -->
-    <!-- </mat-card-content> -->
-  <!-- </div>
+<!-- </mat-card-content> -->
+<!-- </div>
 </div> -->
 
 <div *ngFor="let foundEvent of foundEvents">

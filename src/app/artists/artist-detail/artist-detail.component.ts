@@ -37,6 +37,10 @@ export class ArtistDetailComponent implements OnInit {
       );
   }
 
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
+  }
+
   onEditArtist() {
     this.router.navigate(['edit'], { relativeTo: this.route });
   }
