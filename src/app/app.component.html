@@ -1,16 +1,20 @@
 <div class="mat-typography">
   <app-header>
-    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+    <!-- <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
       <mat-icon>menu</mat-icon>
-    </button>
+    </button> -->
+    <p>weiofjewoifje</p>
   </app-header>
   <!-- <div [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''" fxLayoutAlign="center" fxFlexFill> -->
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav>
       <mat-nav-list>
-        <p></p>
-        <p></p>
-        <p></p>
+        <a mat-button routerLink="/venues" routerLinkActive="active">
+          <mat-icon>local_play</mat-icon>Venues
+        </a>
+        <a mat-button routerLink="/artists" routerLinkActive="active">
+          <mat-icon>music_video</mat-icon>Artists
+        </a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
