@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -25,6 +26,7 @@ import { MatSidenavModule } from '@angular/material/sidenav'
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     HttpClientModule,
     HttpModule,
     AppRoutingModule,

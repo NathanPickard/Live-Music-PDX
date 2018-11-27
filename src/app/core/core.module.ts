@@ -17,6 +17,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 import { HeaderComponent, LogoutSnackbar } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from '../app-routing.module';
@@ -47,6 +49,7 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
     MatSortModule,
     MatTableModule,
     MatToolbarModule,
+    NgxPaginationModule,
     AppRoutingModule,
     FlexLayoutModule
   ],

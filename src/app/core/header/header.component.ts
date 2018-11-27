@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 // import { Response } from '@angular/http';
 import { HttpEvent } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material';
 
 import { DataStorageService } from '../../shared/data-storage.service';
 import { AuthService } from '../../auth/auth.service';
+
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +15,8 @@ import { AuthService } from '../../auth/auth.service';
 })
 
 export class HeaderComponent {
+
+  // @ViewChild(AppComponent) sidenav: AppComponent;
 
   constructor(private dataStorageService: DataStorageService,
     public authService: AuthService,

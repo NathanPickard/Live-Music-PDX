@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { fadeAnimation, routerTransition } from './animations';
 import * as firebase from 'firebase';
+
+import { HeaderComponent } from '../../src/app/core/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,10 @@ import * as firebase from 'firebase';
   animations: [routerTransition]
 })
 export class AppComponent implements OnInit {
+
+  // @ViewChild(HeaderComponent) sidenav: (HeaderComponent);
+
+  
   loadedFeature = 'artist';
 
   ngOnInit() {
