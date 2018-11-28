@@ -12,8 +12,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ArtistsComponent } from './artists.component';
@@ -51,8 +53,10 @@ import { AuthService } from '../auth/auth.service';
     MatCardModule,
     MatListModule,
     MatDialogModule,
-    MatTooltipModule,
     MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTooltipModule,
     FlexLayoutModule
   ],
   providers: [

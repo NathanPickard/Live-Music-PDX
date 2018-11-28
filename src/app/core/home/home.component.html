@@ -13,7 +13,7 @@
   </div>
 
   <div class="data-table">
-    <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows style="overflow: auto;">
+    <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
 
       <ng-container class="mat-column" matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
@@ -62,7 +62,9 @@
 
     </table>
 
-    <pagination-controls></pagination-controls>
+    <!-- <pagination-controls></pagination-controls> -->
+
+    <!-- <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event"></mat-paginator> -->
   </div>
 
   <!-- <mat-card *ngIf="eventsFound"> -->
@@ -99,8 +101,8 @@
 
           <mat-expansion-panel-header>
             <mat-panel-title> -->
-              <!-- <h2> {{ foundEvent.start.date | date}} </h2> -->
-              <!-- <h3>
+  <!-- <h2> {{ foundEvent.start.date | date}} </h2> -->
+  <!-- <h3>
                 {{ foundEvent.start.date | date: 'E MMM d' }} -
                 {{ foundEvent.displayName }}
               </h3>
@@ -113,11 +115,11 @@
 
             <h4>Venue: {{ foundEvent.venue.displayName }}</h4> -->
 
-            <!-- <h4 *ngFor="let foundArtist of foundArtists">
+  <!-- <h4 *ngFor="let foundArtist of foundArtists">
               Artist: {{ foundArtist.}}
             </h4> -->
 
-            <!-- <h4>Start time: {{ foundEvent.start.datetime | date: 'shortTime' }}</h4>
+  <!-- <h4>Start time: {{ foundEvent.start.datetime | date: 'shortTime' }}</h4>
 
             <a href="{{ foundEvent.uri }}" mat-raised-button color="primary" target="_blank">
               Check out event

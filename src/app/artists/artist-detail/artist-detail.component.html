@@ -49,7 +49,63 @@
 <!-- </div>
 </div> -->
 
-<div *ngFor="let foundEvent of foundEvents">
+
+<div *ngIf="eventsFound">
+  <div class="data-table">
+    <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
+
+      <ng-container class="mat-column" matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.start.date | date: 'E MMM d' }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container class="mat-column" matColumnDef="displayName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Event</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.displayName }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container class="mat-column" matColumnDef="venue">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Venue</th>
+        <td mat-cell *matCellDef="let row">
+          <a href="{{ row.venue.uri }}" mat-stroked-button color="accent">
+            {{ row.venue.displayName }}</a>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container class="mat-column" matColumnDef="uri">
+        <th mat-header-cell *matHeaderCellDef>Event Link</th>
+        <td mat-cell *matCellDef="let row">
+          <a href="{{ row.uri}}" mat-stroked-button color="primary" target="_blank">Check out event</a>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container class="mat-column" matColumnDef="datetime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Time</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.start.datetime | date: 'shortTime' }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
+
+    </table>
+
+  </div>
+</div>
+
+
+<!-- <div *ngFor="let foundEvent of foundEvents">
   <mat-accordion>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
@@ -65,7 +121,10 @@
       <a href="{{ foundEvent.uri }}" mat-raised-button color="primary" target="_blank">Check out event</a>
     </mat-expansion-panel>
   </mat-accordion>
-</div>
+</div> -->
+
+
+
 
 <!-- </div> -->
 <!-- <ul>

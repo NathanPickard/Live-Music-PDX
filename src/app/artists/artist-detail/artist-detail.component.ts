@@ -1,6 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatSort, MatTableDataSource, MatTable, PageEvent } from '@angular/material';
+
 
 import { Artist } from '../artist.model';
 import { ArtistService } from '../artist.service';
@@ -26,6 +29,9 @@ export class ArtistDetailComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     private authService: AuthService) { }
+
+  displayedColumns: string[] = ['date', 'displayName', 'venue', 'uri', 'datetime'];
+  dataSource: any;
 
   ngOnInit() {
     this.route.params
@@ -62,6 +68,7 @@ export class ArtistDetailComponent implements OnInit {
   handleSuccess(data) {
     this.eventsFound = true;
     this.foundEvents = data.resultsPage.results.event;
+    this.dataSource = this.foundEvents;
     console.log(data.resultsPage.results);
   }
 
