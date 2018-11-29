@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
   constructor(private searchService: SearchService) { }
 
   foundEvents: any[];
+  performanceArray: any[];
   foundArtists: any[];
   eventsFound: boolean = false;
   type: any[];
@@ -50,7 +51,7 @@ export class HomeComponent implements OnInit {
     // this.getPdxEvents()
     //   data => {
     //     this.dataSource.data = data;
-    //   } 
+    //   }
 
     // this.dataSource.sort = this.sort;
 
@@ -67,10 +68,11 @@ export class HomeComponent implements OnInit {
     this.eventsFound = true;
     this.foundEvents = data.resultsPage.results.event;
     this.dataSource = this.foundEvents;
+    // this.performanceArray = data.resultsPage.results.event.location;
     // this.foundArtists = data.resultsPage.results.event.performance.artist;
     // console.log(this.foundArtists);
     console.log(this.foundEvents);
-    console.log(data.resultsPage.results);
+    // console.log(this.performanceArray);
   }
 
   handleError(error) {

@@ -28,6 +28,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     public snackBar: MatSnackBar) { }
 
+  displayedColumns: string[] = ['date', 'displayName', 'city', 'venue', 'uri', 'datetime'];
+  dataSource: any;
+
   artists: Artist[];
   subscription: Subscription;
   artist: Artist;
@@ -47,6 +50,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   id: number;
 
   artistFound: boolean = false;
+  artistEventsFound: boolean = false;
   searching: boolean = false;
   searchQuery: string;
 
@@ -96,7 +100,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   }
 
   handleArtistEventsSuccess(data) {
+    this.artistEventsFound = true;
     this.artistEvents = data.resultsPage.results.event;
+    this.dataSource = this.artistEvents;
     // console.log(data.resultsPage.results);
     console.log(this.artistEvents);
   }
