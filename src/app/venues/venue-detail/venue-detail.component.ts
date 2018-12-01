@@ -26,6 +26,9 @@ export class VenueDetailComponent implements OnInit {
     private dialog: MatDialog,
     private authService: AuthService) { }
 
+    displayedColumns: string[] = ['date', 'displayName', 'city', 'venue', 'uri', 'datetime'];
+    dataSource: any;
+
   ngOnInit() {
     this.route.params
       .subscribe(
@@ -56,6 +59,7 @@ export class VenueDetailComponent implements OnInit {
   handleSuccess(data) {
     this.eventsFound = true;
     this.foundEvents = data.resultsPage.results.event;
+    this.dataSource = this.foundEvents;
     console.log(data.resultsPage.results);
   }
 

@@ -103,7 +103,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     this.artistEventsFound = true;
     this.artistEvents = data.resultsPage.results.event;
     this.dataSource = this.artistEvents;
-    // console.log(data.resultsPage.results);
     console.log(this.artistEvents);
   }
 

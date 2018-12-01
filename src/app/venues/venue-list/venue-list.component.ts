@@ -20,6 +20,9 @@ export class VenueListComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     public snackBar: MatSnackBar) { }
 
+  displayedColumns: string[] = ['date', 'displayName', 'city', 'venue', 'uri', 'datetime'];
+  dataSource: any;
+
   venues: Venue[];
   subscription: Subscription;
 
@@ -39,6 +42,7 @@ export class VenueListComponent implements OnInit, OnDestroy {
   id: number;
 
   venueEvents: any[];
+  venueEventsFound: boolean = false;
 
   searchVenueForm: FormGroup;
 
@@ -63,7 +67,9 @@ export class VenueListComponent implements OnInit, OnDestroy {
   }
 
   handleVenueEventsSuccess(data) {
+    this.venueEventsFound = true;
     this.venueEvents = data.resultsPage.results.event;
+    this.dataSource = this.venueEvents;
     console.log(this.venueEvents);
   }
 

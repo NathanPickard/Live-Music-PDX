@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -40,18 +41,19 @@ import { VenuesRoutingModule } from './venue-routing.module';
     ReactiveFormsModule,
     FormsModule,
     VenuesRoutingModule,
-    MatFormFieldModule,
-    MatSelectModule,
     MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
     MatDividerModule,
+    MatExpansionModule,
+    MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatCardModule,
     MatListModule,
-    MatDialogModule,
-    MatExpansionModule,
     MatProgressSpinnerModule,
+    MatSelectModule,
     MatSnackBarModule,
+    MatTableModule,
     MatTooltipModule,
     FlexLayoutModule
   ],

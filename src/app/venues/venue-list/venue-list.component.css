@@ -1,0 +1,7 @@
+.data-table {
+  overflow: auto;
+}
+
+td.mat-cell {
+  padding: 8px;
+}
