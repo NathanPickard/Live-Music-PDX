@@ -26,7 +26,7 @@ export class VenueDetailComponent implements OnInit {
     private dialog: MatDialog,
     private authService: AuthService) { }
 
-    displayedColumns: string[] = ['date', 'displayName', 'city', 'venue', 'uri', 'datetime'];
+    displayedColumns: string[] = ['date', 'displayName', 'city', 'uri', 'datetime'];
     dataSource: any;
 
   ngOnInit() {
