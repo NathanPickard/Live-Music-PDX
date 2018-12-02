@@ -20,7 +20,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ArtistsComponent } from './artists.component';
 import { ArtistStartComponent } from './artist-start/artist-start.component';
-import { ArtistListComponent, ArtistSnackbar } from './artist-list/artist-list.component';
+import { ArtistListComponent } from './artist-list/artist-list.component';
 import { ArtistEditComponent } from './artist-edit/artist-edit.component';
 import { ArtistDetailComponent, ArtistDetailDialog } from './artist-detail/artist-detail.component';
 import { ArtistItemComponent } from './artist-list/artist-item/artist-item.component';
@@ -35,8 +35,7 @@ import { AuthService } from '../auth/auth.service';
     ArtistEditComponent,
     ArtistDetailComponent,
     ArtistItemComponent,
-    ArtistDetailDialog,
-    ArtistSnackbar
+    ArtistDetailDialog
   ],
   imports: [
     CommonModule,
@@ -63,7 +62,7 @@ import { AuthService } from '../auth/auth.service';
     AuthService
   ],
 
-  entryComponents: [ArtistDetailDialog, ArtistSnackbar]
+  entryComponents: [ArtistDetailDialog]
 })
 
 export class ArtistsModule { }
