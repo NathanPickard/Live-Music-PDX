@@ -17,9 +17,11 @@ import { SideNavService } from './core/side-nav.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
   declarations: [
@@ -36,9 +38,11 @@ import { MatSidenavModule } from '@angular/material/sidenav'
     CoreModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    MatButtonModule,
     MatIconModule,
     MatListModule,
-    MatSidenavModule,
+    MatSelectModule,
+    MatSidenavModule
   ],
   providers: [SearchService, AuthService, DataStorageService, AuthGuard, SideNavService],
   bootstrap: [AppComponent]
