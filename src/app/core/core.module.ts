@@ -25,6 +25,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { ArtistService } from '../artists/artist.service';
 import { VenueService } from '../venues/venue.service';
 import { AuthService } from '../auth/auth.service';
+import { SideNavService } from './side-nav.service';
 import { AuthInterceptor } from '../shared/auth.interceptor';
 import { LoggingInterceptor } from '../shared/logging.interceptor';
 
@@ -61,6 +62,7 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
     ArtistService,
     VenueService,
     AuthService,
+    SideNavService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
   ],

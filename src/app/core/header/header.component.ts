@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material';
 
 import { DataStorageService } from '../../shared/data-storage.service';
 import { AuthService } from '../../auth/auth.service';
+import { SideNavService } from '../side-nav.service';
 
 import { AppComponent } from '../../app.component';
 
@@ -19,8 +20,13 @@ export class HeaderComponent {
   // @ViewChild(AppComponent) sidenav: AppComponent;
 
   constructor(private dataStorageService: DataStorageService,
+    private sideNavService: SideNavService,
     public authService: AuthService,
     public snackBar: MatSnackBar) { }
+
+  openNav() {
+    this.sideNavService.openNav();
+  }
 
   onSaveData() {
     this.dataStorageService.storeArtists()

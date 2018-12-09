@@ -13,6 +13,7 @@ import { VenuesModule } from './venues/venues.module';
 import { AuthModule } from './auth/auth.module';
 import { SearchService } from './shared/search.service';
 import { DataStorageService } from './shared/data-storage.service';
+import { SideNavService } from './core/side-nav.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 
@@ -39,7 +40,7 @@ import { MatSidenavModule } from '@angular/material/sidenav'
     MatListModule,
     MatSidenavModule,
   ],
-  providers: [SearchService, AuthService, DataStorageService, AuthGuard],
+  providers: [SearchService, AuthService, DataStorageService, AuthGuard, SideNavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
