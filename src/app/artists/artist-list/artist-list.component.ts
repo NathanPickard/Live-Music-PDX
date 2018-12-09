@@ -174,11 +174,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
     this.openSnackBar();
 
-    // this.foundArtistName = this.foundArtistArray;
-
-    // console.log(this.foundArtistList[index]);
-    // this.handleSuccess(this.foundArtistInfo.results.artist.displayName);
-
     // return this.searchService.addArtistToList();
   }
 
