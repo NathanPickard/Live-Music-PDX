@@ -1,11 +1,21 @@
 <div fxLayout="column" fxLayoutAlign=" center">
-  <h2>Welcome to Live Music PDX!</h2>
-  <h3>Popular events in Portland, OR:</h3>
 
-  <mat-card>
+  <h2>Welcome to Live Music PDX!</h2>
+  <!-- <h3>Popular events in Portland, OR:</h3> -->
+
+  <!-- <mat-card>
     <mat-card-header fxLayoutAlign="center">
       <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
     </mat-card-header>
+  </mat-card> -->
+
+  <mat-card style="max-width: 150px;">
+    <mat-card-header fxLayoutAlign="center">
+      Popular events in Portland, Oregon
+    </mat-card-header>
+    <img mat-card-image src="assets/images/powered-by-songkick-pink.png">
+    <mat-card-content>
+    </mat-card-content>
   </mat-card>
 
   <div *ngIf="!eventsFound">
