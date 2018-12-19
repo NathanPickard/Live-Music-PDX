@@ -48,10 +48,10 @@ export class SearchService {
     //     }
     //   )
 
-    return this.http.get(this.ARTIST_URL + query)
-      .map(res => res.json());
+    // return this.http.get(this.ARTIST_URL + query)
+    //   .map(res => res.json());
 
-    // return this.httpClient.get<Artist[]>(this.ARTIST_URL + query);
+    return this.httpClient.get<Artist[]>(this.ARTIST_URL + query);
   }
 
   getSimilarArtists(artistId) {
