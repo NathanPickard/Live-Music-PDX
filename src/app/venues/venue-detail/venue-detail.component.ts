@@ -74,10 +74,6 @@ export class VenueDetailComponent implements OnInit {
     );
   }
 
-  getVenueWebsite() {
-
-  }
-
 }
 
 
