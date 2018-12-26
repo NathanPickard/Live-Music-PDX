@@ -47,7 +47,8 @@
     </mat-sidenav>
     <!-- <mat-sidenav-content> -->
     <mat-sidenav-content class="page-wrap">
-      <div [@routerTransition]="o.isActivated ? o.activatedRoute : ''" fxLayoutAlign="center" fxFlexFill>
+      <!-- <div [@routerTransition]="o.isActivated ? o.activatedRoute : ''" fxLayoutAlign="center" fxFlexFill> -->
+      <div [@routerTransition]="o.isActivated ? o.activatedRoute : ''" fxLayoutAlign="center" fxFlexFill class="content">
         <router-outlet #o="outlet"></router-outlet>
       </div>
     </mat-sidenav-content>
