@@ -28,7 +28,6 @@ export const fade = trigger('fade', [
   ])
 ]);
 
-
 export const routerTransition = trigger('routerTransition', [
 
   transition('* => *', [
