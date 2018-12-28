@@ -9,14 +9,19 @@
     </mat-card-header>
   </mat-card> -->
 
-  <mat-card style="max-width: 150px;">
+  <!-- <mat-card style="max-width: 150px;">
     <mat-card-header fxLayoutAlign="center">
       <h3>Popular events in Portland, Oregon</h3>
     </mat-card-header>
     <img mat-card-image src="assets/images/powered-by-songkick-pink.png">
     <mat-card-content>
     </mat-card-content>
-  </mat-card>
+  </mat-card> -->
+
+  <div fxLayoutAlign="center center" fxLayout="column">
+    <h3>Popular events in Portland, Oregon</h3>
+    <img mat-card-image src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
+  </div>
 
   <div *ngIf="!eventsFound">
     <mat-spinner></mat-spinner>

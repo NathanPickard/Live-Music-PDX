@@ -38,20 +38,20 @@ export class SearchService {
 
 
   getArtists(query) {
-    // this.httpClient.get<Artist[]>('https://api.songkick.com/api/3.0/search/artists.json?apikey=' + '&query={artist_name}', {
-    //   observe: 'body',
-    //   responseType: 'json'
-    // })
-    //   .subscribe(
-    //     (artists: Artist[]) => {
-    //       this.artistService.setArtists(artists);
-    //     }
-    //   )
+    this.httpClient.get<Artist[]>('https://api.songkick.com/api/3.0/search/artists.json?apikey=' + '&query={artist_name}', {
+      observe: 'body',
+      responseType: 'json'
+    })
+      .subscribe(
+        (artists: Artist[]) => {
+          this.artistService.setArtists(artists);
+        }
+      )
 
-    // return this.http.get(this.ARTIST_URL + query)
-    //   .map(res => res.json());
+    return this.http.get(this.ARTIST_URL + query)
+      .map(res => res.json());
 
-    return this.httpClient.get<Artist[]>(this.ARTIST_URL + query);
+    // return this.httpClient.get<Artist[]>(this.ARTIST_URL + query);
   }
 
   getSimilarArtists(artistId) {
