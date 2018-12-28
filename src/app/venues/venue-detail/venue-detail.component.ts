@@ -17,6 +17,7 @@ export class VenueDetailComponent implements OnInit {
   venue: Venue;
   id: number;
   foundEvents: any[];
+  foundEventsVenueUri: any;
   eventsFound: boolean = false;
 
   constructor(private venueService: VenueService,
@@ -59,8 +60,10 @@ export class VenueDetailComponent implements OnInit {
   handleSuccess(data) {
     this.eventsFound = true;
     this.foundEvents = data.resultsPage.results.event;
+    this.foundEventsVenueUri = data.resultsPage.results.event.venue;
     this.dataSource = this.foundEvents;
     console.log(data.resultsPage.results);
+    // console.log(this.foundEventsVenueUri);
   }
 
   handleError(error) {
@@ -69,6 +72,13 @@ export class VenueDetailComponent implements OnInit {
 
   getVenueEvents() {
     return this.searchService.getSelectedVenueEvents(this.venue.id).subscribe(
+      data => this.handleSuccess(data),
+      error => this.handleError(error)
+    );
+  }
+
+  getVenueWebsite() {
+    return this.searchService.getSelectedVenueWebsite(this.venue.id).subscribe(
       data => this.handleSuccess(data),
       error => this.handleError(error)
     );

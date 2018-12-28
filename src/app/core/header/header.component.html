@@ -7,12 +7,11 @@
     </button>
 
     <div>
-      <a mat-stroked-button routerLink="/">
+      <a mat-stroked-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"-->
         <mat-icon>music_note</mat-icon>Live Music PDX
       </a>
     </div>
-
 
     <a mat-button routerLink="/venues" routerLinkActive="active">
       <mat-icon>local_play</mat-icon>Venues

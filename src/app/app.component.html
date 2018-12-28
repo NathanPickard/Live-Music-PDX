@@ -6,19 +6,23 @@
   </app-header>
   <!-- <div [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''" fxLayoutAlign="center" fxFlexFill> -->
   <!-- <mat-sidenav-container fxFlexFill> -->
+
   <mat-sidenav-container class="all-wrap">
     <!-- <mat-sidenav #sidenav> -->
     <mat-sidenav #sidenav over>
       <mat-nav-list>
 
-        <a mat-stroked-button routerLink="/">
+        <!-- <a mat-stroked-button routerLink="/"> -->
+        <a mat-list-item routerLink="/" routerLinkActive="active" (click)="closeSidenav()">
           <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"-->
           <mat-icon>music_note</mat-icon>Live Music PDX
         </a>
-        <a mat-button routerLink="/venues" routerLinkActive="active" (click)="closeSidenav()">
+
+        <a mat-list-item routerLink="/venues" routerLinkActive="active" (click)="closeSidenav()">
           <mat-icon>local_play</mat-icon>Venues
         </a>
-        <a mat-button routerLink="/artists" routerLinkActive="active" (click)="closeSidenav()">
+
+        <a mat-list-item routerLink="/artists" routerLinkActive="active" (click)="closeSidenav()">
           <mat-icon>music_video</mat-icon>Artists
         </a>
 
@@ -31,10 +35,10 @@
 
         <ng-template [ngIf]="!isAuthenticated()">
 
-          <a mat-button routerLink="/register" routerLinkActive="active" (click)="closeSidenav()">
+          <a mat-list-item routerLink="/register" routerLinkActive="active" (click)="closeSidenav()">
             <mat-icon>account_box</mat-icon>Register
           </a>
-          <a mat-button routerLink="/login" routerLinkActive="active" (click)="closeSidenav()">
+          <a mat-list-item routerLink="/login" routerLinkActive="active" (click)="closeSidenav()">
             <mat-icon>play_circle_outline</mat-icon>Login
           </a>
         </ng-template>
@@ -44,6 +48,7 @@
         </a>
 
       </mat-nav-list>
+
     </mat-sidenav>
     <!-- <mat-sidenav-content> -->
     <mat-sidenav-content class="page-wrap">
