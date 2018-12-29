@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 // import { trigger, state, transition, style, animate } from '@angular/animations';
 import { fade } from '../../animations';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSort, MatTableDataSource, MatTable, PageEvent } from '@angular/material';
 import { merge, Observable, of as oberservableOf } from 'rxjs';
 import { catchError, map, startWith, switchMap } from 'rxjs/operators';
@@ -42,11 +43,18 @@ export class HomeComponent implements OnInit {
 
   pageEvent: PageEvent;
   dataSource: any;
+
+  searchEventForm: FormGroup;
   // dataSource: MatTableDataSource<any>;
 
 
   ngOnInit() {
+    
     this.getPdxEvents();
+
+    this.searchEventForm = new FormGroup({
+      'searchQuery': new FormControl(null, Validators.required)
+    });
 
     // this.getPdxEvents()
     //   data => {
@@ -84,6 +92,10 @@ export class HomeComponent implements OnInit {
       data => this.handleSuccess(data),
       error => this.handleError(error)
     );
+  }
+
+  searchEvents() {
+
   }
 
 }
