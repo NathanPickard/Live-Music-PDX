@@ -37,6 +37,11 @@ export class HomeComponent implements OnInit {
   eventsFound: boolean = false;
   type: any[];
 
+  foundSearchEvents: any[];
+  searchEventsFound: boolean = false;
+
+  searchQuery: string;
+
   displayedColumns: string[] = ['date', 'displayName', 'venue', 'uri', 'datetime'];
 
   @ViewChild(MatSort) sort: MatSort;
@@ -49,12 +54,16 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-    
+
     this.getPdxEvents();
 
     this.searchEventForm = new FormGroup({
-      'searchQuery': new FormControl(null, Validators.required)
+      'searchQuery': new FormControl(null)
     });
+
+    this.searchEventForm = new FormGroup({
+      'searchQuery': new FormControl(null)
+    })
 
     // this.getPdxEvents()
     //   data => {
@@ -83,6 +92,12 @@ export class HomeComponent implements OnInit {
     // console.log(this.performanceArray);
   }
 
+  handleSearchEventsSuccess(data) {
+    this.searchEventsFound = true;
+    this.foundSearchEvents = data.resultsPage.results.event;
+    console.log(this.foundSearchEvents);
+  }
+
   handleError(error) {
     console.log(error);
   }
@@ -95,7 +110,11 @@ export class HomeComponent implements OnInit {
   }
 
   searchEvents() {
-
+    const query = this.searchEventForm.value.searchQuery;
+    return this.searchService.getSearchEvents(query).subscribe(
+      data => this.handleSearchEventsSuccess(data),
+      error => this.handleError(error)
+    );
   }
 
 }

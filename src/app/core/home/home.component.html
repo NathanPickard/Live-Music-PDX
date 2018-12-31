@@ -19,20 +19,28 @@
   </mat-card> -->
 
 
-  <div>
+  <div fxLayout="row">
     <div fxLayoutAlign="center center" fxLayout="column">
       <h3>Popular events in Portland, Oregon</h3>
       <img mat-card-image src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
     </div>
-    <div fxLayoutAlign="end center" fxLayout="row">
-      <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
-        <mat-form-field>
-          <input type="search" matInput placeholder="Search for Porland, OR events" formControlName="searchQuery">
-        </mat-form-field>
-        <button type="submit" mat-raised-button color="primary">Search Events</button>
-      </form>
-    </div>
   </div>
+
+  <div fxLayoutAlign="end end" fxLayout="row">
+    <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
+      <mat-form-field>
+        <input type="search" matInput placeholder="Search Porland, OR events" formControlName="searchQuery">
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Search Events</button>
+    </form>
+  </div>
+
+  <div *ngIf="searchEventsFound">
+    
+
+  </div>
+
+
 
   <div *ngIf="!eventsFound">
     <mat-spinner></mat-spinner>

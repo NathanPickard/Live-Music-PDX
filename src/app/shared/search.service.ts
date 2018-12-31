@@ -99,6 +99,14 @@ export class SearchService {
     //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25');
   }
 
+
+  // Homepage event search
+  getSearchEvents(venueId) {
+    return this.http.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY)
+      .map(res => res.json());
+  }
+
+
   getSelectedArtistEvents(artistId) {
 
     return this.http.get('https://api.songkick.com/api/3.0/artists/' + artistId + '/calendar.json?apikey=' + this.API_KEY)

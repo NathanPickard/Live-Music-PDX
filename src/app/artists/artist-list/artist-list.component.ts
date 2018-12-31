@@ -56,7 +56,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   artistId: any;
 
-
   searchArtistForm: FormGroup;
 
   userToken: any;
