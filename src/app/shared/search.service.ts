@@ -38,15 +38,15 @@ export class SearchService {
 
 
   getArtists(query) {
-    this.httpClient.get<Artist[]>('https://api.songkick.com/api/3.0/search/artists.json?apikey=' + '&query={artist_name}', {
-      observe: 'body',
-      responseType: 'json'
-    })
-      .subscribe(
-        (artists: Artist[]) => {
-          this.artistService.setArtists(artists);
-        }
-      )
+    // this.httpClient.get<Artist[]>('https://api.songkick.com/api/3.0/search/artists.json?apikey=' + '&query={artist_name}', {
+    //   observe: 'body',
+    //   responseType: 'json'
+    // })
+    //   .subscribe(
+    //     (artists: Artist[]) => {
+    //       this.artistService.setArtists(artists);
+    //     }
+    //   )
 
     return this.http.get(this.ARTIST_URL + query)
       .map(res => res.json());
@@ -101,8 +101,8 @@ export class SearchService {
 
 
   // Homepage event search
-  getSearchEvents(venueId) {
-    return this.http.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY)
+  getSearchEvents(query) {
+    return this.http.get(this.API_URL + '/events.json?apikey=' + this.API_KEY + '&artist_name=' + query )
       .map(res => res.json());
   }
 
