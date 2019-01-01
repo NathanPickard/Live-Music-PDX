@@ -102,7 +102,7 @@ export class SearchService {
 
   // Homepage event search
   getSearchEvents(query) {
-    return this.http.get(this.API_URL + '/events.json?apikey=' + this.API_KEY + '&artist_name=' + query )
+    return this.http.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283')
       .map(res => res.json());
   }
 
