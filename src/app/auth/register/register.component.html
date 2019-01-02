@@ -15,7 +15,8 @@
           <mat-form-field>
             <input matInput type="email" placeholder="Email" formControlName="email">
             <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-            <mat-error *ngIf="!registerForm.get('userData.email').valid && registerForm.get('userData.email').touched">Not a valid email</mat-error>
+            <mat-error *ngIf="!registerForm.get('userData.email').valid && registerForm.get('userData.email').touched">Not
+              a valid email</mat-error>
             <!-- <mat-error *ngIf="registerForm.get('userData.email').errors['required']">This field is required</mat-error> -->
             <!-- <mat-error *ngIf="!registerForm.get('userData.email').valid && registerForm.get('userData.email').touched">Not
                 a valid email</mat-error> -->
@@ -28,7 +29,7 @@
           </mat-form-field>
 
           <button mat-raised-button color="primary" type="submit">Register</button>
-          
+
         </div>
 
       </form>
@@ -36,6 +37,11 @@
     </mat-card-content>
 
   </mat-card>
+
+  <div fxLayoutAlign="center center" fxLayout="row">
+    <p>Aleady registered? <a routerLink="/login" style="text-decoration: none">Sign In</a></p>
+
+  </div>
 
 </div>
 
