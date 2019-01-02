@@ -48,6 +48,7 @@ export class HomeComponent implements OnInit {
 
   pageEvent: PageEvent;
   dataSource: any;
+  searchDataSource: any;
 
   searchEventForm: FormGroup;
   // dataSource: MatTableDataSource<any>;
@@ -95,6 +96,7 @@ export class HomeComponent implements OnInit {
   handleSearchEventsSuccess(data) {
     this.searchEventsFound = true;
     this.foundSearchEvents = data.resultsPage.results.event;
+    this.searchDataSource = this.foundSearchEvents;
     console.log(this.foundSearchEvents);
   }
 
