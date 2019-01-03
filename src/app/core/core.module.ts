@@ -30,7 +30,7 @@ import { ArtistService } from '../artists/artist.service';
 import { VenueService } from '../venues/venue.service';
 import { AuthService } from '../auth/auth.service';
 import { SideNavService } from './side-nav.service';
-import { AuthInterceptor } from '../shared/auth.interceptor';
+// import { AuthInterceptor } from '../shared/auth.interceptor';
 import { LoggingInterceptor } from '../shared/logging.interceptor';
 
 @NgModule({
@@ -71,7 +71,7 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
     VenueService,
     AuthService,
     SideNavService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
   ],
   entryComponents: [LogoutSnackbar]
