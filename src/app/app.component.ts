@@ -34,6 +34,8 @@ export class AppComponent implements OnInit, AfterViewInit {
       apiKey: "AIzaSyAnhG_Lit1FcibY2NF6UWGn0aaS8ZIZF58",
       authDomain: "live-music-pdx.firebaseapp.com"
     });
+
+    this.authService.loadUser();
   }
 
   isAuthenticated() {
