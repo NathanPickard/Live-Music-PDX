@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 
+import { AuthService } from '../../auth/auth.service';
 import { Venue } from '../venue.model';
 import { VenueService } from '../venue.service';
 import { SearchService } from '../../shared/search.service';
@@ -14,7 +15,9 @@ import { SearchService } from '../../shared/search.service';
   styleUrls: ['./venue-list.component.css']
 })
 export class VenueListComponent implements OnInit, OnDestroy {
+
   constructor(private venueService: VenueService,
+    public authService: AuthService,
     private searchService: SearchService,
     private router: Router,
     private route: ActivatedRoute,
@@ -58,6 +61,9 @@ export class VenueListComponent implements OnInit, OnDestroy {
     this.searchVenueForm = new FormGroup({
       'searchQuery': new FormControl(null, Validators.required)
     });
+
+    this.authService.loadUser();
+
   }
 
   handleSuccess(data) {
@@ -75,6 +81,10 @@ export class VenueListComponent implements OnInit, OnDestroy {
 
   handleError(error) {
     console.log(error);
+  }
+
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
   }
 
   onNewVenue() {

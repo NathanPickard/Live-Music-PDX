@@ -2,13 +2,20 @@
 
   <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
     <div style="margin-bottom: 15px;">
-      <!-- <button mat-raised-button color="primary" [disabled]="!isAuthenticated()" (click)="onNewArtist()"> -->
-      <button mat-raised-button color="primary" (click)="onNewArtist()">
+      <!-- <button mat-raised-button color="primary" [disabled]="!isAuthenticated()" matTooltip="Signin to add artist" (click)="onNewArtist()">
+        <mat-icon>playlist_add</mat-icon>
+        Add New Artist
+      </button> -->
+
+      <button *ngIf="!isAuthenticated()" mat-raised-button color="primary" matTooltip="Signin to add artist"
+        matTooltipPosition="above" (click)="onNewArtist()">
         <mat-icon>playlist_add</mat-icon>Add New Artist
       </button>
-      <!-- <button mat-raised-button color="primary" (click)="getUserToken()">
-        <mat-icon>playlist_add</mat-icon>get user token
-      </button> -->
+
+      <button *ngIf="isAuthenticated()" mat-raised-button color="primary" (click)="onNewArtist()">
+        <mat-icon>playlist_add</mat-icon>Add New Artist
+      </button>
+
     </div>
 
     <h3>or</h3>

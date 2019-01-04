@@ -79,6 +79,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     this.searchArtistForm = new FormGroup({
       'searchQuery': new FormControl(null, Validators.required)
     });
+
+    this.authService.loadUser();
+
   }
 
   handleSuccess(data) {

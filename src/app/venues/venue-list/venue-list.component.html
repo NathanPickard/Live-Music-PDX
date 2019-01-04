@@ -2,9 +2,16 @@
 
   <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
     <div style="margin-bottom: 15px;">
-      <button mat-raised-button color="primary" (click)="onNewVenue()">
+
+      <button *ngIf="!isAuthenticated()" mat-raised-button color="primary" matTooltip="Sign to add venue"
+        matTooltipPosition="above" (click)="onNewVenue()">
         <mat-icon>playlist_add</mat-icon>Add New Venue
       </button>
+
+      <button *ngIf="isAuthenticated()" mat-raised-button color="primary" (click)="onNewVenue()">
+        <mat-icon>playlist_add</mat-icon>Add New Artist
+      </button>
+
     </div>
 
     <h3>or</h3>
