@@ -26,12 +26,14 @@
           <mat-icon>music_video</mat-icon>Artists
         </a>
 
-        <mat-form-field *ngIf="isAuthenticated()">
-          <mat-select placeholder="Manage Data">
-            <mat-option value="Save Data" (click)="onSaveData()">Save Data</mat-option>
-            <mat-option value="Fetch Data" (click)="onFetchData()">Fetch Data</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <div mat-list-item>
+          <mat-form-field *ngIf="isAuthenticated()">
+            <mat-select placeholder="Manage Data">
+              <mat-option value="Save Data" (click)="onSaveData()">Save Data</mat-option>
+              <mat-option value="Fetch Data" (click)="onFetchData()">Fetch Data</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
 
         <ng-template [ngIf]="!isAuthenticated()">
 

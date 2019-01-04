@@ -35,6 +35,10 @@ export class AppComponent implements OnInit, AfterViewInit {
       authDomain: "live-music-pdx.firebaseapp.com"
     });
 
+    this.authService.isAuthenticated();
+    console.log(this.authService.isAuthenticated);
+
+
     this.authService.loadUser();
   }
 
