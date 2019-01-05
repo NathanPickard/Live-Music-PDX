@@ -15,10 +15,17 @@
     <mat-label>Description:</mat-label>
     <p>{{ venue.description }}</p>
 
-    <mat-form-field>
+    <mat-form-field *ngIf="isAuthenticated()">
       <mat-select placeholder="Manage Venue">
         <mat-option value="Edit Venue" (click)="onEditVenue()">Edit Venue</mat-option>
         <mat-option value="Delete Venue" (click)="onDeleteVenue()">Delete Venue</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!isAuthenticated()" matTooltip="Signin to manage" matTooltipPosition="right">
+      <mat-select placeholder="Manage Venue">
+        <!-- <mat-option value="Edit Venue" (click)="onEditVenue()">Edit Venue</mat-option>
+        <mat-option value="Delete Venue" (click)="onDeleteVenue()">Delete Venue</mat-option> -->
       </mat-select>
     </mat-form-field>
 

@@ -27,8 +27,8 @@ export class VenueDetailComponent implements OnInit {
     private dialog: MatDialog,
     private authService: AuthService) { }
 
-    displayedColumns: string[] = ['date', 'displayName', 'city', 'uri', 'datetime'];
-    dataSource: any;
+  displayedColumns: string[] = ['date', 'displayName', 'city', 'uri', 'datetime'];
+  dataSource: any;
 
   ngOnInit() {
     this.route.params
@@ -38,6 +38,13 @@ export class VenueDetailComponent implements OnInit {
           this.venue = this.venueService.getVenue(this.id);
         }
       );
+
+    this.authService.loadUser();
+
+  }
+
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
   }
 
   onEditVenue() {
