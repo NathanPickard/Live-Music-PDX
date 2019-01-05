@@ -39,8 +39,6 @@ export class VenueDetailComponent implements OnInit {
         }
       );
 
-    this.authService.loadUser();
-
   }
 
   isAuthenticated() {
