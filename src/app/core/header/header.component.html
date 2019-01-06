@@ -27,15 +27,12 @@
     <div fxShow="true" fxHide.lt-md="true">
       <!-- <div fxShow="true" fxHide.lt-md="true"> -->
 
-      <!-- <div fxLayout="column" fxLayoutAlign="end"> -->
-
       <mat-form-field *ngIf="isAuthenticated()">
         <mat-select placeholder="Manage Data">
           <mat-option value="Save Data" (click)="onSaveData()">Save Data</mat-option>
           <mat-option value="Fetch Data" (click)="onFetchData()">Fetch Data</mat-option>
         </mat-select>
       </mat-form-field>
-
 
       <ng-template [ngIf]="!isAuthenticated()">
 
