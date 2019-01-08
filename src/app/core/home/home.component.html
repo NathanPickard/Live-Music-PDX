@@ -37,7 +37,7 @@
 
 
 
-  <div *ngIf="searchEventsFound">
+  <div *ngIf="searchEventsFound && foundSearchEvents !== undefined">
 
     <div class="data-table">
       <table mat-table [dataSource]="searchDataSource" matSort multiTemplateDataRows>
@@ -92,9 +92,17 @@
 
       <!-- <pagination-controls></pagination-controls> -->
 
-      <!-- <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event"></mat-paginator> -->
     </div>
 
+  </div>
+
+  <!-- <div *ngIf="this.foundSearchEvents == undefined && !searchEventsFound"> -->
+  <!-- <div *ngIf="this.foundSearchEvents == undefined"> -->
+  <!-- <p>{{ searchEventForm.value.searchQuery }} events not found</p>
+  </div> -->
+
+  <div *ngIf="searchEventNotFound && foundSearchEvents == undefined">
+    <p>No {{ searchEventForm.value.searchQuery }} events found</p>
   </div>
 
 
@@ -157,7 +165,7 @@
 
       <!-- <pagination-controls></pagination-controls> -->
 
-      <!-- <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event"></mat-paginator> -->
+      <mat-paginator [length]="10" [pageSize]="20" (page)="pageEvent = $event"></mat-paginator>
     </div>
   </div>
 

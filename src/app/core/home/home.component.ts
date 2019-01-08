@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 // import { trigger, state, transition, style, animate } from '@angular/animations';
 import { fade } from '../../animations';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatSort, MatTableDataSource, MatTable, PageEvent } from '@angular/material';
+import { MatSort, MatTableDataSource, MatTable, PageEvent, MatPaginator } from '@angular/material';
 import { merge, Observable, of as oberservableOf } from 'rxjs';
 import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 
@@ -29,8 +29,6 @@ import { SearchService } from '../../shared/search.service';
 
 export class HomeComponent implements OnInit {
 
-  constructor(private searchService: SearchService) { }
-
   foundEvents: any[];
   performanceArray: any[];
   foundArtists: any[];
@@ -44,6 +42,7 @@ export class HomeComponent implements OnInit {
 
   displayedColumns: string[] = ['date', 'displayName', 'venue', 'uri', 'datetime'];
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   pageEvent: PageEvent;
@@ -51,8 +50,10 @@ export class HomeComponent implements OnInit {
   searchDataSource: any;
 
   searchEventForm: FormGroup;
+  searchEventNotFound: boolean = false;
   // dataSource: MatTableDataSource<any>;
 
+  constructor(private searchService: SearchService) { }
 
   ngOnInit() {
 
@@ -98,6 +99,10 @@ export class HomeComponent implements OnInit {
     this.foundSearchEvents = data.resultsPage.results.event;
     this.searchDataSource = this.foundSearchEvents;
     console.log(this.foundSearchEvents);
+
+    if (this.foundSearchEvents == undefined) {
+      this.searchEventNotFound = true;
+    }
   }
 
   handleError(error) {
