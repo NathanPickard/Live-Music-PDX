@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 // import { trigger, state, transition, style, animate } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
 import { fade } from '../../animations';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSort, MatTableDataSource, MatTable, PageEvent, MatPaginator } from '@angular/material';
@@ -8,6 +9,8 @@ import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 
 import { SearchService } from '../../shared/search.service';
 // import { merge } from 'rxjs-compat/operator/merge';
+
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -52,6 +55,11 @@ export class HomeComponent implements OnInit {
   searchEventForm: FormGroup;
   searchEventNotFound: boolean = false;
   // dataSource: MatTableDataSource<any>;
+
+
+  private API_KEY: string = environment.SONGKICK_API_KEY;
+  private API_URL: string = environment.SONGKICK_API_URL;
+
 
   constructor(private searchService: SearchService) { }
 
@@ -124,4 +132,47 @@ export class HomeComponent implements OnInit {
     );
   }
 
+}
+
+
+export class HomePagePagination {
+  constructor(private http: HttpClient) { }
+
+  // today: any;
+  // weekDate: any;
+  // dayDate: any;
+  // monthDate: any;
+  // yearDate: any;
+
+
+today = new Date();
+dayDate = this.today.getDate();
+weekDate = this.dayDate + 7;
+monthDate = this.today.getMonth() + 1;
+yearDate = this.today.getFullYear();
+
+// if (this.dayDate < 10) {
+//   this.dayDate = '0' + this.dayDate;
+// }
+
+// if (this.weekDate < 10) {
+//   this.weekDate = '0' + this.weekDate;
+// }
+
+// if (this.monthDate < 10) {
+//   this.monthDate = '0' + this.monthDate;
+// }
+
+// this.today = this.yearDate + '-' + this.monthDate + '-' + this.dayDate;
+// this.weekDate = this.yearDate + '-' + this.monthDate + '-' + (this.weekDate);
+
+
+// return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
+//   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
+//   .map(res => res.json());
+
+// getPdxEventsPagination(sort: string, order: string, page: number): Observable < any > {
+//   const requestUrl =
+
+//   }
 }

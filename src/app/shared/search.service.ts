@@ -100,6 +100,45 @@ export class SearchService {
   }
 
 
+  getPdxEventsPagination() {
+
+    this.today = new Date();
+    this.dayDate = this.today.getDate();
+    this.weekDate = this.dayDate + 7;
+    this.monthDate = this.today.getMonth() + 1;
+    this.yearDate = this.today.getFullYear();
+
+    if (this.dayDate < 10) {
+      this.dayDate = '0' + this.dayDate;
+    }
+
+    if (this.weekDate < 10) {
+      this.weekDate = '0' + this.weekDate;
+    }
+
+    if (this.monthDate < 10) {
+      this.monthDate = '0' + this.monthDate;
+    }
+
+    this.today = this.yearDate + '-' + this.monthDate + '-' + this.dayDate;
+    this.weekDate = this.yearDate + '-' + this.monthDate + '-' + (this.weekDate);
+
+    // const requestUrl = (this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
+    //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
+    //   .map(res => res.json());
+
+    // return this.http.get(requestUrl);
+
+    // return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
+    //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
+    //   .map(res => res.json());
+
+
+    // return this.httpClient.get<any>(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
+    //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25');
+  }
+
+
   // Homepage event search
   getSearchEvents(query) {
     return this.http.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283')
