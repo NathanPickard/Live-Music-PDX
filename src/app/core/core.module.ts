@@ -32,12 +32,14 @@ import { AuthService } from '../auth/auth.service';
 import { SideNavService } from './side-nav.service';
 // import { AuthInterceptor } from '../shared/auth.interceptor';
 import { LoggingInterceptor } from '../shared/logging.interceptor';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     LogoutSnackbar,
-    HomeComponent
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,
