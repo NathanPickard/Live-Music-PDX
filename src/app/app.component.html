@@ -26,6 +26,10 @@
           <mat-icon>music_video</mat-icon>Artists
         </a>
 
+        <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="closeSidenav()">
+          <mat-icon>info</mat-icon>About
+        </a>
+
         <div mat-list-item>
           <mat-form-field *ngIf="isAuthenticated()">
             <mat-select placeholder="Manage Data">
