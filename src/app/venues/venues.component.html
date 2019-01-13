@@ -2,10 +2,193 @@
   <div fxLayoutAlign="center">
     <h1>PDX Venues</h1>
   </div>
-  <div>
-    <app-venue-list></app-venue-list>
+
+  <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
+    <div style="margin-bottom: 15px;">
+
+      <button *ngIf="!isAuthenticated()" mat-raised-button color="primary" matTooltip="Signin to add venue"
+        matTooltipPosition="above" (click)="onNewVenue()">
+        <mat-icon>playlist_add</mat-icon>Add New Venue
+      </button>
+
+      <button *ngIf="isAuthenticated()" mat-raised-button color="primary" (click)="onNewVenue()">
+        <mat-icon>playlist_add</mat-icon>Add New Artist
+      </button>
+    </div>
+
+    <h3>or</h3>
+
+    <!-- <div>
+        <mat-form-field type="submit">
+          <input type="search" matInput [(ngModel)]="searchQuery" placeholder="Search for venues">
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" (click)="searchVenues(searchQuery)">Find Venues</button>
+      </div> -->
+
+    <form [formGroup]="searchVenueForm" (ngSubmit)="searchVenues()">
+      <mat-form-field>
+        <input type="search" matInput placeholder="Search for venues" formControlName="searchQuery">
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">
+        <mat-icon>search</mat-icon>Find Venues
+      </button>
+    </form>
+
   </div>
-  <div>
-    <router-outlet></router-outlet>
+
+  <mat-divider></mat-divider>
+
+
+
+  <mat-card *ngIf="venueFound">
+
+    <div fxLayoutAlign="center">
+      <h4 mat-subtitle>Results - </h4>
+      <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
+    </div>
+
+    <div *ngFor="let foundVenue of foundVenues">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <a href="{{ foundVenue.uri }}" target="_blank" style="text-decoration: none;">
+                {{ foundVenue.displayName }}
+              </a>
+            </mat-panel-title>
+            <mat-panel-description *ngIf="foundVenue.city.displayName && foundVenue.city.state.displayName">
+              {{ foundVenue.city.displayName}} - {{ foundVenue.city.state.displayName }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-card *ngIf="foundVenue.description || foundVenue.website">
+            <h4>
+              Description: {{ foundVenue.description }}
+            </h4>
+
+            <a href="{{ foundVenue.website }}" mat-raised-button color="primary" target="_blank">Website</a>
+          </mat-card>
+
+          <div fxLayout="row" fxLayoutGap="20px">
+
+            <div fxLayoutAlign="end center">
+              <button mat-icon-button color="primary" (click)="addVenueToList(foundVenue.displayName, foundVenue.street, foundVenue.description, foundVenue.id)"
+                matTooltip="Add to venues list" motTooltipPosition="above">
+                <mat-icon>add_circle_outline</mat-icon>
+              </button>
+            </div>
+
+            <button mat-raised-button color="primary" (click)="getSearchVenueEvents(foundVenue.id)">
+              Get {{ foundVenue.displayName }} events
+            </button>
+          </div>
+
+          <div *ngIf="venueEventsFound">
+            <div class="data-table">
+              <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
+
+                <ng-container class="mat-column" matColumnDef="date">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+                  <td mat-cell *matCellDef="let row">
+                    {{ row.start.date | date: 'E MMM d' }}
+                  </td>
+                  <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>
+
+                <ng-container class="mat-column" matColumnDef="displayName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Event</th>
+                  <td mat-cell *matCellDef="let row">
+                    {{ row.displayName }}
+                  </td>
+                  <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>
+
+                <ng-container class="mat-column" matColumnDef="city">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
+                  <td mat-cell *matCellDef="let row">
+                    {{ row.location.city }}
+                  </td>
+                  <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>
+
+                <ng-container class="mat-column" matColumnDef="venue">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Venue</th>
+                  <td mat-cell *matCellDef="let row">
+                    <a href="{{ row.venue.uri }}" mat-stroked-button color="accent" target="_blank">
+                      {{ row.venue.displayName }}</a>
+                  </td>
+                  <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>
+
+                <ng-container class="mat-column" matColumnDef="uri">
+                  <th mat-header-cell *matHeaderCellDef>Event Link</th>
+                  <td mat-cell *matCellDef="let row">
+                    <a href="{{ row.uri }}" mat-stroked-button color="primary" target="_blank">Check out event</a>
+                  </td>
+                  <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>
+
+                <ng-container class="mat-column" matColumnDef="datetime">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Time</th>
+                  <td mat-cell *matCellDef="let row">
+                    {{ row.start.datetime | date: 'shortTime' }}
+                  </td>
+                  <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
+
+              </table>
+
+            </div>
+          </div>
+
+          <!-- <div *ngFor="let venueEvent of venueEvents">
+              <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+
+                      <h3>
+                        {{ venueEvent.start.date | date: 'E MMM d' }} -
+                        {{ venueEvent.displayName }}
+                      </h3>
+
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+
+
+                  <mat-card>
+                    <h4>
+                      Start time: {{ venueEvent.start.datetime | date: 'shortTime' }}
+                    </h4>
+                    <a href="{{ venueEvent.uri }}" mat-raised-button color="primary" target="_blank">
+                      Check out event
+                    </a>
+                  </mat-card>
+
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div> -->
+
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+
+  </mat-card>
+
+
+
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div>
+      <app-venue-list></app-venue-list>
+    </div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
   </div>
+
 </div>

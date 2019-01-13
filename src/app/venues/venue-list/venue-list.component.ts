@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
+import { Subscription } from 'rxjs/Subscription';
 
-import { AuthService } from '../../auth/auth.service';
 import { Venue } from '../venue.model';
+import { AuthService } from '../../auth/auth.service';
 import { VenueService } from '../venue.service';
 import { SearchService } from '../../shared/search.service';
 
@@ -14,6 +14,7 @@ import { SearchService } from '../../shared/search.service';
   templateUrl: './venue-list.component.html',
   styleUrls: ['./venue-list.component.css']
 })
+
 export class VenueListComponent implements OnInit, OnDestroy {
 
   constructor(private venueService: VenueService,

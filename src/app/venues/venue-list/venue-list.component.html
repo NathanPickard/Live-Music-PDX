@@ -1,6 +1,6 @@
 <div fxLayout="column">
 
-  <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
+  <!-- <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
     <div style="margin-bottom: 15px;">
 
       <button *ngIf="!isAuthenticated()" mat-raised-button color="primary" matTooltip="Signin to add venue"
@@ -14,16 +14,16 @@
 
     </div>
 
-    <h3>or</h3>
+    <h3>or</h3> -->
 
-    <!-- <div>
+  <!-- <div>
       <mat-form-field type="submit">
         <input type="search" matInput [(ngModel)]="searchQuery" placeholder="Search for venues">
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary" (click)="searchVenues(searchQuery)">Find Venues</button>
     </div> -->
 
-    <form [formGroup]="searchVenueForm" (ngSubmit)="searchVenues()">
+  <!-- <form [formGroup]="searchVenueForm" (ngSubmit)="searchVenues()">
       <mat-form-field>
         <input type="search" matInput placeholder="Search for venues" formControlName="searchQuery">
       </mat-form-field>
@@ -32,7 +32,7 @@
       </button>
     </form>
 
-  </div>
+  </div> -->
 
   <mat-divider></mat-divider>
 
@@ -43,7 +43,7 @@
 
   <mat-divider></mat-divider>
 
-  <mat-card *ngIf="venueFound">
+  <!-- <mat-card *ngIf="venueFound">
 
     <div fxLayoutAlign="center">
       <h4 mat-subtitle>Results - </h4>
@@ -146,9 +146,9 @@
               </table>
 
             </div>
-          </div>
+          </div> -->
 
-          <!-- <div *ngFor="let venueEvent of venueEvents">
+  <!-- <div *ngFor="let venueEvent of venueEvents">
             <mat-accordion>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
@@ -176,10 +176,10 @@
             </mat-accordion>
           </div> -->
 
-        </mat-expansion-panel>
+  <!-- </mat-expansion-panel>
       </mat-accordion>
     </div>
 
-  </mat-card>
+  </mat-card> -->
 
 </div>
