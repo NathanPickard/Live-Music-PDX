@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import { ArtistService } from '../artists/artist.service';
 import { Artist } from '../artists/artist.model';
 import { Venue } from '../venues/venue.model';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class SearchService {
@@ -100,7 +101,7 @@ export class SearchService {
   }
 
 
-  getPdxEventsPagination() {
+  getPdxEventsPagination(sort: string, order: string, page: number): Observable<any> {
 
     this.today = new Date();
     this.dayDate = this.today.getDate();
@@ -123,9 +124,10 @@ export class SearchService {
     this.today = this.yearDate + '-' + this.monthDate + '-' + this.dayDate;
     this.weekDate = this.yearDate + '-' + this.monthDate + '-' + (this.weekDate);
 
-    // const requestUrl = (this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
-    //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
-    //   .map(res => res.json());
+    const requestUrl = (this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
+      '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25' + '&sort=');
+
+    return this.http.get(requestUrl);
 
     // return this.http.get(requestUrl);
 
