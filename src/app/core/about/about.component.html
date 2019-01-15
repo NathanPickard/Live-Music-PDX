@@ -1,10 +1,32 @@
 <div fxLayout="column" fxLayoutAlign="center center">
   <h2>Hi there! Welcome to Live Music PDX</h2>
-  <img src="../../../assets/images/portland.jpg" fxFlex="300px">
   <h3>Live Music PDX is your "one stop shop" for live music in the Portland, OR area</h3>
+  <img src="../../../assets/images/portland.jpg" fxFlex="300px">
 </div>
 
-<div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="10px">
-    <h4>Register to add and track for favorite venues and keep tabs on the artists that inspire you the most</h4>
-  <a routerLink="/register" mat-raised-button color="primary">Register</a>
+<!-- <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="10px"> -->
+<div>
+  <div fxLayout fxLayoutAlign="space-around center" fxLayoutGap="10px">
+    <h4 fxLayoutAlign="center center" style="background-color: #1B5E20; color: white;" fxFlex="35%">
+      Portland has a wealth of awesome music venues to
+      see the music that moves you</h4>
+    <h4>From the historic <a href="https://www.crystalballroompdx.com/" target="_blank" style="text-decoration: none">
+        McMenamen's Crstyal Ballroom</a>
+      to the high school auditorium turned venue of <a href="https://www.revolutionhall.com/" target="_blank" style="text-decoration: none">
+        Revolution Hall</a>
+      , finding an excited live music experience is just a click away!
+    </h4>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+
+    <h4 style="background-color: #1B5E20; color: white;" fxFlex="45%">Register to add and
+      track for favorite venues and keep tabs
+      on the artists that inspire you the most!</h4>
+
+    <a routerLink="/register" mat-raised-button style="background-color: #FFB916; color: white;">
+      Register</a>
+
+  </div>
+
 </div>
