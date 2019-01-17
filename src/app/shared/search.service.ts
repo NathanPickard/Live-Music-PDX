@@ -61,10 +61,10 @@ export class SearchService {
   }
 
   getVenues(query) {
-    return this.http.get(this.VENUE_URL + query + '&apikey=' + this.API_KEY)
-      .map(res => res.json());
+    // return this.http.get(this.VENUE_URL + query + '&apikey=' + this.API_KEY)
+    //   .map(res => res.json());
 
-    // return this.httpClient.get<Venue[]>(this.VENUE_URL + query + '&apikey=' + this.API_KEY);
+    return this.httpClient.get<Venue[]>(this.VENUE_URL + query + '&apikey=' + this.API_KEY);
   }
 
   getPdxEvents() {
@@ -91,13 +91,13 @@ export class SearchService {
     this.weekDate = this.yearDate + '-' + this.monthDate + '-' + (this.weekDate);
 
 
-    return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
-      '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
-      .map(res => res.json());
+    // return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
+    //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
+    //   .map(res => res.json());
 
 
-    // return this.httpClient.get<any>(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
-    //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25');
+    return this.httpClient.get<any>(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
+      '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25');
   }
 
 
@@ -143,21 +143,28 @@ export class SearchService {
 
   // Homepage event search
   getSearchEvents(query) {
-    return this.http.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283')
-      .map(res => res.json());
+    // return this.http.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283')
+    //   .map(res => res.json());
+
+    return this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
   }
 
 
   getSelectedArtistEvents(artistId) {
 
-    return this.http.get('https://api.songkick.com/api/3.0/artists/' + artistId + '/calendar.json?apikey=' + this.API_KEY)
-      .map(res => res.json());
+    // return this.http.get('https://api.songkick.com/api/3.0/artists/' + artistId + '/calendar.json?apikey=' + this.API_KEY)
+    //   .map(res => res.json());
+
+    return this.httpClient.get('https://api.songkick.com/api/3.0/artists/' + artistId + '/calendar.json?apikey=' + this.API_KEY)
+
   }
 
   getSelectedVenueEvents(venueId) {
 
-    return this.http.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY)
-      .map(res => res.json());
+    // return this.http.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY)
+    //   .map(res => res.json());
+
+    return this.httpClient.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY)
   }
 
   getSelectedVenueWebsite(venueId) {
