@@ -5,34 +5,59 @@
 </div>
 
 <!-- <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="10px"> -->
-<div>
+<div fxLayoutAlign="center center" fxLayoutGap="30px" fxLayout="column">
   <!-- <div fxLayout fxLayoutAlign="space-around center" fxLayoutGap="10px"> -->
-  <div>
+  <div fxLayoutAlign="center center">
 
-    <mat-card style="background-color: #1B5E20; ">
-      <h4 fxLayoutAlign="center center" style="color: white;" fxFlex="35%">
-        Portland has a wealth of awesome music venues to
-        see the music that moves you</h4>
-      <h4 style="color: white;">From the historic <a href="https://www.crystalballroompdx.com/" target="_blank" style="text-decoration: none">
-          McMenamen's Crstyal Ballroom</a>
-        to the high school auditorium turned music venue of <a href="https://www.revolutionhall.com/" target="_blank"
-          style="text-decoration: none">
-          Revolution Hall</a>
-        , finding an excited live music experience is just a click away!
-      </h4>
+    <mat-card style="background-color: #1B5E20; color: white;">
+      <!-- <h4 fxLayoutAlign="center center" style="color: white;" fxFlex="35%"> -->
+        <mat-card-title>
+          <mat-icon>music_note</mat-icon>
+        </mat-card-title>
+
+      <mat-card-content>
+        <h4>
+          Portland has a wealth of awesome music venues to
+          see the music that moves you</h4>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-content>
+        <mat-icon>local_activity</mat-icon>
+        <h4>From the historic <a href="https://www.crystalballroompdx.com/" target="_blank" style="text-decoration: none">
+            McMenamen's Crstyal Ballroom</a>
+          to the high school auditorium turned music venue of <a href="https://www.revolutionhall.com/" target="_blank"
+            style="text-decoration: none">
+            Revolution Hall</a>
+          , finding an excited live music experience is just a click away!
+        </h4>
+      </mat-card-content>
     </mat-card>
   </div>
 
   <mat-divider></mat-divider>
 
   <!-- <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px"> -->
-  <div fxLayoutGap="30px" fxLayout="row" fxLayoutAlign="center center">
+  <div fxLayout="row" fxLayoutAlign="center center">
 
     <mat-card style="background-color: #1B5E20;">
 
-      <h4 style="color: white;">Register to add and
-        track your favorite venues and keep tabs
-        on the artists that inspire you the most!</h4>
+      <mat-card-title>
+        <mat-icon style="color: white;">favorite_border</mat-icon>
+      </mat-card-title>
+
+      <mat-card-content>
+
+        <h4 style="color: white;">Register to add and
+          track your favorite venues and keep tabs
+          on the artists that inspire you the most!
+        </h4>
+
+
+
+
+      </mat-card-content>
 
       <mat-card-actions>
         <a routerLink="/register" mat-raised-button style="background-color: #FFB916; color: white;">
