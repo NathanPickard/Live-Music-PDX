@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
+import { MatButtonModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
-import { MatButtonModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -24,9 +26,10 @@ import { AuthRoutingModule } from './auth-routing.module';
     FormsModule,
     AuthRoutingModule,
     ReactiveFormsModule,
+    MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatButtonModule,
+    MatIconModule,
     MatInputModule,
     MatSnackBarModule,
     FlexLayoutModule
