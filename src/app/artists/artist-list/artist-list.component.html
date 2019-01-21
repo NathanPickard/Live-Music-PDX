@@ -105,7 +105,7 @@
             </div>
 
             <button *ngIf="foundArtist.onTourUntil" mat-raised-button color="primary" (click)="getSearchArtistEvents(foundArtist.id)">
-              Get '{{ foundArtist.displayName }}' events
+              Get {{ foundArtist.displayName }} events
             </button>
 
             <button mat-raised-button color="primary" (click)="searchSimilarArtist(foundArtist.id)">
@@ -127,7 +127,10 @@
               <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
 
                 <ng-container class="mat-column" matColumnDef="date">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <mat-icon>event</mat-icon>
+                    Date
+                  </th>
                   <td mat-cell *matCellDef="let row">
                     {{ row.start.date | date: 'E MMM d' }}
                   </td>
@@ -135,7 +138,10 @@
                 </ng-container>
 
                 <ng-container class="mat-column" matColumnDef="displayName">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Event</th>
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <mat-icon>local_activity</mat-icon>
+                    Event
+                  </th>
                   <td mat-cell *matCellDef="let row">
                     {{ row.displayName }}
                   </td>
@@ -143,7 +149,10 @@
                 </ng-container>
 
                 <ng-container class="mat-column" matColumnDef="city">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header>City</th>
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <mat-icon>location_city</mat-icon>
+                    City
+                  </th>
                   <td mat-cell *matCellDef="let row">
                     {{ row.location.city }}
                   </td>
@@ -151,7 +160,10 @@
                 </ng-container>
 
                 <ng-container class="mat-column" matColumnDef="venue">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Venue</th>
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <mat-icon>place</mat-icon>
+                    Venue
+                  </th>
                   <td mat-cell *matCellDef="let row">
                     <a href="{{ row.venue.uri }}" mat-stroked-button color="accent" target="_blank">
                       {{ row.venue.displayName }}</a>
@@ -160,7 +172,10 @@
                 </ng-container>
 
                 <ng-container class="mat-column" matColumnDef="uri">
-                  <th mat-header-cell *matHeaderCellDef>Event Link</th>
+                  <th mat-header-cell *matHeaderCellDef>
+                    <mat-icon>link</mat-icon>
+                    Event Link
+                  </th>
                   <td mat-cell *matCellDef="let row">
                     <a href="{{ row.uri }}" mat-stroked-button color="primary" target="_blank">Check out event</a>
                   </td>
@@ -168,7 +183,10 @@
                 </ng-container>
 
                 <ng-container class="mat-column" matColumnDef="datetime">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Time</th>
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <mat-icon>access_time</mat-icon>
+                    Start Time
+                  </th>
                   <td mat-cell *matCellDef="let row">
                     {{ row.start.datetime | date: 'shortTime' }}
                   </td>

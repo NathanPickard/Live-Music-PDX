@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -48,6 +49,7 @@ import { AboutComponent } from './about/about.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
+    MatDividerModule,
     MatExpansionModule,
     MatFormFieldModule,
     MatGridListModule,

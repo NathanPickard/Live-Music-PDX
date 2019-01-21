@@ -24,7 +24,7 @@ export class VenuesComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     public snackBar: MatSnackBar) { }
 
-  displayedColumns: string[] = ['date', 'displayName', 'city', 'venue', 'uri', 'datetime'];
+  displayedColumns: string[] = ['date', 'displayName', 'city', 'uri', 'datetime'];
   dataSource: any;
 
   venues: Venue[];
