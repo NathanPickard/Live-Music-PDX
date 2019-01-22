@@ -144,7 +144,6 @@ export class HomePagePagination {
   // monthDate: any;
   // yearDate: any;
 
-
 today = new Date();
 dayDate = this.today.getDate();
 weekDate = this.dayDate + 7;
