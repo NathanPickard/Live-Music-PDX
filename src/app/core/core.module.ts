@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,6 +14,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatNativeDateModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
@@ -49,6 +51,7 @@ import { AboutComponent } from './about/about.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
+    MatDatepickerModule,
     MatDividerModule,
     MatExpansionModule,
     MatFormFieldModule,
@@ -56,6 +59,7 @@ import { AboutComponent } from './about/about.component';
     MatIconModule,
     MatInputModule,
     MatListModule,
+    MatNativeDateModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSelectModule,
@@ -77,6 +81,7 @@ import { AboutComponent } from './about/about.component';
     VenueService,
     AuthService,
     SideNavService,
+    MatDatepickerModule,
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
   ],
