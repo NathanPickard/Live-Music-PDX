@@ -32,6 +32,8 @@ import { environment } from '../../../environments/environment';
 
 export class HomeComponent implements OnInit {
 
+  picker: any;
+
   foundEvents: any[];
   performanceArray: any[];
   foundArtists: any[];
@@ -64,6 +66,8 @@ export class HomeComponent implements OnInit {
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
+
+    console.log(this.picker);
 
     this.getPdxEvents();
 
@@ -131,6 +135,10 @@ export class HomeComponent implements OnInit {
       error => this.handleError(error)
     );
   }
+
+  // datePickerSearchEvents() {
+  //   const query = this.search
+  // }
 
 }
 
