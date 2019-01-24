@@ -30,11 +30,15 @@
 
   <div fxLayout="row" fxLayoutAlign="end center">
 
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
+      <mat-form-field>
+        <!-- <input matInput [matDatepicker]="picker" placeholder="Choose a date" [formControl]="datePicked"> -->
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="datePicked">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Search Date</button>
+    </form>
 
     <div fxLayout="row" fxLayoutAlign="end center">
       <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
