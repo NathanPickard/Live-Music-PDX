@@ -149,6 +149,12 @@ export class SearchService {
     return this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
   }
 
+  requestDataFromVenuesAndArists(query): Observable<any[]> {
+    let response1 = this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
+    let response2 = this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
+    return Observable.forkJoin([response1, response2]);
+  }
+
 
   getSelectedArtistEvents(artistId) {
 
