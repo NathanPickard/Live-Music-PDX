@@ -1,3 +1,5 @@
+/// <reference types="@types/googlemaps" />
+
 import { Component, OnInit, ViewChild, LOCALE_ID } from '@angular/core';
 import { formatDate } from '@angular/common';
 // import { trigger, state, transition, style, animate } from '@angular/animations';
@@ -33,7 +35,12 @@ import { environment } from '../../../environments/environment';
 
 export class HomeComponent implements OnInit {
 
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
+
   datePicked: any;
+
+  mapFound: boolean = false;
 
   foundEvents: any[];
   performanceArray: any[];
@@ -71,6 +78,14 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     this.getPdxEvents();
+
+    var mapProp = {
+      center: new google.maps.LatLng(45.5212, -122.664),
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+
 
     this.searchEventForm = new FormGroup({
       'searchQuery': new FormControl(null)
