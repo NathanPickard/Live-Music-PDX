@@ -48,6 +48,9 @@ export class HomeComponent implements OnInit {
   eventsFound: boolean = false;
   type: any[];
 
+  upcomingArtist: any[];
+  upcomingPerformance: any;
+
   foundSearchEvents: any[];
   searchEventsFound: boolean = false;
 
@@ -118,10 +121,15 @@ export class HomeComponent implements OnInit {
     this.eventsFound = true;
     this.foundEvents = data.resultsPage.results.event;
     this.dataSource = this.foundEvents;
+    // for (i = 0; i < ;)
+    // this.upcomingArtist = this.foundEvents[0].performance;
+    this.upcomingPerformance = this.foundEvents;
     // this.performanceArray = data.resultsPage.results.event.location;
     // this.foundArtists = data.resultsPage.results.event.performance.artist;
     // console.log(this.foundArtists);
     console.log(this.foundEvents);
+    // console.log(this.upcomingArtist);
+    console.log(this.upcomingPerformance);
     // console.log(this.performanceArray);
   }
 
