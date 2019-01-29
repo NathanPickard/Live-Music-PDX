@@ -153,10 +153,12 @@
             <mat-icon>local_activity</mat-icon>
             Event
           </th>
-          <td mat-cell *matCellDef="let row; let i = index">
-            {{ row.displayName }}
+          <td mat-cell *matCellDef="let row">
+            <!-- {{ row.displayName }} -->
             <!-- {{ row.performance[i] }} -->
-            <!-- {{ row.performance }} -->
+            {{ row.performance}}
+            <!-- {{ row.performance[1].displayName }} -->
+            <!-- {{ row.performance[2].displayName }} -->
           </td>
           <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
