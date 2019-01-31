@@ -44,8 +44,6 @@ export class HomeComponent implements OnInit {
   venueLat: any;
   venueLng: any;
 
-  latVenue: any[];
-
 
   datePicked: any;
 
@@ -93,12 +91,10 @@ export class HomeComponent implements OnInit {
 
     var mapProp = {
       center: new google.maps.LatLng(45.5212, -122.664),
-      zoom: 15,
+      zoom: 14,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
-
-    this.setCenter();
 
 
     this.searchEventForm = new FormGroup({
@@ -129,48 +125,29 @@ export class HomeComponent implements OnInit {
   }
 
 
-  setCenter() {
-
-    this.getPdxEvents();
-
-    // this.venueLat = data.resultsPage.results.event.venue.lat;
-    // this.venueLng = data.resultsPage.results.event.venue.lng;
-
-    console.log(this.venueLat);
-    console.log(this.venueLng);
-
-    this.map.setCenter(new google.maps.LatLng(this.latitude, this.longitude));
-
-    let location = new google.maps.LatLng(this.venueLat, this.venueLng);
-
-    let marker = new google.maps.Marker({
-      position: location,
-      map: this.map,
-      title: 'Awesome venue'
-    });
-
-  }
-
   handleSuccess(data) {
     this.eventsFound = true;
     this.foundEvents = data.resultsPage.results.event;
-    this.latVenue = data.resultsPage.results.event;
     this.dataSource = this.foundEvents;
 
     for (let i = 0; i < data.resultsPage.results.event.length; i++) {
-      console.log('hi there');
 
-    //   this.venueLat = data.resultsPage.results.event[i];
-    //   this.venueLng = data.resultsPage.results.event[i];
+      // console.log(data.resultsPage.results.event[i].venue);
+
+      this.map.setCenter(new google.maps.LatLng(data.resultsPage.results.event[i].venue.lat, data.resultsPage.results.event[i].venue.lng));
+
+      let location = new google.maps.LatLng(data.resultsPage.results.event[i].venue.lat, data.resultsPage.results.event[i].venue.lng);
+
+      let eventName = (data.resultsPage.results.event[i].displayName);
+
+      let marker = new google.maps.Marker({
+        position: location,
+        map: this.map,
+        title: eventName,
+      });
+      //   this.venueLat = data.resultsPage.results.event[i];
+      //   this.venueLng = data.resultsPage.results.event[i];
     }
-
-    // console.log(this.venueLat);
-    // console.log(this.venueLng);
-
-    console.log(this.latVenue);
-
-
-
     // for (i = 0; i < ;)
     // this.upcomingArtist = this.foundEvents[0].performance;
     // this.upcomingPerformance = this.foundEvents;
