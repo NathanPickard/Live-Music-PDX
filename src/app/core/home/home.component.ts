@@ -123,7 +123,7 @@ export class HomeComponent implements OnInit {
     //   })
     // )
   }
-
+  
 
   handleSuccess(data) {
     this.eventsFound = true;
@@ -134,7 +134,7 @@ export class HomeComponent implements OnInit {
 
       // console.log(data.resultsPage.results.event[i].venue);
 
-      this.map.setCenter(new google.maps.LatLng(data.resultsPage.results.event[i].venue.lat, data.resultsPage.results.event[i].venue.lng));
+      // this.map.setCenter(new google.maps.LatLng(data.resultsPage.results.event[i].venue.lat, data.resultsPage.results.event[i].venue.lng));
 
       let location = new google.maps.LatLng(data.resultsPage.results.event[i].venue.lat, data.resultsPage.results.event[i].venue.lng);
 

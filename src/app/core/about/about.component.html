@@ -12,10 +12,15 @@
 
     <mat-card style="background-color: #1B5E20; color: white;">
       <!-- <h4 fxLayoutAlign="center center" style="color: white;" fxFlex="35%"> -->
-      <mat-card-title>
-        <mat-icon>music_note</mat-icon>
-        Explore Portland's music scene
-      </mat-card-title>
+      <mat-card-header>
+        <mat-card-title>
+          Explore Portland's music scene
+        </mat-card-title>
+        <div mat-card-avatar>
+          <mat-icon>music_note</mat-icon>
+        </div>
+      </mat-card-header>
+
       <mat-card-content>
         <h4>
           Portland has a wealth of awesome music venues to
@@ -24,15 +29,20 @@
     </mat-card>
 
     <mat-card style="background-color: #1B5E20; color: white;">
-      <mat-card-title>
-        <mat-icon>local_activity</mat-icon>
-        Discover new venues
-      </mat-card-title>
+      <mat-card-header>
+        <mat-card-title>
+          Discover new venues
+        </mat-card-title>
+        <div mat-card-avatar>
+          <mat-icon>local_activity</mat-icon>
+        </div>
+      </mat-card-header>
+
       <mat-card-content>
-        <h4>From the historic <a href="https://www.crystalballroompdx.com/" target="_blank" style="text-decoration: none">
+        <h4>From the historic <a href="https://www.crystalballroompdx.com/" target="_blank" style="text-decoration: none; color:#FFB916">
             McMenamen's Crystal Ballroom</a>
           to the high school auditorium turned music venue of <a href="https://www.revolutionhall.com/" target="_blank"
-            style="text-decoration: none">
+            style="text-decoration: none; color:#FFB916">
             Revolution Hall</a>
           , finding an excited live music experience is just a click away!
         </h4>
@@ -40,7 +50,6 @@
     </mat-card>
   </div>
 
-  <mat-divider></mat-divider>
 
   <!-- <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px"> -->
   <div fxLayout="row" fxLayoutAlign="center center">
@@ -69,7 +78,7 @@
 
   </div>
 
-  <div fxLayout="row" fxLayoutGap="30px">
+  <div fxLayout="row" fxLayoutGap="30px" style="padding-top: 20px; padding-bottom: 5px;">
 
     <mat-card style="background-color: #1B5E20; color: white">
       <mat-card-title>
@@ -122,6 +131,7 @@
 
       </mat-card-actions>
     </mat-card>
+
   </div>
 
 </div>
