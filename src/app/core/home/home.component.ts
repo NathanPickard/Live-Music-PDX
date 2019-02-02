@@ -38,12 +38,8 @@ export class HomeComponent implements OnInit {
   @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;
 
-  latitude: any;
-  longitude: any;
-
   venueLat: any;
   venueLng: any;
-
 
   datePicked: any;
 
@@ -123,7 +119,7 @@ export class HomeComponent implements OnInit {
     //   })
     // )
   }
-  
+
 
   handleSuccess(data) {
     this.eventsFound = true;

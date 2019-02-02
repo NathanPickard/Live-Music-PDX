@@ -1,4 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+/// <reference types="@types/googlemaps" />
+
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
@@ -16,6 +18,9 @@ import { SearchService } from '../shared/search.service';
 })
 
 export class VenuesComponent implements OnInit, OnDestroy {
+
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
 
   constructor(private venueService: VenueService,
     private searchService: SearchService,
@@ -63,6 +68,14 @@ export class VenuesComponent implements OnInit, OnDestroy {
     });
 
     this.authService.loadUser();
+
+    var mapProp = {
+      center: new google.maps.LatLng(45.5212, -122.664),
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
   }
 
 
@@ -91,6 +104,20 @@ export class VenuesComponent implements OnInit, OnDestroy {
     this.venueFound = true;
     this.foundVenues = data.resultsPage.results.venue;
     console.log(data.resultsPage.results.venue);
+
+    for (let i = 0; i < data.resultsPage.results.venue.length; i++) {
+
+      let location = new google.maps.LatLng(data.resultsPage.results.venue[i].lat, data.resultsPage.results.venue[i].lng);
+
+      let venueName = (data.resultsPage.results.venue[i].displayName);
+
+      let marker = new google.maps.Marker({
+        position: location,
+        map: this.map,
+        title: venueName,
+      });
+
+    }
   }
 
   handleVenueEventsSuccess(data) {

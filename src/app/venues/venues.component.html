@@ -61,12 +61,19 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
 
-          <mat-card *ngIf="foundVenue.description || foundVenue.website">
-            <h4>
-              Description: {{ foundVenue.description }}
-            </h4>
 
-            <a href="{{ foundVenue.website }}" mat-raised-button color="primary" target="_blank">Website</a>
+
+          <mat-card *ngIf="foundVenue.description || foundVenue.website">
+            <mat-card-content>
+              <h4>
+                Description: <br /> {{ foundVenue.description }}
+              </h4>
+            </mat-card-content>
+
+            <mat-card-actions>
+              <a href="{{ foundVenue.website }}" mat-raised-button color="primary" target="_blank">Website</a>
+            </mat-card-actions>
+
           </mat-card>
 
           <div fxLayout="row" fxLayoutGap="20px">
@@ -198,12 +205,17 @@
 
 
   <div fxLayout="row" fxLayoutAlign="center center">
+
+    <div #gmap style="width: 100%; height: 350px;"></div>
+
     <div>
       <app-venue-list></app-venue-list>
     </div>
+
     <div>
       <router-outlet></router-outlet>
     </div>
+
   </div>
 
 </div>
