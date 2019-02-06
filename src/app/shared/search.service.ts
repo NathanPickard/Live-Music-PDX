@@ -178,4 +178,9 @@ export class SearchService {
     return this.http.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY)
       .map(res => res.json());
   }
+
+  getVenueListLocation(venue) {
+
+    return this.httpClient.get('https://api.songkick.com/api/3.0/search/venues.json?query=' + venue + '&apikey=' + this.API_KEY)
+  }
 }

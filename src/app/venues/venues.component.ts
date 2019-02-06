@@ -22,6 +22,9 @@ export class VenuesComponent implements OnInit, OnDestroy {
   @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;
 
+  venueListLocation: any;
+  venueId: any;
+
   constructor(private venueService: VenueService,
     private searchService: SearchService,
     public authService: AuthService,
@@ -69,6 +72,8 @@ export class VenuesComponent implements OnInit, OnDestroy {
 
     this.authService.loadUser();
 
+    this.getVenueListMarker();
+
     var mapProp = {
       center: new google.maps.LatLng(45.5212, -122.664),
       zoom: 14,
@@ -100,6 +105,15 @@ export class VenuesComponent implements OnInit, OnDestroy {
     );
   }
 
+  getVenueListMarker() {
+    this.venueId = this.venueService.getVenues();
+    console.log(this.venueId);
+    return this.searchService.getVenueListLocation(this.venueId).subscribe(
+      data => this.handleVenueListLocationSuccess(data),
+      error => this.handleError(error)
+    );
+  }
+
   handleSuccess(data) {
     this.venueFound = true;
     this.foundVenues = data.resultsPage.results.venue;
@@ -116,7 +130,6 @@ export class VenuesComponent implements OnInit, OnDestroy {
         map: this.map,
         title: venueName,
       });
-
     }
   }
 
@@ -126,6 +139,12 @@ export class VenuesComponent implements OnInit, OnDestroy {
     this.dataSource = this.venueEvents;
     console.log(this.venueEvents);
   }
+
+  handleVenueListLocationSuccess(data) {
+    this.venueListLocation = data;
+    console.log(this.venueListLocation);
+  }
+
 
   handleError(error) {
     console.log(error);
@@ -150,7 +169,6 @@ export class VenuesComponent implements OnInit, OnDestroy {
     this.venueService.addVenue(new Venue(this.name, this.address, this.description, this.id));
 
     this.openSnackBar();
-
   }
 
   openSnackBar() {
