@@ -77,13 +77,9 @@ export class VenuesComponent implements OnInit, OnDestroy {
       this.getVenueListMarker(this.venues[i].id);
     }
 
-
-
-    // this.getVenueListMarker();
-
     var mapProp = {
       center: new google.maps.LatLng(45.5212, -122.664),
-      zoom: 14,
+      zoom: 13,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
