@@ -72,7 +72,14 @@ export class VenuesComponent implements OnInit, OnDestroy {
 
     this.authService.loadUser();
 
-    this.getVenueListMarker();
+    for (let i = 0; i < this.venues.length; i++) {
+      console.log(this.venues[i].id);
+      this.getVenueListMarker(this.venues[i].id);
+    }
+
+
+
+    // this.getVenueListMarker();
 
     var mapProp = {
       center: new google.maps.LatLng(45.5212, -122.664),
@@ -105,13 +112,19 @@ export class VenuesComponent implements OnInit, OnDestroy {
     );
   }
 
-  getVenueListMarker() {
-    this.venueId = this.venueService.getVenues();
-    console.log(this.venueId);
-    return this.searchService.getVenueListLocation(this.venueId).subscribe(
+  getVenueListMarker(venueId) {
+    // this.venueId = this.venueService.getVenues();
+    // console.log(this.venueId);
+    // console.log(this.venue)
+
+    // for (let i = 0; i < this.venueId.length; i++) {
+    // console.log(this.venueId[i].id);
+    return this.searchService.getVenueListLocation(venueId).subscribe(
       data => this.handleVenueListLocationSuccess(data),
       error => this.handleError(error)
     );
+    // }
+
   }
 
   handleSuccess(data) {
@@ -141,8 +154,17 @@ export class VenuesComponent implements OnInit, OnDestroy {
   }
 
   handleVenueListLocationSuccess(data) {
-    this.venueListLocation = data;
+    // this.venueListLocationLat = data.resultsPage.results;
     console.log(this.venueListLocation);
+
+    let location = new google.maps.LatLng(data.resultsPage.results.venue.lat, data.resultsPage.results.venue.lng);
+    let venueName = (data.resultsPage.results.venue.displayName);
+
+    let marker = new google.maps.Marker({
+      position: location,
+      map: this.map,
+      title: venueName,
+    });
   }
 
 

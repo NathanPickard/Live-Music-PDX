@@ -181,6 +181,6 @@ export class SearchService {
 
   getVenueListLocation(venue) {
 
-    return this.httpClient.get('https://api.songkick.com/api/3.0/search/venues.json?query=' + venue + '&apikey=' + this.API_KEY)
+    return this.httpClient.get('https://api.songkick.com/api/3.0/venues/' + venue + '.json?apikey=' + this.API_KEY)
   }
 }
