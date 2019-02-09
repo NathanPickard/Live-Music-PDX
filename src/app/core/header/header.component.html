@@ -9,21 +9,25 @@
     <div>
       <a mat-stroked-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"-->
-        <mat-icon>music_note</mat-icon>Live Music PDX
+        <mat-icon>music_note</mat-icon>
+        Live Music PDX
       </a>
     </div>
 
     <a mat-button routerLink="/venues" routerLinkActive="active">
-      <mat-icon>local_play</mat-icon>Venues
+      <mat-icon>local_play</mat-icon>
+      Venues
     </a>
 
     <a mat-button routerLink="/artists" routerLinkActive="active">
-      <mat-icon>music_video</mat-icon>Artists
+      <mat-icon>music_video</mat-icon>
+      Artists
     </a>
 
     <div fxShow="true" fxHide.lt-sm>
       <a mat-button routerLink="/about" routerLinkActive="active">
-        <mat-icon>info</mat-icon>About
+        <mat-icon>info</mat-icon>
+        About
       </a>
     </div>
 
@@ -47,13 +51,15 @@
         </a>
 
         <a mat-button routerLink="/login" routerLinkActive="active">
-          <mat-icon>play_circle_outline</mat-icon>Login
+          <mat-icon>play_circle_outline</mat-icon>
+          Login
         </a>
 
       </ng-template>
 
       <a mat-button (click)="onLogout()" *ngIf="isAuthenticated()">
-        <mat-icon>stop</mat-icon>Logout
+        <mat-icon>stop</mat-icon>
+        Logout
       </a>
 
     </div>
