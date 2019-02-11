@@ -36,7 +36,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
 
     this.authService.isAuthenticated();
-    console.log(this.authService.isAuthenticated);
+    // console.log(this.authService.isAuthenticated);
 
 
     this.authService.loadUser();
