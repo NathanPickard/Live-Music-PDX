@@ -25,7 +25,9 @@ export class HeaderComponent {
     public snackBar: MatSnackBar) { }
 
   openNav() {
+
     this.sideNavService.openNav();
+
   }
 
   onSaveData() {
