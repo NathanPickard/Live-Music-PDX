@@ -15,22 +15,22 @@
         <!-- <a mat-stroked-button routerLink="/"> -->
         <a mat-list-item routerLink="/" routerLinkActive="active" (click)="closeSidenav()">
           <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"-->
-          <mat-icon>music_note</mat-icon>
+          <mat-icon matListIcon>music_note</mat-icon>
           Live Music PDX
         </a>
 
         <a mat-list-item routerLink="/venues" routerLinkActive="active" (click)="closeSidenav()">
-          <mat-icon>local_play</mat-icon>
+          <mat-icon matListIcon>local_play</mat-icon>
           Venues
         </a>
 
         <a mat-list-item routerLink="/artists" routerLinkActive="active" (click)="closeSidenav()">
-          <mat-icon>music_video</mat-icon>
+          <mat-icon matListIcon>music_video</mat-icon>
           Artists
         </a>
 
         <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="closeSidenav()">
-          <mat-icon>info</mat-icon>
+          <mat-icon matListIcon>info</mat-icon>
           About
         </a>
 
@@ -46,17 +46,17 @@
         <ng-template [ngIf]="!isAuthenticated()">
 
           <a mat-list-item routerLink="/register" routerLinkActive="active" (click)="closeSidenav()">
-            <mat-icon>account_box</mat-icon>
+            <mat-icon matListIcon>account_box</mat-icon>
             Register
           </a>
           <a mat-list-item routerLink="/login" routerLinkActive="active" (click)="closeSidenav()">
-            <mat-icon>play_circle_outline</mat-icon>
+            <mat-icon matListIcon>play_circle_outline</mat-icon>
             Login
           </a>
         </ng-template>
 
         <a mat-button (click)="onLogout()" *ngIf="isAuthenticated()" (click)="closeSidenav()">
-          <mat-icon>stop</mat-icon>
+          <mat-icon matListIcon>stop</mat-icon>
           Logout
         </a>
 

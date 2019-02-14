@@ -57,6 +57,9 @@ export class HomeComponent implements OnInit {
   foundSearchEvents: any[];
   searchEventsFound: boolean = false;
 
+  foundPopularEvents: any[];
+  mostPopular: any;
+
   searchQuery: string;
 
   displayedColumns: string[] = ['date', 'displayName', 'venue', 'uri', 'datetime'];
@@ -84,6 +87,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     this.getPdxEvents();
+
+    this.getPopularPdxEvents();
 
     var mapProp = {
       center: new google.maps.LatLng(45.5212, -122.664),
@@ -167,6 +172,15 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  handlePopularEventsSuccess(data) {
+    this.foundPopularEvents = data.resultsPage.results.event;
+    let mostPopular = this.foundPopularEvents;
+
+    mostPopular.sort((a, b) => 0 - (a > b ? 1 : -1));
+
+    console.log(this.mostPopular);
+  }
+
   handleError(error) {
     console.log(error);
   }
@@ -174,6 +188,13 @@ export class HomeComponent implements OnInit {
   getPdxEvents() {
     return this.searchService.getPdxEvents().subscribe(
       data => this.handleSuccess(data),
+      error => this.handleError(error)
+    );
+  }
+
+  getPopularPdxEvents() {
+    return this.searchService.getPopularPdxEvents().subscribe(
+      data => this.handlePopularEventsSuccess(data),
       error => this.handleError(error)
     );
   }

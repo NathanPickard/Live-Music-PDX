@@ -101,6 +101,47 @@ export class SearchService {
   }
 
 
+  getPopularPdxEvents() {
+
+    this.today = new Date();
+    this.dayDate = this.today.getDate();
+    this.weekDate = this.dayDate + 7;
+    this.monthDate = this.today.getMonth() + 1;
+    this.yearDate = this.today.getFullYear();
+
+    if (this.dayDate < 10) {
+      this.dayDate = '0' + this.dayDate;
+    }
+
+    if (this.weekDate < 10) {
+      this.weekDate = '0' + this.weekDate;
+    }
+
+    if (this.monthDate < 10) {
+      this.monthDate = '0' + this.monthDate;
+    }
+
+    this.today = this.yearDate + '-' + this.monthDate + '-' + this.dayDate;
+    this.weekDate = this.yearDate + '-' + this.monthDate + '-' + (this.weekDate);
+
+
+    // return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
+    //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
+    //   .map(res => res.json());
+
+
+    // var returnVar = this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
+    //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=8')
+    //   .map(res => {
+    //     var ret = res.json();
+    //     ret.sort((a, b) => a.popularity < b.popularity ? -1 : 1);
+    //     return ret;
+    //   });
+    return this.httpClient.get<any>(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
+      '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=8');
+  }
+
+
   getPdxEventsPagination(sort: string, order: string, page: number): Observable<any> {
 
     this.today = new Date();
