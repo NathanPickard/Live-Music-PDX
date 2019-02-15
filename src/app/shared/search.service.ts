@@ -124,12 +124,6 @@ export class SearchService {
     this.today = this.yearDate + '-' + this.monthDate + '-' + this.dayDate;
     this.weekDate = this.yearDate + '-' + this.monthDate + '-' + (this.weekDate);
 
-
-    // return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
-    //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
-    //   .map(res => res.json());
-
-
     // var returnVar = this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
     //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=8')
     //   .map(res => {
@@ -175,7 +169,7 @@ export class SearchService {
     // return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
     //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
     //   .map(res => res.json());
-
+    
 
     // return this.httpClient.get<any>(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
     //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25');
