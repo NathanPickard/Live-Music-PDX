@@ -176,9 +176,17 @@ export class HomeComponent implements OnInit {
     this.foundPopularEvents = data.resultsPage.results.event;
     let mostPopular = this.foundPopularEvents;
 
-    mostPopular.sort((a, b) => 0 - (a > b ? 1 : -1));
 
-    console.log(this.mostPopular);
+    // mostPopular.sort((a, b) => 0 - (a > b ? 1 : -1));
+
+    // Sorting events by popularity
+    mostPopular.sort((a, b) => 0 - (a.popularity > b.popularity ? 1 : -1));
+
+    // mostPopular.sort((a, b) => parseFloat(a.popularity) - parseFloat(b.popularity));
+
+
+    console.log(mostPopular);
+    // console.log(this.foundPopularEvents);
   }
 
   handleError(error) {
