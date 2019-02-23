@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { EventsComponent } from './events.component';
 import { EventStartComponent } from './event-start/event-start.component';
+import { EventsRoutingModule } from './events-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { EventStartComponent } from './event-start/event-start.component';
   ],
   imports: [
     CommonModule,
+    EventsRoutingModule,
     MatButtonModule,
     FlexLayoutModule
   ]
