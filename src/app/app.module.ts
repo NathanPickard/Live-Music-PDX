@@ -23,12 +23,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatSelectModule } from '@angular/material/select'
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { EventsComponent } from './events/events.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    EventsComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
