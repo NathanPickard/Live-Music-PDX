@@ -1,0 +1,12 @@
+<h1>PDX Events</h1>
+
+<h3>Look up the latest and upcoming live music events</h3>
+
+<form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
+  <mat-form-field>
+    <input type="search" matInput placeholder="Search for events" formControlName="searchQuery">
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="primary">
+    <mat-icon>search</mat-icon>Find Events
+  </button>
+</form>
