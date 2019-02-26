@@ -6,11 +6,14 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
+
+import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
 import { VenuesModule } from './venues/venues.module';
 import { AuthModule } from './auth/auth.module';
+
 import { SearchService } from './shared/search.service';
 import { DataStorageService } from './shared/data-storage.service';
 import { SideNavService } from './core/side-nav.service';

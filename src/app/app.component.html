@@ -19,8 +19,13 @@
           Live Music PDX
         </a>
 
+        <a mat-list-item routerLink="/events" routerLinkActive="active" (click)="closeSidenav()">
+          <mat-icon matLisIcont>local_play</mat-icon>
+          Events
+        </a>
+
         <a mat-list-item routerLink="/venues" routerLinkActive="active" (click)="closeSidenav()">
-          <mat-icon matListIcon>local_play</mat-icon>
+          <mat-icon matListIcon>place</mat-icon>
           Venues
         </a>
 
