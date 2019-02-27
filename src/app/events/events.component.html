@@ -1,17 +1,25 @@
-<h1>PDX Events</h1>
+<div fxLayout="column" fxLayoutAlign="center center">
+  <h1>PDX Events</h1>
+  <h3>Look up the latest and upcoming live music events</h3>
+</div>
 
-<h3>Look up the latest and upcoming live music events</h3>
 
-<form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
-  <mat-form-field>
-    <input type="search" matInput placeholder="Search for events" formControlName="searchQuery">
-  </mat-form-field>
-  <button type="submit" mat-raised-button color="primary">
-    <mat-icon>search</mat-icon>Find Events
-  </button>
-</form>
+<div fxLayout="row" fxLayoutAlign="end center">
+  <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
+    <mat-form-field>
+      <input type="search" matInput placeholder="Search for events" formControlName="searchQuery">
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">
+      <mat-icon>search</mat-icon>Find Events
+    </button>
+  </form>
+</div>
 
 <mat-divider></mat-divider>
+
+<div fxLayoutAlign="center center">
+  <h3>5 most popular live music events for {{ today | date }}</h3>
+</div>
 
 <div *ngIf="eventsFound">
   <div class="data-table">
