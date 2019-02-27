@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
 import { Http } from '@angular/http';
+
+import * as moment from 'moment';
+
 import { environment } from '../../environments/environment';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
@@ -33,9 +36,14 @@ export class SearchService {
 
   today: any;
   weekDate: any;
+  monthAheadDate: any;
+  monthAheadDay: any;
   dayDate: any;
   monthDate: any;
   yearDate: any;
+
+  thirtyDaysAhead: any;
+  popularTodayDate: any;
 
 
   getArtists(query) {
@@ -105,8 +113,12 @@ export class SearchService {
     this.today = new Date();
     this.dayDate = this.today.getDate();
     this.weekDate = this.dayDate + 7;
+    this.monthAheadDate = this.today.getMonth() + 2;
+    this.monthAheadDay = this.today.getDate() + 30;
     this.monthDate = this.today.getMonth() + 1;
     this.yearDate = this.today.getFullYear();
+
+    this.thirtyDaysAhead = moment().add(4, 'weeks').format(moment.HTML5_FMT.DATE);
 
     if (this.dayDate < 10) {
       this.dayDate = '0' + this.dayDate;
@@ -120,8 +132,25 @@ export class SearchService {
       this.monthDate = '0' + this.monthDate;
     }
 
+    if (this.monthAheadDate < 10) {
+      this.monthAheadDate = '0' + this.monthAheadDate;
+    }
+
     this.today = this.yearDate + '-' + this.monthDate + '-' + this.dayDate;
     this.weekDate = this.yearDate + '-' + this.monthDate + '-' + (this.weekDate);
+
+    this.popularTodayDate = moment().format(moment.HTML5_FMT.DATE);
+
+    // this.monthAheadDate = this.yearDate + '-' + this.monthAheadDate;
+
+    // this.monthAheadDate = this.yearDate + '-' + this.monthAheadDate + '-' + (this.monthAheadDate);
+
+    // console.log(this.monthAheadDate);
+    // console.log(this.monthAheadDay);
+
+    // console.log(this.thirtyDaysAhead);
+    console.log(this.popularTodayDate);
+
 
     // var returnVar = this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
     //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=8')
@@ -131,7 +160,7 @@ export class SearchService {
     //     return ret;
     //   });
     return this.httpClient.get<any>(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
-      '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=8');
+      '&min_date=' + this.popularTodayDate + '&max_date=' + this.popularTodayDate);
   }
 
 

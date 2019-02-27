@@ -174,6 +174,8 @@ export class HomeComponent implements OnInit {
 
   handlePopularEventsSuccess(data) {
     this.foundPopularEvents = data.resultsPage.results.event;
+    console.log(this.foundPopularEvents);
+
     let mostPopular = this.foundPopularEvents;
 
 
@@ -182,6 +184,7 @@ export class HomeComponent implements OnInit {
     // Sorting events by popularity
     mostPopular.sort((a, b) => 0 - (a.popularity > b.popularity ? 1 : -1));
 
+    mostPopular.length = 5;
     // mostPopular.sort((a, b) => parseFloat(a.popularity) - parseFloat(b.popularity));
 
 
