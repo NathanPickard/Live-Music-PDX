@@ -54,8 +54,6 @@ export class HomeComponent implements OnInit {
   upcomingArtist: any[];
   upcomingPerformance: any;
 
-  foundSearchEvents: any[];
-  searchEventsFound: boolean = false;
 
   foundPopularEvents: any[];
   mostPopular: any;
@@ -73,6 +71,8 @@ export class HomeComponent implements OnInit {
 
   searchEventForm: FormGroup;
   searchEventNotFound: boolean = false;
+  searchEventsFound: boolean = false;
+  foundSearchEvents: any[];
 
   searchDateForm: FormGroup;
   // dataSource: MatTableDataSource<any>;

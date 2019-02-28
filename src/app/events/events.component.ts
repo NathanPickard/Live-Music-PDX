@@ -18,9 +18,14 @@ export class EventsComponent implements OnInit {
 
   searchEventForm: FormGroup;
 
+  foundSearchEvents: any[];
+  searchEventsFound: boolean = false;
+  searchEventNotFound: boolean = false;
+
   displayedColumns: string[] = ['date', 'displayName', 'venue', 'uri', 'datetime'];
 
   dataSource: any;
+  searchDataSource: any;
 
   ngOnInit() {
     this.searchEventForm = new FormGroup({
@@ -32,6 +37,22 @@ export class EventsComponent implements OnInit {
   }
 
   searchEvents() {
+    const query = this.searchEventForm.value.searchQuery;
+    return this.searchService.getSearchEvents(query).subscribe(
+      data => this.handleSearchEventsSuccess(data),
+      error => this.handleError(error)
+    );
+  }
+
+  handleSearchEventsSuccess(data) {
+    this.searchEventsFound = true;
+    this.foundSearchEvents = data.resultsPage.results.event;
+    this.searchDataSource = this.foundSearchEvents;
+    console.log(this.foundSearchEvents);
+
+    if (this.foundSearchEvents == undefined) {
+      this.searchEventNotFound = true;
+    }
   }
 
   getPopularPdxEvents() {
