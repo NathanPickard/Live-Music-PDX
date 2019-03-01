@@ -146,8 +146,6 @@ export class HomeComponent implements OnInit {
         map: this.map,
         title: eventName,
       });
-      //   this.venueLat = data.resultsPage.results.event[i];
-      //   this.venueLng = data.resultsPage.results.event[i];
     }
     // for (i = 0; i < ;)
     // this.upcomingArtist = this.foundEvents[0].performance;
@@ -156,7 +154,6 @@ export class HomeComponent implements OnInit {
     // this.foundArtists = data.resultsPage.results.event.performance.artist;
     // console.log(this.foundArtists);
     console.log(this.foundEvents);
-    // console.log(this.upcomingArtist);
     // console.log(this.upcomingPerformance);
     // console.log(this.performanceArray);
   }
