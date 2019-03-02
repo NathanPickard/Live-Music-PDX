@@ -6,7 +6,8 @@
 
 <div fxLayout="row" fxLayoutAlign="end center">
   <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
-    <mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Search for events</mat-label>
       <input type="search" matInput placeholder="Search for events" formControlName="searchQuery">
     </mat-form-field>
     <button type="submit" mat-raised-button color="primary">

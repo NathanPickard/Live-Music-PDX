@@ -41,8 +41,9 @@
 
     <div fxLayout="row" fxLayoutAlign="end center">
       <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
-        <mat-form-field>
-          <input type="search" matInput placeholder="Search PDX events" formControlName="searchQuery">
+        <mat-form-field appearance="outline">
+          <mat-label>Search PDX Events</mat-label>
+          <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery">
         </mat-form-field>
         <button type="submit" mat-raised-button color="primary">Search Events</button>
       </form>

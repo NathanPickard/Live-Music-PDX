@@ -28,7 +28,8 @@
     </div> -->
 
     <form [formGroup]="searchArtistForm" (ngSubmit)="searchArtists()">
-      <mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Search for artists</mat-label>
         <input type="search" matInput placeholder="Search for artists" formControlName="searchQuery">
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary">
