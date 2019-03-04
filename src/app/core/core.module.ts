@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -48,6 +49,7 @@ import { AboutComponent } from './about/about.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
     MatDatepickerModule,
