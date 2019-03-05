@@ -8,7 +8,7 @@ import { fade } from '../../animations';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSort, MatTableDataSource, MatTable, PageEvent, MatPaginator } from '@angular/material';
 import { merge, Observable, of as oberservableOf } from 'rxjs';
-import { catchError, map, startWith, switchMap } from 'rxjs/operators';
+import { catchError, map, startWith, switchMap, debounceTime } from 'rxjs/operators';
 
 import { SearchService } from '../../shared/search.service';
 // import { merge } from 'rxjs-compat/operator/merge';
@@ -34,6 +34,9 @@ import { environment } from '../../../environments/environment';
 })
 
 export class HomeComponent implements OnInit {
+
+  // public homeSearchAutoComplete$ = Observable<Items> = null;
+  public autoCompletentrol = new FormControl();
 
   @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;
