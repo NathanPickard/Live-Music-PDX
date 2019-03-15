@@ -61,6 +61,9 @@ export class HomeComponent implements OnInit {
   foundPopularEvents: any[];
   mostPopular: any;
 
+  // performancek: any;
+  person: any;
+
   searchQuery: string;
 
   displayedColumns: string[] = ['date', 'displayName', 'venue', 'uri', 'datetime'];
