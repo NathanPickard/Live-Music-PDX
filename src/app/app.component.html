@@ -8,11 +8,9 @@
   <!-- <mat-sidenav-container fxFlexFill> -->
 
   <mat-sidenav-container class="all-wrap">
-    <!-- <mat-sidenav #sidenav> -->
     <mat-sidenav #sidenav over>
       <mat-nav-list>
 
-        <!-- <a mat-stroked-button routerLink="/"> -->
         <a mat-list-item routerLink="/" routerLinkActive="active" (click)="closeSidenav()">
           <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"-->
           <mat-icon matListIcon>music_note</mat-icon>
@@ -93,10 +91,14 @@
 <footer>
   <mat-toolbar color="primary">
     <mat-toolbar-row fxLayoutAlign="center center">
+
       <a href="https://github.com/NathanPickard" mat-stroked-button target="_blank"
         style=" background-color: #FFB916; text-decoration: none; color: white;">
-        Built by
-        Nathan Pickard</a>
+        <mat-icon>copyright</mat-icon>
+        2019 Built by
+        Nathan Pickard
+      </a>
+
     </mat-toolbar-row>
   </mat-toolbar>
 </footer>

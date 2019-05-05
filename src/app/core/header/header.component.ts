@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 // import { Response } from '@angular/http';
 import { HttpEvent } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material';
@@ -25,9 +25,7 @@ export class HeaderComponent {
     public snackBar: MatSnackBar) { }
 
   openNav() {
-
     this.sideNavService.openNav();
-
   }
 
   onSaveData() {
