@@ -43,8 +43,6 @@
 
   <mat-divider></mat-divider>
 
-
-
   <mat-card *ngIf="venueFound">
 
     <div fxLayoutAlign="center center" fxLayout="column">
@@ -65,8 +63,6 @@
               {{ foundVenue.city.displayName}} - {{ foundVenue.city.state.displayName }}
             </mat-panel-description>
           </mat-expansion-panel-header>
-
-
 
           <mat-card *ngIf="foundVenue.description || foundVenue.website">
             <mat-card-content>
@@ -205,8 +201,6 @@
     </div>
 
   </mat-card>
-
-
 
 
   <div fxLayout="row" fxLayoutAlign="center center">
