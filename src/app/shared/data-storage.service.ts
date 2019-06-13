@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
-import { Http, Response } from "@angular/http";
 
 import { Artist } from "../artists/artist.model";
 import { Venue } from "../venues/venue.model";
@@ -10,8 +9,7 @@ import { VenueService } from "../venues/venue.service";
 
 @Injectable()
 export class DataStorageService {
-  constructor(private http: Http,
-    private httpClient: HttpClient,
+  constructor(private httpClient: HttpClient,
     private artistService: ArtistService,
     private venueService: VenueService,
     private authService: AuthService) { }

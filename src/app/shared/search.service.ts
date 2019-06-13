@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
-import { Http } from '@angular/http';
 
 import * as moment from 'moment';
 
@@ -17,7 +16,6 @@ import { Observable } from 'rxjs/Rx';
 export class SearchService {
 
   constructor(private httpClient: HttpClient,
-    private http: Http,
     private artistService: ArtistService) { }
 
   private artist: string;

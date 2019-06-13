@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -35,7 +34,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     BrowserModule,
     NgxPaginationModule,
     HttpClientModule,
-    HttpModule,
     AppRoutingModule,
     AuthModule,
     VenuesModule,

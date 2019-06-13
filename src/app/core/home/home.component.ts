@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   // public homeSearchAutoComplete$ = Observable<Items> = null;
   public autoCompletentrol = new FormControl();
 
-  @ViewChild('gmap') gmapElement: any;
+  @ViewChild('gmap', { static: true }) gmapElement: any;
   map: google.maps.Map;
 
   venueLat: any;
@@ -68,8 +68,8 @@ export class HomeComponent implements OnInit {
 
   displayedColumns: string[] = ['date', 'displayName', 'venue', 'uri', 'datetime'];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ViewChild(MatSort) sort: MatSort;
 
   pageEvent: PageEvent;
   dataSource: any;
