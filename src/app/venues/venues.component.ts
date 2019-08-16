@@ -19,7 +19,7 @@ import { SearchService } from '../shared/search.service';
 
 export class VenuesComponent implements OnInit, OnDestroy {
 
-  @ViewChild('gmap') gmapElement: any;
+  @ViewChild('gmap', { static: true }) gmapElement: any;
   map: google.maps.Map;
 
   venueListLocation: any;

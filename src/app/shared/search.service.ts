@@ -43,7 +43,6 @@ export class SearchService {
   thirtyDaysAhead: any;
   popularTodayDate: any;
 
-
   getArtists(query) {
     // this.httpClient.get<Artist[]>('https://api.songkick.com/api/3.0/search/artists.json?apikey=' + '&query={artist_name}', {
     //   observe: 'body',
@@ -62,19 +61,18 @@ export class SearchService {
   }
 
   getSimilarArtists(artistId) {
-    return this.http.get(this.API_URL + 'artists/' + artistId + '/similar_artists.json?apikey=' + this.API_KEY)
-      .map(res => res.json());
+    // return this.http.get(this.API_URL + 'artists/' + artistId + '/similar_artists.json?apikey=' + this.API_KEY)
+    // .map(res => res.json());
+    return this.httpClient.get(this.API_URL + 'artists/' + artistId + '/similar_artists.json?apikey=' + this.API_KEY);
   }
 
   getVenues(query) {
     // return this.http.get(this.VENUE_URL + query + '&apikey=' + this.API_KEY)
     //   .map(res => res.json());
-
     return this.httpClient.get<Venue[]>(this.VENUE_URL + query + '&apikey=' + this.API_KEY);
   }
 
   getPdxEvents() {
-
     this.today = new Date();
     this.dayDate = this.today.getDate();
     this.weekDate = this.dayDate + 7;
@@ -100,14 +98,12 @@ export class SearchService {
     //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
     //   .map(res => res.json());
 
-
     return this.httpClient.get<any>(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
       '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25');
   }
 
 
   getPopularPdxEvents() {
-
     this.today = new Date();
     this.dayDate = this.today.getDate();
     this.weekDate = this.dayDate + 7;
@@ -149,7 +145,6 @@ export class SearchService {
     // console.log(this.thirtyDaysAhead);
     console.log(this.popularTodayDate);
 
-
     // var returnVar = this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
     //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=8')
     //   .map(res => {
@@ -163,7 +158,6 @@ export class SearchService {
 
 
   getPdxEventsPagination(sort: string, order: string, page: number): Observable<any> {
-
     this.today = new Date();
     this.dayDate = this.today.getDate();
     this.weekDate = this.dayDate + 7;
@@ -188,7 +182,7 @@ export class SearchService {
     const requestUrl = (this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
       '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25' + '&sort=');
 
-    return this.http.get(requestUrl);
+    return this.httpClient.get(requestUrl);
 
     // return this.http.get(requestUrl);
 
@@ -206,7 +200,6 @@ export class SearchService {
   getSearchEvents(query) {
     // return this.http.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283')
     //   .map(res => res.json());
-
     return this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
   }
 
@@ -218,30 +211,26 @@ export class SearchService {
 
 
   getSelectedArtistEvents(artistId) {
-
     // return this.http.get('https://api.songkick.com/api/3.0/artists/' + artistId + '/calendar.json?apikey=' + this.API_KEY)
     //   .map(res => res.json());
 
-    return this.httpClient.get('https://api.songkick.com/api/3.0/artists/' + artistId + '/calendar.json?apikey=' + this.API_KEY)
-
+    return this.httpClient.get('https://api.songkick.com/api/3.0/artists/' + artistId + '/calendar.json?apikey=' + this.API_KEY);
   }
 
   getSelectedVenueEvents(venueId) {
-
     // return this.http.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY)
     //   .map(res => res.json());
 
-    return this.httpClient.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY)
+    return this.httpClient.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY);
   }
 
   getSelectedVenueWebsite(venueId) {
-
-    return this.http.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY)
-      .map(res => res.json());
+    // return this.http.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY)
+    //   .map(res => res.json());
+    return this.httpClient.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY);
   }
 
   getVenueListLocation(venue) {
-
-    return this.httpClient.get('https://api.songkick.com/api/3.0/venues/' + venue + '.json?apikey=' + this.API_KEY)
+    return this.httpClient.get('https://api.songkick.com/api/3.0/venues/' + venue + '.json?apikey=' + this.API_KEY);
   }
 }
