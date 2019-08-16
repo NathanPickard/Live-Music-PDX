@@ -43,8 +43,8 @@
 
   <div fxLayout="column">
     <!-- <mat-list> -->
-    <app-artist-item fxLayoutAlign="space-around center" style="padding-top: 10px;" *ngFor="let artistEl of artists; let i = index"
-      [artist]="artistEl" [index]="i"></app-artist-item>
+    <app-artist-item fxLayoutAlign="space-around center" style="padding-top: 10px;"
+      *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
     <!-- <mat-list-item>
         <app-artist-item *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
       </mat-list-item> -->
@@ -105,7 +105,8 @@
               </button>
             </div>
 
-            <button *ngIf="foundArtist.onTourUntil" mat-raised-button color="primary" (click)="getSearchArtistEvents(foundArtist.id)">
+            <button *ngIf="foundArtist.onTourUntil" mat-raised-button color="primary"
+              (click)="getSearchArtistEvents(foundArtist.id)">
               Get {{ foundArtist.displayName }} events
             </button>
 
@@ -118,7 +119,9 @@
 
           <mat-list *ngFor="let similarArtist of similarArtists">
             <mat-list-item>
-              {{ similarArtist.displayName }}
+              <a href="{{ similarArtist.uri }}" target="_blank" style="text-decoration: none;">
+                {{ similarArtist.displayName }}
+              </a>
             </mat-list-item>
           </mat-list>
 

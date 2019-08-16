@@ -62,7 +62,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-
     this.searchArtistForm = new FormGroup({
       'name': new FormControl(null, Validators.required)
     });
@@ -81,7 +80,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     });
 
     this.authService.loadUser();
-
   }
 
   handleSuccess(data) {

@@ -25,7 +25,6 @@
     </mat-form-field>
 
 
-
   </mat-card-content>
 
   <!-- <mat-card *ngIf="eventFound">
@@ -41,6 +40,8 @@
 
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="getArtistEvents()">Get {{ artist.name }} events</button>
+    <button mat-raised-button color="primary" (click)="getSimilarArtists()">Get artists similar to
+      {{ artist.name }}</button>
   </mat-card-actions>
 
 </mat-card>
@@ -55,7 +56,6 @@
 <!-- </mat-card-content> -->
 <!-- </div>
 </div> -->
-
 
 <div *ngIf="eventsFound">
   <div class="data-table">
@@ -137,7 +137,6 @@
   </div>
 </div>
 
-
 <!-- <div *ngFor="let foundEvent of foundEvents">
   <mat-accordion>
     <mat-expansion-panel>
@@ -155,8 +154,6 @@
     </mat-expansion-panel>
   </mat-accordion>
 </div> -->
-
-
 
 
 <!-- </div> -->
