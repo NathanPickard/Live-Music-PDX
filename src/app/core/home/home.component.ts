@@ -61,7 +61,6 @@ export class HomeComponent implements OnInit {
   foundPopularEvents: any[];
   mostPopular: any;
 
-  // performancek: any;
   person: any;
 
   searchQuery: string;
@@ -76,13 +75,12 @@ export class HomeComponent implements OnInit {
   searchDataSource: any;
 
   searchEventForm: FormGroup;
-  searchEventNotFound: boolean = false;
-  searchEventsFound: boolean = false;
+  searchEventNotFound = false;
+  searchEventsFound = false;
   foundSearchEvents: any[];
 
   searchDateForm: FormGroup;
   // dataSource: MatTableDataSource<any>;
-
 
   private API_KEY: string = environment.SONGKICK_API_KEY;
   private API_URL: string = environment.SONGKICK_API_URL;
@@ -130,7 +128,6 @@ export class HomeComponent implements OnInit {
     //   })
     // )
   }
-
 
   handleSuccess(data) {
     this.eventsFound = true;
@@ -181,7 +178,6 @@ export class HomeComponent implements OnInit {
 
     let mostPopular = this.foundPopularEvents;
 
-
     // mostPopular.sort((a, b) => 0 - (a > b ? 1 : -1));
 
     // Sorting events by popularity
@@ -226,12 +222,11 @@ export class HomeComponent implements OnInit {
     // formatDate(query, 'yyyy', LOCALE_ID);
     console.log(query);
   }
-
 }
 
 
-export class HomePagePagination {
-  constructor(private http: HttpClient) { }
+// export class HomePagePagination {
+//   constructor(private http: HttpClient) { }
 
   // today: any;
   // weekDate: any;
@@ -239,11 +234,11 @@ export class HomePagePagination {
   // monthDate: any;
   // yearDate: any;
 
-  today = new Date();
-  dayDate = this.today.getDate();
-  weekDate = this.dayDate + 7;
-  monthDate = this.today.getMonth() + 1;
-  yearDate = this.today.getFullYear();
+  // today = new Date();
+  // dayDate = this.today.getDate();
+  // weekDate = this.dayDate + 7;
+  // monthDate = this.today.getMonth() + 1;
+  // yearDate = this.today.getFullYear();
 
   // if (this.dayDate < 10) {
   //   this.dayDate = '0' + this.dayDate;
@@ -269,4 +264,4 @@ export class HomePagePagination {
   //   const requestUrl =
 
   //   }
-}
+// }

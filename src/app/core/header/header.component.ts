@@ -17,8 +17,6 @@ import { AppComponent } from '../../app.component';
 
 export class HeaderComponent {
 
-  // @ViewChild(AppComponent) sidenav: AppComponent;
-
   constructor(private dataStorageService: DataStorageService,
     private sideNavService: SideNavService,
     public authService: AuthService,

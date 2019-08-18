@@ -18,7 +18,7 @@ export class VenueDetailComponent implements OnInit {
   id: number;
   foundEvents: any[];
   foundEventsVenueUri: any;
-  eventsFound: boolean = false;
+  eventsFound = false;
 
   constructor(private venueService: VenueService,
     private searchService: SearchService,
@@ -38,7 +38,6 @@ export class VenueDetailComponent implements OnInit {
           this.venue = this.venueService.getVenue(this.id);
         }
       );
-
   }
 
   isAuthenticated() {
@@ -88,7 +87,6 @@ export class VenueDetailComponent implements OnInit {
       error => this.handleError(error)
     );
   }
-
 }
 
 

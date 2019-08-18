@@ -10,6 +10,7 @@ import { Venue } from './venue.model';
 import { AuthService } from '../auth/auth.service';
 import { VenueService } from '../venues/venue.service';
 import { SearchService } from '../shared/search.service';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-venues',
@@ -25,7 +26,10 @@ export class VenuesComponent implements OnInit, OnDestroy {
   venueListLocation: any;
   venueId: any;
 
+  // venueEventsArtistList = [];
+
   constructor(private venueService: VenueService,
+    private dataStorageService: DataStorageService,
     private searchService: SearchService,
     public authService: AuthService,
     private router: Router,
@@ -38,9 +42,9 @@ export class VenuesComponent implements OnInit, OnDestroy {
   venues: Venue[];
   subscription: Subscription;
 
-  searching: boolean = false;
-  venueFound: boolean = false;
-  venueEventsFound: boolean = false;
+  searching = false;
+  venueFound = false;
+  venueEventsFound = false;
 
   name: string;
   address: string;
@@ -71,6 +75,14 @@ export class VenuesComponent implements OnInit, OnDestroy {
     });
 
     this.authService.loadUser();
+    this.authService.isAuthenticated();
+    console.log(this.authService.isAuthenticated());
+
+    if (this.authService.isAuthenticated() === true) {
+      console.log('User is authenticated, now lets try to load venues');
+      this.dataStorageService.getVenues();
+    }
+
 
     for (let i = 0; i < this.venues.length; i++) {
       console.log(this.venues[i].id);
@@ -85,7 +97,6 @@ export class VenuesComponent implements OnInit, OnDestroy {
 
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
   }
-
 
   searchVenues() {
     this.searching = true;
@@ -120,7 +131,6 @@ export class VenuesComponent implements OnInit, OnDestroy {
       error => this.handleError(error)
     );
     // }
-
   }
 
   handleSuccess(data) {
@@ -146,7 +156,12 @@ export class VenuesComponent implements OnInit, OnDestroy {
     this.venueEventsFound = true;
     this.venueEvents = data.resultsPage.results.event;
     this.dataSource = this.venueEvents;
+
+    // for(let i = 0; i < this.venueEvents.length; i++) {
+    //   this.venueEventsArtistList.push(this.venueEvents);
+    // }
     console.log(this.venueEvents);
+    // console.log(this.venueEventsArtistList);
   }
 
   handleVenueListLocationSuccess(data) {
