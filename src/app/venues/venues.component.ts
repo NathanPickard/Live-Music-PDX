@@ -81,6 +81,7 @@ export class VenuesComponent implements OnInit, OnDestroy {
     if (this.authService.isAuthenticated() === true) {
       console.log('User is authenticated, now lets try to load venues');
       this.dataStorageService.getVenues();
+      console.log(this.dataStorageService.getVenues());
     }
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { HttpEvent } from '@angular/common/http';
+
 import { fadeAnimation, routerTransition } from './animations';
 import * as firebase from 'firebase';
 
@@ -75,9 +76,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-
   }
-
 
   onNavigate(feature: string) {
     this.loadedFeature = feature;
