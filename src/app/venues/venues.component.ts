@@ -84,7 +84,6 @@ export class VenuesComponent implements OnInit, OnDestroy {
       console.log(this.dataStorageService.getVenues());
     }
 
-
     for (let i = 0; i < this.venues.length; i++) {
       console.log(this.venues[i].id);
       this.getVenueListMarker(this.venues[i].id);

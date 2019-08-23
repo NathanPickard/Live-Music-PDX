@@ -9,6 +9,7 @@ import { AuthService } from '../../auth/auth.service';
 import { Artist } from '../artist.model';
 import { ArtistService } from '../artist.service';
 import { SearchService } from '../../shared/search.service';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 
 @Component({
   selector: 'app-artist-list',
@@ -22,6 +23,7 @@ import { SearchService } from '../../shared/search.service';
 export class ArtistListComponent implements OnInit, OnDestroy {
 
   constructor(private artistService: ArtistService,
+    private dataStorageService: DataStorageService,
     public authService: AuthService,
     private searchService: SearchService,
     private router: Router,
@@ -74,12 +76,17 @@ export class ArtistListComponent implements OnInit, OnDestroy {
       );
     this.artists = this.artistService.getArtists();
 
-
     this.searchArtistForm = new FormGroup({
       'searchQuery': new FormControl(null, Validators.required)
     });
 
     this.authService.loadUser();
+    this.authService.isAuthenticated();
+
+    if (this.authService.isAuthenticated() === true) {
+      console.log('User is authenticated, nows lets load the saved artists');
+      this.dataStorageService.getArtists();
+    }
   }
 
   handleSuccess(data) {
