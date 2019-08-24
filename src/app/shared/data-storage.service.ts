@@ -15,7 +15,6 @@ export class DataStorageService {
     private authService: AuthService) { }
 
   storeArtists() {
-
     // HttpClient implementation
     const token = this.authService.getToken();
 

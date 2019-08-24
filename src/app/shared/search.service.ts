@@ -156,7 +156,6 @@ export class SearchService {
       '&min_date=' + this.popularTodayDate + '&max_date=' + this.popularTodayDate);
   }
 
-
   getPdxEventsPagination(sort: string, order: string, page: number): Observable<any> {
     this.today = new Date();
     this.dayDate = this.today.getDate();

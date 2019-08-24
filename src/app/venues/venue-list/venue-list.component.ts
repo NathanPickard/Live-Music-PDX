@@ -64,7 +64,6 @@ export class VenueListComponent implements OnInit, OnDestroy {
     });
 
     this.authService.loadUser();
-
   }
 
   handleSuccess(data) {
@@ -134,7 +133,6 @@ export class VenueListComponent implements OnInit, OnDestroy {
     this.venueService.addVenue(new Venue(this.name, this.address, this.description, this.id));
 
     this.openSnackBar();
-
   }
 
   openSnackBar() {

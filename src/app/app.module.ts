@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { CoreModule } from './core/core.module';
-
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -47,7 +46,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
     MatToolbarModule
   ],
-  providers: [SearchService, AuthService, DataStorageService, AuthGuard, SideNavService],
+  providers: [
+    SearchService,
+    AuthService,
+    DataStorageService,
+    AuthGuard,
+    SideNavService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
