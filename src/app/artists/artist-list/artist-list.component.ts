@@ -5,6 +5,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { fade } from '../../animations';
 import { MatSnackBar } from '@angular/material';
 
+import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
+
 import { AuthService } from '../../auth/auth.service';
 import { Artist } from '../artist.model';
 import { ArtistService } from '../artist.service';
@@ -61,6 +63,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   searchArtistForm: FormGroup;
 
   userToken: any;
+
+  isLoading = false;
+  errorMsg: string;
 
 
   ngOnInit() {
