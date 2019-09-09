@@ -53,9 +53,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   name: string;
   id: number;
 
-  artistFound: boolean = false;
-  artistEventsFound: boolean = false;
-  searching: boolean = false;
+  artistFound = false;
+  artistEventsFound = false;
+  searching = false;
   searchQuery: string;
 
   artistId: any;
@@ -64,6 +64,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   userToken: any;
 
+  filteredArtists: any[];
   isLoading = false;
   errorMsg: string;
 
@@ -92,6 +93,40 @@ export class ArtistListComponent implements OnInit, OnDestroy {
       console.log('User is authenticated, nows lets load the saved artists');
       this.dataStorageService.getArtists();
     }
+
+    this.searchArtistForm.get('searchQuery').valueChanges
+      .pipe(
+        debounceTime(500),
+        tap(() => {
+          this.errorMsg = "";
+          this.filteredArtists = [];
+          this.isLoading = true;
+        }),
+        switchMap(value => this.searchService.getArtists(value)
+          .pipe(
+            finalize(() => {
+              this.isLoading = false;
+            }),
+          )
+        )
+      )
+      .subscribe(data => {
+        // if (data['Search'] == undefined) {
+        if (data !== undefined) {
+          console.log('Got results');
+          // this.filteredArtists = [];
+          this.filteredArtists = data.resultsPage.results.artist;
+          this.errorMsg = '';
+        } else {
+          this.errorMsg = data['Error'];
+          // this.filteredArtists = data['Search'];
+          console.log(data);
+          this.filteredArtists = data.resultsPage.results.artist;
+          console.log(this.filteredArtists);
+          // this.filteredArtists = data;
+        }
+        console.log(this.filteredArtists);
+      });
   }
 
   handleSuccess(data) {
