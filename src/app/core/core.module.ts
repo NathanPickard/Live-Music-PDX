@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '../shared/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 
+import { SharedModule } from '../shared/shared.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -30,14 +28,11 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
     AboutComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule,
     ReactiveFormsModule,
-    MaterialModule,
+    SharedModule,
     MatNativeDateModule,
     NgxPaginationModule,
-    AppRoutingModule,
-    FlexLayoutModule
+    AppRoutingModule
   ],
   exports: [
     AppRoutingModule,

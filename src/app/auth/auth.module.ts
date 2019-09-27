@@ -1,14 +1,7 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { MatButtonModule } from '@angular/material';
-import { MatCardModule } from '@angular/material';
-import { MatFormFieldModule } from '@angular/material';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { SharedModule } from '../shared/shared.module';
 
 import { LoginComponent, LoginSnackbar } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -21,17 +14,9 @@ import { AuthRoutingModule } from './auth-routing.module';
     RegisterComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule,
+    SharedModule,
     AuthRoutingModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatSnackBarModule,
-    FlexLayoutModule
+    ReactiveFormsModule
   ],
   entryComponents: [LoginSnackbar]
 })
