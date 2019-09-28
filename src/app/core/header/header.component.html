@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
 
-  <mat-toolbar-row fxLayoutGap="12px">
+  <mat-toolbar-row fxLayoutGap="8px">
 
     <button mat-icon-button (click)="openNav()" fxShow="true" fxHide.gt-sm>
       <mat-icon>menu</mat-icon>
@@ -14,22 +14,25 @@
       </a>
     </div>
 
-    <a mat-button routerLink="/events" routerLinkActive="active">
-      <mat-icon>local_play</mat-icon>
-      Events
-    </a>
+    <div fxHide.lt-sm>
+      <a mat-button routerLink="/events" routerLinkActive="active">
+        <mat-icon>local_play</mat-icon>
+        Events
+      </a>
 
-    <a mat-button routerLink="/venues" routerLinkActive="active">
-      <mat-icon>place</mat-icon>
-      Venues
-    </a>
+      <a mat-button routerLink="/venues" routerLinkActive="active">
+        <mat-icon>place</mat-icon>
+        Venues
+      </a>
 
-    <a mat-button routerLink="/artists" routerLinkActive="active">
-      <mat-icon>music_video</mat-icon>
-      Artists
-    </a>
+      <a mat-button routerLink="/artists" routerLinkActive="active">
+        <mat-icon>music_video</mat-icon>
+        Artists
+      </a>
+    </div>
 
-    <div fxShow="true" fxHide.lt-sm>
+    <!-- <div fxShow="true" fxHide.lt-sm> -->
+    <div fxHide.lt-md>
       <a mat-button routerLink="/about" routerLinkActive="active">
         <mat-icon>info</mat-icon>
         About

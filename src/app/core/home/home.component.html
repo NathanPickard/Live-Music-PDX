@@ -2,7 +2,7 @@
 
   <h2>Welcome to Live Music PDX!</h2>
 
-  <div fxLayout="column" fxLayoutAlign="end center" fxLayoutGap="10px">
+  <div fxLayout="column" fxLayoutAlign="center center">
     <h3>Popular events in Portland, Oregon</h3>
     <img mat-card-image src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
   </div>
@@ -27,7 +27,8 @@
     </mat-card-content>
   </mat-card> -->
 
-  <div fxLayout="row" fxLayoutAlign="end center">
+  <!-- <div fxLayout="row" fxLayoutAlign="end center"> -->
+  <div>
 
     <!-- <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
       <mat-form-field> -->
@@ -39,8 +40,9 @@
       <button type="submit" mat-raised-button color="primary">Search Date</button>
     </form> -->
 
+    <!-- <div fxLayout="row" fxLayoutAlign="end center"> -->
     <div fxLayout="row" fxLayoutAlign="end center">
-      <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
+      <form fxLayout="row" fxLayoutAlign="end center" [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
         <mat-form-field appearance="outline">
           <mat-label>Search PDX Events</mat-label>
           <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery">

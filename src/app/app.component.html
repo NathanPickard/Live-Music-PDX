@@ -20,7 +20,7 @@
         <mat-divider></mat-divider>
 
         <a mat-list-item routerLink="/events" routerLinkActive="active" (click)="closeSidenav()">
-          <mat-icon matLisIcont>local_play</mat-icon>
+          <mat-icon matListIcon>local_play</mat-icon>
           Events
         </a>
 
@@ -62,7 +62,7 @@
           </a>
         </ng-template>
 
-        <a mat-button (click)="onLogout()" *ngIf="isAuthenticated()" (click)="closeSidenav()">
+        <a mat-list-item (click)="onLogout()" *ngIf="isAuthenticated()" (click)="closeSidenav()">
           <mat-icon matListIcon>stop</mat-icon>
           Logout
         </a>
