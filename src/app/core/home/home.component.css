@@ -1,10 +1,16 @@
-/* table {
-  width: 100%;
-} */
-
 .data-table {
   overflow: auto;
 }
+
+/* @media screen and (max-width: 960px) {
+  .data-table {
+    vertical-align: middle;
+  }
+
+  .mat-row {
+    display: block;
+  }
+} */
 
 /* .mat-column {
   align-content: center;
@@ -19,9 +25,6 @@ td.mat-cell {
   width: 100%;
 } */
 
-
-
-
 /* @media screen and (max-width: 960px) {
   .mat-table {
     border: 0;
@@ -32,7 +35,7 @@ td.mat-cell {
     font-size: 1em;
   } */
 
-  /*  Enable this to hide header
+/*  Enable this to hide header
   .mat-table .mat-header-cell {
 
     border: 10px solid;
@@ -44,15 +47,15 @@ td.mat-cell {
     width: 1px;
   }
   */
-  /* .mat-table .mat-row {
+/* .mat-table .mat-row {
     border-bottom: 5px solid #ddd;
     display: block;
   } */
-  /*
+/*
   .mat-table .mat-row:nth-child(even) {background: #CCC}
   .mat-table .mat-row:nth-child(odd) {background: #FFF}
   */
-  /* .mat-table .mat-cell {
+/* .mat-table .mat-cell {
     border-bottom: 1px solid #ddd;
     display: block;
     font-size: 1em;
@@ -62,11 +65,11 @@ td.mat-cell {
     margin-bottom: 4%;
   }
   .mat-table .mat-cell:before { */
-    /*
+/*
     * aria-label has no advantage, it won't be read inside a table
     content: attr(aria-label);
     */
-    /* content: attr(data-label);
+/* content: attr(data-label);
     float: left;
     text-transform: uppercase;
     font-weight: normal;

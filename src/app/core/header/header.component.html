@@ -6,38 +6,32 @@
       <mat-icon>menu</mat-icon>
     </button>
 
-    <div>
       <a mat-stroked-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"-->
         <mat-icon>music_note</mat-icon>
         Live Music PDX
       </a>
-    </div>
 
-    <div fxHide.lt-sm>
-      <a mat-button routerLink="/events" routerLinkActive="active">
+      <a mat-button routerLink="/events" routerLinkActive="active" fxHide.lt-sm>
         <mat-icon>local_play</mat-icon>
         Events
       </a>
 
-      <a mat-button routerLink="/venues" routerLinkActive="active">
+      <a mat-button routerLink="/venues" routerLinkActive="active" fxHide.lt-sm>
         <mat-icon>place</mat-icon>
         Venues
       </a>
 
-      <a mat-button routerLink="/artists" routerLinkActive="active">
+      <a mat-button routerLink="/artists" routerLinkActive="active" fxHide.lt-sm>
         <mat-icon>music_video</mat-icon>
         Artists
       </a>
-    </div>
 
     <!-- <div fxShow="true" fxHide.lt-sm> -->
-    <div fxHide.lt-md>
-      <a mat-button routerLink="/about" routerLinkActive="active">
-        <mat-icon>info</mat-icon>
-        About
-      </a>
-    </div>
+    <a mat-button routerLink="/about" routerLinkActive="active" fxHide.lt-md>
+      <mat-icon>info</mat-icon>
+      About
+    </a>
 
     <span class="spacer"></span>
 
