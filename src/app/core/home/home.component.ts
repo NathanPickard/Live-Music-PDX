@@ -32,7 +32,6 @@ import { environment } from '../../../environments/environment';
     // ]
     [fade]
 })
-
 export class HomeComponent implements OnInit {
 
   // public homeSearchAutoComplete$ = Observable<Items> = null;
@@ -56,7 +55,6 @@ export class HomeComponent implements OnInit {
 
   upcomingArtist: any[];
   upcomingPerformance: any;
-
 
   foundPopularEvents: any[];
   mostPopular: any;
@@ -85,11 +83,9 @@ export class HomeComponent implements OnInit {
   private API_KEY: string = environment.SONGKICK_API_KEY;
   private API_URL: string = environment.SONGKICK_API_URL;
 
-
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
-
     this.getPdxEvents();
 
     this.getPopularPdxEvents();
@@ -111,7 +107,6 @@ export class HomeComponent implements OnInit {
     });
 
     // this.datePicked = new FormControl(new Date());
-
 
     // this.getPdxEvents()
     //   data => {
@@ -185,7 +180,6 @@ export class HomeComponent implements OnInit {
 
     mostPopular.length = 5;
     // mostPopular.sort((a, b) => parseFloat(a.popularity) - parseFloat(b.popularity));
-
 
     console.log(mostPopular);
     // console.log(this.foundPopularEvents);

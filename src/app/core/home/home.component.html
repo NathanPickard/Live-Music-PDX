@@ -1,24 +1,20 @@
 <div fxLayout="column" fxLayoutAlign="center center">
-
   <h2>Welcome to Live Music PDX!</h2>
-
-  <div fxLayout="column" fxLayoutAlign="center center">
+  <!-- <div fxLayout="column" fxLayoutAlign="center center"> -->
     <h3>Popular events in Portland, Oregon</h3>
     <img mat-card-image src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
-  </div>
-
+  <!-- </div> -->
 </div>
 
-<div>
-  <!-- <h3>Popular events in Portland, OR:</h3> -->
+<!-- <h3>Popular events in Portland, OR:</h3> -->
 
-  <!-- <mat-card>
+<!-- <mat-card>
     <mat-card-header fxLayoutAlign="center">
       <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
     </mat-card-header>
   </mat-card> -->
 
-  <!-- <mat-card style="max-width: 150px;">
+<!-- <mat-card style="max-width: 150px;">
     <mat-card-header fxLayoutAlign="center">
       <h3>Popular events in Portland, Oregon</h3>
     </mat-card-header>
@@ -27,226 +23,226 @@
     </mat-card-content>
   </mat-card> -->
 
-  <!-- <div fxLayout="row" fxLayoutAlign="end center"> -->
-  <div>
+<!-- <div fxLayout="row" fxLayoutAlign="end center"> -->
 
-    <!-- <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
+<!-- <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
       <mat-form-field> -->
-    <!-- <input matInput [matDatepicker]="picker" placeholder="Choose a date" [formControl]="datePicked"> -->
-    <!-- <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="datePicked">
+<!-- <input matInput [matDatepicker]="picker" placeholder="Choose a date" [formControl]="datePicked"> -->
+<!-- <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="datePicked">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary">Search Date</button>
     </form> -->
 
-    <!-- <div fxLayout="row" fxLayoutAlign="end center"> -->
-    <div fxLayout="row" fxLayoutAlign="end center">
-      <form fxLayout="row" fxLayoutAlign="end center" [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
-        <mat-form-field appearance="outline">
-          <mat-label>Search PDX Events</mat-label>
-          <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery">
-          <!-- <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery" [mat-autocomplete]="auto"> -->
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+<!-- <div fxLayout="row" fxLayoutAlign="end center"> -->
+<div fxLayoutAlign="end center" fxLayout.lt-md="column">
 
-          </mat-autocomplete>
-        </mat-form-field>
-        <button type="submit" mat-raised-button color="primary">Search Events</button>
-      </form>
-    </div>
+  <form fxLayoutAlign="end center" [formGroup]="searchEventForm" (ngSubmit)="searchEvents()" fxLayout.lt-md="column">
 
+    <mat-form-field appearance="outline">
+      <mat-label>Search PDX Events</mat-label>
+      <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery">
+      <!-- <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery" [mat-autocomplete]="auto"> -->
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary">Search Events</button>
+
+  </form>
+</div>
+
+<!-- <div *ngIf="mapFound"> -->
+
+<div *ngIf="searchEventsFound && foundSearchEvents !== undefined">
+
+  <!-- <h2>Search results</h2> -->
+
+  <div class="data-table">
+    <table mat-table [dataSource]="searchDataSource" matSort multiTemplateDataRows>
+
+      <ng-container class="mat-column" matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <mat-icon>event</mat-icon>
+          Date
+        </th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.start.date | date: 'E MMM d' }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container class="mat-column" matColumnDef="displayName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <mat-icon>local_activity</mat-icon>
+          Event
+        </th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.displayName }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container class="mat-column" matColumnDef="venue">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <mat-icon>place</mat-icon>
+          Venue
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <a href="{{ row.venue.uri }}" mat-stroked-button color="accent" target="_blank">
+            {{ row.venue.displayName }}</a>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container class="mat-column" matColumnDef="uri">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-icon>link</mat-icon>
+          Event Link
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <a href="{{ row.uri}}" mat-stroked-button color="primary" target="_blank">Check out event</a>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container class="mat-column" matColumnDef="datetime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <mat-icon>access_time</mat-icon>
+          Start Time
+        </th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.start.datetime | date: 'shortTime' }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+      <!-- <tr mat-header-row *matHeaderRowDef= -->
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
+
+    </table>
+    <!-- <pagination-controls></pagination-controls> -->
   </div>
+</div>
 
-  <!-- <div *ngIf="mapFound"> -->
-
-  <div *ngIf="searchEventsFound && foundSearchEvents !== undefined">
-
-    <!-- <h2>Search results</h2> -->
-
-    <div class="data-table">
-      <table mat-table [dataSource]="searchDataSource" matSort multiTemplateDataRows>
-
-        <ng-container class="mat-column" matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <mat-icon>event</mat-icon>
-            Date
-          </th>
-          <td mat-cell *matCellDef="let row">
-            {{ row.start.date | date: 'E MMM d' }}
-          </td>
-          <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
-
-        <ng-container class="mat-column" matColumnDef="displayName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <mat-icon>local_activity</mat-icon>
-            Event
-          </th>
-          <td mat-cell *matCellDef="let row">
-            {{ row.displayName }}
-          </td>
-          <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
-
-        <ng-container class="mat-column" matColumnDef="venue">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <mat-icon>place</mat-icon>
-            Venue
-          </th>
-          <td mat-cell *matCellDef="let row">
-            <a href="{{ row.venue.uri }}" mat-stroked-button color="accent" target="_blank">
-              {{ row.venue.displayName }}</a>
-          </td>
-          <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
-
-        <ng-container class="mat-column" matColumnDef="uri">
-          <th mat-header-cell *matHeaderCellDef>
-            <mat-icon>link</mat-icon>
-            Event Link
-          </th>
-          <td mat-cell *matCellDef="let row">
-            <a href="{{ row.uri}}" mat-stroked-button color="primary" target="_blank">Check out event</a>
-          </td>
-          <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
-
-        <ng-container class="mat-column" matColumnDef="datetime">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <mat-icon>access_time</mat-icon>
-            Start Time
-          </th>
-          <td mat-cell *matCellDef="let row">
-            {{ row.start.datetime | date: 'shortTime' }}
-          </td>
-          <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
-        <!-- <tr mat-header-row *matHeaderRowDef= -->
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
-
-      </table>
-      <!-- <pagination-controls></pagination-controls> -->
-    </div>
-  </div>
-
-  <!-- <div *ngIf="this.foundSearchEvents == undefined && !searchEventsFound"> -->
-  <!-- <div *ngIf="this.foundSearchEvents == undefined"> -->
-  <!-- <p>{{ searchEventForm.value.searchQuery }} events not found</p>
+<!-- <div *ngIf="this.foundSearchEvents == undefined && !searchEventsFound"> -->
+<!-- <div *ngIf="this.foundSearchEvents == undefined"> -->
+<!-- <p>{{ searchEventForm.value.searchQuery }} events not found</p>
   </div> -->
 
-  <div fxLayoutAlign="center" *ngIf="searchEventNotFound && foundSearchEvents == undefined">
-    <p>No {{ searchEventForm.value.searchQuery }} events found</p>
-  </div>
+<div fxLayoutAlign="center" *ngIf="searchEventNotFound && foundSearchEvents == undefined">
+  <p>No {{ searchEventForm.value.searchQuery }} events found</p>
+</div>
 
-  <div>
-    <div #gmap style="width: 100%; height: 350px;"></div>
-  </div>
+<div>
+  <div #gmap style="width: 100%; height: 350px;"></div>
+</div>
 
-  <div *ngIf="!eventsFound">
-    <mat-spinner></mat-spinner>
-  </div>
+<div *ngIf="!eventsFound">
+  <mat-spinner></mat-spinner>
+</div>
 
 
-  <div *ngIf="eventsFound">
-    <div class="data-table">
-      <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
+<div *ngIf="eventsFound">
+  <div class="data-table">
+    <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
 
-        <ng-container class="mat-column" matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <mat-icon>event</mat-icon>
-            Date
-          </th>
-          <td mat-cell *matCellDef="let row">
-            {{ row.start.date | date: 'E, MMM d' }}
-          </td>
-          <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
+      <ng-container class="mat-column" matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <mat-icon>event</mat-icon>
+          Date
+        </th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.start.date | date: 'E, MMM d' }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
 
-        <ng-container class="mat-column" matColumnDef="displayName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <mat-icon>local_activity</mat-icon>
-            Event
-          </th>
+      <ng-container class="mat-column" matColumnDef="displayName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <mat-icon>local_activity</mat-icon>
+          Event
+        </th>
 
-          <!-- <ng-container *ngFor="let x of foundEvents">
+        <!-- <ng-container *ngFor="let x of foundEvents">
             <ng-container *ngFor="let y of x.performance"> -->
-          <td mat-cell *matCellDef="let row">
-            <!-- {{ row.type }} -->
-            <!-- <ng-container *ngFor="let person of row"></ng-container> -->
-            <!-- {{ row.performance }} -->
-            <!-- {{ person }} -->
-            <!-- {{ person.artist.displayName }} -->
+        <td mat-cell *matCellDef="let row">
+          <!-- {{ row.type }} -->
+          <!-- <ng-container *ngFor="let person of row"></ng-container> -->
+          <!-- {{ row.performance }} -->
+          <!-- {{ person }} -->
+          <!-- {{ person.artist.displayName }} -->
 
-            {{ row.displayName }}
-            <!-- {{ performancek.displayName }} -->
-            <!-- {{ row.performance[i] }} -->
-            <!-- {{ row.performance[1].displayName }} -->
-            <!-- {{ row.performance[2].displayName }} -->
-          </td>
-          <!-- </ng-container>
+          {{ row.displayName }}
+          <!-- {{ performancek.displayName }} -->
+          <!-- {{ row.performance[i] }} -->
+          <!-- {{ row.performance[1].displayName }} -->
+          <!-- {{ row.performance[2].displayName }} -->
+        </td>
+        <!-- </ng-container>
           </ng-container> -->
-          <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
 
-        <ng-container class="mat-column" matColumnDef="venue">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <mat-icon>place</mat-icon>
-            Venue
-          </th>
-          <td mat-cell *matCellDef="let row">
-            <a href="{{ row.venue.uri }}" mat-stroked-button color="accent" target="_blank">
-              {{ row.venue.displayName }}</a>
-          </td>
-          <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
+      <ng-container class="mat-column" matColumnDef="venue">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <mat-icon>place</mat-icon>
+          Venue
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <a href="{{ row.venue.uri }}" mat-stroked-button color="accent" target="_blank">
+            {{ row.venue.displayName }}</a>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
 
-        <ng-container class="mat-column" matColumnDef="uri">
-          <th mat-header-cell *matHeaderCellDef>
-            <mat-icon>link</mat-icon>
-            Event Link
-          </th>
-          <td mat-cell *matCellDef="let row">
-            <a href="{{ row.uri }}" mat-stroked-button color="primary" target="_blank">
-              Check out event
-            </a>
-          </td>
-          <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
+      <ng-container class="mat-column" matColumnDef="uri">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-icon>link</mat-icon>
+          Event Link
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <a href="{{ row.uri }}" mat-stroked-button color="primary" target="_blank">
+            Check out event
+          </a>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
 
-        <ng-container class="mat-column" matColumnDef="datetime">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            <mat-icon>access_time</mat-icon>
-            Start Time
-          </th>
-          <td mat-cell *matCellDef="let row">
-            {{ row.start.datetime | date: 'shortTime' }}
-          </td>
-          <td mat-footer-cell *matFooterCellDef></td>
-        </ng-container>
+      <ng-container class="mat-column" matColumnDef="datetime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          <mat-icon>access_time</mat-icon>
+          Start Time
+        </th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.start.datetime | date: 'shortTime' }}
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
 
-      </table>
-      <!-- <pagination-controls></pagination-controls> -->
+    </table>
+    <!-- <pagination-controls></pagination-controls> -->
 
-      <!-- <mat-paginator [length]="10" [pageSize]="20" (page)="pageEvent = $event"></mat-paginator> -->
-    </div>
+    <!-- <mat-paginator [length]="10" [pageSize]="20" (page)="pageEvent = $event"></mat-paginator> -->
   </div>
+</div>
 
-  <!-- <mat-card *ngIf="eventsFound"> -->
+<!-- <mat-card *ngIf="eventsFound"> -->
 
-  <!-- <mat-card-header fxLayoutAlign="center" fxLayout="row"> -->
-  <!-- <mat-card-title>Check out these events!</mat-card-title> -->
-  <!-- <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
+<!-- <mat-card-header fxLayoutAlign="center" fxLayout="row"> -->
+<!-- <mat-card-title>Check out these events!</mat-card-title> -->
+<!-- <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
     </mat-card-header> -->
 
 
-  <!-- <div *ngFor="let foundEvent of foundEvents" fxLayoutAlign="center center" fxLayoutWrap fxLayoutGap="20px">
+<!-- <div *ngFor="let foundEvent of foundEvents" fxLayoutAlign="center center" fxLayoutWrap fxLayoutGap="20px">
       <mat-card fxFlex>
         <mat-card-content>
           <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
@@ -262,9 +258,9 @@
       </mat-card>
     </div> -->
 
-  <!-- </mat-card> -->
+<!-- </mat-card> -->
 
-  <!-- <div fxLayout="column" fxLayoutAlign="center stretch">
+<!-- <div fxLayout="column" fxLayoutAlign="center stretch">
 
     <div @fade *ngFor="let foundEvent of foundEvents" fxLayout="column" style="padding: 10px">
       <mat-accordion>
@@ -304,5 +300,3 @@
     </div>
 
   </div> -->
-
-</div>
