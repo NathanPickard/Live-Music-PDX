@@ -1,6 +1,6 @@
 <div fxLayout="column">
 
-  <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
+  <div fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutAlign="center center">
     <div style="margin-bottom: 15px;">
       <!-- <button mat-raised-button color="primary" [disabled]="!isAuthenticated()" matTooltip="Signin to add artist" (click)="onNewArtist()">
         <mat-icon>playlist_add</mat-icon>
@@ -18,7 +18,7 @@
 
     </div>
 
-    <h3>or</h3>
+    <h1>|</h1>
 
     <!-- <div>
       <mat-form-field>
@@ -52,13 +52,13 @@
         </mat-autocomplete>
       </mat-form-field>
 
-      <ng-container *ngIf="errorMsg; else elseTemplate">
+      <!-- <ng-container *ngIf="errorMsg; else elseTemplate">
         {{ errorMsg }}
-      </ng-container>
+      </ng-container> -->
 
-      <ng-template #elseTemplate>
+      <!-- <ng-template #elseTemplate>
         <h5>Selected Value: {{ searchQuery }}</h5>
-      </ng-template>
+      </ng-template> -->
 
       <button type="submit" mat-raised-button color="primary">
         <mat-icon>search</mat-icon>Find Artists
@@ -72,6 +72,12 @@
 
   <div fxLayout="column">
     <!-- <mat-list> -->
+    <mat-toolbar color="primary">
+      <div fxFlex fxLayoutAlign="center center">
+        Your Artists
+      </div>
+    </mat-toolbar>
+
     <app-artist-item fxLayoutAlign="space-around center" style="padding-top: 10px;"
       *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
     <!-- <mat-list-item>
