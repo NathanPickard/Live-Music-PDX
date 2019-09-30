@@ -22,6 +22,8 @@ export class SearchService {
   private query: string;
   private API_KEY: string = environment.SONGKICK_API_KEY;
   private API_URL: string = environment.SONGKICK_API_URL;
+  private DEEZER_KEY: string = environment.DEEZER_API_KEY;
+  private DEEZER_URL: string = environment.DEEZER_API_URL;
   private ARTIST_URL: string = this.API_URL + 'search/artists.json?apikey=' + this.API_KEY + '&query=';
   private VENUE_URL: string = this.API_URL + 'search/venues.json?query=';
 
@@ -59,6 +61,18 @@ export class SearchService {
 
     // return this.httpClient.get<Artist[]>(this.ARTIST_URL + query);
     return this.httpClient.get<any>(this.ARTIST_URL + query);
+  }
+
+  searchDeezerArtists(query) {
+    // this.searchDeezerUrl
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'X-Mashape-Key': this.DEEZER_KEY,
+        'Accept': 'text/plain'
+      })
+    }
+    return this.httpClient.get<any>(this.DEEZER_URL + '/search?q=' + query, httpOptions);
   }
 
   getSimilarArtists(artistId) {
@@ -208,7 +222,6 @@ export class SearchService {
     let response2 = this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
     return Observable.forkJoin([response1, response2]);
   }
-
 
   getSelectedArtistEvents(artistId) {
     // return this.http.get('https://api.songkick.com/api/3.0/artists/' + artistId + '/calendar.json?apikey=' + this.API_KEY)
