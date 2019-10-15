@@ -1,12 +1,34 @@
-<div fxLayout="column" fxLayoutAlign="center center">
-  <h2>Welcome to Live Music PDX!</h2>
-  <!-- <div fxLayout="column" fxLayoutAlign="center center"> -->
-  <h3>Popular events in Portland, Oregon</h3>
-  <img mat-card-image src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
-  <!-- </div> -->
-</div>
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+  <!-- <h2>Welcome to Live Music PDX!</h2> -->
+  <!-- <h2>Live Music PDX</h2> -->
 
-<!-- <h3>Popular events in Portland, OR:</h3> -->
+  <!-- <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign.lt-sm="center center"> -->
+
+  <mat-card style="max-width: 275px;">
+    <mat-card-header fxLayoutAlign="center center">
+      <mat-card-title>
+        <h2>Live Music PDX</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src=" https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Portland%2C_Oregon.svg">
+    <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+      Discover your perfect live music event in the Portland, Oregon area
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="center center">
+      <mat-icon color="primary">music_note</mat-icon>
+    </mat-card-actions>
+  </mat-card>
+
+  <!-- </div> -->
+
+  <mat-divider style="width: 80%"></mat-divider>
+
+  <mat-toolbar color="accent" fxLayoutAlign="center center">
+    <h3>Upcoming events in Portland</h3>
+  </mat-toolbar>
+
+  <img mat-card-image src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
+</div>
 
 <!-- <mat-card>
     <mat-card-header fxLayoutAlign="center">
@@ -37,32 +59,35 @@
 
 <!-- <div fxLayout="row" fxLayoutAlign="end center"> -->
 <!-- <div fxLayout.lt-md="column"> -->
-<div fxLayout.lt-md="column">
+<!-- <div fxLayout="row" fxLayoutAlign="end center"> -->
+<div style="padding: 0px 20px" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign.lt-sm="center center">
 
-  <form>
-    <mat-form-field>
-      <input matInput placeholder="Search date" [matDatepicker]="picker" ngModel name="eventDate">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-  </form>
+  <div fxFlex="1 0 auto" style="padding: 0px 20px">
 
+    <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
+      <mat-form-field>
+        <input matInput placeholder="Search event date" [matDatepicker]="picker" ngModel name="eventDate" formControlName="searchDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </form>
 
-  <!-- <div fxLayoutAlign="end center"> -->
-  <form fxLayoutAlign="end center" [formGroup]="searchEventForm" (ngSubmit)="searchEvents()" fxLayout.lt-md="column">
+  </div>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Search PDX Events</mat-label>
-      <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery">
-      <!-- <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery" [mat-autocomplete]="auto"> -->
-      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      </mat-autocomplete>
-    </mat-form-field>
+  <div>
 
-    <button type="submit" mat-raised-button color="primary">Search Events</button>
+    <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
+      <mat-form-field appearance="outline">
+        <mat-label>Search PDX Events</mat-label>
+        <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery">
+        <!-- <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery" [mat-autocomplete]="auto"> -->
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        </mat-autocomplete>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Search Events</button>
+    </form>
 
-  </form>
-  <!-- </div> -->
+  </div>
 
 </div>
 

@@ -103,7 +103,8 @@ export class HomeComponent implements OnInit {
     });
 
     this.searchDateForm = new FormGroup({
-      datePicked: new FormControl(null)
+      // datePicked: new FormControl(null)
+      searchDate: new FormControl(null)
     });
 
     // this.datePicked = new FormControl(new Date());
@@ -212,9 +213,11 @@ export class HomeComponent implements OnInit {
   }
 
   searchDateEvents() {
-    const query = this.searchDateForm.value.datePicked;
+    // const query = this.searchDateForm.value.datePicked;
+    console.log(this.searchDateForm);
+
     // formatDate(query, 'yyyy', LOCALE_ID);
-    console.log(query);
+    // console.log(query);
   }
 }
 
