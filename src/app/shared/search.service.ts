@@ -71,7 +71,7 @@ export class SearchService {
         'X-Mashape-Key': this.DEEZER_KEY,
         'Accept': 'text/plain'
       })
-    }
+    };
     return this.httpClient.get<any>(this.DEEZER_URL + '/search?q=' + query, httpOptions);
   }
 

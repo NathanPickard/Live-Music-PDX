@@ -1,8 +1,8 @@
 <div fxLayout="column" fxLayoutAlign="center center">
   <h2>Welcome to Live Music PDX!</h2>
   <!-- <div fxLayout="column" fxLayoutAlign="center center"> -->
-    <h3>Popular events in Portland, Oregon</h3>
-    <img mat-card-image src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
+  <h3>Popular events in Portland, Oregon</h3>
+  <img mat-card-image src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
   <!-- </div> -->
 </div>
 
@@ -36,8 +36,19 @@
     </form> -->
 
 <!-- <div fxLayout="row" fxLayoutAlign="end center"> -->
-<div fxLayoutAlign="end center" fxLayout.lt-md="column">
+<!-- <div fxLayout.lt-md="column"> -->
+<div fxLayout.lt-md="column">
 
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Search date" [matDatepicker]="picker" ngModel name="eventDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </form>
+
+
+  <!-- <div fxLayoutAlign="end center"> -->
   <form fxLayoutAlign="end center" [formGroup]="searchEventForm" (ngSubmit)="searchEvents()" fxLayout.lt-md="column">
 
     <mat-form-field appearance="outline">
@@ -51,6 +62,8 @@
     <button type="submit" mat-raised-button color="primary">Search Events</button>
 
   </form>
+  <!-- </div> -->
+
 </div>
 
 <!-- <div *ngIf="mapFound"> -->
