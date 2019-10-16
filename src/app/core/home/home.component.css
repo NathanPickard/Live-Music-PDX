@@ -2,6 +2,10 @@
   overflow: auto;
 }
 
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
 /* @media screen and (max-width: 960px) {
   .data-table {
     vertical-align: middle;

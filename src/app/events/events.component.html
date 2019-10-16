@@ -4,15 +4,15 @@
 </div>
 
 <!-- <div fxLayoutAlign="center center"> -->
-  <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()" fxLayout="row" fxLayoutAlign="center center">
-    <mat-form-field appearance="outline">
-      <mat-label>Search for events</mat-label>
-      <input type="search" matInput placeholder="Search for events" formControlName="searchQuery">
-    </mat-form-field>
-    <button type="submit" mat-raised-button color="primary">
-      <mat-icon>search</mat-icon>Find Events
-    </button>
-  </form>
+<form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()" fxLayout="row" fxLayoutAlign="center center">
+  <mat-form-field appearance="outline">
+    <mat-label>Search for events</mat-label>
+    <input type="search" matInput placeholder="Search for events" formControlName="searchQuery">
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="primary">
+    <mat-icon>search</mat-icon>
+  </button>
+</form>
 <!-- </div> -->
 
 <div *ngIf="searchEventsFound && foundSearchEvents !== undefined">
@@ -97,8 +97,10 @@
 
 
 
-<div fxLayoutAlign="center center">
-  <h3>Top 5 most popular live music events for {{ today | date }}</h3>
+<div>
+  <mat-toolbar fxLayoutAlign="center center" color="accent">
+    <h3>Top 5 most popular live music events for {{ today | date }}</h3>
+  </mat-toolbar>
 </div>
 
 <div *ngIf="eventsFound">

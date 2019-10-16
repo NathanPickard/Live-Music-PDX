@@ -7,12 +7,12 @@
   <mat-card style="max-width: 275px;">
     <mat-card-header fxLayoutAlign="center center">
       <mat-card-title>
-        <h2>Live Music PDX</h2>
+        <h1>Live Music PDX</h1>
       </mat-card-title>
     </mat-card-header>
     <img mat-card-image src=" https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Portland%2C_Oregon.svg">
     <mat-card-content fxLayout="column" fxLayoutAlign="center center">
-      Discover your perfect live music event in the Portland, Oregon area
+      <h3>Discover your perfect live music event in the Portland, Oregon area</h3>
     </mat-card-content>
     <mat-card-actions fxLayoutAlign="center center">
       <mat-icon color="primary">music_note</mat-icon>
@@ -23,11 +23,11 @@
 
   <mat-divider style="width: 80%"></mat-divider>
 
-  <mat-toolbar color="accent" fxLayoutAlign="center center">
+  <!-- <mat-toolbar color="accent" fxLayoutAlign="center center">
     <h3>Upcoming events in Portland</h3>
-  </mat-toolbar>
+  </mat-toolbar> -->
 
-  <img mat-card-image src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
+  <!-- <img mat-card-image src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;"> -->
 </div>
 
 <!-- <mat-card>
@@ -66,7 +66,8 @@
 
     <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
       <mat-form-field>
-        <input matInput placeholder="Search event date" [matDatepicker]="picker" ngModel name="eventDate" formControlName="searchDate">
+        <input matInput placeholder="Search event date" [matDatepicker]="picker" ngModel name="eventDate"
+          formControlName="searchDate">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -185,6 +186,17 @@
 
 
 <div *ngIf="eventsFound">
+
+  <mat-toolbar color="accent">
+    <mat-toolbar-row>
+      <h3 fxLayoutAlign="center center">Upcoming events in Portland</h3>
+      <span class="toolbar-spacer"></span>
+      <div style="background-blend-mode: color-burn;">
+        <img src=" assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
   <div class="data-table">
     <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
 
