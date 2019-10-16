@@ -66,8 +66,8 @@
 
     <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
       <mat-form-field>
-        <input matInput placeholder="Search event date" [matDatepicker]="picker" ngModel name="eventDate"
-          formControlName="searchDate">
+        <input matInput [matDatepicker]="picker" placeholder="Search event date" ngModel name="eventDate"
+          formControlName="searchDate" (dateInput)="addEvent($event)">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>

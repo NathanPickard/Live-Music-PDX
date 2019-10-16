@@ -2,16 +2,14 @@
 
 import { Component, OnInit, ViewChild, LOCALE_ID } from '@angular/core';
 import { formatDate } from '@angular/common';
-// import { trigger, state, transition, style, animate } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { fade } from '../../animations';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatSort, MatTableDataSource, MatTable, PageEvent, MatPaginator } from '@angular/material';
+import { MatSort, MatTableDataSource, MatTable, PageEvent, MatPaginator, MatDatepickerInputEvent } from '@angular/material';
 import { merge, Observable, of as oberservableOf } from 'rxjs';
 import { catchError, map, startWith, switchMap, debounceTime } from 'rxjs/operators';
 
 import { SearchService } from '../../shared/search.service';
-// import { merge } from 'rxjs-compat/operator/merge';
 
 import { environment } from '../../../environments/environment';
 
@@ -19,22 +17,10 @@ import { environment } from '../../../environments/environment';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  animations:
-    // [
-    //   trigger('fade', [
-
-    //     state('void', style({ opacity: 0 })),
-
-    //     transition(':enter, :leave', [
-    //       animate(1000)
-    //     ])
-    //   ])
-    // ]
-    [fade]
+  animations: [fade]
 })
 export class HomeComponent implements OnInit {
 
-  // public homeSearchAutoComplete$ = Observable<Items> = null;
   public autoCompletentrol = new FormControl();
 
   @ViewChild('gmap', { static: true }) gmapElement: any;
@@ -78,7 +64,6 @@ export class HomeComponent implements OnInit {
   foundSearchEvents: any[];
 
   searchDateForm: FormGroup;
-  // dataSource: MatTableDataSource<any>;
 
   private API_KEY: string = environment.SONGKICK_API_KEY;
   private API_URL: string = environment.SONGKICK_API_URL;
@@ -96,7 +81,6 @@ export class HomeComponent implements OnInit {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
-
 
     this.searchEventForm = new FormGroup({
       'searchQuery': new FormControl(null)
@@ -131,7 +115,6 @@ export class HomeComponent implements OnInit {
     this.dataSource = this.foundEvents;
 
     for (let i = 0; i < data.resultsPage.results.event.length; i++) {
-
       // console.log(data.resultsPage.results.event[i].venue);
 
       // this.map.setCenter(new google.maps.LatLng(data.resultsPage.results.event[i].venue.lat, data.resultsPage.results.event[i].venue.lng));
@@ -183,7 +166,6 @@ export class HomeComponent implements OnInit {
     // mostPopular.sort((a, b) => parseFloat(a.popularity) - parseFloat(b.popularity));
 
     console.log(mostPopular);
-    // console.log(this.foundPopularEvents);
   }
 
   handleError(error) {
@@ -218,6 +200,10 @@ export class HomeComponent implements OnInit {
 
     // formatDate(query, 'yyyy', LOCALE_ID);
     // console.log(query);
+  }
+
+  addEvent(event: MatDatepickerInputEvent<Date>) {
+    console.log(event.value);
   }
 }
 
