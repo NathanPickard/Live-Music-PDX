@@ -204,6 +204,11 @@ export class SearchService {
     return this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
   }
 
+  getDateSelectedEvents(dateQuery) {
+    return this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY
+      + '&location=sk:12283' + '&min_date=' + dateQuery + '&max_date=' + dateQuery);
+  }
+
   requestDataFromVenuesAndArists(query): Observable<any[]> {
     let response1 = this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
     let response2 = this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');

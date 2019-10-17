@@ -2,12 +2,11 @@
 
 import { Component, OnInit, ViewChild, LOCALE_ID } from '@angular/core';
 import { formatDate } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { fade } from '../../animations';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSort, MatTableDataSource, MatTable, PageEvent, MatPaginator, MatDatepickerInputEvent } from '@angular/material';
 import { merge, Observable, of as oberservableOf } from 'rxjs';
 import { catchError, map, startWith, switchMap, debounceTime } from 'rxjs/operators';
+import { fade } from '../../animations';
 
 import { SearchService } from '../../shared/search.service';
 
@@ -33,7 +32,6 @@ export const MY_FORMAT = {
   },
 };
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -56,6 +54,11 @@ export class HomeComponent implements OnInit {
   venueLng: any;
 
   datePicked: any;
+
+  dateSelected: any;
+  yearSelected: any;
+  monthSelected: any;
+  daySelected: any;
 
   mapFound: boolean = false;
 
@@ -90,6 +93,8 @@ export class HomeComponent implements OnInit {
   foundSearchEvents: any[];
 
   searchDateForm: FormGroup;
+
+  foundDateSelectedEvents: any[];
 
   private API_KEY: string = environment.SONGKICK_API_KEY;
   private API_URL: string = environment.SONGKICK_API_URL;
@@ -179,6 +184,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  handleDateSelectedSuccess(data) {
+    this.foundDateSelectedEvents = data;
+    console.log(this.foundDateSelectedEvents);
+  }
+
   handlePopularEventsSuccess(data) {
     this.foundPopularEvents = data.resultsPage.results.event;
     console.log(this.foundPopularEvents);
@@ -223,8 +233,28 @@ export class HomeComponent implements OnInit {
   }
 
   searchDateEvents() {
+
+    this.yearSelected = this.searchDateForm.value.searchDate._i.year;
+    this.monthSelected = this.searchDateForm.value.searchDate._i.month + 1;
+    this.daySelected = this.searchDateForm.value.searchDate._i.date;
+
+    if (this.monthSelected < 10) {
+      this.monthSelected = '0' + this.monthSelected;
+    }
+    if (this.daySelected < 10) {
+      this.daySelected = '0' + this.daySelected;
+    }
+
+    this.dateSelected = this.yearSelected + '-' + this.monthSelected + '-' + this.daySelected;
+
+    const dateQuery = this.dateSelected;
+    console.log(dateQuery);
+
+    return this.searchService.getDateSelectedEvents(dateQuery).subscribe(
+      data => this.handleDateSelectedSuccess(data),
+      error => this.handleError(error)
+    );
     // const query = this.searchDateForm.value.datePicked;
-    console.log(this.searchDateForm);
 
     // formatDate(query, 'yyyy', LOCALE_ID);
     // console.log(query);
@@ -232,48 +262,27 @@ export class HomeComponent implements OnInit {
 
   addEvent(event: MatDatepickerInputEvent<Date>) {
     console.log(event.value);
+
+    this.yearSelected = this.searchDateForm.value.searchDate._i.year;
+    this.monthSelected = this.searchDateForm.value.searchDate._i.month + 1;
+    this.daySelected = this.searchDateForm.value.searchDate._i.date;
+
+    if (this.monthSelected < 10) {
+      this.monthSelected = '0' + this.monthSelected;
+    }
+    if (this.daySelected < 10) {
+      this.daySelected = '0' + this.daySelected;
+    }
+
+    this.dateSelected = this.yearSelected + '-' + this.monthSelected + '-' + this.daySelected;
+
+    const dateQuery = this.dateSelected;
+    console.log(dateQuery);
+
+    return this.searchService.getDateSelectedEvents(dateQuery).subscribe(
+      data => this.handleDateSelectedSuccess(data),
+      error => this.handleError(error)
+    );
   }
 
 }
-
-
-// export class HomePagePagination {
-//   constructor(private http: HttpClient) { }
-
-  // today: any;
-  // weekDate: any;
-  // dayDate: any;
-  // monthDate: any;
-  // yearDate: any;
-
-  // today = new Date();
-  // dayDate = this.today.getDate();
-  // weekDate = this.dayDate + 7;
-  // monthDate = this.today.getMonth() + 1;
-  // yearDate = this.today.getFullYear();
-
-  // if (this.dayDate < 10) {
-  //   this.dayDate = '0' + this.dayDate;
-  // }
-
-  // if (this.weekDate < 10) {
-  //   this.weekDate = '0' + this.weekDate;
-  // }
-
-  // if (this.monthDate < 10) {
-  //   this.monthDate = '0' + this.monthDate;
-  // }
-
-  // this.today = this.yearDate + '-' + this.monthDate + '-' + this.dayDate;
-  // this.weekDate = this.yearDate + '-' + this.monthDate + '-' + (this.weekDate);
-
-
-  // return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
-  //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
-  //   .map(res => res.json());
-
-  // getPdxEventsPagination(sort: string, order: string, page: number): Observable < any > {
-  //   const requestUrl =
-
-  //   }
-// }
