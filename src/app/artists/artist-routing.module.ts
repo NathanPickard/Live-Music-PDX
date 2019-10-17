@@ -7,7 +7,6 @@ import { ArtistEditComponent } from './artist-edit/artist-edit.component';
 import { ArtistStartComponent } from './artist-start/artist-start.component';
 import { AuthGuard } from '../auth/auth-guard.service';
 
-
 const artistsRoutes: Routes = [
   {
     path: '', component: ArtistsComponent, children: [

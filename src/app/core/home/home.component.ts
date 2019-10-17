@@ -205,6 +205,7 @@ export class HomeComponent implements OnInit {
   addEvent(event: MatDatepickerInputEvent<Date>) {
     console.log(event.value);
   }
+  
 }
 
 

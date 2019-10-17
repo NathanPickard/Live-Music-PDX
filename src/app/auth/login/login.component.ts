@@ -38,11 +38,6 @@ export class LoginComponent {
     });
   }
 
-  // onLogin(form: NgForm) {
-  //   const email = form.value.email;
-  //   const password = form.value.password;
-  //   this.authService.loginUser(email, password);
-  // }
 }
 
 
