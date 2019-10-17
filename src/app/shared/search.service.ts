@@ -109,14 +109,9 @@ export class SearchService {
     this.today = this.yearDate + '-' + this.monthDate + '-' + this.dayDate;
     this.weekDate = this.yearDate + '-' + this.monthDate + '-' + (this.weekDate);
 
-    // return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
-    //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
-    //   .map(res => res.json());
-
     return this.httpClient.get<any>(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
       '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25');
   }
-
 
   getPopularPdxEvents() {
     this.today = new Date();
@@ -200,20 +195,12 @@ export class SearchService {
 
     // return this.http.get(requestUrl);
 
-    // return this.http.get(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
-    //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25')
-    //   .map(res => res.json());
-
-
     // return this.httpClient.get<any>(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
     //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25');
   }
 
-
   // Homepage event search
   getSearchEvents(query) {
-    // return this.http.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283')
-    //   .map(res => res.json());
     return this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
   }
 

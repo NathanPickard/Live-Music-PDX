@@ -13,10 +13,36 @@ import { SearchService } from '../../shared/search.service';
 
 import { environment } from '../../../environments/environment';
 
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import * as _moment from 'moment';
+// import {default as _rollupMoment} from 'moment';
+
+// const moment = _rollupMoment || _moment;
+const moment = _moment;
+
+export const MY_FORMAT = {
+  parse: {
+    dateInput: 'YYYY MMMM DD',
+  },
+  display: {
+    dateInput: 'LL',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
+  providers: [
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMAT },
+  ],
   animations: [fade]
 })
 export class HomeComponent implements OnInit {
@@ -88,7 +114,9 @@ export class HomeComponent implements OnInit {
 
     this.searchDateForm = new FormGroup({
       // datePicked: new FormControl(null)
-      searchDate: new FormControl(null)
+
+      // searchDate: new FormControl(null)
+      searchDate: new FormControl(moment())
     });
 
     // this.datePicked = new FormControl(new Date());
@@ -205,7 +233,7 @@ export class HomeComponent implements OnInit {
   addEvent(event: MatDatepickerInputEvent<Date>) {
     console.log(event.value);
   }
-  
+
 }
 
 
