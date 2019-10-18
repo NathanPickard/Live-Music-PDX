@@ -86,6 +86,7 @@ export class HomeComponent implements OnInit {
   pageEvent: PageEvent;
   dataSource: any;
   searchDataSource: any;
+  searchDateDataSource: any;
 
   searchEventForm: FormGroup;
   searchEventNotFound = false;
@@ -95,6 +96,7 @@ export class HomeComponent implements OnInit {
   searchDateForm: FormGroup;
 
   foundDateSelectedEvents: any[];
+  dateSelectedEventsFound = false;
 
   private API_KEY: string = environment.SONGKICK_API_KEY;
   private API_URL: string = environment.SONGKICK_API_URL;
@@ -185,7 +187,9 @@ export class HomeComponent implements OnInit {
   }
 
   handleDateSelectedSuccess(data) {
-    this.foundDateSelectedEvents = data;
+    this.dateSelectedEventsFound = true;
+    this.foundDateSelectedEvents = data.resultsPage.results.event;
+    this.searchDateDataSource = this.foundDateSelectedEvents;
     console.log(this.foundDateSelectedEvents);
   }
 
