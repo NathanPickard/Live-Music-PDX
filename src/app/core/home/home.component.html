@@ -67,7 +67,7 @@
 
     <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
       <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Search event date" ngModel name="eventDate"
+        <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Search event date" ngModel name="eventDate"
           formControlName="searchDate" (dateInput)="addEvent($event)">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -172,6 +172,11 @@
 
   <!-- <h2>Search results</h2> -->
 
+  <mat-toolbar color="accent">
+    <mat-toolbar-row fxLayoutAlign="center center">
+      <h3>Events on {{ dateSelectedToolbar }}</h3>
+    </mat-toolbar-row>
+  </mat-toolbar>
   <div class="data-table">
     <table mat-table [dataSource]="searchDateDataSource" matSort multiTemplateDataRows>
 
@@ -231,10 +236,10 @@
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
+      <tr mat-header-row *matHeaderRowDef="dateSelectedDisplayedColumns; sticky: true;"></tr>
       <!-- <tr mat-header-row *matHeaderRowDef= -->
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
+      <tr mat-row *matRowDef="let row; columns: dateSelectedDisplayedColumns;"></tr>
+      <tr mat-footer-row *matFooterRowDef="dateSelectedDisplayedColumns; sticky: true;"></tr>
 
     </table>
     <!-- <pagination-controls></pagination-controls> -->

@@ -79,6 +79,7 @@ export class HomeComponent implements OnInit {
   searchQuery: string;
 
   displayedColumns: string[] = ['date', 'displayName', 'venue', 'uri', 'datetime'];
+  dateSelectedDisplayedColumns: string[] = ['displayName', 'venue', 'uri', 'datetime'];
 
   // @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ViewChild(MatSort) sort: MatSort;
@@ -97,6 +98,8 @@ export class HomeComponent implements OnInit {
 
   foundDateSelectedEvents: any[];
   dateSelectedEventsFound = false;
+  dateSelectedToolbar: any;
+  minDate = new Date();
 
   private API_KEY: string = environment.SONGKICK_API_KEY;
   private API_URL: string = environment.SONGKICK_API_URL;
@@ -237,6 +240,7 @@ export class HomeComponent implements OnInit {
   }
 
   searchDateEvents() {
+    this.dateSelectedToolbar = this.searchDateForm.value.searchDate.form('LL');
 
     this.yearSelected = this.searchDateForm.value.searchDate._i.year;
     this.monthSelected = this.searchDateForm.value.searchDate._i.month + 1;
@@ -266,6 +270,11 @@ export class HomeComponent implements OnInit {
 
   addEvent(event: MatDatepickerInputEvent<Date>) {
     console.log(event.value);
+    // console.log(this.searchDateForm.value.searchDate.MY_FORMAT);
+    // console.log(this.searchDateForm.value.moment().format('LL'));
+    this.dateSelectedToolbar = this.searchDateForm.value.searchDate.format('LL');
+    console.log(this.dateSelectedToolbar);
+    // console.log(this.searchDateForm.value.searchDate.format('LL'));
 
     this.yearSelected = this.searchDateForm.value.searchDate._i.year;
     this.monthSelected = this.searchDateForm.value.searchDate._i.month + 1;
