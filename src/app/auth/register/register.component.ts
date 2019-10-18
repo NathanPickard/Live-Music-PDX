@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service';
   templateUrl: './register.component.html'
 })
 
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
@@ -21,7 +21,7 @@ export class RegisterComponent {
         'email': new FormControl(null, [Validators.required, Validators.email]),
         'password': new FormControl(null, [Validators.required, Validators.minLength(6)])
       })
-    })
+    });
   }
 
   // onRegister(form: NgForm) {

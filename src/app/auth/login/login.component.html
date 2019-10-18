@@ -44,7 +44,8 @@
             <!-- <mat-error *ngIf="loginForm.get('userData.password').errors['required']">Not a valid password</mat-error> -->
           </mat-form-field>
 
-          <button mat-raised-button color="primary" (click)="openSnackBar()" type="submit">Login</button>
+          <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="openSnackBar()"
+            type="submit">Login</button>
         </div>
       </form>
     </mat-card-content>

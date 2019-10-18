@@ -17,8 +17,9 @@
             <mat-label>Email</mat-label>
             <input matInput type="email" placeholder="Email" formControlName="email">
             <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-            <mat-error *ngIf="!registerForm.get('userData.email').valid && registerForm.get('userData.email').touched">Not
-              a valid email</mat-error>
+            <mat-error *ngIf="!registerForm.get('userData.email').valid && registerForm.get('userData.email').touched">
+              Not a valid email
+            </mat-error>
             <!-- <mat-error *ngIf="registerForm.get('userData.email').errors['required']">This field is required</mat-error> -->
             <!-- <mat-error *ngIf="!registerForm.get('userData.email').valid && registerForm.get('userData.email').touched">Not
                 a valid email</mat-error> -->
@@ -27,21 +28,21 @@
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
             <input matInput type="password" placeholder="Password" formControlName="password">
-            <!-- <mat-error *ngIf="!registerForm.get('userData.password').valid">Not a valid password</mat-error> -->
+            <mat-error *ngIf="!registerForm.get('userData.password').valid">Not a valid password</mat-error>
             <!-- <mat-error *ngIf="registerForm.get('userData.password').errors['required']">Not a valid password</mat-error> -->
           </mat-form-field>
 
-          <button mat-raised-button color="primary" type="submit">Register</button>
+          <button mat-raised-button color="primary" [disabled]="registerForm.invalid" type="submit">Register</button>
 
         </div>
       </form>
     </mat-card-content>
 
+    <div fxLayoutAlign="end center" fxLayout="column">
+      <p>Aleady registered? <a routerLink="/login" style="text-decoration: none">Sign In</a></p>
+    </div>
   </mat-card>
 
-  <div fxLayoutAlign="center center" fxLayout="row">
-    <p>Aleady registered? <a routerLink="/login" style="text-decoration: none">Sign In</a></p>
-  </div>
 
 </div>
 

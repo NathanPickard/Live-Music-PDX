@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html'
 })
 
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
     public snackBar: MatSnackBar) { }
@@ -37,9 +37,8 @@ export class LoginComponent {
       duration: 1000,
     });
   }
-
+  
 }
-
 
 @Component({
   selector: 'login-snackbar',
