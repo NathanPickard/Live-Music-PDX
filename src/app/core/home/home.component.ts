@@ -91,6 +91,8 @@ export class HomeComponent implements OnInit {
 
   searchEventForm: FormGroup;
   searchEventNotFound = false;
+  searchEventSubmitted = false;
+  searchingEvents = false;
   searchEventsFound = false;
   foundSearchEvents: any[];
 
@@ -184,7 +186,7 @@ export class HomeComponent implements OnInit {
     this.searchDataSource = this.foundSearchEvents;
     console.log(this.foundSearchEvents);
 
-    if (this.foundSearchEvents == undefined) {
+    if (this.foundSearchEvents === undefined || this.foundSearchEvents.length === 0) {
       this.searchEventNotFound = true;
     }
   }
@@ -232,10 +234,13 @@ export class HomeComponent implements OnInit {
   }
 
   searchEvents() {
+    this.searchingEvents = true;
+    this.searchEventSubmitted = true;
     const query = this.searchEventForm.value.searchQuery;
     return this.searchService.getSearchEvents(query).subscribe(
       data => this.handleSearchEventsSuccess(data),
-      error => this.handleError(error)
+      error => this.handleError(error),
+      () => this.searchingEvents = false
     );
   }
 

@@ -1,6 +1,4 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
-  <!-- <h2>Welcome to Live Music PDX!</h2> -->
-  <!-- <h2>Live Music PDX</h2> -->
 
   <!-- <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign.lt-sm="center center"> -->
 
@@ -12,7 +10,7 @@
     </mat-card-header>
     <img mat-card-image src=" https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Portland%2C_Oregon.svg">
     <mat-card-content fxLayout="column" fxLayoutAlign="center center">
-      <h3>Discover your perfect live music event in the Portland, Oregon area</h3>
+      <h3 style="text-align: center;">Discover your perfect live music event in the Portland, Oregon area</h3>
     </mat-card-content>
     <mat-card-actions fxLayoutAlign="center center">
       <mat-icon color="primary">music_note</mat-icon>
@@ -67,8 +65,8 @@
 
     <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
       <mat-form-field>
-        <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Search event date" ngModel name="eventDate"
-          formControlName="searchDate" (dateInput)="addEvent($event)">
+        <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Search event date" ngModel
+          name="eventDate" formControlName="searchDate" (dateInput)="addEvent($event)">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -91,6 +89,15 @@
 
   </div>
 
+</div>
+
+<div *ngIf="searchingEvents && searchEventSubmitted" fxLayoutAlign="center center" style="padding: 25px 0px 25px 0px">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div fxLayoutAlign="center center" style="padding: 25px 0px 25px 0px"
+  *ngIf="searchEventNotFound && foundSearchEvents == undefined && searchEventSubmitted && !searchingEvents">
+  <h2>No {{ searchEventForm.value.searchQuery }} events found</h2>
 </div>
 
 <!-- <div *ngIf="mapFound"> -->
@@ -250,10 +257,6 @@
 <!-- <div *ngIf="this.foundSearchEvents == undefined"> -->
 <!-- <p>{{ searchEventForm.value.searchQuery }} events not found</p>
   </div> -->
-
-<div fxLayoutAlign="center" *ngIf="searchEventNotFound && foundSearchEvents == undefined">
-  <p>No {{ searchEventForm.value.searchQuery }} events found</p>
-</div>
 
 <div>
   <div #gmap style="width: 100%; height: 350px;"></div>
