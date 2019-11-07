@@ -1,29 +1,84 @@
-<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" style="padding-top: 10px">
 
-  <!-- <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign.lt-sm="center center"> -->
+  <mat-card style="max-width: 500px;">
 
-  <mat-card style="max-width: 275px;">
     <mat-card-header fxLayoutAlign="center center">
       <mat-card-title>
         <h1>Live Music PDX</h1>
       </mat-card-title>
     </mat-card-header>
-    <img mat-card-image src=" https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Portland%2C_Oregon.svg">
-    <mat-card-content fxLayout="column" fxLayoutAlign="center center">
-      <h3 style="text-align: center;">Discover your perfect live music event in the Portland, Oregon area</h3>
+
+    <div fxlayoutAlign="center center" style="padding: 0px 80px;">
+      <img mat-card-image src=" https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Portland%2C_Oregon.svg">
+    </div>
+
+    <mat-card-content fxLayoutAlign="center start" fxLayout="row">
+      <div fxLayout="column">
+        <!-- <div fxlayoutAlign="center center" style="padding: 0px 80px;">
+        <img mat-card-image src=" https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Portland%2C_Oregon.svg">
+      </div> -->
+
+        <div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px">
+          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+            <h3 style="text-align: center;">Look up and track your favorite artists and PDX venues</h3>
+            <!-- <button mat-mini-fab color="primary">
+              <mat-icon>search</mat-icon>
+            </button> -->
+          </div>
+          <mat-divider [vertical]="true" style="height: 150px"></mat-divider>
+          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+            <h3 style="text-align: center;">Discover your perfect live music event in the Portland, Oregon area</h3>
+            <!-- <button mat-mini-fab color="primary">
+              <mat-icon>music_note</mat-icon>
+            </button> -->
+          </div>
+          <mat-divider [vertical]="true" style="height: 150px"></mat-divider>
+          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+            <h3 style="text-align: center;">Quickly find an event by date, search, or checkout the most popular events
+              of the day</h3>
+            <!-- <button mat-mini-fab color="primary">
+              <mat-icon>date_range</mat-icon>
+            </button> -->
+          </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px">
+          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+            <button mat-mini-fab color="primary">
+              <mat-icon>search</mat-icon>
+            </button>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+            <button mat-mini-fab color="primary">
+              <mat-icon>music_note</mat-icon>
+            </button>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+            <button mat-mini-fab color="primary">
+              <mat-icon>date_range</mat-icon>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
     </mat-card-content>
-    <mat-card-actions fxLayoutAlign="center center">
-      <mat-icon color="primary">music_note</mat-icon>
-    </mat-card-actions>
+
+    <!-- <mat-card-actions fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="30px">
+      <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+        <mat-icon color="primary">date_range</mat-icon>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+        <mat-icon color="primary">date_range</mat-icon>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+        <mat-icon color="primary">date_range</mat-icon>
+      </div>
+    </mat-card-actions> -->
+
   </mat-card>
 
-  <!-- </div> -->
-
-  <mat-divider style="width: 80%"></mat-divider>
-
-  <!-- <mat-toolbar color="accent" fxLayoutAlign="center center">
-    <h3>Upcoming events in Portland</h3>
-  </mat-toolbar> -->
+  <!-- <mat-divider style="width: 80%"></mat-divider> -->
 
   <!-- <img mat-card-image src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;"> -->
 </div>
@@ -430,5 +485,6 @@
       </mat-accordion>
 
     </div>
+
 
   </div> -->
