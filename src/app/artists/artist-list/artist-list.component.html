@@ -18,7 +18,8 @@
 
     </div>
 
-    <h1>|</h1>
+    <mat-divider fxHide.lt-sm="true" [vertical]="true" style="height: 60px;"></mat-divider>
+    <mat-divider fxHide.gt-xs="true" style="width: 200px;"></mat-divider>
 
     <!-- <div>
       <mat-form-field>
@@ -80,8 +81,9 @@
       </div>
     </mat-toolbar>
 
-    <app-artist-item fxLayoutAlign="space-around center" style="padding-top: 10px;"
-      *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
+    <app-artist-item fxLayoutAlign="space-around center" style="padding-top: 20px;"
+      *ngFor="let artistEl of artists; let i = index; let last = last" [ngClass]="{last: last}" [artist]="artistEl"
+      [index]="i"></app-artist-item>
     <!-- <mat-list-item>
         <app-artist-item *ngFor="let artistEl of artists; let i = index" [artist]="artistEl" [index]="i"></app-artist-item>
       </mat-list-item> -->
@@ -89,6 +91,16 @@
   </div>
 
   <mat-divider></mat-divider>
+
+  <div *ngIf="searchingArtist && searchArtistSubmitted" fxLayoutAlign="center center" style="padding: 25px 0px 25px 0px;">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div fxLayoutAlign="center center" style="padding: 25px 0px 25px 0px;"
+    *ngIf="searchArtistNotFound && foundArtists == undefined && searchArtistSubmitted && !searching">
+    <h2>{{ searchArtistForm.value.searchQuery }} not found, try agian</h2>
+
+  </div>
 
   <mat-card *ngIf="artistFound">
 

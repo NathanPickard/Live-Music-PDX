@@ -5,3 +5,7 @@
 td.mat-cell {
   padding: 8px;
 }
+
+.last {
+  padding-bottom: 20px;
+}

@@ -25,14 +25,14 @@
               <mat-icon>search</mat-icon>
             </button> -->
           </div>
-          <mat-divider [vertical]="true" style="height: 150px"></mat-divider>
+          <mat-divider [vertical]="true" style="height: 150px;"></mat-divider>
           <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
             <h3 style="text-align: center;">Discover your perfect live music event in the Portland, Oregon area</h3>
             <!-- <button mat-mini-fab color="primary">
               <mat-icon>music_note</mat-icon>
             </button> -->
           </div>
-          <mat-divider [vertical]="true" style="height: 150px"></mat-divider>
+          <mat-divider [vertical]="true" style="height: 150px;"></mat-divider>
           <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
             <h3 style="text-align: center;">Quickly find an event by date, search, or checkout the most popular events
               of the day</h3>
@@ -146,13 +146,13 @@
 
 </div>
 
-<div *ngIf="searchingEvents && searchEventSubmitted" fxLayoutAlign="center center" style="padding: 25px 0px 25px 0px">
+<div *ngIf="searchingEvents && searchEventSubmitted" fxLayoutAlign="center center" style="padding: 25px 0px 25px 0px;">
   <mat-spinner></mat-spinner>
 </div>
 
-<div fxLayoutAlign="center center" style="padding: 25px 0px 25px 0px"
+<div fxLayoutAlign="center center" style="padding: 25px 0px 25px 0px;"
   *ngIf="searchEventNotFound && foundSearchEvents == undefined && searchEventSubmitted && !searchingEvents">
-  <h2>No {{ searchEventForm.value.searchQuery }} events found</h2>
+  <h2>No {{ searchEventForm.value.searchQuery }} events found, try again</h2>
 </div>
 
 <!-- <div *ngIf="mapFound"> -->

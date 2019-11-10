@@ -57,6 +57,9 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   artistEventsFound = false;
   searching = false;
   searchQuery: string;
+  searchingArtist = false;
+  searchArtistSubmitted = false;
+  searchArtistNotFound = false;
 
   artistId: any;
 
@@ -137,6 +140,10 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     this.foundArtistList = data.resultsPage.results;
 
     console.log(this.foundArtists);
+
+    if (this.foundArtists === undefined || this.foundArtists.length === 0) {
+      this.searchArtistNotFound = true;
+    }
     // console.log(this.foundArtistId);
     // console.log(data.resultsPage.results.artist.displayName);
   }
@@ -168,15 +175,15 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   searchArtists() {
     this.similarArtists = null;
-    this.searching = true;
+    this.searchingArtist = true;
+    this.searchArtistSubmitted = true;
     const query = this.searchArtistForm.value.searchQuery;
     console.log(query);
     console.log(this.authService.isAuthenticated());
     return this.searchService.getArtists(query).subscribe(
       data => this.handleSuccess(data),
-      // data => console.log(data),
       error => this.handleError(error),
-      () => this.searching = false
+      () => this.searchingArtist = false
     );
   }
 
