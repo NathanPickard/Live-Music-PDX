@@ -325,16 +325,12 @@
 <div *ngIf="eventsFound">
 
   <mat-toolbar color="accent">
-    <mat-toolbar-row>
-      <h3 fxLayoutAlign="center center">Upcoming events in Portland</h3>
-      <span class="toolbar-spacer"></span>
-      <div style="background-blend-mode: color-burn;">
-        <img src=" assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
-      </div>
+    <mat-toolbar-row fxLayoutAlign="center center">
+      <h3>Upcoming events in Portland</h3>
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <div class="data-table">
+  <div class="data-table" fxLayoutAlign="center center">
     <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
 
       <ng-container class="mat-column" matColumnDef="date">
@@ -419,7 +415,9 @@
         <td mat-cell *matCellDef="let row">
           {{ row.start.datetime | date: 'shortTime' }}
         </td>
-        <td mat-footer-cell *matFooterCellDef></td>
+        <td mat-footer-cell *matFooterCellDef>
+          <img src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
