@@ -1,32 +1,10 @@
-<div>
+<div fxLayoutAlign="center center" style="padding-top: 20px;">
 
   <mat-card>
 
     <mat-card-header fxLayoutAlign="center">
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
-
-    <!-- <mat-card-content>
-      <form (ngSubmit)="onLogin(f)" #f="ngForm">
-        <table>
-          <tr>
-            <td>
-              <mat-form-field>
-                <input matInput placeholder="Email" ngModel name="email">
-              </mat-form-field>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <mat-form-field>
-                <input matInput placeholder="Password" ngModel type="password" name="password">
-              </mat-form-field>
-            </td>
-          </tr>
-        </table>
-        <button mat-raised-button color="primary" type="submit">Login</button>
-      </form>
-    </mat-card-content> -->
 
     <mat-card-content>
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
@@ -45,10 +23,19 @@
           </mat-form-field>
 
           <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="openSnackBar()"
-            type="submit">Login</button>
+            type="submit">Login
+          </button>
+
         </div>
       </form>
     </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <div fxLayoutAlign="center center" fxLayout="column">
+      <h4>or</h4>
+      <a fxFill mat-stroked-button color="primary" routerLink="/register">Register</a>
+    </div>
 
   </mat-card>
 
