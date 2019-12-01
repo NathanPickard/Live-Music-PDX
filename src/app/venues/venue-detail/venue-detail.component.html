@@ -2,7 +2,7 @@
 
 <mat-card>
 
-  <mat-card-header>
+  <mat-card-header fxLayoutAlign="center center">
     <mat-card-title>
       <h2>{{ venue.name }}</h2>
     </mat-card-title>
@@ -10,10 +10,15 @@
 
   <mat-card-content>
 
-    <mat-label>Address:</mat-label>
-    <p>{{ venue.address }}</p>
-    <mat-label>Description:</mat-label>
-    <p>{{ venue.description }}</p>
+    <div>
+      <h3><strong>Address:</strong></h3>
+      <p>{{ venue.address }}</p>
+    </div>
+
+    <div>
+      <h3><strong>Description:</strong></h3>
+      <p>{{ venue.description }}</p>
+    </div>
 
     <mat-form-field *ngIf="isAuthenticated()">
       <mat-select placeholder="Manage Venue">

@@ -1,4 +1,4 @@
-<div fxLayout="column" fxLayoutAlign="center center">
+<div fxLayout="column" fxLayoutAlign="center center" style="text-align: center;">
   <h1>PDX Events</h1>
   <h3>Look up the latest and upcoming live music events</h3>
 </div>
@@ -38,8 +38,15 @@
           <mat-icon>local_activity</mat-icon>
           Event
         </th>
-        <td mat-cell *matCellDef="let row">
-          {{ row.displayName }}
+        <td mat-cell *matCellDef="let row; let i = dataIndex;">
+          <span *ngFor="let artist of row.performance; let last = last">
+            <span *ngIf="!last">
+              {{ artist.displayName }},
+            </span>
+            <span *ngIf="last">
+              {{ artist.displayName}}
+            </span>
+          </span>
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
@@ -102,7 +109,7 @@
 </div>
 
 <div *ngIf="eventsFound">
-  <div class="data-table">
+  <div class="data-table" fxLayoutAlign="center center">
     <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
 
       <ng-container class="mat-column" matColumnDef="date">
@@ -122,16 +129,17 @@
           Event
         </th>
 
-        <!-- <ng-container *ngFor="let x of foundEvents">
-          <ng-container *ngFor="let y of x.performance"> -->
-        <td mat-cell *matCellDef="let row">
-          {{ row.displayName }}
-          <!-- {{ row.performance[i] }} -->
-          <!-- {{ row.performance[1].displayName }} -->
-          <!-- {{ row.performance[2].displayName }} -->
+        <td mat-cell *matCellDef="let row; let i = dataIndex;">
+          <span *ngFor="let artist of row.performance; let last = last">
+            <span *ngIf="!last">
+              {{ artist.displayName }},
+            </span>
+            <span *ngIf="last">
+              {{ artist.displayName}}
+            </span>
+          </span>
         </td>
-        <!-- </ng-container>
-        </ng-container> -->
+
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 

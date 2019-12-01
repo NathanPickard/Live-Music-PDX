@@ -2,3 +2,7 @@
   overflow: auto;
 }
 */
+
+td.mat-cell {
+  padding: 5px;
+}
