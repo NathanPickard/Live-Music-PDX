@@ -155,11 +155,8 @@
   <h2>No {{ searchEventForm.value.searchQuery }} events found, try again</h2>
 </div>
 
-<!-- <div *ngIf="mapFound"> -->
 
 <div *ngIf="searchEventsFound && foundSearchEvents !== undefined">
-
-  <!-- <h2>Search results</h2> -->
 
   <div class="data-table">
     <table mat-table [dataSource]="searchDataSource" matSort multiTemplateDataRows>
@@ -231,8 +228,6 @@
 </div>
 
 <div *ngIf="foundDateSelectedEvents && foundDateSelectedEvents !== undefined">
-
-  <!-- <h2>Search results</h2> -->
 
   <mat-toolbar color="accent">
     <mat-toolbar-row fxLayoutAlign="center center">
@@ -414,70 +409,3 @@
   </div>
 </div>
 
-<!-- <mat-card *ngIf="eventsFound"> -->
-
-<!-- <mat-card-header fxLayoutAlign="center" fxLayout="row"> -->
-<!-- <mat-card-title>Check out these events!</mat-card-title> -->
-<!-- <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%;">
-    </mat-card-header> -->
-
-
-<!-- <div *ngFor="let foundEvent of foundEvents" fxLayoutAlign="center center" fxLayoutWrap fxLayoutGap="20px">
-      <mat-card fxFlex>
-        <mat-card-content>
-          <a href="{{ foundEvent.uri }}" target="_bank" style="text-decoration: none;">
-            {{ foundEvent.displayName }} - {{ foundEvent.venue.displayName }}
-          </a>
-          <div *ngIf="foundEvent.type == 'Festival'">
-            <p style="background-color: aqua">{{ foundEvent.type }}</p>
-          </div>
-        </mat-card-content>
-        <mat-card-footer fxLayoutAlign="end">
-          {{ foundEvent.start.date | date }}
-        </mat-card-footer>
-      </mat-card>
-    </div> -->
-
-<!-- </mat-card> -->
-
-<!-- <div fxLayout="column" fxLayoutAlign="center stretch">
-
-    <div @fade *ngFor="let foundEvent of foundEvents" fxLayout="column" style="padding: 10px">
-      <mat-accordion>
-        <mat-expansion-panel>
-
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <h2> {{ foundEvent.start.date | date}} </h2>
-              <h3>
-                {{ foundEvent.start.date | date: 'E MMM d' }} -
-                {{ foundEvent.displayName }}
-              </h3>
-            </mat-panel-title>
-            <mat-panel-description>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-
-          <mat-card>
-
-            <h4>Venue: {{ foundEvent.venue.displayName }}</h4>
-
-            <h4 *ngFor="let foundArtist of foundArtists">
-              Artist: {{ foundArtist.displayName}}
-            </h4>
-
-            <h4>Start time: {{ foundEvent.start.datetime | date: 'shortTime' }}</h4>
-
-            <a href="{{ foundEvent.uri }}" mat-raised-button color="primary" target="_blank">
-              Check out event
-            </a>
-
-          </mat-card>
-
-        </mat-expansion-panel>
-      </mat-accordion>
-
-    </div>
-
-
-  </div> -->
