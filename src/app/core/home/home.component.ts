@@ -125,28 +125,9 @@ export class HomeComponent implements OnInit {
     });
 
     this.searchDateForm = new FormGroup({
-      // datePicked: new FormControl(null)
-
-      // searchDate: new FormControl(null)
       searchDate: new FormControl(moment())
     });
-
-    // this.datePicked = new FormControl(new Date());
-
-    // this.getPdxEvents()
-    //   data => {
-    //     this.dataSource.data = data;
-    //   }
-
-    // this.dataSource.sort = this.sort;
-
-    // merge(this.sort.sortChange)
-    // .pipe(
-    //   startWith({}),
-    //   switchMap(() => {
-    //     return this.handleSuccess(this.sort.active);
-    //   })
-    // )
+    
   }
 
   handleSuccess(data) {
@@ -155,7 +136,6 @@ export class HomeComponent implements OnInit {
     this.dataSource = this.foundEvents;
 
     for (let i = 0; i < data.resultsPage.results.event.length; i++) {
-      // console.log(data.resultsPage.results.event[i].venue);
 
       // this.map.setCenter(new google.maps.LatLng(data.resultsPage.results.event[i].venue.lat, data.resultsPage.results.event[i].venue.lng));
 
@@ -169,15 +149,7 @@ export class HomeComponent implements OnInit {
         title: eventName,
       });
     }
-    // for (i = 0; i < ;)
-    // this.upcomingArtist = this.foundEvents[0].performance;
-    // this.upcomingPerformance = this.foundEvents;
-    // this.performanceArray = data.resultsPage.results.event.location;
-    // this.foundArtists = data.resultsPage.results.event.performance.artist;
-    // console.log(this.foundArtists);
     console.log(this.foundEvents);
-    // console.log(this.upcomingPerformance);
-    // console.log(this.performanceArray);
   }
 
   handleSearchEventsSuccess(data) {
