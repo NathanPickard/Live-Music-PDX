@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
 
   openSnackBar() {
     this.snackBar.openFromComponent(LoginSnackbar, {
-      duration: 1000,
+      duration: 2000,
     });
   }
   
