@@ -37,20 +37,18 @@
           formControlName="searchQuery">
         <!-- <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"> -->
         <mat-autocomplete #auto="matAutocomplete">
-
           <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
-
           <ng-container *ngIf="!isLoading">
-
             <mat-option *ngFor="let filteredArtist of filteredArtists" [value]="filteredArtist.displayName">
               <a href="{{ filteredArtist.uri }}" target="_blank" style="text-decoration: none;">
                 <span><b>{{ filteredArtist.displayName }}</b>({{ filteredArtist.onTourUntil }})</span>
               </a>
             </mat-option>
-
           </ng-container>
-
         </mat-autocomplete>
+        <button matSuffix mat-mini-fab color="primary">
+          <mat-icon>search</mat-icon>
+        </button>
       </mat-form-field>
 
       <!-- <ng-container *ngIf="errorMsg; else elseTemplate">
@@ -61,9 +59,6 @@
         <h5>Selected Value: {{ searchQuery }}</h5>
       </ng-template> -->
 
-      <button type="submit" mat-raised-button color="primary">
-        <mat-icon>search</mat-icon>
-      </button>
 
     </form>
 
