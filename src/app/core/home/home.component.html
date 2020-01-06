@@ -347,13 +347,16 @@
 
         <td mat-cell *matCellDef="let row; let i = dataIndex;">
           <span *ngFor="let artist of row.performance; let last = last">
-            <span *ngIf="!last">
-              {{ artist.displayName }},
-            </span>
+            <button mat-stroked-button>
+              <span *ngIf="!last">
+                <!-- {{ artist.displayName }}, -->
+                {{ artist.displayName }}
+              </span>
 
-            <span *ngIf="last">
-              {{ artist.displayName }}
-            </span>
+              <span *ngIf="last">
+                {{ artist.displayName }}
+              </span>
+            </button>
           </span>
         </td>
 
