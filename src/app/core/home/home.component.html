@@ -110,10 +110,12 @@
 <!-- <div fxLayout="row" fxLayoutAlign="end center"> -->
 <!-- <div fxLayout.lt-md="column"> -->
 <!-- <div fxLayout="row" fxLayoutAlign="end center"> -->
-<div style="padding: 0px 20px; margin-top: 20px;" fxLayout="row" fxLayout.lt-sm="column"
-  fxLayoutAlign.lt-sm="center center">
 
-  <div fxFlex="1 0 auto" style="padding: 0px 20px">
+<div style="padding: 0px 20px; margin-top: 20px;" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center"
+  fxLayoutAlign.lt-sm="center center" fxLayoutGap.gt-xs="45px">
+
+  <!-- <div fxFlex="1 0 auto" style="padding: 0px 20px"> -->
+  <div>
 
     <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
       <mat-form-field>
