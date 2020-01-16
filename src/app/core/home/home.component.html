@@ -121,7 +121,9 @@
       <mat-form-field>
         <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Search event date" ngModel
           name="eventDate" formControlName="searchDate" (dateInput)="addEvent($event)">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker-toggle matSuffix [for]="picker">
+          <mat-icon matDatepickerToggleIcon color="primary">today</mat-icon>
+        </mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </form>
@@ -347,7 +349,7 @@
 
         <td mat-cell *matCellDef="let row; let i = dataIndex;">
           <span *ngFor="let artist of row.performance; let last = last">
-            <button mat-stroked-button>
+            <a href="{{ artist.artist.uri }}" mat-stroked-button target="_blank">
               <span *ngIf="!last">
                 <!-- {{ artist.displayName }}, -->
                 {{ artist.displayName }}
@@ -356,7 +358,7 @@
               <span *ngIf="last">
                 {{ artist.displayName }}
               </span>
-            </button>
+            </a>
           </span>
         </td>
 
