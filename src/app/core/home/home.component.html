@@ -134,8 +134,8 @@
 
     <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
       <mat-form-field appearance="outline">
-        <mat-label>Search PDX Events</mat-label>
-        <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery">
+        <mat-label>Search for artists</mat-label>
+        <input type="search" matInput placeholder="Search for artists" formControlName="searchQuery">
         <!-- <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery" [mat-autocomplete]="auto"> -->
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
         </mat-autocomplete>

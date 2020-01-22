@@ -6,7 +6,7 @@ import { ArtistsRoutingModule } from './artist-routing.module';
 
 import { ArtistsComponent } from './artists.component';
 import { ArtistStartComponent } from './artist-start/artist-start.component';
-import { ArtistListComponent } from './artist-list/artist-list.component';
+import { ArtistListComponent, ArtistListDialog } from './artist-list/artist-list.component';
 import { ArtistEditComponent } from './artist-edit/artist-edit.component';
 import { ArtistDetailComponent, ArtistDetailDialog } from './artist-detail/artist-detail.component';
 import { ArtistItemComponent } from './artist-list/artist-item/artist-item.component';
@@ -21,7 +21,8 @@ import { AuthService } from '../auth/auth.service';
     ArtistEditComponent,
     ArtistDetailComponent,
     ArtistItemComponent,
-    ArtistDetailDialog
+    ArtistDetailDialog,
+    ArtistListDialog
   ],
   imports: [
     SharedModule,
@@ -32,7 +33,7 @@ import { AuthService } from '../auth/auth.service';
     AuthService
   ],
 
-  entryComponents: [ArtistDetailDialog]
+  entryComponents: [ArtistDetailDialog, ArtistListDialog]
 })
 
 export class ArtistsModule { }

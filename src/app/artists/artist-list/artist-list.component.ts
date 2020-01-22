@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { fade } from '../../animations';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 
@@ -30,7 +30,8 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     private searchService: SearchService,
     private router: Router,
     private route: ActivatedRoute,
-    public snackBar: MatSnackBar) { }
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog) { }
 
   displayedColumns: string[] = ['date', 'displayName', 'city', 'venue', 'uri', 'datetime'];
   dataSource: any;
@@ -239,6 +240,10 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     });
   }
 
+  addOnUnauthenticated() {
+    const dialogRef = this.dialog.open(ArtistListDialog, {})
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
@@ -250,3 +255,13 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 // })
 
 // export class ArtistSnackbar { }
+
+@Component({
+  selector: 'artist-list-dialog',
+  templateUrl: 'artist-list-dialog.component.html'
+})
+
+export class ArtistListDialog {
+  constructor(public dialogRef: MatDialogRef<ArtistListDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: Artist) { }
+}
