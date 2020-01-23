@@ -3,7 +3,6 @@
   <h3>Look up the latest and upcoming live music events</h3>
 </div>
 
-<!-- <div fxLayoutAlign="center center"> -->
 <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()" fxLayout="row" fxLayoutAlign="center center">
   <mat-form-field appearance="outline">
     <mat-label>Search for events</mat-label>
@@ -13,7 +12,6 @@
     </button>
   </mat-form-field>
 </form>
-<!-- </div> -->
 
 <div *ngIf="searchEventsFound && foundSearchEvents !== undefined">
 
