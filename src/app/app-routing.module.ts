@@ -7,9 +7,9 @@ import { AboutComponent } from './core/about/about.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'artists', loadChildren: './artists/artists.module#ArtistsModule' },
-  { path: 'venues', loadChildren: './venues/venues.module#VenuesModule' },
-  { path: 'events', loadChildren: './events/events.module#EventsModule' },
+  { path: 'artists', loadChildren: () => import('./artists/artists.module').then(m => m.ArtistsModule) },
+  { path: 'venues', loadChildren: () => import('./venues/venues.module').then(m => m.VenuesModule) },
+  { path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) },
   { path: 'about', component: AboutComponent }
 ];
 
