@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { MatSort, MatTableDataSource, MatTable, PageEvent } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+// import { MatSort, MatTableDataSource, MatTable, PageEvent } from '@angular/material';
 
 import { Artist } from '../artist.model';
 import { ArtistService } from '../artist.service';

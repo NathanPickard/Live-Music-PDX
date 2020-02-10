@@ -6,7 +6,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
-import { MatNativeDateModule } from '@angular/material';
+// import { MatNativeDateModule } from '@angular/material';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter, MatMomentDateModule, MomentDateModule } from '@angular/material-moment-adapter';
 
@@ -33,7 +33,7 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
   imports: [
     ReactiveFormsModule,
     SharedModule,
-    MatNativeDateModule,
+    // MatNativeDateModule,
     NgxPaginationModule,
     AppRoutingModule,
     MomentDateModule

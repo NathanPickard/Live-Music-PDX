@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { fade } from '../../animations';
-import { MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { fade } from '../../animations';
+import { Subscription } from 'rxjs/Subscription';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
 
 import { AuthService } from '../../auth/auth.service';
