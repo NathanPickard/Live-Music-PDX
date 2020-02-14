@@ -145,12 +145,7 @@ export class SearchService {
 
     this.popularTodayDate = moment().format(moment.HTML5_FMT.DATE);
 
-    // this.monthAheadDate = this.yearDate + '-' + this.monthAheadDate;
-
     // this.monthAheadDate = this.yearDate + '-' + this.monthAheadDate + '-' + (this.monthAheadDate);
-
-    // console.log(this.monthAheadDate);
-    // console.log(this.monthAheadDay);
 
     // console.log(this.thirtyDaysAhead);
     console.log(this.popularTodayDate);
