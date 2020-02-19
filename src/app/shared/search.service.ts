@@ -145,7 +145,6 @@ export class SearchService {
 
     this.popularTodayDate = moment().format(moment.HTML5_FMT.DATE);
 
-    // this.monthAheadDate = this.yearDate + '-' + this.monthAheadDate + '-' + (this.monthAheadDate);
 
     // console.log(this.thirtyDaysAhead);
     console.log(this.popularTodayDate);
@@ -188,7 +187,6 @@ export class SearchService {
 
     return this.httpClient.get(requestUrl);
 
-    // return this.http.get(requestUrl);
 
     // return this.httpClient.get<any>(this.API_URL + 'metro_areas/12283/calendar.json?apikey=' + this.API_KEY +
     //   '&min_date=' + this.today + '&max_date=' + this.weekDate + '&per_page=25');

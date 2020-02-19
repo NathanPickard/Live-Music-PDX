@@ -68,9 +68,6 @@ export class EventsComponent implements OnInit {
 
     let mostPopular = this.foundPopularEvents;
 
-
-    // mostPopular.sort((a, b) => 0 - (a > b ? 1 : -1));
-
     // Sorting events by popularity
     mostPopular.sort((a, b) => 0 - (a.popularity > b.popularity ? 1 : -1));
 
