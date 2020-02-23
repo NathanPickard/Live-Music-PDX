@@ -223,8 +223,6 @@ export class SearchService {
   }
 
   getSelectedVenueWebsite(venueId) {
-    // return this.http.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY)
-    //   .map(res => res.json());
     return this.httpClient.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY);
   }
 
