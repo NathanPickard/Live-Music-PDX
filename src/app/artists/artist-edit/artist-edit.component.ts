@@ -55,5 +55,4 @@ export class ArtistEditComponent implements OnInit {
     });
   }
 
-
 }

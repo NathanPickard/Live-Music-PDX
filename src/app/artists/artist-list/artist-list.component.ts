@@ -254,7 +254,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 //   selector: 'artist-snackbar',
 //   templateUrl: 'artist-snackbar.component.html'
 // })
-
 // export class ArtistSnackbar { }
 
 @Component({

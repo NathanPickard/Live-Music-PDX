@@ -51,7 +51,6 @@ export class ArtistDetailComponent implements OnInit {
   }
 
   onDeleteArtist() {
-
     const dialogRef = this.dialog.open(ArtistDetailDialog, {
       data: { name: this.artist.name }
     });
