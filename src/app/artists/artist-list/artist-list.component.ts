@@ -228,7 +228,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     this.artistService.addArtist(new Artist(this.name, this.id));
 
     this.openSnackBar();
-
     // return this.searchService.addArtistToList();
   }
 

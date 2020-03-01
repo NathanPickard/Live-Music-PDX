@@ -23,9 +23,7 @@ export class AuthService {
         response => {
           this.router.navigate(['/']);
           firebase.auth().currentUser.getIdToken()
-            .then(
-              (token: string) => this.token = token
-            );
+            .then((token: string) => this.token = token);
         }
       )
       .catch(
@@ -40,9 +38,7 @@ export class AuthService {
 
   getToken() {
     firebase.auth().currentUser.getIdToken()
-      .then(
-        (token: string) => this.token = token
-      );
+      .then((token: string) => this.token = token);
     return this.token;
   }
 
