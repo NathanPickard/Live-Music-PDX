@@ -94,7 +94,6 @@ export class VenuesComponent implements OnInit, OnDestroy {
       zoom: 13,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
   }
 
@@ -177,7 +176,6 @@ export class VenuesComponent implements OnInit, OnDestroy {
       title: venueName,
     });
   }
-
 
   handleError(error) {
     console.log(error);

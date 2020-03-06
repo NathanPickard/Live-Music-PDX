@@ -107,7 +107,6 @@ export class VenueListComponent implements OnInit, OnDestroy {
     console.log(query);
     return this.searchService.getVenues(query).subscribe(
       data => this.handleSuccess(data),
-      // data => console.log(data),
       error => this.handleError(error),
       () => this.searching = false
     );
