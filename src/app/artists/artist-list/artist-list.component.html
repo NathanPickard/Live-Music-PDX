@@ -59,7 +59,6 @@
         <h5>Selected Value: {{ searchQuery }}</h5>
       </ng-template> -->
 
-
     </form>
 
   </div>
@@ -85,7 +84,9 @@
     <!-- </mat-list> -->
   </div>
 
-  <mat-divider></mat-divider>
+  <div fxLayoutAlign="center center">
+  <mat-divider fxLayoutAlign="center center" style="width: 80%;"></mat-divider>
+  </div>
 
   <div *ngIf="searchingArtist && searchArtistSubmitted" fxLayoutAlign="center center"
     style="padding: 25px 0px 25px 0px;">

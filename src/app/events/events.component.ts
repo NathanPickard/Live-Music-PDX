@@ -29,7 +29,7 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.searchEventForm = new FormGroup({
-      'searchQuery': new FormControl(null, Validators.required)
+      'searchQuery': new FormControl(null)
     });
 
     this.getPopularPdxEvents();
