@@ -100,7 +100,10 @@
 
 <div>
   <mat-toolbar fxLayoutAlign="center center" color="accent">
-    <h3>Top 5 most popular live music events for {{ today | date }}</h3>
+    <h3>Top 5 most popular live music events for
+      <button mat-stroked-button disableRipple="true">{{ today | date }}
+      </button>
+    </h3>
   </mat-toolbar>
 </div>
 
