@@ -74,7 +74,6 @@ export class EventsComponent implements OnInit {
     mostPopular.length = 5;
     // mostPopular.sort((a, b) => parseFloat(a.popularity) - parseFloat(b.popularity));
     this.dataSource = mostPopular;
-
     console.log(mostPopular);
   }
 
