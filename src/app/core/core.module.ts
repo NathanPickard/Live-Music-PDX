@@ -48,7 +48,6 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
     AuthService,
     SideNavService,
     MatDatepickerModule,
-    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
   ],
   entryComponents: [LogoutSnackbar]
