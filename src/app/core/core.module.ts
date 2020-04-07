@@ -44,9 +44,9 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
   ],
   providers: [
     ArtistService,
-    VenueService,
     AuthService,
     SideNavService,
+    VenueService,
     MatDatepickerModule,
     { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
   ],
