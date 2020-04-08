@@ -4,18 +4,18 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatTableDataSource, MatTable } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { PageEvent } from '@angular/material/paginator';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+
 import { fade } from '../../animations';
 
 import { SearchService } from '../../shared/search.service';
 
-import { environment } from '../../../environments/environment';
-
-import { MomentDateAdapter } from '@angular/material-moment-adapter';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as _moment from 'moment';
+
+import { environment } from '../../../environments/environment';
 // import {default as _rollupMoment} from 'moment';
 
 // const moment = _rollupMoment || _moment;
