@@ -1,14 +1,12 @@
 /// <reference types="@types/googlemaps" />
 
-import { Component, OnInit, ViewChild, LOCALE_ID } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-import { merge, Observable, of as oberservableOf } from 'rxjs';
-import { catchError, map, startWith, switchMap, debounceTime } from 'rxjs/operators';
 import { fade } from '../../animations';
 
 import { SearchService } from '../../shared/search.service';
