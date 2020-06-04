@@ -15,7 +15,7 @@
 
 <div *ngIf="searchEventsFound && foundSearchEvents !== undefined">
 
-  <div class="data-table">
+  <div class="data-table" fxLayoutAlign="center center">
     <table mat-table [dataSource]="searchDataSource" matSort multiTemplateDataRows>
 
       <ng-container class="mat-column" matColumnDef="date">
@@ -179,7 +179,7 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
+      <!-- <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr> -->
 
     </table>
 
