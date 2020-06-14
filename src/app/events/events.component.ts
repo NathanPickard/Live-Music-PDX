@@ -33,7 +33,6 @@ export class EventsComponent implements OnInit {
     });
 
     this.getPopularPdxEvents();
-
   }
 
   searchEvents() {

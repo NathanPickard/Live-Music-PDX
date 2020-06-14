@@ -100,18 +100,16 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     }
 
     this.searchArtistForm.get('searchQuery').valueChanges
-      .pipe(
-        debounceTime(500),
+      .pipe(debounceTime(500),
         tap(() => {
-          this.errorMsg = "";
+          this.errorMsg = '';
           this.filteredArtists = [];
           this.isLoading = true;
         }),
         switchMap(value => this.searchService.getArtists(value)
-          .pipe(
-            finalize(() => {
-              this.isLoading = false;
-            }),
+          .pipe(finalize(() => {
+            this.isLoading = false;
+          }),
           )
         )
       )
