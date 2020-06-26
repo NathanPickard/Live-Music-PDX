@@ -9,7 +9,8 @@
     </mat-card-header>
 
     <div fxlayoutAlign="center center" style="padding: 0px 80px; text-align: center;">
-      <img mat-card-image src=" https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Portland%2C_Oregon.svg" style="width: 85%;">
+      <img mat-card-image src=" https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Portland%2C_Oregon.svg"
+        style="width: 85%;">
     </div>
 
     <mat-card-content fxLayoutAlign="center start" fxLayout="row">
@@ -114,7 +115,7 @@
 
 <div *ngIf="searchEventsFound && foundSearchEvents !== undefined">
 
-  <div class="data-table">
+  <div class="data-table" fxLayoutAlign="center center">
     <table mat-table [dataSource]="searchDataSource" matSort multiTemplateDataRows>
 
       <ng-container class="mat-column" matColumnDef="date">
@@ -190,7 +191,8 @@
       <h3>Events on {{ dateSelectedToolbar }}</h3>
     </mat-toolbar-row>
   </mat-toolbar>
-  <div class="data-table">
+
+  <div class="data-table" fxLayoutAlign="center center">
     <table mat-table [dataSource]="searchDateDataSource" matSort multiTemplateDataRows>
 
       <ng-container class="mat-column" matColumnDef="date">
@@ -347,7 +349,15 @@
           Start Time
         </th>
         <td mat-cell *matCellDef="let row">
-          {{ row.start.datetime | date: 'shortTime' }}
+
+          <div *ngIf="row.start.datetime != null">
+            {{ row.start.datetime | date: 'shortTime' }}
+          </div>
+
+          <div *ngIf="row.start.datetime === null">
+            Start time not listed
+          </div>
+
         </td>
         <td mat-footer-cell *matFooterCellDef>
           <img src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
