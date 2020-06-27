@@ -21,13 +21,6 @@
     <mat-divider fxHide.lt-sm="true" [vertical]="true" style="height: 60px;"></mat-divider>
     <mat-divider fxHide.gt-xs="true" style="width: 200px;"></mat-divider>
 
-    <!-- <div>
-      <mat-form-field>
-        <input type="search" matInput [(ngModel)]="searchQuery" placeholder="Search for artists">
-      </mat-form-field>
-      <button type="submit" mat-raised-button color="primary" (click)="searchArtists(searchQuery)">Find Artists</button>
-    </div> -->
-
     <form [formGroup]="searchArtistForm" (ngSubmit)="searchArtists()">
 
       <mat-form-field appearance="outline">

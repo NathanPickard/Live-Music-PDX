@@ -300,20 +300,43 @@
           <mat-icon>local_activity</mat-icon>
           Event
         </th>
-
         <td mat-cell *matCellDef="let row; let i = dataIndex;">
-          <span *ngFor="let artist of row.performance; let last = last">
-            <a href="{{ artist.artist.uri }}" mat-stroked-button target="_blank">
-              <span *ngIf="!last">
-                <!-- {{ artist.displayName }}, -->
-                {{ artist.displayName }}
-              </span>
 
-              <span *ngIf="last">
-                {{ artist.displayName }}
-              </span>
-            </a>
-          </span>
+          <div *ngIf="row.status === 'cancelled'">
+            <button *ngIf="row.status === 'cancelled'" mat-stroked-button color="warn">
+              CANCELLED
+            </button>
+            <span *ngFor="let artist of row.performance; let last = last">
+              <a href="{{ artist.artist.uri }}" mat-stroked-button target="_blank">
+                <span *ngIf="!last">
+                  <del>
+                    <!-- {{ artist.displayName }}, -->
+                    {{ artist.displayName }}
+                  </del>
+                </span>
+
+                <span *ngIf="last">
+                  <del>
+                    {{ artist.displayName }}
+                  </del>
+                </span>
+              </a>
+            </span>
+          </div>
+          <div *ngIf="row.status !== 'cancelled'">
+            <span *ngFor="let artist of row.performance; let last = last">
+              <a href="{{ artist.artist.uri }}" mat-stroked-button target="_blank">
+                <span *ngIf="!last">
+                  <!-- {{ artist.displayName }}, -->
+                  {{ artist.displayName }}
+                </span>
+
+                <span *ngIf="last">
+                  {{ artist.displayName }}
+                </span>
+              </a>
+            </span>
+          </div>
         </td>
 
         <td mat-footer-cell *matFooterCellDef></td>
