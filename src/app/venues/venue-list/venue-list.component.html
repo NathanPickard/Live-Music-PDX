@@ -1,41 +1,5 @@
 <div fxLayout="column">
 
-  <!-- <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
-    <div style="margin-bottom: 15px;">
-
-      <button *ngIf="!isAuthenticated()" mat-raised-button color="primary" matTooltip="Signin to add venue"
-        matTooltipPosition="above" (click)="onNewVenue()">
-        <mat-icon>playlist_add</mat-icon>Add New Venue
-      </button>
-
-      <button *ngIf="isAuthenticated()" mat-raised-button color="primary" (click)="onNewVenue()">
-        <mat-icon>playlist_add</mat-icon>Add New Artist
-      </button>
-
-    </div>
-
-    <h3>or</h3> -->
-
-  <!-- <div>
-      <mat-form-field type="submit">
-        <input type="search" matInput [(ngModel)]="searchQuery" placeholder="Search for venues">
-      </mat-form-field>
-      <button type="submit" mat-raised-button color="primary" (click)="searchVenues(searchQuery)">Find Venues</button>
-    </div> -->
-
-  <!-- <form [formGroup]="searchVenueForm" (ngSubmit)="searchVenues()">
-      <mat-form-field>
-        <input type="search" matInput placeholder="Search for venues" formControlName="searchQuery">
-      </mat-form-field>
-      <button type="submit" mat-raised-button color="primary">
-        <mat-icon>search</mat-icon>Find Venues
-      </button>
-    </form>
-
-  </div> -->
-
-  <!-- <mat-divider></mat-divider> -->
-
   <div fxLayout="column">
     <app-venue-item fxLayoutAlign="space-around center" style="padding-top: 10px;" *ngFor="let venueEl of venues; let i = index"
       [venue]="venueEl" [index]="i"></app-venue-item>
