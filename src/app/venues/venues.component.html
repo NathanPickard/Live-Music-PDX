@@ -12,8 +12,8 @@
     <mat-icon>add_location</mat-icon>Add New Venue
   </button>
 
-  <mat-divider  fxHide.lt-sm="true" [vertical]="true" style="height: 60px;"></mat-divider>
-  <mat-divider  fxHide.gt-xs="true" style="width: 200px;"></mat-divider>
+  <mat-divider fxHide.lt-sm="true" [vertical]="true" style="height: 60px;"></mat-divider>
+  <mat-divider fxHide.gt-xs="true" style="width: 200px;"></mat-divider>
 
   <form fxLayout="row" fxLayoutAlign="center center" [formGroup]="searchVenueForm" (ngSubmit)="searchVenues()">
     <mat-form-field appearance="outline">
@@ -43,8 +43,8 @@
               {{ foundVenue.displayName }}
             </a>
           </mat-panel-title>
-          <mat-panel-description *ngIf="foundVenue.city.displayName && foundVenue.city.state.displayName">
-            {{ foundVenue.city.displayName}} - {{ foundVenue.city.state.displayName }}
+          <mat-panel-description *ngIf="foundVenue.city?.displayName && foundVenue.city.state?.displayName">
+            {{ foundVenue.city?.displayName}} - {{ foundVenue.city.state?.displayName }}
           </mat-panel-description>
         </mat-expansion-panel-header>
 
