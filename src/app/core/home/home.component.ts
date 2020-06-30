@@ -128,7 +128,7 @@ export class HomeComponent implements OnInit {
     this.searchDateForm = new FormGroup({
       searchDate: new FormControl(moment())
     });
-    
+
   }
 
   handleSuccess(data) {
