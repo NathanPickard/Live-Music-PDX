@@ -66,6 +66,7 @@ export class EventsComponent implements OnInit {
     this.foundPopularEvents = data.resultsPage.results.event;
 
     let mostPopular = this.foundPopularEvents;
+    console.log(mostPopular.length);
 
     // Sorting events by popularity
     mostPopular.sort((a, b) => 0 - (a.popularity > b.popularity ? 1 : -1));

@@ -159,7 +159,7 @@
           Event Link
         </th>
         <td mat-cell *matCellDef="let row">
-          <a href="{{ row.uri}}" mat-stroked-button color="primary" target="_blank">Check out event</a>
+          <a href="{{ row.uri }}" mat-stroked-button color="primary" target="_blank">Check out event</a>
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
@@ -170,7 +170,13 @@
           Start Time
         </th>
         <td mat-cell *matCellDef="let row">
-          {{ row.start.datetime | date: 'shortTime' }}
+          <div *ngIf="row.start.datetime != null">
+            {{ row.start.datetime | date: 'shortTime' }}
+          </div>
+
+          <div *ngIf="row.start.datetime === null">
+            Start time not listed
+          </div>
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
@@ -280,7 +286,13 @@
           Start Time
         </th>
         <td mat-cell *matCellDef="let row">
-          {{ row.start.datetime | date: 'shortTime' }}
+          <div *ngIf="row.start.datetime != null">
+            {{ row.start.datetime | date: 'shortTime' }}
+          </div>
+
+          <div *ngIf="row.start.datetime === null">
+            Start time not listed
+          </div>
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
