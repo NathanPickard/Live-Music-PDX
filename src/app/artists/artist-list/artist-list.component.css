@@ -9,3 +9,7 @@ td.mat-cell {
 .last {
   padding-bottom: 20px;
 }
+
+.gray {
+  background-color: #f5f5f5;
+}

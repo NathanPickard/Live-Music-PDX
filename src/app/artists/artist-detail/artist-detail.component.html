@@ -58,7 +58,7 @@
 </div> -->
 
   <div *ngIf="eventsFound">
-    <div class="data-table">
+    <div class="data-table" fxLayoutAlign="center center">
       <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
 
         <ng-container class="mat-column" matColumnDef="date">
@@ -129,7 +129,7 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even}"></tr>
         <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
 
       </table>
