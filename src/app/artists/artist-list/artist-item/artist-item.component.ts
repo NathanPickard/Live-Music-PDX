@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Artist } from '../../artist.model';
 
@@ -8,7 +8,7 @@ import { Artist } from '../../artist.model';
   styleUrls: ['./artist-item.component.css']
 })
 
-export class ArtistItemComponent {
+export class ArtistItemComponent implements OnInit {
   @Input() artist: Artist;
   @Input() index: number;
 

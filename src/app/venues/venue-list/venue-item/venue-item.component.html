@@ -1,5 +1,9 @@
-<a [routerLink]="[index]" routerLinkActive="active">
+<!-- <a [routerLink]="[index]" routerLinkActive="active">
   <button mat-stroked-button color="primary">
     {{ venue.name}}
   </button>
+</a> -->
+
+<a mat-stroked-button color="primary" [routerLink]="[index]" routerLinkActive="active">
+  {{ venue.name}}
 </a>
