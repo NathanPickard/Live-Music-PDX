@@ -7,7 +7,6 @@
   </mat-card-header>
 
   <mat-card-content>
-
     <div>
       <h3><strong>Address:</strong></h3>
       <p>{{ venue.address }}</p>
@@ -43,14 +42,6 @@
   </mat-card-actions>
 
 </mat-card>
-
-<!-- <div fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="center">
-  <div *ngFor="let foundEvent of foundEvents" fxLayout="row" fxLayoutAlign="start center">
-    <a href="{{ foundEvent.uri }}" target="_blank" style="text-decoration: none;">
-      {{ foundEvent.displayName }}
-    </a>
-  </div>
-</div> -->
 
 <div *ngIf="eventsFound">
   <div class="data-table">

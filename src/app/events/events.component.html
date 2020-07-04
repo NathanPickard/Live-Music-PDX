@@ -35,14 +35,37 @@
           Event
         </th>
         <td mat-cell *matCellDef="let row; let i = dataIndex;">
-          <span *ngFor="let artist of row?.performance; let last = last">
-            <span *ngIf="!last">
-              {{ artist.displayName }},
+          <div *ngIf="row.status === 'cancelled'">
+            <button *ngIf="row.status === 'cancelled'" mat-stroked-button color="warn">
+              CANCELLED
+            </button>
+            <span *ngFor="let artist of row?.performance; let last = last">
+              <a href="{{ artist.artist.uri }}" mat-stroked-button target="_blank">
+                <span *ngIf="!last">
+                  <del>
+                    {{ artist.displayName }}
+                  </del>
+                </span>
+                <span *ngIf="last">
+                  <del>
+                    {{ artist.displayName}}
+                  </del>
+                </span>
+              </a>
             </span>
-            <span *ngIf="last">
-              {{ artist.displayName}}
+          </div>
+          <div *ngIf="row.status !== 'cancelled'">
+            <span *ngFor="let artist of row.performance; let last = last">
+              <a href="{{ artist.artist.uri }}" mat-stroked-button target="_blank">
+                <span *ngIf="!last">
+                  {{ artist.displayName }}
+                </span>
+                <span *ngIf="last">
+                  {{ artist.displayName }}
+                </span>
+              </a>
             </span>
-          </span>
+          </div>
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
@@ -82,7 +105,6 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
-      <!-- <tr mat-header-row *matHeaderRowDef= -->
       <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even}"></tr>
       <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
 
@@ -99,7 +121,7 @@
 
 <div>
   <mat-toolbar fxLayoutAlign="center center" color="accent">
-    <h3>Top 5 most popular live music events for
+    <h3>Most popular live music events for
       <button mat-stroked-button disableRipple="true">{{ today | date }}
       </button>
     </h3>
@@ -126,20 +148,39 @@
           <mat-icon>local_activity</mat-icon>
           Event
         </th>
-
         <td mat-cell *matCellDef="let row; let i = dataIndex;">
-          <span *ngFor="let artist of row?.performance; let last = last">
-            <a href="{{ artist.artist.uri }}" mat-stroked-button target="_blank">
-              <span *ngIf="!last">
-                {{ artist.displayName }},
-              </span>
-              <span *ngIf="last">
-                {{ artist.displayName}}
-              </span>
-            </a>
-          </span>
+          <div *ngIf="row.status === 'cancelled'">
+            <button *ngIf="row.status === 'cancelled'" mat-stroked-button color="warn">
+              CANCELLED
+            </button>
+            <span *ngFor="let artist of row.performance; let last = last">
+              <a href="{{ artist.artist.uri }}" mat-stroked-button target="_blank">
+                <span *ngIf="!last">
+                  <del>
+                    {{ artist.displayName }}
+                  </del>
+                </span>
+                <span *ngIf="last">
+                  <del>
+                    {{ artist.displayName }}
+                  </del>
+                </span>
+              </a>
+            </span>
+          </div>
+          <div *ngIf="row.status !== 'cancelled'">
+            <span *ngFor="let artist of row.performance; let last = last">
+              <a href="{{ artist.artist.uri }}" mat-stroked-button target="_blank">
+                <span *ngIf="!last">
+                  {{ artist.displayName }}
+                </span>
+                <span *ngIf="last">
+                  {{ artist.displayName }}
+                </span>
+              </a>
+            </span>
+          </div>
         </td>
-
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 

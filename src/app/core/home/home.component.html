@@ -55,17 +55,6 @@
 
 </div>
 
-<!-- <mat-card style="max-width: 150px;">
-    <mat-card-header fxLayoutAlign="center">
-      <h3>Popular events in Portland, Oregon</h3>
-    </mat-card-header>
-    <img mat-card-image src="assets/images/powered-by-songkick-pink.png">
-    <mat-card-content>
-    </mat-card-content>
-  </mat-card> -->
-
-<!-- <div fxLayout="row" fxLayoutAlign="end center"> -->
-
 <div style="padding: 0px 20px; margin-top: 20px;" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center"
   fxLayoutAlign.lt-sm="center center" fxLayoutGap.gt-xs="45px">
 
@@ -347,7 +336,6 @@
           Event
         </th>
         <td mat-cell *matCellDef="let row; let i = dataIndex;">
-
           <div *ngIf="row.status === 'cancelled'">
             <button *ngIf="row.status === 'cancelled'" mat-stroked-button color="warn">
               CANCELLED
@@ -359,7 +347,6 @@
                     {{ artist.displayName }}
                   </del>
                 </span>
-
                 <span *ngIf="last">
                   <del>
                     {{ artist.displayName }}
@@ -374,7 +361,6 @@
                 <span *ngIf="!last">
                   {{ artist.displayName }}
                 </span>
-
                 <span *ngIf="last">
                   {{ artist.displayName }}
                 </span>
@@ -382,7 +368,6 @@
             </span>
           </div>
         </td>
-
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
 

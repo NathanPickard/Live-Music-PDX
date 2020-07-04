@@ -13,14 +13,14 @@ export class EventsComponent implements OnInit {
   constructor(private searchService: SearchService) { }
 
   foundPopularEvents: any[];
-  eventsFound: boolean = false;
+  eventsFound = false;
   today: number = Date.now();
 
   searchEventForm: FormGroup;
 
   foundSearchEvents: any[];
-  searchEventsFound: boolean = false;
-  searchEventNotFound: boolean = false;
+  searchEventsFound = false;
+  searchEventNotFound = false;
 
   displayedColumns: string[] = ['date', 'displayName', 'venue', 'uri', 'datetime'];
 
@@ -71,7 +71,7 @@ export class EventsComponent implements OnInit {
     // Sorting events by popularity
     mostPopular.sort((a, b) => 0 - (a.popularity > b.popularity ? 1 : -1));
 
-    mostPopular.length = 5;
+    // mostPopular.length = 5;
     // mostPopular.sort((a, b) => parseFloat(a.popularity) - parseFloat(b.popularity));
     this.dataSource = mostPopular;
     console.log(mostPopular);
