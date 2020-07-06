@@ -48,16 +48,13 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <mat-card *ngIf="foundVenue.description || foundVenue.website">
+        <!-- <mat-card *ngIf="foundVenue?.description || foundVenue?.website"> -->
+        <mat-card *ngIf="foundVenue.description">
           <mat-card-content>
-            <h4>
+            <h4 *ngIf="foundVenue.description">
               Description: <br /> {{ foundVenue.description }}
             </h4>
           </mat-card-content>
-
-          <mat-card-actions>
-            <a href="{{ foundVenue.website }}" mat-raised-button color="primary" target="_blank">Website</a>
-          </mat-card-actions>
 
         </mat-card>
 
@@ -74,10 +71,13 @@
           <button mat-raised-button color="primary" (click)="getSearchVenueEvents(foundVenue.id)">
             Get {{ foundVenue.displayName }} events
           </button>
+          <a href="{{ foundVenue.website }}" mat-raised-button color="primary" target="_blank">
+            {{ foundVenue.displayName }} Website</a>
         </div>
 
         <div *ngIf="venueEventsFound">
-          <div class="data-table">
+
+          <div class="data-table" fxLayoutAlign="center center">
             <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
 
               <ng-container class="mat-column" matColumnDef="date">
@@ -96,8 +96,38 @@
                   <mat-icon>local_activity</mat-icon>
                   Event
                 </th>
-                <td mat-cell *matCellDef="let row">
-                  {{ row.displayName }}
+                <td mat-cell *matCellDef="let row; let i = dataIndex;">
+                  <div *ngIf="row.status === 'cancelled'">
+                    <button *ngIf="row.status === 'cancelled'" mat-stroked-button color="warn">
+                      CANCELLED
+                    </button>
+                    <span *ngFor="let artist of row.performance; let last = last">
+                      <a href="{{ artist.artist.uri }}" mat-stroked-button target="_blank">
+                        <span *ngIf="!last">
+                          <del>
+                            {{ artist.displayName }}
+                          </del>
+                        </span>
+                        <span *ngIf="last">
+                          <del>
+                            {{ artist.displayName }}
+                          </del>
+                        </span>
+                      </a>
+                    </span>
+                  </div>
+                  <div *ngIf="row.status !== 'cancelled'">
+                    <span *ngFor="let artist of row.performance; let last = last">
+                      <a href="{{ artist.artist.uri }}" mat-stroked-button target="_blank">
+                        <span *ngIf="!last">
+                          {{ artist.displayName }}
+                        </span>
+                        <span *ngIf="last">
+                          {{ artist.displayName }}
+                        </span>
+                      </a>
+                    </span>
+                  </div>
                 </td>
                 <td mat-footer-cell *matFooterCellDef></td>
               </ng-container>
@@ -112,15 +142,6 @@
                 </td>
                 <td mat-footer-cell *matFooterCellDef></td>
               </ng-container>
-
-              <!-- <ng-container class="mat-column" matColumnDef="venue">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Venue</th>
-                  <td mat-cell *matCellDef="let row">
-                    <a href="{{ row.venue.uri }}" mat-stroked-button color="accent" target="_blank">
-                      {{ row.venue.displayName }}</a>
-                  </td>
-                  <td mat-footer-cell *matFooterCellDef></td>
-                </ng-container> -->
 
               <ng-container class="mat-column" matColumnDef="uri">
                 <th mat-header-cell *matHeaderCellDef>
@@ -145,39 +166,13 @@
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
-              <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even}"></tr>
+              <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even}">
+              </tr>
               <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
 
             </table>
           </div>
         </div>
-
-        <!-- <div *ngFor="let venueEvent of venueEvents">
-              <mat-accordion>
-                <mat-expansion-panel>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-
-                      <h3>
-                        {{ venueEvent.start.date | date: 'E MMM d' }} -
-                        {{ venueEvent.displayName }}
-                      </h3>
-
-                    </mat-panel-title>
-                  </mat-expansion-panel-header>
-
-                  <mat-card>
-                    <h4>
-                      Start time: {{ venueEvent.start.datetime | date: 'shortTime' }}
-                    </h4>
-                    <a href="{{ venueEvent.uri }}" mat-raised-button color="primary" target="_blank">
-                      Check out event
-                    </a>
-                  </mat-card>
-
-                </mat-expansion-panel>
-              </mat-accordion>
-            </div> -->
 
       </mat-expansion-panel>
     </mat-accordion>
