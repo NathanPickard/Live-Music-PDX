@@ -19,7 +19,6 @@
             <mat-label>Password</mat-label>
             <input matInput placeholder="Password" type="password" formControlName="password">
             <mat-error *ngIf="!loginForm.get('userData.password').valid">Not a valid password</mat-error>
-            <!-- <mat-error *ngIf="loginForm.get('userData.password').errors['required']">Not a valid password</mat-error> -->
           </mat-form-field>
 
           <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="openSnackBar()"
