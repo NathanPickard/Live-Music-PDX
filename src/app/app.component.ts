@@ -1,12 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpEvent } from '@angular/common/http';
 
 import { fadeAnimation, routerTransition } from './animations';
 import * as firebase from 'firebase';
 
-import { HeaderComponent } from '../../src/app/core/header/header.component';
 import { AuthService } from '../app/auth/auth.service';
 import { DataStorageService } from '../app/shared/data-storage.service';
+
 import { SideNavService } from '../../src/app/core/side-nav.service';
 
 @Component({

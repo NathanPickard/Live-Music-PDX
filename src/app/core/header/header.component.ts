@@ -6,8 +6,6 @@ import { DataStorageService } from '../../shared/data-storage.service';
 import { AuthService } from '../../auth/auth.service';
 import { SideNavService } from '../side-nav.service';
 
-import { AppComponent } from '../../app.component';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
