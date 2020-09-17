@@ -8,11 +8,18 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      name:
+      version-number:
         # Friendly description to be shown in the UI instead of 'name'
         description: 'Version number tag'
         # Default value if no value is explicitly provided
-        default: '1.0.2'
+        default: 'Enter version number'
+        # Input has to be provided for the workflow to run
+        required: true
+      release-name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Rlease name'
+        # Default value if no value is explicitly provided
+        default: 'Enter the release name'
         # Input has to be provided for the workflow to run
         required: true
 
@@ -31,8 +38,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${{ github.event.inputs.name }}
-          release_name: Release ${{ github.event.inputs.name }}
+          tag_name: ${{ github.event.inputs.version-number }}
+          release_name: Release ${{ github.event.inputs.release-name }}
           body: |
             Changes in this Release
             - First Change:
