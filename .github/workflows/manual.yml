@@ -52,8 +52,6 @@ jobs:
         with:
           tag_name: ${{ github.event.inputs.version-number }}
           release_name: Release ${{ github.event.inputs.release-name }}
-          repo: ${{ github.repository }}
-          owner: ${{ github.repository_owner }}
           body: |
             Major changes in this release: ${{ github.event.inputs.major-changes }}
             Minor changes in this release: ${{ github.event.inputs.minor-changes }} 
