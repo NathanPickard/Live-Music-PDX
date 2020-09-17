@@ -44,7 +44,6 @@ jobs:
         with:
           tag_name: ${{ github.event.inputs.name }}
           release_name: Release ${{ github.event.inputs.name }}
-          owner: Current owner
           body: |
             Changes in this Release
             - First Change:
