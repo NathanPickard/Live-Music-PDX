@@ -28,3 +28,7 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
+    
+    - name: Codecov
+      uses: codecov/codecov-action@v1.0.13
+
