@@ -32,7 +32,7 @@ on:
         required: false
       notes:
         description: 'Notes:'
-        default: 'Enter notes for this release'
+        default: 
         required: false
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -50,12 +50,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          owner: This is a test owner
           tag_name: ${{ github.event.inputs.version-number }}
           release_name: Release ${{ github.event.inputs.release-name }}
           body: |
             Major changes in this release: ${{ github.event.inputs.major-changes }}
-            Minor changes in this release: ${{ github.event.inputs.minor-changes }} 
+            Minor changes in this release: ${{ github.event.inputs.minor-changes }}
+            -if
             Notes: ${{ github.event.inputs.notes }}
           draft: false
           prerelease: false
