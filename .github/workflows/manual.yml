@@ -30,6 +30,9 @@ on:
         description: 'Minor changes'
         default: 'Enter the minor changes in this release:'
         required: false
+      notes:
+        description: 'Notes'
+        required: false
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:  
@@ -48,6 +51,8 @@ jobs:
         with:
           tag_name: ${{ github.event.inputs.version-number }}
           release_name: Release ${{ github.event.inputs.release-name }}
+          owner: default
+          repo: default 
           body: |
             Major changes in this release: ${{ github.event.inputs.major-changes }}
             Minor changes in this release: ${{ github.event.inputs.minor-changes }} 
