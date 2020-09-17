@@ -17,11 +17,19 @@ on:
         required: true
       release-name:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Rlease name'
+        description: 'Release name'
         # Default value if no value is explicitly provided
         default: 'Enter the release name'
         # Input has to be provided for the workflow to run
         required: true
+      major-changes:
+        description: 'Major changes'
+        default: 'Enter the major changes in this release:'
+        required: false
+      minor-changes:
+        description: 'Minor changes'
+        default: 'Enter the minor changes in this release:'
+        required: false
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:  
@@ -41,9 +49,9 @@ jobs:
           tag_name: ${{ github.event.inputs.version-number }}
           release_name: Release ${{ github.event.inputs.release-name }}
           body: |
-            Changes in this Release
-            - First Change:
-            - Second Change:
+            Major changes in this release: ${{ github.inputs.major-changes }}
+            Minor changes in this release: ${{ github.inputs.minor-changes }} 
+            Notes: ${{ github.event.inputs.notes }}
           draft: false
           prerelease: false
 
