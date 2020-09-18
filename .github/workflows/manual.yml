@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       version-number:
-        description: 'Version number tag'
+        description: 'Version number tag:'
         default: 'Enter version number'
         required: true
       release-name:
