@@ -1,0 +1,54 @@
+name: Quick Release workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      version-number:
+        description: 'Version number tag:'
+        default: 'Enter version number'
+        required: true
+      release-name:
+        description: 'Release name:'
+        default: 'Enter release name'
+        required: true
+      major-changes:
+        description: 'Major changes:'
+        default: '(No major changes noted)'
+        required: false
+      minor-changes:
+        description: 'Minor changes:'
+        default: '(No minor changes noted)'
+        required: false
+      notes:
+        description: 'Notes:'
+        default: '(No extra notes)'
+        required: false
+
+jobs:  
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.event.inputs.version-number }}
+          release_name: ${{ github.event.inputs.release-name }}
+          body: |
+            ## Major changes:
+            ${{ github.event.inputs.major-changes }}
+            
+            ## Minor changes:
+            ${{ github.event.inputs.minor-changes }}
+            
+            ## Notes: 
+            ${{ github.event.inputs.notes }}
+          draft: false
+          prerelease: false
+
+
