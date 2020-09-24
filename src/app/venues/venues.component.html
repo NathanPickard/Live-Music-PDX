@@ -1,6 +1,6 @@
 <div fxLayoutAlign="center center" fxLayout="column">
   <h1>PDX Venues</h1>
-  <h3>Look up and add your favorite venues in the Portland metro area</h3>
+  <h3 style="text-align: center;">Look up and add your favorite venues in the Portland metro area</h3>
 </div>
 
 <div fxLayout.lt-sm="column" fxLayoutGap="20px" fxLayoutAlign="center center">
@@ -13,7 +13,7 @@
   </button>
 
   <mat-divider fxHide.lt-sm="true" [vertical]="true" style="height: 60px;"></mat-divider>
-  <mat-divider fxHide.gt-xs="true" style="width: 200px;"></mat-divider>
+  <mat-divider fxHide.gt-xs="true" style="width: 100px;"></mat-divider>
 
   <form fxLayout="row" fxLayoutAlign="center center" [formGroup]="searchVenueForm" (ngSubmit)="searchVenues()">
     <mat-form-field appearance="outline">
@@ -179,11 +179,11 @@
   </div>
 </mat-card>
 
-<mat-divider></mat-divider>
+<div style="padding: 0px 20px;">
+  <div #gmap style="width: 100%; height: 385px;"></div>
+</div>
 
-<div #gmap style="width: 100%; height: 350px;"></div>
-
-<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px">
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px" style="margin: 25px 0px;">
 
   <div>
     <app-venue-list></app-venue-list>

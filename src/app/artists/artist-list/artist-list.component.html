@@ -75,7 +75,7 @@
   </div>
 
   <div fxLayoutAlign="center center">
-    <mat-divider fxLayoutAlign="center center" style="width: 80%;"></mat-divider>
+    <mat-divider fxLayoutAlign="center center" style="width: 40%;"></mat-divider>
   </div>
 
   <div *ngIf="searchingArtist && searchArtistSubmitted" fxLayoutAlign="center center"
@@ -90,7 +90,6 @@
   </div>
 
   <mat-card *ngIf="artistFound">
-
 
     <div @fade *ngFor="let foundArtist of foundArtists">
       <mat-accordion>
