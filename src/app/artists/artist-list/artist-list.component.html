@@ -91,10 +91,6 @@
 
   <mat-card *ngIf="artistFound">
 
-    <div fxLayoutAlign="center">
-      <h4 mat-subtitle>Results</h4>
-      <img src="assets/images/powered-by-songkick-pink.png" style="width: 15%; height: 10%; max-width: 100px;">
-    </div>
 
     <div @fade *ngFor="let foundArtist of foundArtists">
       <mat-accordion>
@@ -116,7 +112,7 @@
             <h4>{{ foundArtist.displayName }} is not currently on tour</h4>
           </mat-card>
 
-          <div fxLayout="row" fxLayoutGap="20px">
+          <div fxLayout="row" fxLayoutGap="20px" style="padding-top: 16px;">
 
             <div fxLayoutAlign="end center">
               <button mat-icon-button color="primary" (click)="addArtistToList(foundArtist.displayName, foundArtist.id)"
@@ -268,6 +264,10 @@
 
         </mat-expansion-panel>
       </mat-accordion>
+    </div>
+
+    <div fxLayoutAlign="center">
+      <img src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px; padding-top: 16px;">
     </div>
 
   </mat-card>
