@@ -4,13 +4,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as moment from 'moment';
 
 import { environment } from '../../environments/environment';
-import 'rxjs/Rx';
+// import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
 import { ArtistService } from '../artists/artist.service';
 import { Artist } from '../artists/artist.model';
 import { Venue } from '../venues/venue.model';
-import { Observable } from 'rxjs/Rx';
+// import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
+import 'rxjs/add/observable/forkJoin';
 
 @Injectable()
 export class SearchService {
