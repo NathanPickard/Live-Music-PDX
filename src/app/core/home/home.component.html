@@ -1,7 +1,8 @@
-<div class="bg-image">
+<div class="bg-image" fxLayoutAlign="center center" fxLayout="column">
   <div fxLayout="column" fxLayoutAlign="center center">
 
-    <mat-card style="width: 60%; max-width: 600px; margin-top: 20px;">
+    <!-- <mat-card style="width: 60%; max-width: 600px; margin-top: 20px;"> -->
+    <mat-card style="max-width: 600px; margin: 20px 20px 0px; background-color: rgba(255, 255, 255, 0.5);">
 
       <mat-card-header fxLayoutAlign="center center">
         <mat-card-title>
@@ -56,42 +57,49 @@
 
   </div>
 
-  <div style="padding: 0px 20px; margin-top: 20px;" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center"
-    fxLayoutAlign.lt-sm="center center" fxLayoutGap.gt-xs="45px">
 
-    <div>
+  <!-- <mat-card style="width: 100%; max-width: 600px; margin: 20px 0px; padding: 0px; background-color: rgba(255, 255, 255, 0.6);"> -->
+  <mat-card style="max-width: 600px; margin: 20px 20px; padding: 0px; background-color: rgba(255, 255, 255, 0.6);">
 
-      <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
-        <mat-form-field>
-          <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Search event date" ngModel
-            name="eventDate" formControlName="searchDate" (dateInput)="addEvent($event)">
-          <mat-datepicker-toggle matSuffix [for]="picker">
-            <mat-icon matDatepickerToggleIcon color="primary">today</mat-icon>
-          </mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </form>
+    <mat-card-content>
+      <div style="padding: 0px 20px; margin-top: 20px;" fxLayout="row" fxLayout.lt-sm="column"
+        fxLayoutAlign="center center" fxLayoutAlign.lt-sm="center center" fxLayoutGap.gt-xs="45px">
 
-    </div>
+        <div>
 
-    <div>
+          <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Search event date" ngModel
+                name="eventDate" formControlName="searchDate" (dateInput)="addEvent($event)">
+              <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon color="primary">today</mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </form>
 
-      <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
-        <mat-form-field appearance="outline">
-          <mat-label>Search for artists</mat-label>
-          <input type="search" matInput placeholder="Search for artists" formControlName="searchQuery">
-          <!-- <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery" [mat-autocomplete]="auto"> -->
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          </mat-autocomplete>
-          <button matSuffix mat-mini-fab color="primary">
-            <mat-icon>search</mat-icon>
-          </button>
-        </mat-form-field>
-      </form>
+        </div>
 
-    </div>
+        <div>
 
-  </div>
+          <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
+            <mat-form-field appearance="outline">
+              <mat-label>Search for artists</mat-label>
+              <input type="search" matInput placeholder="Search for artists" formControlName="searchQuery">
+              <!-- <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery" [mat-autocomplete]="auto"> -->
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              </mat-autocomplete>
+              <button matSuffix mat-mini-fab color="primary">
+                <mat-icon>search</mat-icon>
+              </button>
+            </mat-form-field>
+          </form>
+
+        </div>
+
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 <div *ngIf="searchingEvents && searchEventSubmitted" fxLayoutAlign="center center" style="padding: 25px 0px 25px 0px;">
