@@ -6,6 +6,16 @@
   flex: 1 1 auto;
 }
 
+.bg-image {
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgb(255, 255, 255, 0.8)),
+    url("https://website-images-nathan.s3-us-west-2.amazonaws.com/live-music-pdx/dominic-hampton-SPuLUQDZp3k-unsplash.jpg")
+      no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: -20px;
+}
+
 /* @media screen and (max-width: 960px) {
   .data-table {
     vertical-align: middle;

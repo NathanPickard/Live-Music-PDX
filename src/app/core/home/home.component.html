@@ -1,95 +1,97 @@
-<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+<div class="bg-image">
+  <div fxLayout="column" fxLayoutAlign="center center">
 
-  <mat-card style="width: 60%;">
+    <mat-card style="width: 60%; max-width: 600px; margin-top: 20px;">
 
-    <mat-card-header fxLayoutAlign="center center">
-      <mat-card-title>
-        <h1>Live Music PDX</h1>
-      </mat-card-title>
-    </mat-card-header>
+      <mat-card-header fxLayoutAlign="center center">
+        <mat-card-title>
+          <h1>Live Music PDX</h1>
+        </mat-card-title>
+      </mat-card-header>
 
-    <div fxlayoutAlign="center center" style="padding: 0px 80px; text-align: center;">
-      <img mat-card-image src=" https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Portland%2C_Oregon.svg"
-        style="max-width: 150px;">
+      <div fxlayoutAlign="center center" style="padding: 0px 80px; text-align: center;">
+        <img mat-card-image src=" https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Portland%2C_Oregon.svg"
+          style="max-width: 150px;">
+      </div>
+
+      <mat-card-content fxLayoutAlign="center start" fxLayout="row">
+        <div fxLayout="column">
+          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+              <h3 style="text-align: center;">Look up and track your favorite artists and PDX venues</h3>
+            </div>
+            <mat-divider [vertical]="true" style="height: 70px;"></mat-divider>
+            <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+              <h3 style="text-align: center;">Discover your perfect live music event in the Portland, Oregon area</h3>
+            </div>
+            <mat-divider [vertical]="true" style="height: 70px;"></mat-divider>
+            <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+              <!-- <h3 style="text-align: center;">Quickly find an event by date, search, or checkout the most popular events
+              of the day</h3> -->
+              <h3 style="text-align: center;">Quickly find an event by date, search, or popularity</h3>
+            </div>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px">
+            <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+              <button mat-mini-fab color="primary">
+                <mat-icon>search</mat-icon>
+              </button>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+              <button mat-mini-fab color="primary">
+                <mat-icon>music_note</mat-icon>
+              </button>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
+              <button mat-mini-fab color="primary">
+                <mat-icon>date_range</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+
+  </div>
+
+  <div style="padding: 0px 20px; margin-top: 20px;" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center"
+    fxLayoutAlign.lt-sm="center center" fxLayoutGap.gt-xs="45px">
+
+    <div>
+
+      <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Search event date" ngModel
+            name="eventDate" formControlName="searchDate" (dateInput)="addEvent($event)">
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon color="primary">today</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </form>
+
     </div>
 
-    <mat-card-content fxLayoutAlign="center start" fxLayout="row">
-      <div fxLayout="column">
-        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
-          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
-            <h3 style="text-align: center;">Look up and track your favorite artists and PDX venues</h3>
-          </div>
-          <mat-divider [vertical]="true" style="height: 70px;"></mat-divider>
-          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
-            <h3 style="text-align: center;">Discover your perfect live music event in the Portland, Oregon area</h3>
-          </div>
-          <mat-divider [vertical]="true" style="height: 70px;"></mat-divider>
-          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
-            <!-- <h3 style="text-align: center;">Quickly find an event by date, search, or checkout the most popular events
-              of the day</h3> -->
-            <h3 style="text-align: center;">Quickly find an event by date, search, or popularity</h3>
-          </div>
-        </div>
+    <div>
 
-        <div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px">
-          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
-            <button mat-mini-fab color="primary">
-              <mat-icon>search</mat-icon>
-            </button>
-          </div>
-          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
-            <button mat-mini-fab color="primary">
-              <mat-icon>music_note</mat-icon>
-            </button>
-          </div>
-          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="33">
-            <button mat-mini-fab color="primary">
-              <mat-icon>date_range</mat-icon>
-            </button>
-          </div>
-        </div>
-      </div>
-    </mat-card-content>
+      <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
+        <mat-form-field appearance="outline">
+          <mat-label>Search for artists</mat-label>
+          <input type="search" matInput placeholder="Search for artists" formControlName="searchQuery">
+          <!-- <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery" [mat-autocomplete]="auto"> -->
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          </mat-autocomplete>
+          <button matSuffix mat-mini-fab color="primary">
+            <mat-icon>search</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
 
-  </mat-card>
-
-</div>
-
-<div style="padding: 0px 20px; margin-top: 20px;" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center"
-  fxLayoutAlign.lt-sm="center center" fxLayoutGap.gt-xs="45px">
-
-  <div>
-
-    <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
-      <mat-form-field>
-        <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Search event date" ngModel
-          name="eventDate" formControlName="searchDate" (dateInput)="addEvent($event)">
-        <mat-datepicker-toggle matSuffix [for]="picker">
-          <mat-icon matDatepickerToggleIcon color="primary">today</mat-icon>
-        </mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </form>
+    </div>
 
   </div>
-
-  <div>
-
-    <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
-      <mat-form-field appearance="outline">
-        <mat-label>Search for artists</mat-label>
-        <input type="search" matInput placeholder="Search for artists" formControlName="searchQuery">
-        <!-- <input type="search" matInput placeholder="Search PDX Events" formControlName="searchQuery" [mat-autocomplete]="auto"> -->
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        </mat-autocomplete>
-        <button matSuffix mat-mini-fab color="primary">
-          <mat-icon>search</mat-icon>
-        </button>
-      </mat-form-field>
-    </form>
-
-  </div>
-
 </div>
 
 <div *ngIf="searchingEvents && searchEventSubmitted" fxLayoutAlign="center center" style="padding: 25px 0px 25px 0px;">
@@ -104,7 +106,7 @@
 <div *ngIf="searchEventsFound && foundSearchEvents !== undefined">
 
   <div class="data-table" fxLayoutAlign="center center">
-    <table mat-table [dataSource]="searchDataSource" matSort multiTemplateDataRows>
+    <table mat-table [dataSource]="searchDataSource" matSort multiTemplateDataRows style="margin-top: 20px;">
 
       <ng-container class="mat-column" matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -165,7 +167,9 @@
             Start time not listed
           </div>
         </td>
-        <td mat-footer-cell *matFooterCellDef></td>
+        <td mat-footer-cell *matFooterCellDef>
+          <img src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
@@ -187,7 +191,7 @@
   </mat-toolbar>
 
   <div class="data-table" fxLayoutAlign="center center">
-    <table mat-table [dataSource]="searchDateDataSource" matSort multiTemplateDataRows>
+    <table mat-table [dataSource]="searchDateDataSource" matSort multiTemplateDataRows style="margin-top: 20px;">
 
       <ng-container class="mat-column" matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
@@ -281,7 +285,9 @@
             Start time not listed
           </div>
         </td>
-        <td mat-footer-cell *matFooterCellDef></td>
+        <td mat-footer-cell *matFooterCellDef>
+          <img src="assets/images/powered-by-songkick-pink.png" style="max-width: 100px;">
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="dateSelectedDisplayedColumns; sticky: true;"></tr>
@@ -297,7 +303,7 @@
 <!-- <p>{{ searchEventForm.value.searchQuery }} events not found</p>
   </div> -->
 
-<div style="padding: 0px 20px 25px;">
+<div style="padding: 20px 20px;">
   <div #gmap style="width: 100%; height: 385px;"></div>
 </div>
 
@@ -314,7 +320,7 @@
   </mat-toolbar>
 
   <div class="data-table" fxLayoutAlign="center center">
-    <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
+    <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows style="margin-top: 20px;">
 
       <ng-container class="mat-column" matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
