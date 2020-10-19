@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpEvent } from '@angular/common/http';
 
 import { fadeAnimation, routerTransition } from './animations';
-import * as firebase from 'firebase';
+// import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 import { AuthService } from '../app/auth/auth.service';
 import { DataStorageService } from '../app/shared/data-storage.service';

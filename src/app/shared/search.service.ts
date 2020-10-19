@@ -12,7 +12,7 @@ import { Artist } from '../artists/artist.model';
 import { Venue } from '../venues/venue.model';
 // import { Observable } from 'rxjs/Rx';
 import { Observable } from 'rxjs';
-import 'rxjs/add/observable/forkJoin';
+// import 'rxjs/add/observable/forkJoin';
 
 @Injectable()
 export class SearchService {
@@ -202,11 +202,11 @@ export class SearchService {
       + '&location=sk:12283' + '&min_date=' + dateQuery + '&max_date=' + dateQuery);
   }
 
-  requestDataFromVenuesAndArists(query): Observable<any[]> {
-    let response1 = this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
-    let response2 = this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
-    return Observable.forkJoin([response1, response2]);
-  }
+  // requestDataFromVenuesAndArists(query): Observable<any[]> {
+  //   let response1 = this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
+  //   let response2 = this.httpClient.get(this.API_URL + 'events.json?apikey=' + this.API_KEY + '&artist_name=' + query + '&location=sk:12283');
+  //   return Observable.forkJoin([response1, response2]);
+  // }
 
   getSelectedArtistEvents(artistId) {
     // return this.http.get('https://api.songkick.com/api/3.0/artists/' + artistId + '/calendar.json?apikey=' + this.API_KEY)
