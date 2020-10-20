@@ -25,10 +25,8 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Search for artists</mat-label>
-        <!-- <input type="search" matInput placeholder="Search for artists" formControlName="searchQuery"> -->
         <input type="search" matInput [matAutocomplete]="auto" placeholder="Search for artists"
           formControlName="searchQuery">
-        <!-- <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"> -->
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
           <ng-container *ngIf="!isLoading">
@@ -59,16 +57,19 @@
   <div fxLayout="column">
 
     <mat-toolbar color="accent">
-      <!-- style="background-color: #FFB916; color: white;" -->
       <div fxFlex fxLayoutAlign="center center">
         Your Artists
       </div>
     </mat-toolbar>
 
-    <div cdkDropList (cdkDropListDropped)="drop($event)">
-      <app-artist-item fxLayoutAlign="space-around center" style="padding-top: 15px;"
-        *ngFor="let artistEl of artists; let i = index; let last = last" [ngClass]="{last: last}" [artist]="artistEl"
-        [index]="i">
+    <div class="drag-drop-list" cdkDropList (cdkDropListDropped)="drop($event)" fxLayoutAlign="center center"
+      fxLayout="column">
+      <p>
+        Drag and drop to rearrange
+      </p>
+      <app-artist-item class="drag-drop-box" fxLayoutAlign="space-around center" style="padding-top: 15px;"
+        *ngFor="let artistEl of artists; let i = index; let last = last" cdkDrag [ngClass]="{last: last}"
+        [artist]="artistEl" [index]="i">
       </app-artist-item>
     </div>
 
