@@ -12,29 +12,29 @@
       Live Music PDX
     </a>
 
-    <a mat-button routerLink="/events" routerLinkActive="active" fxHide.lt-sm>
+    <a mat-stroked-button routerLink="/events" routerLinkActive="active" fxHide.lt-sm>
       <mat-icon>local_play</mat-icon>
       Events
     </a>
 
-    <a mat-button routerLink="/venues" routerLinkActive="active" fxHide.lt-sm>
+    <a mat-stroked-button routerLink="/venues" routerLinkActive="active" fxHide.lt-sm>
       <mat-icon>place</mat-icon>
       Venues
     </a>
 
-    <a mat-button routerLink="/artists" routerLinkActive="active" fxHide.lt-sm>
+    <a mat-stroked-button routerLink="/artists" routerLinkActive="active" fxHide.lt-sm>
       <mat-icon>people</mat-icon>
       Artists
     </a>
 
-    <a mat-button routerLink="/about" routerLinkActive="active" fxHide.lt-md>
+    <a mat-stroked-button routerLink="/about" routerLinkActive="active" fxHide.lt-md>
       <mat-icon>info</mat-icon>
       About
     </a>
 
     <span class="spacer"></span>
 
-    <div fxShow="true" fxHide.lt-md="true">
+    <div fxShow="true" fxHide.lt-md="true" fxLayoutGap="8px">
 
       <mat-form-field *ngIf="isAuthenticated()">
         <mat-select placeholder="Manage Data">

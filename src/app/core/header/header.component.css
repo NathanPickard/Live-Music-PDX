@@ -15,7 +15,13 @@
   /* background-color: #FFB916; */
   /* background-color: #388e3c; */
   /* background-color: #ffeb54; */
-  background-color: #2e7d32;
+
+  /* background-color: #2e7d32; */
+
+  background-color: #0091ea;
+  /* color: white; */
+  border-color: #FFB916;
+  border-width: 1px;
 }
 
 mat-icon {
