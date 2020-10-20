@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -240,6 +242,10 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   addOnUnauthenticated() {
     const dialogRef = this.dialog.open(ArtistListDialog, {})
+  }
+
+  drop(event: CdkDragDrop<any>) {
+    moveItemInArray(this.artists, event.previousIndex, event.currentIndex);
   }
 
   ngOnDestroy() {

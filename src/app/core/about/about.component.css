@@ -5,3 +5,13 @@ mat-grid-tile {
 .mat-icon-button {
   background-color: #FFB916;
 }
+
+.about-bg-image {
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgb(255, 255, 255, 0.8)),
+    url("https://website-images-nathan.s3-us-west-2.amazonaws.com/portland.jpg")
+      no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: -20px;
+}
