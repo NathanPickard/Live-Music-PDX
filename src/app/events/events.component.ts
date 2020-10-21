@@ -21,6 +21,7 @@ export class EventsComponent implements OnInit {
   foundSearchEvents: any[];
   searchEventsFound = false;
   searchEventNotFound = false;
+  popularEventsNotFound = false;
 
   displayedColumns: string[] = ['date', 'displayName', 'venue', 'uri', 'datetime'];
 
@@ -65,16 +66,23 @@ export class EventsComponent implements OnInit {
     this.eventsFound = true;
     this.foundPopularEvents = data.resultsPage.results.event;
 
-    let mostPopular = this.foundPopularEvents;
-    console.log(mostPopular.length);
+    if (this.foundPopularEvents === undefined) {
+      this.popularEventsNotFound = true;
+    }
 
-    // Sorting events by popularity
-    mostPopular.sort((a, b) => 0 - (a.popularity > b.popularity ? 1 : -1));
+    if (this.foundPopularEvents) {
 
-    // mostPopular.length = 5;
-    // mostPopular.sort((a, b) => parseFloat(a.popularity) - parseFloat(b.popularity));
-    this.dataSource = mostPopular;
-    console.log(mostPopular);
+      let mostPopular = this.foundPopularEvents;
+      console.log(mostPopular.length);
+
+      // Sorting events by popularity
+      mostPopular.sort((a, b) => 0 - (a.popularity > b.popularity ? 1 : -1));
+
+      // mostPopular.length = 5;
+      // mostPopular.sort((a, b) => parseFloat(a.popularity) - parseFloat(b.popularity));
+      this.dataSource = mostPopular;
+      console.log(mostPopular);
+    }
   }
 
   handleError(error) {

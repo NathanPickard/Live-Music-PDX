@@ -128,7 +128,7 @@
   </mat-toolbar>
 </div>
 
-<div *ngIf="eventsFound">
+<div *ngIf="eventsFound && !popularEventsNotFound">
   <div class="data-table" fxLayoutAlign="center center">
     <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
 
@@ -233,4 +233,8 @@
     </table>
 
   </div>
+</div>
+
+<div *ngIf="popularEventsNotFound" fxLayoutAlign="center center">
+  <h3>No events found for {{ today | date }}</h3>
 </div>
