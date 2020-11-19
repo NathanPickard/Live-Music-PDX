@@ -18,7 +18,6 @@ import { SideNavService } from '../../src/app/core/side-nav.service';
 })
 export class AppComponent implements OnInit, AfterViewInit {
 
-  // @ViewChild(HeaderComponent) sidenav: (HeaderComponent);
   @ViewChild('sidenav', { static: true }) sidenav;
 
   constructor(public authService: AuthService,
