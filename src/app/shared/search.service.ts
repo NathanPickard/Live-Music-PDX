@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as moment from 'moment';
 
 import { environment } from '../../environments/environment';
-// import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
 import { ArtistService } from '../artists/artist.service';
