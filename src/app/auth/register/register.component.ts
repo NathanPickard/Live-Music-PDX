@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { AuthService } from '../auth.service';
 
@@ -10,7 +11,8 @@ import { AuthService } from '../auth.service';
 
 export class RegisterComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+    public snackBar: MatSnackBar) { }
 
   email = new FormControl('', [Validators.required, Validators.email]);
   registerForm: FormGroup;
@@ -37,8 +39,21 @@ export class RegisterComponent implements OnInit {
     this.authService.registerUser(email, password);
   }
 
+  openSnackBar() {
+    this.snackBar.openFromComponent(RegisterSnackbar, {
+      duration: 2500
+    });
+  }
+
   // getErrorMessage() {
   //   return this.registerForm.hasError('required') ? 'You must enter a value' :
   //     this.registerForm.hasError('email') ? 'Not a valid email' : '';
   // }
 }
+
+@Component({
+  selector: 'register-snackbar',
+  templateUrl: 'register-snackbar.component.html',
+})
+
+export class RegisterSnackbar { }
