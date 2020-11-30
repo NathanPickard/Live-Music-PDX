@@ -28,7 +28,11 @@
         <input type="search" matInput [matAutocomplete]="auto" placeholder="Search for artists"
           formControlName="searchQuery">
         <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+          <mat-option *ngIf="isLoading" class="is-loading">
+            <div fxLayoutAlign="center center">
+              <mat-spinner diameter="35"></mat-spinner>
+            </div>
+          </mat-option>
           <ng-container *ngIf="!isLoading">
             <mat-option *ngFor="let filteredArtist of filteredArtists" [value]="filteredArtist.displayName">
               <a href="{{ filteredArtist.uri }}" target="_blank" style="text-decoration: none;">
