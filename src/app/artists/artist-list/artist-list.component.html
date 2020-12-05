@@ -28,7 +28,7 @@
         <input type="search" matInput [matAutocomplete]="auto" placeholder="Search for artists"
           formControlName="searchQuery">
         <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngIf="isLoading" class="is-loading">
+          <mat-option *ngIf="isLoading">
             <div fxLayoutAlign="center center">
               <mat-spinner diameter="35"></mat-spinner>
             </div>
