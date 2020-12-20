@@ -63,7 +63,6 @@ export class SearchService {
   }
 
   searchDeezerArtists(query) {
-    // this.searchDeezerUrl
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

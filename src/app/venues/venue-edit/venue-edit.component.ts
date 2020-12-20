@@ -19,6 +19,25 @@ export class VenueEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
 
+  private initForm() {
+    let venueName = '';
+    let venueAddress = '';
+    let venueDescription = '';
+
+    if (this.editMode) {
+      const venue = this.venueService.getVenue(this.id);
+      venueName = venue.name;
+      venueAddress = venue.address;
+      venueDescription = venue.description;
+    }
+
+    this.venueForm = new FormGroup({
+      'name': new FormControl(venueName, Validators.required),
+      'address': new FormControl(venueAddress, Validators.required),
+      'description': new FormControl(venueDescription, Validators.required),
+    });
+  }
+  
   ngOnInit() {
     this.route.params
       .subscribe(
@@ -42,22 +61,4 @@ export class VenueEditComponent implements OnInit {
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 
-  private initForm() {
-    let venueName = '';
-    let venueAddress = '';
-    let venueDescription = '';
-
-    if (this.editMode) {
-      const venue = this.venueService.getVenue(this.id);
-      venueName = venue.name;
-      venueAddress = venue.address;
-      venueDescription = venue.description;
-    }
-
-    this.venueForm = new FormGroup({
-      'name': new FormControl(venueName, Validators.required),
-      'address': new FormControl(venueAddress, Validators.required),
-      'description': new FormControl(venueDescription, Validators.required),
-    });
-  }
 }

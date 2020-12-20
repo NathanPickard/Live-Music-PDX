@@ -67,7 +67,6 @@ export class VenueDetailComponent implements OnInit {
     this.foundEventsVenueUri = data.resultsPage.results.event.venue;
     this.dataSource = this.foundEvents;
     console.log(data.resultsPage.results);
-    // console.log(this.foundEventsVenueUri);
   }
 
   handleError(error) {
