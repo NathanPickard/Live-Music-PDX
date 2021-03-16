@@ -1,6 +1,7 @@
 <mat-toolbar color="primary">
 
-  <mat-toolbar-row fxLayoutGap="8px">
+  <!-- <mat-toolbar-row fxLayoutGap="8px"> -->
+    <mat-toolbar-row fxLayoutGap.lt-md="1px" fxLayoutGap.gt-sm="8px" fxLayoutGap.gt-md="30px">
 
     <button mat-icon-button (click)="openNav()" fxShow="true" fxHide.gt-sm>
       <mat-icon>menu</mat-icon>
@@ -34,10 +35,11 @@
 
     <span class="spacer"></span>
 
-    <div fxShow="true" fxHide.lt-md="true" fxLayoutGap="8px">
+    <div fxShow="true" fxHide.lt-md="true" fxLayoutGap="15px">
 
       <mat-form-field *ngIf="isAuthenticated()">
-        <mat-select placeholder="Manage Data">
+        <mat-label>Manage Data</mat-label>
+        <mat-select>
           <mat-option value="Save Data" (click)="onSaveData()">Save Data</mat-option>
           <mat-option value="Fetch Data" (click)="onFetchData()">Fetch Data</mat-option>
         </mat-select>
@@ -49,14 +51,14 @@
           <mat-icon>account_box</mat-icon>Register
         </a>
 
-        <a mat-button routerLink="/login" routerLinkActive="active">
+        <a mat-stroked-button routerLink="/login" routerLinkActive="active">
           <mat-icon>play_circle_outline</mat-icon>
           Login
         </a>
 
       </ng-template>
 
-      <a mat-button (click)="onLogout()" *ngIf="isAuthenticated()">
+      <a mat-stroked-button (click)="onLogout()" *ngIf="isAuthenticated()">
         <mat-icon>stop</mat-icon>
         Logout
       </a>
