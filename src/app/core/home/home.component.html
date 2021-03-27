@@ -217,7 +217,6 @@
           Event
         </th>
         <td mat-cell *matCellDef="let row; let i = dataIndex;">
-
           <div *ngIf="row.status === 'cancelled'">
             <button *ngIf="row.status === 'cancelled'" mat-stroked-button color="warn">
               CANCELLED
@@ -244,7 +243,6 @@
                 <span *ngIf="!last">
                   {{ artist.displayName }}
                 </span>
-
                 <span *ngIf="last">
                   {{ artist.displayName }}
                 </span>
@@ -287,7 +285,6 @@
           <div *ngIf="row.start.datetime != null">
             {{ row.start.datetime | date: 'shortTime' }}
           </div>
-
           <div *ngIf="row.start.datetime === null">
             Start time not listed
           </div>
@@ -298,12 +295,10 @@
             style="max-width: 100px;">
         </td>
       </ng-container>
-
       <tr mat-header-row *matHeaderRowDef="dateSelectedDisplayedColumns; sticky: true;"></tr>
       <tr mat-row *matRowDef="let row; let even = even; columns: dateSelectedDisplayedColumns;"
         [ngClass]="{gray: even}"></tr>
       <tr mat-footer-row *matFooterRowDef="dateSelectedDisplayedColumns; sticky: true;"></tr>
-
     </table>
   </div>
 </div>
@@ -341,7 +336,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="displayName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-icon>local_activity</mat-icon>
@@ -382,7 +376,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="venue">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-icon>place</mat-icon>
@@ -394,7 +387,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="uri">
         <th mat-header-cell *matHeaderCellDef>
           <mat-icon>link</mat-icon>
@@ -407,22 +399,18 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="datetime">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-icon>access_time</mat-icon>
           Start Time
         </th>
         <td mat-cell *matCellDef="let row">
-
           <div *ngIf="row.start.datetime != null">
             {{ row.start.datetime | date: 'shortTime' }}
           </div>
-
           <div *ngIf="row.start.datetime === null">
             Start time not listed
           </div>
-
         </td>
         <td mat-footer-cell *matFooterCellDef>
           <img
