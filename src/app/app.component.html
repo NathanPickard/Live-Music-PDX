@@ -23,17 +23,14 @@
           <mat-icon matListIcon>local_play</mat-icon>
           Events
         </a>
-
         <a mat-list-item routerLink="/venues" routerLinkActive="active" (click)="closeSidenav()">
           <mat-icon matListIcon>place</mat-icon>
           Venues
         </a>
-
         <a mat-list-item routerLink="/artists" routerLinkActive="active" (click)="closeSidenav()">
           <mat-icon matListIcon>people</mat-icon>
           Artists
         </a>
-
         <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="closeSidenav()">
           <mat-icon matListIcon>info</mat-icon>
           About
@@ -51,7 +48,6 @@
         </div>
 
         <ng-template [ngIf]="!isAuthenticated()">
-
           <a mat-list-item routerLink="/register" routerLinkActive="active" (click)="closeSidenav()">
             <mat-icon matListIcon>account_box</mat-icon>
             Register

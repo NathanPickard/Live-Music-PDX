@@ -55,11 +55,9 @@
               Description: <br /> {{ foundVenue.description }}
             </h4>
           </mat-card-content>
-
         </mat-card>
 
         <div fxLayout="row" fxLayoutGap="20px">
-
           <div fxLayoutAlign="end center">
             <button mat-icon-button color="primary"
               (click)="addVenueToList(foundVenue.displayName, foundVenue.street, foundVenue.description, foundVenue.id)"
@@ -67,7 +65,6 @@
               <mat-icon>add_circle_outline</mat-icon>
             </button>
           </div>
-
           <button mat-raised-button color="primary" (click)="getSearchVenueEvents(foundVenue.id)">
             Get {{ foundVenue.displayName }} events
           </button>
@@ -184,13 +181,10 @@
 </div>
 
 <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px" style="margin: 25px 0px;">
-
   <div>
     <app-venue-list></app-venue-list>
   </div>
-
   <div>
     <router-outlet></router-outlet>
   </div>
-
 </div>
