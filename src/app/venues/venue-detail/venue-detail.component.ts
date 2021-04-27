@@ -88,7 +88,6 @@ export class VenueDetailComponent implements OnInit {
   }
 }
 
-
 @Component({
   selector: 'venue-detail-dialog',
   templateUrl: 'venue-detail-dialog.component.html'

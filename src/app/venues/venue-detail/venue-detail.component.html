@@ -1,5 +1,4 @@
 <mat-card>
-
   <mat-card-header fxLayoutAlign="center center">
     <mat-card-title>
       <h2>{{ venue.name }}</h2>
@@ -37,7 +36,6 @@
     <button mat-raised-button color="primary" (click)="getVenueEvents()">Get {{ venue.name }} events</button>
     <button mat-raised-button color="primary" (click)="getVenueWebsite()">Website</button>
   </mat-card-actions>
-
 </mat-card>
 
 <div *ngIf="eventsFound">
