@@ -59,7 +59,6 @@
   </div>
 
   <div fxLayout="column">
-
     <mat-toolbar color="accent">
       <div fxFlex fxLayoutAlign="center center">
         Your Artists
@@ -91,7 +90,6 @@
   <div fxLayoutAlign="center center" style="padding: 25px 0px 25px 0px;"
     *ngIf="searchArtistNotFound && foundArtists == undefined && searchArtistSubmitted && !searching">
     <h2>{{ searchArtistForm.value.searchQuery }} not found, try agian</h2>
-
   </div>
 
   <mat-card *ngIf="artistFound">
@@ -235,7 +233,6 @@
                 <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
 
               </table>
-
             </div>
           </div>
 
@@ -276,5 +273,4 @@
     </div>
 
   </mat-card>
-
 </div>
