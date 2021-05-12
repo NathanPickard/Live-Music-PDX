@@ -1,5 +1,4 @@
 <div>
-
   <mat-card>
     <mat-card-header>
       <div mat-card-avatar>
@@ -11,25 +10,20 @@
         <h2>Edit venue</h2>
       </mat-card-title>
     </mat-card-header>
-
     <form [formGroup]="venueForm" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <input matInput id="name" placeholder="Name" formControlName="name" required>
       </mat-form-field>
-
       <mat-form-field>
         <input matInput id="address" placeholder="Address" formControlName="address">
       </mat-form-field>
-
       <mat-form-field>
         <textarea matInput id="description" placeholder="Description" formControlName="description"></textarea>
       </mat-form-field>
-
       <mat-card-actions>
         <button mat-raised-button color="primary" [disabled]="!venueForm.valid">Save</button>
         <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
       </mat-card-actions>
     </form>
   </mat-card>
-
 </div>
