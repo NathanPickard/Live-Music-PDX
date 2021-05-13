@@ -57,7 +57,6 @@
   <div *ngIf="eventsFound">
     <div class="data-table" fxLayoutAlign="center center">
       <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
-
         <ng-container class="mat-column" matColumnDef="date">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             <mat-icon>event</mat-icon>
@@ -68,7 +67,6 @@
           </td>
           <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-
         <ng-container class="mat-column" matColumnDef="displayName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             <mat-icon>local_activity</mat-icon>
@@ -79,7 +77,6 @@
           </td>
           <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-
         <ng-container class="mat-column" matColumnDef="city">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             <mat-icon>location_city</mat-icon>
@@ -90,7 +87,6 @@
           </td>
           <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-
         <ng-container class="mat-column" matColumnDef="venue">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             <mat-icon>place</mat-icon>
@@ -102,7 +98,6 @@
           </td>
           <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-
         <ng-container class="mat-column" matColumnDef="uri">
           <th mat-header-cell *matHeaderCellDef>
             <mat-icon>link</mat-icon>
@@ -113,7 +108,6 @@
           </td>
           <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
-
         <ng-container class="mat-column" matColumnDef="datetime">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             <mat-icon>access_time</mat-icon>
