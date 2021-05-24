@@ -48,7 +48,6 @@
             {{ foundVenue.city?.displayName}} - {{ foundVenue.city.state?.displayName }}
           </mat-panel-description>
         </mat-expansion-panel-header>
-
         <mat-card *ngIf="foundVenue.description">
           <mat-card-content>
             <h4 *ngIf="foundVenue.description">
@@ -56,7 +55,6 @@
             </h4>
           </mat-card-content>
         </mat-card>
-
         <div fxLayout="row" fxLayoutGap="20px">
           <div fxLayoutAlign="end center">
             <button mat-icon-button color="primary"
@@ -71,9 +69,7 @@
           <a href="{{ foundVenue.website }}" mat-raised-button color="primary" target="_blank">
             {{ foundVenue.displayName }} Website</a>
         </div>
-
         <div *ngIf="venueEventsFound">
-
           <div class="data-table" fxLayoutAlign="center center">
             <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
 
@@ -179,7 +175,6 @@
 <div style="padding: 0px 20px;">
   <div #gmap style="width: 100%; height: 385px;"></div>
 </div>
-
 <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px" style="margin: 25px 0px;">
   <div>
     <app-venue-list></app-venue-list>
