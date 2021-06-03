@@ -53,7 +53,6 @@
       </mat-card-content>
 
     </mat-card>
-
   </div>
 
   <mat-card style="max-width: 600px; margin: 20px 20px; padding: 0px; background-color: rgba(255, 255, 255, 0.6);">
@@ -63,7 +62,6 @@
         fxLayoutAlign="center center" fxLayoutAlign.lt-sm="center center" fxLayoutGap.gt-xs="45px">
 
         <div>
-
           <form [formGroup]="searchDateForm" (ngSubmit)="searchDateEvents()">
             <mat-form-field>
               <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Search event date" ngModel
@@ -74,11 +72,9 @@
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </form>
-
         </div>
 
         <div>
-
           <form [formGroup]="searchEventForm" (ngSubmit)="searchEvents()">
             <mat-form-field appearance="outline">
               <mat-label>Search for artists</mat-label>
@@ -90,7 +86,6 @@
               </button>
             </mat-form-field>
           </form>
-
         </div>
 
       </div>
@@ -187,7 +182,6 @@
     <!-- <pagination-controls></pagination-controls> -->
   </div>
 </div>
-
 
 <div *ngIf="foundDateSelectedEvents !== undefined">
 
@@ -422,8 +416,6 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
       <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even}"></tr>
       <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
-
     </table>
-
   </div>
 </div>
