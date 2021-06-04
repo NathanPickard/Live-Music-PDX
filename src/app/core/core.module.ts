@@ -33,7 +33,6 @@ import { LoggingInterceptor } from '../shared/logging.interceptor';
   imports: [
     ReactiveFormsModule,
     SharedModule,
-    // MatNativeDateModule,
     NgxPaginationModule,
     AppRoutingModule,
     MomentDateModule
