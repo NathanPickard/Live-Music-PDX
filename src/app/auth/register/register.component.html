@@ -1,13 +1,11 @@
 <div fxLayoutAlign="center center" style="padding-top: 20px;">
 
   <mat-card style="min-width: 250px;">
-
     <mat-card-header fxLayoutAlign="center">
       <mat-card-title>
         Register
       </mat-card-title>
     </mat-card-header>
-
     <mat-card-content>
       <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
         <div formGroupName="userData" fxLayout="column">
@@ -29,12 +27,10 @@
             <mat-error *ngIf="!registerForm.get('userData.password').valid">Not a valid password</mat-error>
             <!-- <mat-error *ngIf="registerForm.get('userData.password').errors['required']">Not a valid password</mat-error> -->
           </mat-form-field>
-
           <button mat-raised-button color="primary" [disabled]="registerForm.invalid" (click)="openSnackBar()"type="submit">Register</button>
         </div>
       </form>
     </mat-card-content>
-
     <div fxLayoutAlign="end center" fxLayout="column">
       <p>Aleady registered? <a routerLink="/login" style="text-decoration: none">Sign In</a></p>
     </div>

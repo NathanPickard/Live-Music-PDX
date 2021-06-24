@@ -1,7 +1,6 @@
 <div fxLayoutAlign="center center" style="padding-top: 20px;">
 
   <mat-card style="min-width: 250px;">
-
     <mat-card-header fxLayoutAlign="center">
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
@@ -9,30 +8,25 @@
     <mat-card-content>
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
         <div formGroupName="userData" fxLayout="column">
-
           <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
             <input matInput placeholder="Email" type="email" formControlName="email">
           </mat-form-field>
-
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
             <input matInput placeholder="Password" type="password" formControlName="password">
             <mat-error *ngIf="!loginForm.get('userData.password').valid">Not a valid password</mat-error>
           </mat-form-field>
-
           <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="openSnackBar()"
             type="submit">Login
           </button>
         </div>
       </form>
     </mat-card-content>
-
     <div fxLayoutAlign="center center" fxLayout="column">
       <h4>or</h4>
       <a fxFill mat-stroked-button color="primary" routerLink="/register">Register</a>
     </div>
-
   </mat-card>
 
 </div>
