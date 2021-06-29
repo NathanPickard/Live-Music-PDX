@@ -15,14 +15,12 @@
       <button *ngIf="isAuthenticated()" mat-raised-button color="primary" (click)="onNewArtist()">
         <mat-icon>playlist_add</mat-icon>Add New Artist
       </button>
-
     </div>
 
     <mat-divider fxHide.lt-sm="true" [vertical]="true" style="height: 60px;"></mat-divider>
     <mat-divider fxHide.gt-xs="true" style="width: 200px;"></mat-divider>
 
     <form [formGroup]="searchArtistForm" (ngSubmit)="searchArtists()">
-
       <mat-form-field appearance="outline">
         <mat-label>Search for artists</mat-label>
         <input type="search" matInput [matAutocomplete]="auto" placeholder="Search for artists"
@@ -53,9 +51,7 @@
       <!-- <ng-template #elseTemplate>
         <h5>Selected Value: {{ searchQuery }}</h5>
       </ng-template> -->
-
     </form>
-
   </div>
 
   <div fxLayout="column">
@@ -64,7 +60,6 @@
         Your Artists
       </div>
     </mat-toolbar>
-
     <div class="drag-drop-list" cdkDropList (cdkDropListDropped)="drop($event)" fxLayoutAlign="center center"
       fxLayout="column">
       <p>
@@ -75,7 +70,6 @@
         [artist]="artistEl" [index]="i">
       </app-artist-item>
     </div>
-
   </div>
 
   <div fxLayoutAlign="center center">
@@ -104,34 +98,26 @@
               </a>
             </mat-panel-title>
           </mat-expansion-panel-header>
-
-
           <mat-card *ngIf="foundArtist.onTourUntil">
             <h4>On tour until: {{ foundArtist.onTourUntil | date: 'E MMM d, y' }}</h4>
           </mat-card>
-
           <mat-card *ngIf="!foundArtist.onTourUntil">
             <h4>{{ foundArtist.displayName }} is not currently on tour</h4>
           </mat-card>
-
           <div fxLayout="row" fxLayoutGap="20px" style="padding-top: 16px;">
-
             <div fxLayoutAlign="end center">
               <button mat-icon-button color="primary" (click)="addArtistToList(foundArtist.displayName, foundArtist.id)"
                 matTooltip="Add to artists list" matTooltipPosition="above">
                 <mat-icon>add_circle_outline</mat-icon>
               </button>
             </div>
-
             <button *ngIf="foundArtist.onTourUntil" mat-raised-button color="primary"
               (click)="getSearchArtistEvents(foundArtist.id)">
               Get {{ foundArtist.displayName }} events
             </button>
-
             <button mat-raised-button color="primary" (click)="searchSimilarArtist(foundArtist.id)">
               Similar Artists
             </button>
-
           </div>
 
           <div *ngIf="similarArtists">
@@ -213,7 +199,6 @@
                     <div *ngIf="row.start.datetime != null">
                       {{ row.start.datetime | date: 'shortTime' }}
                     </div>
-
                     <div *ngIf="row.start.datetime === null">
                       Start time not listed
                     </div>
@@ -257,6 +242,5 @@
       <img src="https://website-images-nathan.s3-us-west-2.amazonaws.com/live-music-pdx/powered-by-songkick-pink.png"
         style="max-width: 100px; padding-top: 16px;">
     </div>
-
   </mat-card>
 </div>
