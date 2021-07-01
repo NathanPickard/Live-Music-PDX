@@ -6,28 +6,23 @@
     <button mat-icon-button (click)="openNav()" fxShow="true" fxHide.gt-sm>
       <mat-icon>menu</mat-icon>
     </button>
-
     <a mat-stroked-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
       style="font-size: 20px;">
       <mat-icon>music_note</mat-icon>
       Live Music PDX
     </a>
-
     <a mat-stroked-button routerLink="/events" routerLinkActive="active" fxHide.lt-sm>
       <mat-icon>local_play</mat-icon>
       Events
     </a>
-
     <a mat-stroked-button routerLink="/venues" routerLinkActive="active" fxHide.lt-sm>
       <mat-icon>place</mat-icon>
       Venues
     </a>
-
     <a mat-stroked-button routerLink="/artists" routerLinkActive="active" fxHide.lt-sm>
       <mat-icon>people</mat-icon>
       Artists
     </a>
-
     <a mat-stroked-button routerLink="/about" routerLinkActive="active" fxHide.lt-md>
       <mat-icon>info</mat-icon>
       About
@@ -46,16 +41,13 @@
       </mat-form-field>
 
       <ng-template [ngIf]="!isAuthenticated()">
-
         <a mat-button routerLink="/register" routerLinkActive="active">
           <mat-icon>account_box</mat-icon>Register
         </a>
-
         <a mat-stroked-button routerLink="/login" routerLinkActive="active">
           <mat-icon>play_circle_outline</mat-icon>
           Login
         </a>
-
       </ng-template>
 
       <a mat-stroked-button (click)="onLogout()" *ngIf="isAuthenticated()">
@@ -64,7 +56,5 @@
       </a>
 
     </div>
-
   </mat-toolbar-row>
-
 </mat-toolbar>
