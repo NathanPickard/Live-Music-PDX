@@ -41,7 +41,6 @@
 <div *ngIf="eventsFound">
   <div class="data-table">
     <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
-
       <ng-container class="mat-column" matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-icon>event</mat-icon>
@@ -52,7 +51,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="displayName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-icon>local_activity</mat-icon>
@@ -63,7 +61,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="city">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-icon>location_city</mat-icon>
@@ -74,7 +71,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="uri">
         <th mat-header-cell *matHeaderCellDef>
           <mat-icon>link</mat-icon>
@@ -96,11 +92,9 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
       <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even}"></tr>
       <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
-
     </table>
 
   </div>
