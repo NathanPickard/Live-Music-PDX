@@ -125,15 +125,12 @@ export class SearchService {
     if (this.dayDate < 10) {
       this.dayDate = '0' + this.dayDate;
     }
-
     if (this.weekDate < 10) {
       this.weekDate = '0' + this.weekDate;
     }
-
     if (this.monthDate < 10) {
       this.monthDate = '0' + this.monthDate;
     }
-
     if (this.monthAheadDate < 10) {
       this.monthAheadDate = '0' + this.monthAheadDate;
     }
@@ -167,11 +164,9 @@ export class SearchService {
     if (this.dayDate < 10) {
       this.dayDate = '0' + this.dayDate;
     }
-
     if (this.weekDate < 10) {
       this.weekDate = '0' + this.weekDate;
     }
-
     if (this.monthDate < 10) {
       this.monthDate = '0' + this.monthDate;
     }
@@ -207,14 +202,12 @@ export class SearchService {
   getSelectedArtistEvents(artistId) {
     // return this.http.get('https://api.songkick.com/api/3.0/artists/' + artistId + '/calendar.json?apikey=' + this.API_KEY)
     //   .map(res => res.json());
-
     return this.httpClient.get('https://api.songkick.com/api/3.0/artists/' + artistId + '/calendar.json?apikey=' + this.API_KEY);
   }
 
   getSelectedVenueEvents(venueId) {
     // return this.http.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY)
     //   .map(res => res.json());
-
     return this.httpClient.get('https://api.songkick.com/api/3.0/venues/' + venueId + '/calendar.json?apikey=' + this.API_KEY);
   }
 

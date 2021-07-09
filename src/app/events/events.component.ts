@@ -69,7 +69,6 @@ export class EventsComponent implements OnInit {
     if (this.foundPopularEvents === undefined) {
       this.popularEventsNotFound = true;
     }
-
     if (this.foundPopularEvents) {
 
       let mostPopular = this.foundPopularEvents;
