@@ -14,10 +14,8 @@
 </form>
 
 <div *ngIf="searchEventsFound && foundSearchEvents !== undefined">
-
   <div class="data-table" fxLayoutAlign="center center">
     <table mat-table [dataSource]="searchDataSource" matSort multiTemplateDataRows>
-
       <ng-container class="mat-column" matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-icon>event</mat-icon>
@@ -28,7 +26,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="displayName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-icon>local_activity</mat-icon>
@@ -69,7 +66,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="venue">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-icon>place</mat-icon>
@@ -81,7 +77,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="uri">
         <th mat-header-cell *matHeaderCellDef>
           <mat-icon>link</mat-icon>
@@ -92,7 +87,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="datetime">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-icon>access_time</mat-icon>
@@ -103,7 +97,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
       <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even}"></tr>
       <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;"></tr>
@@ -179,7 +172,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="venue">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-icon>place</mat-icon>
@@ -191,7 +183,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="uri">
         <th mat-header-cell *matHeaderCellDef>
           <mat-icon>link</mat-icon>
@@ -204,7 +195,6 @@
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <ng-container class="mat-column" matColumnDef="datetime">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
           <mat-icon>access_time</mat-icon>
@@ -214,17 +204,14 @@
           <div *ngIf="row?.start.datetime != null">
             {{ row.start.datetime | date: 'shortTime' }}
           </div>
-
           <div *ngIf="row?.start.datetime === null">
             Start time not listed
           </div>
         </td>
         <td mat-footer-cell *matFooterCellDef></td>
       </ng-container>
-
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"></tr>
       <tr mat-row *matRowDef="let row; let even = even; columns: displayedColumns;" [ngClass]="{gray: even}"></tr>
-
     </table>
   </div>
 </div>
