@@ -10,7 +10,6 @@
   <mat-sidenav-container class="all-wrap">
     <mat-sidenav #sidenav over>
       <mat-nav-list>
-
         <a mat-list-item routerLink="/" routerLinkActive="active" (click)="closeSidenav()">
           <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"-->
           <mat-icon matListIcon>music_note</mat-icon>
@@ -46,7 +45,6 @@
             </mat-select>
           </mat-form-field>
         </div>
-
         <ng-template [ngIf]="!isAuthenticated()">
           <a mat-list-item routerLink="/register" routerLinkActive="active" (click)="closeSidenav()">
             <mat-icon matListIcon>account_box</mat-icon>
@@ -57,14 +55,11 @@
             Login
           </a>
         </ng-template>
-
         <a mat-list-item (click)="onLogout()" *ngIf="isAuthenticated()" (click)="closeSidenav()">
           <mat-icon matListIcon>stop</mat-icon>
           Logout
         </a>
-
       </mat-nav-list>
-
     </mat-sidenav>
 
     <mat-sidenav-content class="page-wrap">
@@ -72,21 +67,18 @@
         <router-outlet #o="outlet"></router-outlet>
       </div>
     </mat-sidenav-content>
-
   </mat-sidenav-container>
 </div>
 
 <footer>
   <mat-toolbar color="primary">
     <mat-toolbar-row fxLayoutAlign="center center">
-
       <a href="https://github.com/NathanPickard" mat-stroked-button target="_blank" style="background-color: #0091ea; text-decoration: none; color: white; border-color: #FFB916;
         border-width: 3px;">
         <mat-icon>copyright</mat-icon>
         2020 Built by
         Nathan Pickard
       </a>
-
     </mat-toolbar-row>
   </mat-toolbar>
 </footer>
