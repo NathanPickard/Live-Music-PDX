@@ -32,7 +32,6 @@
     <button mat-raised-button color="primary" (click)="getVenueWebsite()">Website</button>
   </mat-card-actions>
 </mat-card>
-
 <div *ngIf="eventsFound">
   <div class="data-table">
     <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
