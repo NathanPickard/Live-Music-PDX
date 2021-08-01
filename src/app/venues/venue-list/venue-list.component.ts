@@ -24,17 +24,18 @@ export class VenueListComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     public snackBar: MatSnackBar) { }
 
+  subscription: Subscription;
+
   displayedColumns: string[] = ['date', 'displayName', 'city', 'venue', 'uri', 'datetime'];
   dataSource: any;
 
   venues: Venue[];
-  subscription: Subscription;
-
   foundVenues: any[];
   venueFound: boolean = false;
   searching: boolean = false;
   searchQuery: string;
 
+  // Found venue information
   foundVenueName: string;
   foundVenueAddress: string;
   foundVenueDescription: string;
@@ -128,23 +129,17 @@ export class VenueListComponent implements OnInit, OnDestroy {
     this.id = foundVenueId;
 
     console.log(this.foundVenueName, this.foundVenueAddress, this.foundVenueDescription, this.foundVenueId);
-
     this.venueService.addVenue(new Venue(this.name, this.address, this.description, this.id));
 
     this.openSnackBar();
   }
 
+  // Opens venue added modal
   openSnackBar() {
     this.snackBar.open(this.name + ' added', null, {
       duration: 1500
     });
   }
-
-  // openSnackBar() {
-  //   this.snackBar.open(this.name + ' added'), {
-  //     duration: 1500
-  //   };
-  // }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
