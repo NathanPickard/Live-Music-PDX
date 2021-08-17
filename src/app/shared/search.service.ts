@@ -119,7 +119,6 @@ export class SearchService {
     this.monthAheadDay = this.today.getDate() + 30;
     this.monthDate = this.today.getMonth() + 1;
     this.yearDate = this.today.getFullYear();
-
     this.thirtyDaysAhead = moment().add(4, 'weeks').format(moment.HTML5_FMT.DATE);
 
     if (this.dayDate < 10) {

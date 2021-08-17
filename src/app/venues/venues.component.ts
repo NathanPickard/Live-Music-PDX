@@ -198,7 +198,6 @@ export class VenuesComponent implements OnInit, OnDestroy {
     console.log(this.foundVenueName, this.foundVenueAddress, this.foundVenueDescription, this.foundVenueId);
 
     this.venueService.addVenue(new Venue(this.name, this.address, this.description, this.id));
-
     this.openSnackBar();
   }
 
