@@ -146,7 +146,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
     if (this.foundArtists === undefined || this.foundArtists.length === 0) {
       this.searchArtistNotFound = true;
     }
-    // console.log(data.resultsPage.results.artist.displayName);
   }
 
   handleSimilarArtistsSuccess(data) {
@@ -214,7 +213,6 @@ export class ArtistListComponent implements OnInit, OnDestroy {
   }
 
   addArtistToList(foundArtistName: string, foundArtistId: number) {
-    // console.log(foundArtistName, foundArtistId);
 
     // this.foundArtistName = foundArtistName;
     // this.foundArtistId = foundArtistId;
