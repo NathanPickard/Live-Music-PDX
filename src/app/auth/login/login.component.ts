@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
       duration: 2000,
     });
   }
-  
 }
 
 @Component({
