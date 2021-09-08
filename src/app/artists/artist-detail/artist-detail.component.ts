@@ -12,7 +12,7 @@ import { AuthService } from '../../auth/auth.service';
 @Component({
   selector: 'app-artist-detail',
   templateUrl: './artist-detail.component.html',
-  styleUrls: ['./artist-detail.component.css']
+  styleUrls: ['./artist-detail.component.scss']
 })
 
 export class ArtistDetailComponent implements OnInit {

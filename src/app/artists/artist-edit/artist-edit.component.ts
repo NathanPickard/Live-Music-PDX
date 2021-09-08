@@ -7,7 +7,7 @@ import { ArtistService } from '../artist.service';
 @Component({
   selector: 'app-artist-edit',
   templateUrl: './artist-edit.component.html',
-  styleUrls: ['./artist-edit.component.css']
+  styleUrls: ['./artist-edit.component.scss']
 })
 
 export class ArtistEditComponent implements OnInit {

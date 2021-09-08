@@ -15,7 +15,7 @@ import { DataStorageService } from '../shared/data-storage.service';
 @Component({
   selector: 'app-venues',
   templateUrl: './venues.component.html',
-  styleUrls: ['./venues.component.css']
+  styleUrls: ['./venues.component.scss']
 })
 
 export class VenuesComponent implements OnInit, OnDestroy {

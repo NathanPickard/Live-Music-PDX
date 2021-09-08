@@ -5,7 +5,7 @@ import { Venue } from '../../venue.model';
 @Component({
   selector: 'app-venue-item',
   templateUrl: './venue-item.component.html',
-  styleUrls: ['./venue-item.component.css']
+  styleUrls: ['./venue-item.component.scss']
 })
 
 export class VenueItemComponent {

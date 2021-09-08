@@ -12,7 +12,7 @@ import { SearchService } from '../../shared/search.service';
 @Component({
   selector: 'app-venue-list',
   templateUrl: './venue-list.component.html',
-  styleUrls: ['./venue-list.component.css']
+  styleUrls: ['./venue-list.component.scss']
 })
 
 export class VenueListComponent implements OnInit, OnDestroy {
