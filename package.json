@@ -28,7 +28,7 @@
     "@types/googlemaps": "^3.43.3",
     "core-js": "^3.24.1",
     "firebase": "^7.24.0",
-    "moment": "^2.29.2",
+    "moment": "^2.29.4",
     "ngx-pagination": "^5.1.1",
     "rxjs": "^6.6.7",
     "rxjs-compat": "^6.6.7",
