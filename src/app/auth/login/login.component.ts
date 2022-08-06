@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { AuthService } from '../auth.service';
@@ -14,13 +14,13 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService,
     public snackBar: MatSnackBar) { }
 
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
 
   ngOnInit() {
-    this.loginForm = new FormGroup({
-      'userData': new FormGroup({
-        'email': new FormControl(null, [Validators.required, Validators.email]),
-        'password': new FormControl(null, [Validators.required, Validators.minLength(6)])
+    this.loginForm = new UntypedFormGroup({
+      'userData': new UntypedFormGroup({
+        'email': new UntypedFormControl(null, [Validators.required, Validators.email]),
+        'password': new UntypedFormControl(null, [Validators.required, Validators.minLength(6)])
       })
     });
   }

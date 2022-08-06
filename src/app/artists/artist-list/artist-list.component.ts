@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -67,7 +67,7 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
   artistId: any;
 
-  searchArtistForm: FormGroup;
+  searchArtistForm: UntypedFormGroup;
 
   userToken: any;
 
@@ -77,8 +77,8 @@ export class ArtistListComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    this.searchArtistForm = new FormGroup({
-      'name': new FormControl(null, Validators.required)
+    this.searchArtistForm = new UntypedFormGroup({
+      'name': new UntypedFormControl(null, Validators.required)
     });
 
     this.subscription = this.artistService.artistsChanged
@@ -89,8 +89,8 @@ export class ArtistListComponent implements OnInit, OnDestroy {
       );
     this.artists = this.artistService.getArtists();
 
-    this.searchArtistForm = new FormGroup({
-      'searchQuery': new FormControl(null, Validators.required)
+    this.searchArtistForm = new UntypedFormGroup({
+      'searchQuery': new UntypedFormControl(null, Validators.required)
     });
 
     this.authService.loadUser();

@@ -8,17 +8,16 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent, LoginSnackbar } from './login/login.component';
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    LoginSnackbar,
-    RegisterComponent
-  ],
-  imports: [
-    SharedModule,
-    AuthRoutingModule,
-    ReactiveFormsModule
-  ],
-  entryComponents: [LoginSnackbar]
+    declarations: [
+        LoginComponent,
+        LoginSnackbar,
+        RegisterComponent
+    ],
+    imports: [
+        SharedModule,
+        AuthRoutingModule,
+        ReactiveFormsModule
+    ]
 })
 
 export class AuthModule { }

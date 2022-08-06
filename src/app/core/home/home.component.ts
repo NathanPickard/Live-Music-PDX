@@ -2,7 +2,7 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { formatDate } from '@angular/common';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { PageEvent } from '@angular/material/paginator';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
@@ -46,7 +46,7 @@ export const MY_FORMAT = {
 })
 export class HomeComponent implements OnInit {
 
-  public autoCompletentrol = new FormControl();
+  public autoCompletentrol = new UntypedFormControl();
 
   @ViewChild('gmap', { static: true }) gmapElement: any;
   map: google.maps.Map;
@@ -90,14 +90,14 @@ export class HomeComponent implements OnInit {
   searchDataSource: any;
   searchDateDataSource: any;
 
-  searchEventForm: FormGroup;
+  searchEventForm: UntypedFormGroup;
   searchEventNotFound = false;
   searchEventSubmitted = false;
   searchingEvents = false;
   searchEventsFound = false;
   foundSearchEvents: any[];
 
-  searchDateForm: FormGroup;
+  searchDateForm: UntypedFormGroup;
 
   foundDateSelectedEvents: any[];
   dateSelectedEventsFound = false;
@@ -121,12 +121,12 @@ export class HomeComponent implements OnInit {
     };
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
 
-    this.searchEventForm = new FormGroup({
-      'searchQuery': new FormControl(null)
+    this.searchEventForm = new UntypedFormGroup({
+      'searchQuery': new UntypedFormControl(null)
     });
 
-    this.searchDateForm = new FormGroup({
-      searchDate: new FormControl(moment())
+    this.searchDateForm = new UntypedFormGroup({
+      searchDate: new UntypedFormControl(moment())
     });
 
   }

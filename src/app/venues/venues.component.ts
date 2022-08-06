@@ -2,7 +2,7 @@
 
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -59,7 +59,7 @@ export class VenuesComponent implements OnInit, OnDestroy {
   foundVenues: any[];
   venueEvents: any[];
 
-  searchVenueForm: FormGroup;
+  searchVenueForm: UntypedFormGroup;
 
   ngOnInit() {
     this.subscription = this.venueService.venuesChanged
@@ -70,8 +70,8 @@ export class VenuesComponent implements OnInit, OnDestroy {
       );
     this.venues = this.venueService.getVenues();
 
-    this.searchVenueForm = new FormGroup({
-      'searchQuery': new FormControl(null, Validators.required)
+    this.searchVenueForm = new UntypedFormGroup({
+      'searchQuery': new UntypedFormControl(null, Validators.required)
     });
 
     this.authService.loadUser();

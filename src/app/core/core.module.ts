@@ -24,31 +24,30 @@ import { SideNavService } from './side-nav.service';
 import { LoggingInterceptor } from '../shared/logging.interceptor';
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    LogoutSnackbar,
-    HomeComponent,
-    AboutComponent
-  ],
-  imports: [
-    ReactiveFormsModule,
-    SharedModule,
-    NgxPaginationModule,
-    AppRoutingModule,
-    MomentDateModule
-  ],
-  exports: [
-    AppRoutingModule,
-    HeaderComponent
-  ],
-  providers: [
-    ArtistService,
-    AuthService,
-    SideNavService,
-    VenueService,
-    MatDatepickerModule,
-    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
-  ],
-  entryComponents: [LogoutSnackbar]
+    declarations: [
+        HeaderComponent,
+        LogoutSnackbar,
+        HomeComponent,
+        AboutComponent
+    ],
+    imports: [
+        ReactiveFormsModule,
+        SharedModule,
+        NgxPaginationModule,
+        AppRoutingModule,
+        MomentDateModule
+    ],
+    exports: [
+        AppRoutingModule,
+        HeaderComponent
+    ],
+    providers: [
+        ArtistService,
+        AuthService,
+        SideNavService,
+        VenueService,
+        MatDatepickerModule,
+        { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
+    ]
 })
 export class CoreModule { }

@@ -14,26 +14,24 @@ import { ArtistItemComponent } from './artist-list/artist-item/artist-item.compo
 import { AuthService } from '../auth/auth.service';
 
 @NgModule({
-  declarations: [
-    ArtistsComponent,
-    ArtistStartComponent,
-    ArtistListComponent,
-    ArtistEditComponent,
-    ArtistDetailComponent,
-    ArtistItemComponent,
-    ArtistDetailDialog,
-    ArtistListDialog
-  ],
-  imports: [
-    SharedModule,
-    ReactiveFormsModule,
-    ArtistsRoutingModule
-  ],
-  providers: [
-    AuthService
-  ],
-
-  entryComponents: [ArtistDetailDialog, ArtistListDialog]
+    declarations: [
+        ArtistsComponent,
+        ArtistStartComponent,
+        ArtistListComponent,
+        ArtistEditComponent,
+        ArtistDetailComponent,
+        ArtistItemComponent,
+        ArtistDetailDialog,
+        ArtistListDialog
+    ],
+    imports: [
+        SharedModule,
+        ReactiveFormsModule,
+        ArtistsRoutingModule
+    ],
+    providers: [
+        AuthService
+    ]
 })
 
 export class ArtistsModule { }

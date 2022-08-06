@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 
 import { ArtistService } from '../artist.service';
 
@@ -13,7 +13,7 @@ import { ArtistService } from '../artist.service';
 export class ArtistEditComponent implements OnInit {
   id: number;
   editMode = false;
-  artistForm: FormGroup;
+  artistForm: UntypedFormGroup;
 
   constructor(private artistService: ArtistService,
     private route: ActivatedRoute,
@@ -50,8 +50,8 @@ export class ArtistEditComponent implements OnInit {
       artistName = artist.name;
     }
 
-    this.artistForm = new FormGroup({
-      'name': new FormControl(artistName, Validators.required)
+    this.artistForm = new UntypedFormGroup({
+      'name': new UntypedFormControl(artistName, Validators.required)
     });
   }
 

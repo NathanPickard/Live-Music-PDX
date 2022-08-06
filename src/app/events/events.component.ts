@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 
 import { SearchService } from '../shared/search.service';
 
@@ -16,7 +16,7 @@ export class EventsComponent implements OnInit {
   eventsFound = false;
   today: number = Date.now();
 
-  searchEventForm: FormGroup;
+  searchEventForm: UntypedFormGroup;
 
   foundSearchEvents: any[];
   searchEventsFound = false;
@@ -29,8 +29,8 @@ export class EventsComponent implements OnInit {
   searchDataSource: any;
 
   ngOnInit() {
-    this.searchEventForm = new FormGroup({
-      'searchQuery': new FormControl(null)
+    this.searchEventForm = new UntypedFormGroup({
+      'searchQuery': new UntypedFormControl(null)
     });
 
     this.getPopularPdxEvents();

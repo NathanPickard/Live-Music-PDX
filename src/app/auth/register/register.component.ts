@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormControl, Validators, FormGroup } from '@angular/forms';
+import { NgForm, UntypedFormControl, Validators, UntypedFormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { AuthService } from '../auth.service';
@@ -14,14 +14,14 @@ export class RegisterComponent implements OnInit {
   constructor(private authService: AuthService,
     public snackBar: MatSnackBar) { }
 
-  email = new FormControl('', [Validators.required, Validators.email]);
-  registerForm: FormGroup;
+  email = new UntypedFormControl('', [Validators.required, Validators.email]);
+  registerForm: UntypedFormGroup;
 
   ngOnInit() {
-    this.registerForm = new FormGroup({
-      'userData': new FormGroup({
-        'email': new FormControl(null, [Validators.required, Validators.email]),
-        'password': new FormControl(null, [Validators.required, Validators.minLength(6)])
+    this.registerForm = new UntypedFormGroup({
+      'userData': new UntypedFormGroup({
+        'email': new UntypedFormControl(null, [Validators.required, Validators.email]),
+        'password': new UntypedFormControl(null, [Validators.required, Validators.minLength(6)])
       })
     });
   }

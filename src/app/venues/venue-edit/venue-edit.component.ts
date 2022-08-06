@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, FormArray, Validators } from '@angular/forms';
 
 import { VenueService } from '../venue.service';
 
@@ -13,7 +13,7 @@ import { VenueService } from '../venue.service';
 export class VenueEditComponent implements OnInit {
   id: number;
   editMode = false;
-  venueForm: FormGroup;
+  venueForm: UntypedFormGroup;
 
   constructor(private venueService: VenueService,
     private route: ActivatedRoute,
@@ -31,10 +31,10 @@ export class VenueEditComponent implements OnInit {
       venueDescription = venue.description;
     }
 
-    this.venueForm = new FormGroup({
-      'name': new FormControl(venueName, Validators.required),
-      'address': new FormControl(venueAddress, Validators.required),
-      'description': new FormControl(venueDescription, Validators.required),
+    this.venueForm = new UntypedFormGroup({
+      'name': new UntypedFormControl(venueName, Validators.required),
+      'address': new UntypedFormControl(venueAddress, Validators.required),
+      'description': new UntypedFormControl(venueDescription, Validators.required),
     });
   }
   

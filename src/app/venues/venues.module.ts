@@ -12,21 +12,20 @@ import { VenueEditComponent } from './venue-edit/venue-edit.component';
 import { VenueDetailComponent, VenueDetailDialog } from './venue-detail/venue-detail.component';
 
 @NgModule({
-  declarations: [
-    VenuesComponent,
-    VenueListComponent,
-    VenueItemComponent,
-    VenueStartComponent,
-    VenueEditComponent,
-    VenueDetailComponent,
-    VenueDetailDialog
-  ],
-  imports: [
-    ReactiveFormsModule,
-    SharedModule,
-    VenuesRoutingModule
-  ],
-  entryComponents: [VenueDetailDialog]
+    declarations: [
+        VenuesComponent,
+        VenueListComponent,
+        VenueItemComponent,
+        VenueStartComponent,
+        VenueEditComponent,
+        VenueDetailComponent,
+        VenueDetailDialog
+    ],
+    imports: [
+        ReactiveFormsModule,
+        SharedModule,
+        VenuesRoutingModule
+    ]
 })
 
 export class VenuesModule { }
