@@ -29,7 +29,7 @@
     "core-js": "^3.24.1",
     "firebase": "^7.24.0",
     "moment": "^2.29.4",
-    "ngx-pagination": "^5.1.1",
+    "ngx-pagination": "^6.0.2",
     "rxjs": "^6.6.7",
     "rxjs-compat": "^6.6.7",
     "tslib": "^2.4.0",
