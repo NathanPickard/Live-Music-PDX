@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "bundle-report": "webpack-bundle-analyzer dist/stats.json",
-    "test": "ng test",
+    "test": "ng test",  
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -17,7 +17,7 @@
     "@angular/common": "^14.2.6",
     "@angular/compiler": "^14.2.6",
     "@angular/core": "^14.2.6",
-    "@angular/flex-layout": "^14.0.0-beta.40",
+    "@angular/flex-layout": "^14.0.0-beta.41",
     "@angular/forms": "^14.2.6",
     "@angular/google-maps": "^14.2.5",
     "@angular/material": "^14.2.5",
