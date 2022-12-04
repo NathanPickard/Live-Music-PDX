@@ -32,7 +32,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' })
+    RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 })
