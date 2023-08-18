@@ -95,7 +95,6 @@ export class ArtistDetailComponent implements OnInit {
 
 export class ArtistDetailDialog {
 
-  // name: string;
   constructor(public dialogRef: MatDialogRef<ArtistDetailDialog>,
     @Inject(MAT_DIALOG_DATA) public data: Artist) { }
 }
