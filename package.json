@@ -26,7 +26,7 @@
     "@angular/platform-browser-dynamic": "^16.2.12",
     "@angular/router": "^16.2.12",
     "@types/googlemaps": "^3.43.3",
-    "core-js": "^3.39.0",
+    "core-js": "^3.40.0",
     "firebase": "^7.24.0",
     "moment": "^2.30.1",
     "ngx-pagination": "^6.0.3",
